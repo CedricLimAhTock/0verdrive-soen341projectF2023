@@ -27,9 +27,12 @@
 </details>
 
 <br>
+
 ## About
 
+
 <br>
+
 ### Team
 Meet team 0verdrive :fire:
 <table>
@@ -60,12 +63,15 @@ Meet team 0verdrive :fire:
 </table>
 
 <br>
+
 ### Project Approach
 
 
 ### Built with
 
+
 <br><br>
+
 ## Setup
 
 #### Dependencies
@@ -76,11 +82,13 @@ Meet team 0verdrive :fire:
 ``` Placeholder code block```
 
 <br>
+
 ## Usage
 
 
 
 <br>
+
 ## Contributing
 
 
