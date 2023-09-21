@@ -1,6 +1,6 @@
 # 0verdrive-soen341projectF2023
 
-
+[Logo](./media/logo.png)
 
 <details>
   <summary>Table of Contents</summary>
