@@ -85,7 +85,18 @@ Meet team 0verdrive :fire:
 
 ## Usage
 
+Ensure that nodejs and npm are installed on your system.
 
+### Client
+
+
+In the ```client``` folder run
+
+```npm install vite@latest```
+
+and then
+
+```npm run dev```
 
 <br>
 
