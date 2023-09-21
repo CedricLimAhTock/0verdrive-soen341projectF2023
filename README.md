@@ -92,7 +92,7 @@ Ensure that nodejs and npm are installed on your system.
 
 In the ```client``` folder run
 
-```npm install vite@latest```
+```npm install```
 
 and then
 
