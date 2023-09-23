@@ -30,35 +30,51 @@
 
 ## About
 
-
 <br>
 
 ### Team
+
 Meet team 0verdrive :fire:
 <table>
     <tr>
         <th>Member</th>
         <th>Role</th>
+        <th>Responsibilities</th>
     </tr>
     <tr>
         <td>Cedric Lim Ah Tock</td>
-        <td></td>
+        <td>Full Stack Dev / Lead</td>
+        <td>Manage repo, UI/UX design, Frontend and Backend dev<br>
+          Dev facilitator: point of reference for others.</td>
     </tr>
     <tr>
         <td>Soumyajeet Bhowmik</td>
-        <td></td>
+        <td>Full Stack Dev</td>
+        <td>Frontend and Backend dev</td>
     </tr>
     <tr>
         <td>Noah Burns</td>
-        <td></td>
+        <td>Frontend Dev</td>
+        <td>Design interface, API</td>
     </tr>
     <tr>
         <td>Sonali Patel</td>
-        <td></td>
+        <td>Backend Dev</td>
+        <td>Design database, server<br>
+          Meeting minutes</td>
     </tr>
     <tr>
         <td>Kristi Doce</td>
-        <td></td>
+        <td>Scrum Lead / Backend Dev</td>
+        <td>
+          Manage sprint(board) / meetings, task planning & backlog, responsible for deliverables<br>
+          Design database, server
+        </td>
+    </tr>
+    <tr>
+        <td>Mehdi Kahouache</td>
+        <td>Frontend Dev</td>
+        <td>Design interface, API</td>
     </tr>
 </table>
 
@@ -66,9 +82,7 @@ Meet team 0verdrive :fire:
 
 ### Project Approach
 
-
 ### Built with
-
 
 <br><br>
 
@@ -76,10 +90,11 @@ Meet team 0verdrive :fire:
 
 #### Dependencies
 
-``` Placeholder code block```
+```Placeholder code block```
 
 #### Installation
-``` Placeholder code block```
+
+```Placeholder code block```
 
 <br>
 
@@ -88,7 +103,6 @@ Meet team 0verdrive :fire:
 Ensure that nodejs and npm are installed on your system.
 
 ### Client
-
 
 In the ```client``` folder run
 
@@ -102,8 +116,4 @@ and then
 
 ## Contributing
 
-
-
 ## License
-
-
