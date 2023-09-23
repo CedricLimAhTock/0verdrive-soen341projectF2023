@@ -29,7 +29,8 @@
 <br>
 
 ## About
-This project is a part of Concordia University's Software Engineering program. Its purpose is to introduce students to collaborative software development work using common industry tools and practices such as GitHub and the Agile methodology. The goal is to build a fully functioning web application: interface, API, server, database, etc.
+
+This project is a part of Concordia University's Software Engineering program. Its purpose is to introduce students to collaborative software development work using common industry tools and practices such as GitHub and the Agile methodology. The goal is to build a fully functioning real-estate web application: interface, API, server, database, etc.
 
 <br>
 
@@ -85,6 +86,23 @@ Meet team 0verdrive :fire:
 
 ### Built with
 
+|       |                                                  |
+| :---: | :----------------------------------------------: |
+| Back-end  | [![Node][node-shield]][node-url]    |
+| Front-end | [![React][react-shield]][react-url]  |
+| Database | [![Postgresql][postgresql-shield]][postgresql-url] |
+| Framework | [![Express JS][express-shield]][express-url] |
+| UI Design | [![Figma][figma-shield]][figma-url] |
+
+### Languages
+
+|       |                                                  |
+| :---: | :----------------------------------------------: |
+|  HTML  | ![HTML][html-shield]  |
+| CSS | ![CSS][css-shield]  |
+| JavaScript | ![JavaScript][js-shield]|
+| SQL | ![SQL][sql-shield]|
+
 <br><br>
 
 ## Setup
@@ -118,3 +136,21 @@ and then
 ## Contributing
 
 ## License
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+[react-shield]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react
+[react-url]: https://reactjs.org/
+[node-shield]: https://img.shields.io/badge/NodeJs-20232A?style=for-the-badge&logo=nodedotjs
+[node-url]: https://nodejs.org/
+[postgresql-shield]: https://img.shields.io/badge/Postgresql-20232A?style=for-the-badge&logo=postgresql
+[postgresql-url]: https://www.postgresql.org/
+[express-shield]: https://img.shields.io/badge/Express-20232A?style=for-the-badge&logo=express
+[express-url]: https://expressjs.com/
+[figma-shield]: https://img.shields.io/badge/Figma-20232A?style=for-the-badge&logo=figma
+[figma-url]: https://www.figma.com/
+[js-shield]: https://img.shields.io/badge/JavaScript-20232A?style=for-the-badge&logo=javascript
+[js-url]: https://www.javascript.com/
+[html-shield]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5
+[css-shield]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3
+[sql-shield]: https://img.shields.io/badge/SQL-20232A?style=for-the-badge&logo=sql
