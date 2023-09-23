@@ -29,6 +29,7 @@
 <br>
 
 ## About
+This project is a part of Concordia University's Software Engineering program. Its purpose is to introduce students to collaborative software development work using common industry tools and practices such as GitHub and the Agile methodology. The goal is to build a fully functioning web application: interface, API, server, database, etc.
 
 <br>
 
