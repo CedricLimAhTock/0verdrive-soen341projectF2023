@@ -135,10 +135,10 @@ Placeholder code block
 
 <br>
 
-## Contributing
 
 ## License
 
+Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [react-shield]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react
