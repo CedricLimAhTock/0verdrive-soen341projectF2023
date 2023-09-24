@@ -30,7 +30,7 @@
 
 ## About
 
-This project is a part of Concordia University's Software Engineering program. Its purpose is to introduce students to collaborative software development work using common industry tools and practices such as GitHub and the Agile methodology. The goal is to build a real-estate web application where different types of users can buy, sell or rent properties.
+The purpose of this project is to introduce students to collaborative software development work using common industry tools and practices such as GitHub and the Agile methodology. The goal is to build a real-estate web application where different types of users can buy, sell or rent properties.
 
 <br>
 
@@ -84,8 +84,8 @@ Meet team 0verdrive :fire:
 
 ### Project Approach
 
-As the team is inexperienced in most web development technologies, we are favoring those that are widely supported, and easy to learn and use.
-Following agile practises, the project will be separated into 4 sprints. One meeting per week to discuss current tasks and plan & estimate the following sprints tasks. Although the entire team will be envolved in programming, work will be divided between managing sprints, meetings, and dev work for the different components: design and implementation of UI, API, server, client, and database.
+We are favoring technologies and methods that are widely supported, and easy to learn and use.
+Following agile practices, the project will be separated into 4 sprints. One meeting per week to discuss current tasks and plan & estimate the following sprints tasks. Although the entire team will be involved in programming, work will be divided between managing sprints, meetings, and dev work for the different components: design and implementation of UI, API, server, client, and database.
 
 ### Built with
 
@@ -99,14 +99,6 @@ See the ***[Technical Evaluation][wiki-tech-eval-url]*** Page for more info.
 | Framework | [![Express JS][express-shield]][express-url] |
 | UI Design | [![Figma][figma-shield]][figma-url] |
 
-### Languages
-
-|       |                                                  |
-| :---: | :----------------------------------------------: |
-|  HTML  | ![HTML][html-shield]  |
-| CSS | ![CSS][css-shield]  |
-| JavaScript | ![JavaScript][js-shield]|
-| SQL | ![SQL][sql-shield]|
 
 <br><br>
 
