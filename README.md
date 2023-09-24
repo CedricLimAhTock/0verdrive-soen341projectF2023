@@ -108,31 +108,30 @@ Following agile practises, the project will be separated into 4 sprints. One mee
 
 <br><br>
 
-## Setup
+## Getting Started
 
-#### Dependencies
+### Dependencies
 
-```Placeholder code block```
+1. Install Nodejs and NPM
+   - For reference, please visit the official [NodeJS installation Guide][nodejs-install-url]
 
-#### Installation
+### Installation
 
-```Placeholder code block```
+```sh 
+Placeholder code block
+```
 
 <br>
 
 ## Usage
 
-Ensure that nodejs and npm are installed on your system.
+1. Ensure ***Dependencies*** are installed.
+2. In the ```client``` folder run:
 
-### Client
-
-In the ```client``` folder run
-
-```npm install```
-
-and then
-
-```npm run dev```
+    ```sh
+    npm install
+    npm run dev
+    ```
 
 <br>
 
@@ -157,3 +156,5 @@ and then
 [html-shield]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5
 [css-shield]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3
 [sql-shield]: https://img.shields.io/badge/SQL-20232A?style=for-the-badge&logo=sql
+
+[nodejs-install-url]: https://github.com/nodesource/distributions/blob/master/README.md
