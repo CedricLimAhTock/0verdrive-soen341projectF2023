@@ -89,6 +89,8 @@ Following agile practises, the project will be separated into 4 sprints. One mee
 
 ### Built with
 
+See the ***[Technical Evaluation][wiki-tech-eval-url]*** Page for more info.
+
 |       |                                                  |
 | :---: | :----------------------------------------------: |
 | Back-end  | [![Node][node-shield]][node-url]    |
@@ -113,7 +115,7 @@ Following agile practises, the project will be separated into 4 sprints. One mee
 ### Dependencies
 
 1. Install Nodejs and NPM
-   - For reference, please visit the official [NodeJS installation Guide][nodejs-install-url]
+   - For reference, please visit the official ***[NodeJS installation Guide][nodejs-install-url]***
 
 ### Installation
 
@@ -134,7 +136,6 @@ Placeholder code block
     ```
 
 <br>
-
 
 ## License
 
@@ -158,3 +159,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [sql-shield]: https://img.shields.io/badge/SQL-20232A?style=for-the-badge&logo=sql
 
 [nodejs-install-url]: https://github.com/nodesource/distributions/blob/master/README.md
+
+<!-- WIKI refs -->
+[wiki-tech-eval-url]: https://github.com/CedricLimAhTock/0verdrive-soen341projectF2023/wiki/Design#evaluation-of-tech-stack
