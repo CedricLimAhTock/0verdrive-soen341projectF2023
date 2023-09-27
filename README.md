@@ -57,7 +57,7 @@ Meet team 0verdrive :fire:
     <tr>
         <td>Noah Burns</td>
         <td>Frontend Dev</td>
-        <td>Design interface, API</td>
+        <td>Design interface, UI/UX design, API</td>
     </tr>
     <tr>
         <td>Sonali Patel</td>
