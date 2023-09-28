@@ -95,7 +95,7 @@ See the ***[Technical Evaluation][wiki-tech-eval-url]*** Page for more info.
 | :---: | :----------------------------------------------: |
 | Back-end  | [![Node][node-shield]][node-url]    |
 | Front-end | [![React][react-shield]][react-url]  |
-| Database | [![Postgresql][postgresql-shield]][postgresql-url] |
+| Database | [![MySQL][mysql-shield]][mysql-url] |
 | Framework | [![Express JS][express-shield]][express-url] |
 | UI Design | [![Figma][figma-shield]][figma-url] |
 
