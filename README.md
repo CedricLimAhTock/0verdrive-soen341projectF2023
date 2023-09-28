@@ -111,7 +111,7 @@ See the ***[Technical Evaluation][wiki-tech-eval-url]*** Page for more info.
 
 ### Installation
 
-```sh 
+```sh
 Placeholder code block
 ```
 
@@ -145,7 +145,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [figma-url]: https://www.figma.com/
 [js-shield]: https://img.shields.io/badge/JavaScript-20232A?style=for-the-badge&logo=javascript
 [js-url]: https://www.javascript.com/
-[mysql-shield]: https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white
+[mysql-shield]: https://img.shields.io/badge/MySQL-20232A?style=for-the-badge&logo=mysql&logoColor=white
 
 [nodejs-install-url]: https://github.com/nodesource/distributions/blob/master/README.md
 
