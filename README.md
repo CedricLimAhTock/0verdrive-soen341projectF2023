@@ -138,17 +138,14 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [react-url]: https://reactjs.org/
 [node-shield]: https://img.shields.io/badge/NodeJs-20232A?style=for-the-badge&logo=nodedotjs
 [node-url]: https://nodejs.org/
-[postgresql-shield]: https://img.shields.io/badge/Postgresql-20232A?style=for-the-badge&logo=postgresql
-[postgresql-url]: https://www.postgresql.org/
+[mysql-url]: https://www.mysql.com/
 [express-shield]: https://img.shields.io/badge/Express-20232A?style=for-the-badge&logo=express
 [express-url]: https://expressjs.com/
 [figma-shield]: https://img.shields.io/badge/Figma-20232A?style=for-the-badge&logo=figma
 [figma-url]: https://www.figma.com/
 [js-shield]: https://img.shields.io/badge/JavaScript-20232A?style=for-the-badge&logo=javascript
 [js-url]: https://www.javascript.com/
-[html-shield]: https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5
-[css-shield]: https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3
-[sql-shield]: https://img.shields.io/badge/SQL-20232A?style=for-the-badge&logo=sql
+[mysql-shield]: https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white
 
 [nodejs-install-url]: https://github.com/nodesource/distributions/blob/master/README.md
 
