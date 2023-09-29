@@ -3,7 +3,7 @@
 ![Logo](./media/logo.png)
 
 <details>
-  <summary>Table of Contents</summary>
+  <summary><h2>Table of Contents<h2></summary>
   <ol>
     <li>
       <a href="#about-">About</a>
@@ -21,7 +21,6 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
   </ol>
 </details>
@@ -117,6 +116,9 @@ React (:white_check_mark:):
 Vue:
 
 - Smaller ecosystem
+- Less community support
+- Not as used in the industry
+
 
 Angular:
 
