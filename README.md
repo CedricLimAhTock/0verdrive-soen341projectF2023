@@ -50,7 +50,7 @@ Meet team 0verdrive :fire:
     </tr>
     <tr>
         <td>Soumyajeet Bhowmik</td>
-        <td>QA</td>
+        <td>Quality Assurance</td>
         <td>Frontend and Backend dev</td>
     </tr>
     <tr>
