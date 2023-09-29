@@ -89,7 +89,6 @@ Following agile practices, the project will be separated into 4 sprints. One mee
 
 ### Built with
 
-See the ***[Technical Evaluation][wiki-tech-eval-url]*** Page for more info.
 
 |       |                                                  |
 | :---: | :----------------------------------------------: |
@@ -100,7 +99,75 @@ See the ***[Technical Evaluation][wiki-tech-eval-url]*** Page for more info.
 | UI Design | [![Figma][figma-shield]][figma-url] |
 
 
-<br><br>
+<br><be>
+## Evaluation of Tech Stack
+
+### FrontEnd
+
+React (:white_check_mark:):
+
+- Familiarity (Uses js)
+- Extensively used in the industry
+- Looks good on CV
+- Many tools and resources
+
+Vue:
+
+- Smaller ecosystem
+
+Angular:
+
+- Performance overhead
+- Relies on Typescript (unfamiliar)
+- Steep learning curve
+- Boilerplate code
+
+### BackEnd
+
+Node.js (:white_check_mark:):
+
+- Familiarity (Uses JavaScript)
+- Extensively used in the industry for building scalable and fast server-side applications
+- Great for real-time applications and microservices
+- Vast ecosystem with many packages and libraries
+- Non-blocking, event-driven architecture for high concurrency
+
+Django:
+
+- Steeper Learning Curve (especially for non-Python developers)
+- Conventions can be restrictive for highly customized projects
+- Performance may not be suitable for high-speed or real-time applications
+
+Ruby on Rails:
+
+- Performance can be slower compared to Node.js
+- Resource-Intensive, potentially leading to higher hosting costs
+- Dependency Management can be complex
+- Limited Scalability for extremely large applications
+
+### Database
+
+PostgreSQL - SQL:
+
+- Good for its ability to handle complex queries
+- Complex for beginners
+- Slower than MySQL
+- Resource-intensive, when handling complex queries or large datasets, it may require more memory and CPU resources
+
+MySQL - SQL (:white_check_mark:):
+
+- Familiarity (used in a previous course)
+- Easy to use for beginners
+- Known for its speed and can perform well in read-heavy workloads, making it ideal for applications with a focus on fast data retrieval
+
+MongoDB - NoSQL:
+
+- Document-oriented database
+- High memory usage
+- Does not support traditional SQL joins
+- Unfamiliarity
+
+---
 
 ## Getting Started
 
