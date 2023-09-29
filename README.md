@@ -75,8 +75,11 @@ Meet team 0verdrive :fire:
     </tr>
     <tr>
         <td>Mehdi Kahouache</td>
-        <td>Frontend Dev</td>
-        <td>Design interface, API</td>
+        <td>Product Owner</td>
+        <td>
+          Manage requirements
+          Discuss project requirements with client
+        </td>
     </tr>
 </table>
 
