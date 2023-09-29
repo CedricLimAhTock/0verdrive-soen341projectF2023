@@ -90,8 +90,9 @@ Meet team 0verdrive :fire:
 We are favoring technologies and methods that are widely supported, and easy to learn and use.
 Following agile practices, the project will be separated into 4 sprints. One meeting per week to discuss current tasks and plan & estimate the following sprints tasks. Although the entire team will be involved in programming, work will be divided between managing sprints, meetings, and dev work for the different components: design and implementation of UI, API, server, client, and database.
 
-### Built with
+## Evaluation of Tech Stack
 
+### Built with
 
 |       |                                                  |
 | :---: | :----------------------------------------------: |
@@ -103,7 +104,6 @@ Following agile practices, the project will be separated into 4 sprints. One mee
 
 
 <br><be>
-## Evaluation of Tech Stack
 
 ### FrontEnd
 
