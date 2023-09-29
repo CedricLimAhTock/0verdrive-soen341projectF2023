@@ -152,18 +152,18 @@ Ruby on Rails:
 
 ### Database
 
+MySQL - SQL (:white_check_mark:):
+
+- Familiarity (used in a previous course)
+- Easy to use for beginners
+- Known for its speed and can perform well in read-heavy workloads, making it ideal for applications with a focus on fast data retrieval
+
 PostgreSQL - SQL:
 
 - Good for its ability to handle complex queries
 - Complex for beginners
 - Slower than MySQL
 - Resource-intensive, when handling complex queries or large datasets, it may require more memory and CPU resources
-
-MySQL - SQL (:white_check_mark:):
-
-- Familiarity (used in a previous course)
-- Easy to use for beginners
-- Known for its speed and can perform well in read-heavy workloads, making it ideal for applications with a focus on fast data retrieval
 
 MongoDB - NoSQL:
 
