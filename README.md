@@ -45,7 +45,7 @@ Meet team 0verdrive :fire:
     </tr>
     <tr>
         <td>Cedric Lim Ah Tock</td>
-        <td>Full Stack Dev / Lead</td>
+        <td>Team Leader</td>
         <td>Manage repo, UI/UX design, Frontend and Backend dev<br>
           Dev facilitator: point of reference for others.</td>
     </tr>
@@ -56,18 +56,18 @@ Meet team 0verdrive :fire:
     </tr>
     <tr>
         <td>Noah Burns</td>
-        <td>Frontend Dev</td>
+        <td>Design Master</td>
         <td>Design interface, UI/UX design, API</td>
     </tr>
     <tr>
         <td>Sonali Patel</td>
-        <td>Backend Dev</td>
+        <td>Database Manager</td>
         <td>Design database, server<br>
           Meeting Owner</td>
     </tr>
     <tr>
         <td>Kristi Doce</td>
-        <td>Scrum Lead / Backend Dev</td>
+        <td>Scrum Master</td>
         <td>
           Manage sprint(board) / meetings, task planning & backlog, responsible for deliverables<br>
           Design database, server
