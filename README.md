@@ -37,7 +37,7 @@ The purpose of this project is to introduce students to collaborative software d
 
 Meet team 0verdrive :fire:
 
-Our team rules ca be found on our **[wiki](https://github.com/CedricLimAhTock/0verdrive-soen341projectF2023/wiki/Project-WorkFlow)**.
+Our team rules can be found on our **[wiki](https://github.com/CedricLimAhTock/0verdrive-soen341projectF2023/wiki/Project-WorkFlow)**.
 <table>
     <tr>
         <th>Member</th>
