@@ -1,0 +1,60 @@
+.header {
+  font-family: Inter;
+  display: flex;
+  width: 100%x;
+  height: 120px;
+  background: #faf9f9;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  justify-content: space-between;
+}
+.name {
+  color: rgba(0, 0, 0, 0.5);
+  font-family: Inter;
+  font-size: 45px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 50px;
+}
+
+.nav {
+  display: flex;
+  gap: 43px;
+  justify-content: center;
+  align-items: center;
+}
+.nav button {
+  color: #000;
+  font-family: Inter;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+  background: none;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  /* gap: 50px; */
+  padding-bottom: 0;
+  /* padding-right: 50px */
+
+  /* margin: 0; */
+}
+
+.darkToggle {
+  width: 20px;
+  height: 20px;
+}
+.bulb {
+  width: 20px;
+  height: 20px;
+}
+.hamburgerMenu {
+  width: 20px;
+  height: 20px;
+}
