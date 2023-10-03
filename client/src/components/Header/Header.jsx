@@ -1,4 +1,5 @@
 import React from "react";
+import  {NavLink } from 'react-router-dom';
 import "./Header.css";
 import darkToggle from "./assets/darkToggle.svg";
 import bulb from "./assets/bulb.svg";
@@ -6,7 +7,7 @@ import hamburgerMenu from "./assets/hamburgerMenu.svg";
 export default function Header() {
   return (
     <div className="header">
-      <div className="name">Lorem Ipsum</div>
+      <NavLink to="/" className="logo">Lorem Ipsum</NavLink>
       <div className="nav">
         <button className="home">HOME</button>
         <button className="browse">BROWSE</button>
