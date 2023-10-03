@@ -1,14 +1,22 @@
-import { useState } from "react";
-
+import react from 'react';
 import "./App.css";
-// import Card from "./components/Card/Card";
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+
+import Layout from './components/Layout';
+import Home from './pages/Home';
 
 function App() {
-  const [count, setCount] = useState(0);
+
 
   return (
     <>
-      <h1>Counter</h1>
+      <Router>
+        <div>
+          <Routes>
+            <Route path="/" element={<Layout><Home /></Layout>} />
+          </Routes>
+          </div> 
+      </Router>
     </>
   );
 }
