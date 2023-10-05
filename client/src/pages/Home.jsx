@@ -1,12 +1,12 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./styles/Home.css";
-import searchIcon from "../assets/🦆 icon _search_.svg";
+import searchIcon from "../assets/searchIcon.svg";
 import bedIcon from "../assets/bed.svg";
 import bathIcon from "../assets/bath.svg";
 import rulerIcon from "../assets/ruler.svg";
-import saveIcon from "../assets/🦆 icon _bookmark_.svg";
-import homeImg from "../assets/pexels-fomstock-com-1115804 1.svg";
+import saveIcon from "../assets/saveIcon.svg";
+import homeImg from "../assets/tempHomeImg.svg";
 
 const Home = () => {
   return (
