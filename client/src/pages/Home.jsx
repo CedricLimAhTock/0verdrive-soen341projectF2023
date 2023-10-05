@@ -7,11 +7,13 @@ import bathIcon from "../assets/bath.svg";
 import rulerIcon from "../assets/ruler.svg";
 import saveIcon from "../assets/saveIcon.svg";
 import homeImg from "../assets/tempHomeImg.svg";
+import searchImg from "../assets/search-img.svg";
 
 const Home = () => {
   return (
     <div className="main-content">
       <div className="search-container">
+        <img className = "search-container-img" src = {searchImg}></img>
         <div className="search-container-text">We lorem your home!</div>
         <div className="search-container-searchbox">
           <input

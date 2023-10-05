@@ -16,9 +16,14 @@
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background-image: url("../assets/davi-rezende-_-wDeK9u_8Q-unsplash 1.svg");
+}
+
+.search-container-img {
+  width: fit-content;
+  height: 110vh;
   background-size: cover;
-  background-repeat: no-repeat;
+  position: absolute;
+  z-index: -10;
 }
 
 .search-container-text {
@@ -68,7 +73,7 @@
   align-items: center;
   justify-content: center;
   background-color: #cdcdcd22;
-  margin-top: 1em;
+  margin-top: 3.5em;
 }
 
 .explore-conatiner-text1,
