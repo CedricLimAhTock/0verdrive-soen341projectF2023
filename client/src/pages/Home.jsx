@@ -2,14 +2,22 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./styles/Home.css";
 import searchIcon from "../assets/searchIcon.svg";
-import bedIcon from "../assets/bed.svg";
-import bathIcon from "../assets/bath.svg";
-import rulerIcon from "../assets/ruler.svg";
-import saveIcon from "../assets/saveIcon.svg";
 import homeImg from "../assets/tempHomeImg.svg";
 import searchImg from "../assets/search-img.svg";
+import PropertyCard from "../components/PropertyCard/PropertyCard";
 
 const Home = () => {
+
+  // COMMENTED FOR TESTING
+  const property = {
+    images: [homeImg],
+    price: "$1,000,000",
+    address: "1234 Main St, San Diego, CA 92101",
+    bedrooms: 3,
+    bathrooms: 2,
+    size: 2000,
+  };
+
   return (
     <div className="main-content">
       <div className="search-container">
@@ -37,84 +45,9 @@ const Home = () => {
         </div>
       </div>
       <div className="listing-container">
-        <div className="listing-container-card">
-          <div className="card-img">
-            <img className="card-img" src={homeImg}></img>
-          </div>
-          <div className="card-save"></div>
-          <div className="card-info">
-            <div className="card-price">
-              $ 100,000<img className="save-icon" src={saveIcon}></img>
-            </div>
-            <div className="card-adress">1849 Avenue Lincoln</div>
-          </div>
-          <div className="card-icons">
-            <div className="icon-with-number">
-              <img className="card-icon" src={bedIcon} alt="Bed Icon"></img>
-              <span className="icon-number">3</span>
-            </div>
-            <div className="icon-with-number">
-              <img className="card-icon" src={bathIcon} alt="Bath Icon"></img>
-              <span className="icon-number">2</span>
-            </div>
-            <div className="icon-with-number">
-              <img className="card-icon" src={rulerIcon} alt="Ruler Icon"></img>
-              <span className="icon-number">14,500 m&sup2;</span>
-            </div>
-          </div>
-        </div>
-        <div className="listing-container-card">
-          <div className="card-img">
-            <img className="card-img" src={homeImg}></img>
-          </div>
-          <div className="card-save"></div>
-          <div className="card-info">
-            <div className="card-price">
-              $ 100,000<img className="save-icon" src={saveIcon}></img>
-            </div>
-            <div className="card-adress">1849 Avenue Lincoln</div>
-          </div>
-          <div className="card-icons">
-            <div className="icon-with-number">
-              <img className="card-icon" src={bedIcon} alt="Bed Icon"></img>
-              <span className="icon-number">3</span>
-            </div>
-            <div className="icon-with-number">
-              <img className="card-icon" src={bathIcon} alt="Bath Icon"></img>
-              <span className="icon-number">2</span>
-            </div>
-            <div className="icon-with-number">
-              <img className="card-icon" src={rulerIcon} alt="Ruler Icon"></img>
-              <span className="icon-number">14,500 m&sup2;</span>
-            </div>
-          </div>
-        </div>
-        <div className="listing-container-card">
-          <div className="card-img">
-            <img className="card-img" src={homeImg}></img>
-          </div>
-          <div className="card-save"></div>
-          <div className="card-info">
-            <div className="card-price">
-              $ 100,000<img className="save-icon" src={saveIcon}></img>
-            </div>
-            <div className="card-adress">1849 Avenue Lincoln</div>
-          </div>
-          <div className="card-icons">
-            <div className="icon-with-number">
-              <img className="card-icon" src={bedIcon} alt="Bed Icon"></img>
-              <span className="icon-number">3</span>
-            </div>
-            <div className="icon-with-number">
-              <img className="card-icon" src={bathIcon} alt="Bath Icon"></img>
-              <span className="icon-number">2</span>
-            </div>
-            <div className="icon-with-number">
-              <img className="card-icon" src={rulerIcon} alt="Ruler Icon"></img>
-              <span className="icon-number">14,500 m&sup2;</span>
-            </div>
-          </div>
-        </div>
+        <PropertyCard property={property}/>
+        <PropertyCard property={property}/>
+        <PropertyCard property={property}/>
       </div>
     </div>
   );
