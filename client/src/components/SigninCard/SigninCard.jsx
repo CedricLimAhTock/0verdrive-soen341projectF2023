@@ -8,10 +8,10 @@ const SigninCard = () => {
         <h1>Sign In</h1>
         <div className="fields">
           <div className="user">
-            <input type="text" placeholder="U S E R N A M E" />
+            <input type="text" placeholder="U S E R N A M E" className="signin-username"/>
           </div>
           <div className="pass">
-            <input type="text" placeholder="P A S S W O R D" />
+            <input type="text" placeholder="P A S S W O R D" className="signin-password"/>
           </div>
         </div>
         <div className="signinButton">
