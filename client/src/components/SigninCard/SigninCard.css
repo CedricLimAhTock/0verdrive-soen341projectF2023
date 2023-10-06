@@ -1,91 +1,107 @@
+.signin-card-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke
+}
+
+.logo {
+  font-family: Inter;
+  font-size: 20px;
+  font-weight: 500;
+  position:absolute;
+  left: 0;
+  top: 0;
+  padding: 30px;
+  color: rgba(0, 0, 0, 0.5);;
+  
+}
+
 .signin-card {
-  width: 875px;
-  height: 1000px;
-  flex-shrink: 0;
-  border-radius: 25px;
+  width: 350px;
+  height: 350px;
+  border-radius: 10px;
   background: #fff;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: space-between; */
-  position: relative;
+  align-items: center;
+  justify-content: center;
 }
 
 button {
-  width: 728px;
-  height: 113px;
-  flex-shrink: 0;
-  border-radius: 15px;
+  cursor: pointer;
+  width: 300px;
+  height: 50px;
+  border-radius: 5px;
   background: #4a8d6a;
   color: #fff;
   font-family: Inter;
-  font-size: 50px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
+  font-size: 20px;
+  border: none;
+  text-decoration: none;
+}
+
+button:hover {
+  background: #549876;
 }
 
 h1 {
-  margin-top: 104px;
-  margin-bottom: 105px;
-  margin-left: 88px;
   color: #000;
-  font-family: "Inter";
-  font-size: 70px;
-  font-style: normal;
+  font-family: Inter;
+  font-size: 30px;
   font-weight: 600;
-  line-height: normal;
+  padding-right: 200px;
 }
 
 .fields {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 15px;
+  gap: 30px;
 
-  gap: 105px;
 }
 
 input[type="text"] {
-  width: 700px;
-  height: 125px;
-  flex-shrink: 0;
-  box-sizing: border-box;
+  width: 300px;
+  height: 60px;
   border: none;
+  border-radius: 10px 10px 0 0;
   border-bottom: 2px solid rgba(0, 0, 0, 0.3);
-  background: rgba(244, 244, 244, 0.25);
+  background: rgba(244, 244, 244, 0.465);
   color: rgba(0, 0, 0, 0.25);
   font-family: Inter;
-  font-size: 50px;
-  font-style: normal;
   font-weight: 300;
-  line-height: normal;
-  margin-left: 48px;
-  padding-left: 48px;
+  font-size: 18px;
+  padding-left: 30px;
+  outline: none;
+  caret-color: #4a8d6a;
+}
+
+input[type = "text"]:focus {
+  color: #000;
 }
 
 .signinButton {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  position: absolute;
-  bottom: 0;
-  margin: 0;
-  padding: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-bottom: 134px;
 }
 
 .user > input[type="text"]::placeholder {
   background-image: url("../../assets/iconUser.svg");
   background-position: right 41px center;
   background-repeat: no-repeat;
+  background-size: 18px;
 }
 
 .pass > input[type="text"]::placeholder {
   background-image: url("../../assets/iconLock.svg");
   background-position: right 41px center;
   background-repeat: no-repeat;
+  background-size: 18px;
 }
