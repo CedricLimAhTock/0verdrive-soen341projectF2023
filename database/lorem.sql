@@ -5,7 +5,7 @@ USE `lorem`;
 DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` bigint NOT NULL AUTO_INCREMENT,
   `active` tinyint(1) NOT NULL DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `username` varchar(100) NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE `user` (
 DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
   `type` enum('member','broker','admin') DEFAULT NULL,
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` bigint NOT NULL AUTO_INCREMENT,
   `active` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -33,10 +33,10 @@ CREATE TABLE `role` (
 
 DROP TABLE IF EXISTS `user_role`;
 CREATE TABLE `user_role` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` bigint NOT NULL AUTO_INCREMENT,
   `active` tinyint(1) NOT NULL DEFAULT '0',
-  `user_id` int unsigned NOT NULL,
-  `role_id` int unsigned NOT NULL,
+  `user_id` bigint NOT NULL,
+  `role_id` bigint NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `user_role_FK` FOREIGN KEY (`id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
   CONSTRAINT `user_role_FK_1` FOREIGN KEY (`id`) REFERENCES `role` (`id`)
