@@ -20,6 +20,10 @@ CREATE TABLE `user` (
   UNIQUE KEY `user_email_UN` (`email`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
+INSERT INTO `user` (`id`, `active`, `firstname`, `lastname`, `username`, `password_hash`, `email`, `phone`, `created`, `modified`) VALUES
+(NULL, 1, 'root1', 'root1', 'root1', '', 'root1', '000-000-0000', '2000-01-01T00:00:00.379-04:00', '2000-01-01T00:00:00.379-04:00'),
+(NULL, 1, 'root2', 'root2', 'root2', '', 'root2', '000-000-0000', '2000-01-01T00:00:00.379-04:00', '2000-01-01T00:00:00.379-04:00'),
+(NULL, 1, 'root3', 'root3', 'root3', '', 'root3', '000-000-0000', '2000-01-01T00:00:00.379-04:00', '2000-01-01T00:00:00.379-04:00');
 
 DROP TABLE IF EXISTS `role`;
 
@@ -30,6 +34,11 @@ CREATE TABLE `role` (
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
+INSERT INTO `role` (`id`, `active`, `type`) VALUES 
+(NULL, 1, 'member'),
+(NULL, 1, 'broker'),
+(NULL, 1, 'admin');
+
 
 DROP TABLE IF EXISTS `user_role`;
 
@@ -39,6 +48,8 @@ CREATE TABLE `user_role` (
   `user_id` bigint NOT NULL,
   `role_id` bigint NOT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `user_role_FK` FOREIGN KEY (`id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `user_role_FK_1` FOREIGN KEY (`id`) REFERENCES `role` (`id`)
+  KEY `user_role_FK` (`user_id`),
+  KEY `user_role_FK_1` (`role_id`),
+  CONSTRAINT `user_role_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `user_role_FK_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
