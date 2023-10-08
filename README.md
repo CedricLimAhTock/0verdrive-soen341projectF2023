@@ -185,8 +185,25 @@ MongoDB - NoSQL:
 
 ### Installation
 
+#### Setting Up Database
+
 ```sh
-Placeholder code block
+# navigate to directory with the sql files
+cd /<your-path>/project/database
+
+# Create the database from your terminal
+mysql -u <user> -p < lorem.sql
+#
+# OR from inside your mysql
+mysql> source lorem.sql
+```
+
+```sh
+# Add data to the database
+# install python3-pip
+pip install mysql-connector-python
+chmod +x populate_tables.py
+python3 populate_tables.py -u <user> -d <dbname> -p '<your DB password>'
 ```
 
 <br>
