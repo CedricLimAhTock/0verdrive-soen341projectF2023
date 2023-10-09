@@ -78,10 +78,18 @@
   font-weight: 500;
 }
 
-.save-icon {
+/* .save-icon {
   padding-left: 7em;
 }
 
 .save-icon:hover {
+  cursor: pointer;
+} */
+
+.SaveIcon {
+  margin-left: 7em;
+}
+
+.SaveIcon::hover {
   cursor: pointer;
 }
