@@ -1,0 +1,1001 @@
+id,active,civicAddress,aptNumber,street,neighbourhood,city,province,country,listingType,price,livingArea,propertyAre,numOfBedrooms,numOfBathrooms,numOfFloors,yearBuilt,listedDate,propertyType
+1,1,4,801,Heffernan,Montreal,Conception Bay South,Quebec,Canada,rent,9256,3122,8996,3,8,4,1923,2022-12-15,condominium
+2,1,439,877,Eastlawn,Montreal,Barrhead,Quebec,Canada,sale,52419447,554,1257,5,6,1,1947,2020-09-21,quadruplex
+3,1,304,283,Fair Oaks,Montreal,Boisbriand,Quebec,Canada,sale,71538408,1394,9578,3,7,6,1937,2011-01-02,condominium
+4,1,18,473,Marcy,Montreal,Alma,Quebec,Canada,sale,83742800,1319,6787,10,3,1,1990,2014-09-27,quadruplex
+5,1,91849,854,Dixon,Montreal,Les Cèdres,Quebec,Canada,sale,15952079,2008,1606,4,5,4,1931,2010-06-16,studio
+6,1,8,793,Springview,Montreal,Fairview,Quebec,Canada,rent,3544,2771,4432,6,8,6,1991,2017-10-15,condominium
+7,1,23,623,Darwin,Montreal,Unity,Quebec,Canada,rent,8157,2813,4088,4,9,4,1987,2012-08-04,condominium
+8,1,232,846,Clove,Montreal,Sechelt,Quebec,Canada,sale,70260051,2567,5077,8,6,10,2011,2020-03-07,studio
+9,1,5,183,Northfield,Montreal,Kitchener,Quebec,Canada,rent,1287,680,2168,4,3,9,1986,2010-09-30,duplex
+10,1,2,638,Memorial,Montreal,Sherwood Park,Quebec,Canada,sale,17723701,2694,9871,4,4,7,1967,2014-04-20,studio
+11,1,2,319,Rieder,Montreal,Delson,Quebec,Canada,rent,3141,457,2967,7,1,6,1990,2010-12-13,studio
+12,1,246,785,Longview,Montreal,Maple Creek,Quebec,Canada,sale,41892497,2291,7082,2,6,10,1926,2014-12-19,single-family
+13,1,4601,713,Elka,Montreal,Mont-Joli,Quebec,Canada,sale,38681928,1549,3097,9,7,4,1968,2015-01-06,triplex
+14,1,7,398,Meadow Valley,Montreal,Mont-Tremblant,Quebec,Canada,sale,46690765,1688,9882,5,7,2,2018,2012-05-18,quadruplex
+15,1,81,783,Anhalt,Montreal,North Vancouver,Quebec,Canada,sale,78530289,4390,7466,9,1,4,1958,2022-05-05,quadruplex
+16,1,6560,871,Victoria,Montreal,Gjoa Haven,Quebec,Canada,rent,1372,4750,2696,2,4,6,1991,2012-03-16,quadruplex
+17,1,4,653,Petterle,Montreal,Maple Creek,Quebec,Canada,rent,7165,2551,4196,6,7,3,1916,2023-05-06,townhouse
+18,1,16573,465,Kingsford,Montreal,Peterborough,Quebec,Canada,sale,85171682,3934,1501,1,2,2,2018,2010-05-25,condominium
+19,1,523,835,South,Montreal,Cache Creek,Quebec,Canada,sale,98932484,2128,7793,1,10,5,2023,2012-06-29,triplex
+20,1,52961,868,Maple Wood,Montreal,Saint-Tite,Quebec,Canada,sale,48853090,828,1001,9,10,2,1907,2018-01-14,studio
+21,1,8129,848,Oak,Montreal,Saint Andrews,Quebec,Canada,sale,89164849,1424,1530,6,3,3,1926,2017-07-24,townhouse
+22,1,636,727,Boyd,Montreal,Sparwood,Quebec,Canada,sale,61602379,753,9815,10,10,9,1984,2023-01-27,townhouse
+23,1,56,554,Waubesa,Montreal,Nanaimo,Quebec,Canada,rent,6895,705,8198,4,6,2,1964,2015-02-16,other
+24,1,8450,100,Loomis,Montreal,Langenburg,Quebec,Canada,rent,8832,3475,5021,6,1,9,1929,2012-10-11,studio
+25,1,37884,962,Rusk,Montreal,Kitimat,Quebec,Canada,sale,62061786,1892,5741,5,4,5,1927,2014-09-15,condominium
+26,1,6,171,Montana,Montreal,Saint-Augustin-de-Desmaures,Quebec,Canada,rent,898,597,6750,9,5,2,1925,2021-12-02,duplex
+27,1,1,602,Arrowood,Montreal,St. Catharines,Quebec,Canada,rent,4805,4468,4623,2,7,6,1951,2018-03-15,studio
+28,1,91,708,Quincy,Montreal,Havre-Saint-Pierre,Quebec,Canada,rent,730,3874,2085,1,9,1,1965,2021-03-11,townhouse
+29,1,7,275,Commercial,Montreal,Barrie,Quebec,Canada,sale,65801319,3889,6579,3,5,5,1994,2017-11-24,townhouse
+30,1,2,439,Waxwing,Montreal,Drummondville,Quebec,Canada,sale,71328865,3920,2446,10,7,4,1942,2020-04-26,studio
+31,0,61101,368,Utah,Montreal,Havre-Saint-Pierre,Quebec,Canada,rent,5602,3604,4162,7,9,3,1928,2022-06-19,triplex
+32,1,66,970,Donald,Montreal,Magrath,Quebec,Canada,sale,15647954,2684,1289,7,5,1,1931,2012-05-14,studio
+33,1,8,214,Hagan,Montreal,Omemee,Quebec,Canada,rent,1665,3941,3575,10,9,5,1919,2016-11-15,other
+34,1,36475,546,Blackbird,Montreal,Barrhead,Quebec,Canada,rent,8477,2117,1925,1,10,2,1917,2012-04-16,other
+35,1,1,853,Corry,Montreal,Sicamous,Quebec,Canada,rent,8412,422,9420,5,8,1,2007,2013-06-03,townhouse
+36,1,10,990,Heffernan,Montreal,Cabano,Quebec,Canada,rent,4695,4005,2234,8,5,1,2019,2018-08-07,other
+37,1,59,331,Lunder,Montreal,Sherbrooke,Quebec,Canada,rent,4349,3113,7471,7,1,1,2010,2014-07-27,condominium
+38,1,10,152,Marquette,Montreal,Sherbrooke,Quebec,Canada,rent,8801,1066,8718,3,6,7,1973,2022-03-10,studio
+39,1,1,252,Summit,Montreal,Saint-André-Avellin,Quebec,Canada,rent,7407,4023,7063,1,10,6,1996,2021-06-10,studio
+40,1,4185,652,Vera,Montreal,Louiseville,Quebec,Canada,sale,54100525,4964,4302,5,4,7,1933,2018-10-21,quadruplex
+41,1,893,680,Bobwhite,Montreal,Labrador City,Quebec,Canada,rent,7246,4967,5316,2,1,5,1928,2018-04-22,townhouse
+42,1,22,733,Continental,Montreal,Montréal-Est,Quebec,Canada,sale,87245837,2864,3464,10,4,7,2001,2010-02-28,studio
+43,1,53199,618,Sherman,Montreal,L\'Épiphanie,Quebec,Canada,sale,56037441,193,2204,5,7,9,1992,2016-11-14,other
+44,1,50,661,Service,Montreal,Oxford,Quebec,Canada,rent,4542,1343,5744,3,8,2,1998,2022-08-08,condominium
+45,1,919,180,Village Green,Montreal,Belfast,Quebec,Canada,sale,17566406,2166,8414,2,3,3,2008,2016-08-26,quadruplex
+46,1,88586,194,Rowland,Montreal,Okanagan,Quebec,Canada,rent,2715,4687,2026,6,1,7,1941,2023-02-12,studio
+47,1,8411,456,Dwight,Montreal,High Prairie,Quebec,Canada,rent,4335,3621,3368,7,3,8,1994,2011-12-03,condominium
+48,1,8,856,Northridge,Montreal,Peachland,Quebec,Canada,rent,1316,4762,8278,6,8,4,1983,2016-11-23,townhouse
+49,1,11,459,Porter,Montreal,Adstock,Quebec,Canada,rent,5395,4047,2079,3,6,10,2009,2014-09-28,duplex
+50,1,46901,486,Spenser,Montreal,North Bay,Quebec,Canada,rent,518,4510,1265,2,1,4,1974,2012-09-19,studio
+51,1,34,969,Susan,Montreal,Aylmer,Quebec,Canada,rent,8932,2487,6302,6,6,10,1933,2015-08-13,single-family
+52,1,77751,568,Bellgrove,Montreal,Coaldale,Quebec,Canada,sale,72589860,3164,6274,5,7,2,1964,2018-08-06,duplex
+53,1,9,965,Ludington,Montreal,Morris,Quebec,Canada,sale,75280500,3986,2561,1,2,2,1902,2023-05-03,single-family
+54,1,2,976,Bobwhite,Montreal,Bonavista,Quebec,Canada,sale,56361691,1515,8546,7,5,9,1931,2017-04-27,studio
+55,1,81,562,Everett,Montreal,Camlachie,Quebec,Canada,rent,8141,872,1138,5,3,9,1963,2019-11-25,townhouse
+56,1,945,444,Nevada,Montreal,Biggar,Quebec,Canada,sale,53217058,3279,2651,8,3,5,1983,2021-03-06,other
+57,1,8038,973,Truax,Montreal,North Saanich,Quebec,Canada,sale,14079855,3864,6068,9,4,6,2016,2013-01-18,single-family
+58,1,531,519,Steensland,Montreal,Penticton,Quebec,Canada,sale,30956035,4424,5012,8,9,1,2018,2015-03-11,studio
+59,1,4870,988,Almo,Montreal,Killarney,Quebec,Canada,rent,2805,2263,6503,1,4,6,2019,2018-04-27,condominium
+60,1,529,449,Myrtle,Montreal,Outlook,Quebec,Canada,rent,2656,235,7313,2,1,7,1936,2012-01-22,other
+61,1,965,304,Kennedy,Montreal,Mont-Tremblant,Quebec,Canada,sale,16434768,1884,8026,10,2,8,1948,2022-11-22,quadruplex
+62,1,5373,893,Mockingbird,Montreal,Saint Andrews,Quebec,Canada,rent,1833,4649,4553,2,7,4,1944,2020-03-06,triplex
+63,1,44,144,Kinsman,Montreal,Sainte-Anne-des-Monts,Quebec,Canada,rent,1367,892,6472,5,2,9,1909,2021-01-23,other
+64,1,531,840,Basil,Montreal,Revelstoke,Quebec,Canada,rent,1351,1945,5940,10,4,2,1944,2010-03-07,condominium
+65,1,8626,652,Tomscot,Montreal,Torbay,Quebec,Canada,rent,576,2430,4870,5,8,1,1922,2020-11-20,quadruplex
+66,1,701,724,Cherokee,Montreal,Papineauville,Quebec,Canada,sale,4034019,2046,5981,10,6,8,1966,2017-04-02,other
+67,1,6454,608,Forster,Montreal,Malartic,Quebec,Canada,sale,73168276,3414,2101,5,9,6,1933,2011-03-14,other
+68,1,30,139,Anzinger,Montreal,Cap-Santé,Quebec,Canada,rent,6774,1324,9695,8,3,8,1987,2023-01-22,quadruplex
+69,1,699,264,Schurz,Montreal,Harbour Breton,Quebec,Canada,sale,77460903,3267,3057,5,9,2,1933,2018-02-17,duplex
+70,1,5482,103,Dennis,Montreal,Sainte-Anne-de-Bellevue,Quebec,Canada,rent,1327,855,9738,1,4,4,1952,2020-05-18,single-family
+71,1,8496,130,3rd,Montreal,Powassan,Quebec,Canada,sale,14005961,3855,1674,10,1,5,2013,2013-08-02,single-family
+72,1,2,677,Clemons,Montreal,Plessisville,Quebec,Canada,rent,379,1323,2709,10,7,4,2017,2018-12-20,triplex
+73,1,9,306,Nova,Montreal,La Tuque,Quebec,Canada,rent,5590,314,8717,7,8,10,1944,2010-01-03,studio
+74,1,80656,170,Boyd,Montreal,Bonnyville,Quebec,Canada,sale,82596633,592,5472,8,2,7,2007,2022-07-07,quadruplex
+75,1,18607,384,Northfield,Montreal,Kugluktuk,Quebec,Canada,sale,35687524,1506,5409,5,9,8,1975,2010-03-29,quadruplex
+76,1,8,661,Barnett,Montreal,Amqui,Quebec,Canada,rent,2726,1297,6579,6,7,2,2022,2012-01-21,single-family
+77,1,76,264,Merrick,Montreal,Saint-Sauveur,Quebec,Canada,rent,9047,2331,5399,6,10,1,1993,2016-08-22,other
+78,1,0,652,Warbler,Montreal,Smithers,Quebec,Canada,rent,927,3334,5217,5,10,8,1923,2022-03-08,single-family
+79,1,639,164,Mendota,Montreal,Amherst,Quebec,Canada,sale,46294253,4623,2066,5,3,1,1912,2010-10-09,studio
+80,1,78,501,Pond,Montreal,Lacolle,Quebec,Canada,sale,90961964,2911,3497,1,3,7,1936,2015-12-11,quadruplex
+81,1,3,344,Talisman,Montreal,Morinville,Quebec,Canada,sale,67064913,3438,8154,2,9,3,1990,2013-11-27,studio
+82,0,42911,302,Bultman,Montreal,Conception Bay South,Quebec,Canada,sale,44573096,1009,7868,3,7,2,1926,2014-03-10,single-family
+83,1,548,822,Brown,Montreal,Anmore,Quebec,Canada,rent,7040,2046,7790,4,10,10,2008,2011-12-09,condominium
+84,1,4772,876,Chinook,Montreal,Grande Prairie,Quebec,Canada,rent,5342,1329,7098,9,4,2,1950,2022-01-20,condominium
+85,1,1,617,Cordelia,Montreal,Salaberry-de-Valleyfield,Quebec,Canada,sale,80208838,2622,7453,1,8,10,1948,2016-04-19,triplex
+86,1,659,811,Del Mar,Montreal,Neebing,Quebec,Canada,rent,1309,3313,5730,3,10,2,1929,2021-12-19,duplex
+87,1,4,185,Melby,Montreal,Bonavista,Quebec,Canada,sale,47497742,2739,5682,5,8,3,2015,2019-11-10,triplex
+88,1,38453,702,Karstens,Montreal,Altona,Quebec,Canada,rent,9968,4839,6555,6,3,7,1957,2016-05-16,triplex
+89,1,87,272,Ilene,Montreal,Barraute,Quebec,Canada,rent,3691,3171,8523,8,10,5,1982,2016-03-15,other
+90,1,733,352,Springs,Montreal,Val-d\'Or,Quebec,Canada,rent,4585,4967,2979,7,8,8,2020,2015-03-19,townhouse
+91,1,886,871,Maywood,Montreal,Carleton Place,Quebec,Canada,rent,7074,394,8238,7,1,6,2022,2018-10-13,condominium
+92,1,16,207,Granby,Montreal,White Rock,Quebec,Canada,rent,3988,4591,7672,1,6,5,1926,2012-04-30,quadruplex
+93,1,3,163,Westend,Montreal,Vanderhoof,Quebec,Canada,rent,5602,1967,6848,3,6,4,1915,2011-03-14,triplex
+94,1,10,724,1st,Montreal,Concord,Quebec,Canada,rent,8871,3276,6200,1,6,7,1960,2016-12-08,condominium
+95,1,29883,225,Larry,Montreal,Neuville,Quebec,Canada,rent,5343,2709,7442,5,7,8,2000,2022-02-24,condominium
+96,1,3972,650,Sherman,Montreal,Port Moody,Quebec,Canada,rent,5020,3798,5419,2,4,10,1991,2014-01-27,other
+97,1,8964,332,Parkside,Montreal,Fort Macleod,Quebec,Canada,rent,1947,2365,3112,5,10,3,1948,2015-02-17,other
+98,1,34,648,Forster,Montreal,Killam,Quebec,Canada,rent,2512,4989,9345,8,2,9,1995,2017-12-06,studio
+99,1,6221,877,Brown,Montreal,Aylmer,Quebec,Canada,sale,84700758,3738,7744,3,1,8,1952,2010-05-11,duplex
+100,0,232,734,Tomscot,Montreal,Merritt,Quebec,Canada,sale,2823926,4603,4616,2,9,4,1909,2013-08-15,condominium
+101,1,79264,242,Maryland,Montreal,Sherbrooke,Quebec,Canada,rent,5184,1241,2036,9,2,3,2003,2010-09-14,duplex
+102,1,6,655,Bartelt,Montreal,London,Quebec,Canada,sale,16780105,818,6320,6,8,6,1993,2019-03-11,other
+103,1,60,985,Amoth,Montreal,Salaberry-de-Valleyfield,Quebec,Canada,rent,7517,2358,1534,5,6,7,2020,2012-05-14,quadruplex
+104,1,685,602,Sullivan,Montreal,Drummondville,Quebec,Canada,rent,9130,1263,4634,9,10,9,2021,2022-07-31,quadruplex
+105,1,5703,177,Moulton,Montreal,Saint-Bruno,Quebec,Canada,sale,41698237,2321,2147,3,1,3,1913,2010-08-11,single-family
+106,1,659,574,Dahle,Montreal,Moosomin,Quebec,Canada,rent,7513,3769,7410,4,7,5,2022,2017-11-24,single-family
+107,1,379,939,Eggendart,Montreal,Spirit River,Quebec,Canada,sale,93146354,2751,3519,7,10,1,1960,2021-09-02,townhouse
+108,1,563,492,International,Montreal,Stettler,Quebec,Canada,sale,56197305,4195,4401,10,9,8,1936,2012-05-05,duplex
+109,1,4,709,Montana,Montreal,Virden,Quebec,Canada,rent,9751,3304,4813,4,3,9,1912,2016-05-04,triplex
+110,1,66,553,Susan,Montreal,Bowen Island,Quebec,Canada,sale,26395760,2559,3823,3,9,10,1949,2016-01-20,single-family
+111,1,1,318,Morrow,Montreal,Delson,Quebec,Canada,rent,1730,2185,5635,4,6,2,2014,2017-06-18,duplex
+112,1,587,779,Hudson,Montreal,Papineauville,Quebec,Canada,sale,84064667,907,7352,3,2,7,1946,2016-10-30,duplex
+113,1,8,956,Namekagon,Montreal,Acton Vale,Quebec,Canada,sale,29843729,2813,9674,1,6,2,1993,2020-05-15,triplex
+114,1,617,976,Messerschmidt,Montreal,High Prairie,Quebec,Canada,rent,4633,1922,2837,6,9,10,1929,2017-05-28,single-family
+115,1,83961,817,Grasskamp,Montreal,Watrous,Quebec,Canada,sale,44708975,2315,1540,3,6,9,1914,2019-03-16,single-family
+116,1,42,810,Kinsman,Montreal,Waterloo,Quebec,Canada,rent,9352,912,4525,9,9,2,1961,2019-02-22,studio
+117,1,8882,446,Superior,Montreal,Notre-Dame-des-Prairies,Quebec,Canada,sale,64901313,1776,9137,9,7,8,1971,2010-12-25,single-family
+118,1,72131,974,Sloan,Montreal,Digby,Quebec,Canada,rent,2700,4445,6175,7,2,3,1959,2019-05-31,studio
+119,1,9,805,Barby,Montreal,L\'Île-Perrot,Quebec,Canada,rent,6410,1881,3937,6,1,9,1915,2022-01-28,triplex
+120,0,84,299,Green Ridge,Montreal,Taber,Quebec,Canada,rent,4339,4854,5676,8,9,6,2022,2012-06-09,duplex
+121,1,6296,536,Ilene,Montreal,Armstrong,Quebec,Canada,rent,6754,2748,7083,7,4,9,1979,2018-08-02,condominium
+122,0,524,388,West,Montreal,Fermont,Quebec,Canada,sale,21391030,2538,5279,7,9,4,1952,2022-07-12,other
+123,1,8,321,Johnson,Montreal,Nanaimo,Quebec,Canada,sale,17317655,4847,5222,8,2,2,1980,2021-07-13,triplex
+124,1,534,747,Roth,Montreal,Midland,Quebec,Canada,sale,68940631,1996,5677,2,5,3,1964,2014-04-09,quadruplex
+125,1,60005,280,Surrey,Montreal,Beauceville,Quebec,Canada,sale,32430456,1423,9612,8,7,10,2003,2017-10-17,other
+126,1,3650,824,Sunnyside,Montreal,Sutton,Quebec,Canada,sale,59421820,4483,7075,4,3,6,1964,2019-04-13,condominium
+127,0,0,159,Shelley,Montreal,Mascouche,Quebec,Canada,rent,8314,4281,1577,9,7,9,1997,2021-07-02,other
+128,1,3013,185,Waubesa,Montreal,Otterburn Park,Quebec,Canada,sale,31241420,2670,5265,4,4,1,1913,2011-07-16,other
+129,1,21,399,Pond,Montreal,Saskatoon,Quebec,Canada,rent,7466,824,2740,1,8,6,1916,2016-11-19,other
+130,1,33530,709,Eliot,Montreal,Sicamous,Quebec,Canada,rent,6141,4178,2766,4,1,4,1938,2023-02-28,quadruplex
+131,1,3,301,Towne,Montreal,Chilliwack,Quebec,Canada,rent,2497,4909,2497,6,9,4,1968,2023-03-22,other
+132,1,2060,220,Rigney,Montreal,Summerside,Quebec,Canada,sale,96621066,1428,9731,10,7,9,2019,2019-01-18,studio
+133,1,0,314,Everett,Montreal,Thessalon,Quebec,Canada,rent,9224,170,1268,6,7,8,1938,2018-08-05,other
+134,1,18,625,Golf,Montreal,Bells Corners,Quebec,Canada,sale,28003421,1964,6723,10,10,2,1937,2019-06-06,studio
+135,0,436,713,Mifflin,Montreal,Oakville,Quebec,Canada,sale,35786221,3043,6174,10,2,2,1992,2015-11-21,single-family
+136,1,62,505,Nevada,Montreal,Windsor,Quebec,Canada,sale,13370421,3309,6013,4,4,5,1976,2018-04-28,quadruplex
+137,1,44766,273,American,Montreal,Alberton,Quebec,Canada,rent,2463,1968,6346,1,3,3,1927,2013-03-10,townhouse
+138,1,97436,479,Ridge Oak,Montreal,Grande Cache,Quebec,Canada,rent,6199,1922,9493,6,8,9,1982,2022-07-04,other
+139,1,11,984,New Castle,Montreal,Kensington,Quebec,Canada,sale,29061474,4200,8110,10,1,5,1944,2011-11-17,triplex
+140,1,33476,820,Spohn,Montreal,Okanagan,Quebec,Canada,sale,85608872,2674,5884,7,7,1,1996,2012-04-01,single-family
+141,1,163,473,Becker,Montreal,Lloydminster,Quebec,Canada,rent,3728,4319,1166,8,7,8,1912,2015-08-07,duplex
+142,1,6409,169,Leroy,Montreal,Mont-Saint-Hilaire,Quebec,Canada,rent,6622,1500,5056,7,3,6,1985,2019-06-18,quadruplex
+143,0,213,790,Manley,Montreal,Lunenburg,Quebec,Canada,rent,2526,3261,5050,8,9,8,1932,2019-03-23,quadruplex
+144,1,2,455,Algoma,Montreal,Okotoks,Quebec,Canada,sale,25057279,1648,4127,2,2,6,1915,2022-06-11,triplex
+145,1,8245,748,Autumn Leaf,Montreal,La Broquerie,Quebec,Canada,rent,8016,3196,6119,8,1,8,1916,2023-03-17,single-family
+146,1,5,834,Messerschmidt,Montreal,Agassiz,Quebec,Canada,rent,5840,4287,7297,3,7,2,1937,2016-11-03,other
+147,1,524,589,Acker,Montreal,Trois-Rivières,Quebec,Canada,rent,6188,2476,2126,7,10,8,1904,2014-02-12,quadruplex
+148,1,0,206,Anzinger,Montreal,Lunenburg,Quebec,Canada,sale,65451840,2931,6094,6,3,8,1920,2022-06-21,triplex
+149,1,1253,960,Cordelia,Montreal,St. Catharines,Quebec,Canada,sale,23741814,1258,7767,10,6,7,1918,2011-06-05,other
+150,1,84,452,Shelley,Montreal,Val-d\'Or,Quebec,Canada,rent,7583,1746,2839,9,4,10,1939,2012-10-19,condominium
+151,1,45597,754,Laurel,Montreal,La Broquerie,Quebec,Canada,sale,91458190,2913,6560,4,1,2,1978,2021-11-27,other
+152,1,91,789,International,Montreal,Daveluyville,Quebec,Canada,sale,28207530,2403,5703,8,3,9,2016,2016-03-13,triplex
+153,1,6,269,Ilene,Montreal,Saint-Bruno-de-Montarville,Quebec,Canada,sale,62128352,3707,8498,4,5,10,1917,2021-01-16,duplex
+154,1,1,930,Hoepker,Montreal,Smoky Lake,Quebec,Canada,rent,1647,2248,4076,3,5,6,1936,2010-07-27,condominium
+155,1,8850,258,Kings,Montreal,Kimberley,Quebec,Canada,sale,66526846,3456,8511,8,9,3,1931,2022-10-29,other
+156,0,343,686,Corscot,Montreal,Hanover,Quebec,Canada,sale,98876180,3525,3312,9,4,7,1974,2012-04-17,townhouse
+157,1,66,475,Green Ridge,Montreal,White City,Quebec,Canada,rent,2502,2527,2363,4,4,6,1963,2016-02-11,studio
+158,1,12,366,Lerdahl,Montreal,Ucluelet,Quebec,Canada,sale,81094966,1709,3511,1,10,1,1964,2020-09-19,triplex
+159,1,128,797,Judy,Montreal,Baie-Comeau,Quebec,Canada,rent,3814,3798,3254,6,3,5,2013,2020-04-04,studio
+160,1,2562,513,Dryden,Montreal,Petrolia,Quebec,Canada,sale,13419613,4680,6728,7,2,2,1989,2011-05-14,quadruplex
+161,1,15,437,Lakewood,Montreal,Duncan,Quebec,Canada,rent,1916,1678,4567,5,4,2,2019,2022-08-04,condominium
+162,0,9022,113,Shopko,Montreal,Saint-Félicien,Quebec,Canada,sale,20862866,631,3886,4,10,10,1978,2016-07-26,other
+163,1,13434,477,International,Montreal,Peace River,Quebec,Canada,sale,47935563,4503,1705,5,6,2,1947,2021-02-28,single-family
+164,1,568,396,Daystar,Montreal,Sparwood,Quebec,Canada,rent,9070,1521,3874,2,6,8,1933,2014-03-28,other
+165,1,0,125,Goodland,Montreal,Alberton,Quebec,Canada,rent,819,4598,3054,4,6,5,1961,2011-03-07,other
+166,0,730,500,Schurz,Montreal,Cookshire-Eaton,Quebec,Canada,sale,82422478,1031,5765,10,1,10,1906,2022-02-11,other
+167,1,18,524,Northridge,Montreal,Lewisporte,Quebec,Canada,sale,93125147,221,6451,7,8,7,1938,2016-09-10,studio
+168,1,69767,873,Norway Maple,Montreal,Maniwaki,Quebec,Canada,sale,52091322,1629,7505,4,10,10,1964,2010-02-03,triplex
+169,1,37771,331,Pepper Wood,Montreal,Saint-Rémi,Quebec,Canada,rent,871,3819,4671,2,3,2,1976,2010-05-17,condominium
+170,1,9211,400,Quincy,Montreal,Burns Lake,Quebec,Canada,rent,359,3123,8611,6,7,6,2002,2020-05-13,quadruplex
+171,1,538,653,Hollow Ridge,Montreal,Whitehorse,Quebec,Canada,sale,27135630,827,4901,6,10,1,1917,2013-11-25,triplex
+172,1,1,435,Sherman,Montreal,Kitimat,Quebec,Canada,sale,78842703,3066,3728,9,5,5,1931,2019-05-25,duplex
+173,1,39,911,Twin Pines,Montreal,Smithers,Quebec,Canada,sale,63912838,3654,2673,3,7,3,1913,2018-09-19,studio
+174,1,52,712,Duke,Montreal,Windsor,Quebec,Canada,sale,78658755,3298,6817,4,5,8,1938,2018-03-07,triplex
+175,1,9416,795,Green,Montreal,Smithers,Quebec,Canada,rent,441,2691,4606,7,2,2,1930,2016-09-19,triplex
+176,1,6,832,Fairfield,Montreal,Lacolle,Quebec,Canada,rent,9872,1143,2864,2,4,4,1988,2014-05-18,triplex
+177,1,4957,118,Killdeer,Montreal,Melville,Quebec,Canada,sale,12228277,725,7613,8,2,7,1924,2016-12-27,quadruplex
+178,1,5938,116,Carberry,Montreal,Beauharnois,Quebec,Canada,rent,2225,1569,7475,9,8,4,1933,2017-03-01,single-family
+179,1,5777,651,Dorton,Montreal,Altona,Quebec,Canada,rent,645,4595,7955,2,5,8,1910,2010-03-31,studio
+180,1,1,879,Golf,Montreal,Watrous,Quebec,Canada,sale,64980814,1920,2425,5,7,3,1995,2013-10-28,single-family
+181,1,4809,918,Linden,Montreal,Amherstburg,Quebec,Canada,rent,4124,3613,6491,1,3,8,1975,2012-10-23,single-family
+182,1,9749,938,Raven,Montreal,Antigonish,Quebec,Canada,rent,3635,1823,3995,3,5,8,1933,2017-04-22,duplex
+183,1,7,837,Magdeline,Montreal,Invermere,Quebec,Canada,rent,8802,2645,5364,1,8,9,2010,2018-04-14,condominium
+184,1,59,849,Porter,Montreal,Kerrobert,Quebec,Canada,sale,83520091,2339,1976,9,1,7,1980,2017-06-27,other
+185,1,621,842,Merrick,Montreal,Lloydminster,Quebec,Canada,sale,71580319,4730,9520,8,4,3,1955,2022-09-25,triplex
+186,1,79070,316,Michigan,Montreal,Revelstoke,Quebec,Canada,rent,5927,3769,3608,10,10,5,1902,2021-05-30,duplex
+187,1,6284,635,Tennessee,Montreal,Normandin,Quebec,Canada,sale,50522726,3807,1726,2,9,7,1996,2022-09-27,quadruplex
+188,0,3,513,Lyons,Montreal,Pierreville,Quebec,Canada,rent,2191,1605,3895,10,5,6,1979,2021-05-24,other
+189,1,0,665,Lake View,Montreal,Newmarket,Quebec,Canada,sale,61516973,266,6850,5,10,5,1999,2019-12-24,other
+190,1,45,377,Hudson,Montreal,Charlemagne,Quebec,Canada,rent,8114,2126,3715,7,1,9,1979,2012-01-05,studio
+191,1,6435,856,Grover,Montreal,Camrose,Quebec,Canada,sale,29219009,1857,3623,8,1,10,2017,2017-05-29,duplex
+192,1,6473,640,Anzinger,Montreal,Mont-Laurier,Quebec,Canada,rent,6401,3303,7941,10,5,7,2002,2011-02-28,duplex
+193,1,95,223,Blackbird,Montreal,Saint-Jérôme,Quebec,Canada,rent,8166,4427,7952,6,8,2,1931,2022-11-07,quadruplex
+194,0,8757,705,Brown,Montreal,Oshawa,Quebec,Canada,rent,2098,2708,4989,1,9,4,1945,2010-05-04,single-family
+195,1,97,774,Forest Dale,Montreal,Sainte-Sophie,Quebec,Canada,rent,6846,935,7656,2,6,10,1948,2019-02-18,single-family
+196,1,68486,591,Waubesa,Montreal,Armstrong,Quebec,Canada,rent,6311,3453,3930,9,6,8,2004,2022-05-21,triplex
+197,1,2,665,Gale,Montreal,Coquitlam,Quebec,Canada,rent,3516,3814,3597,7,1,1,1984,2015-11-28,single-family
+198,1,5,550,Pawling,Montreal,Richmond,Quebec,Canada,rent,4233,1687,4349,6,2,1,1923,2017-08-24,studio
+199,1,13,578,Melby,Montreal,Concord,Quebec,Canada,rent,5347,1303,6518,8,9,10,1910,2010-07-25,single-family
+200,1,34288,332,Huxley,Montreal,Château-Richer,Quebec,Canada,sale,21898248,1777,1979,2,3,1,1991,2013-06-02,triplex
+201,1,42386,830,Bayside,Montreal,Ferme-Neuve,Quebec,Canada,rent,3329,186,4437,2,5,8,1945,2019-04-11,condominium
+202,1,3,132,Paget,Montreal,North Vancouver,Quebec,Canada,sale,75745605,2878,8226,4,2,8,1915,2010-05-06,quadruplex
+203,1,4,834,Lindbergh,Montreal,La Sarre,Quebec,Canada,rent,4778,3219,8831,1,3,6,2014,2021-10-07,other
+204,1,96081,350,Grasskamp,Montreal,Willowdale,Quebec,Canada,rent,8347,2359,2902,4,6,3,1924,2011-12-17,quadruplex
+205,1,9,450,Cherokee,Montreal,Greenwood,Quebec,Canada,rent,3021,110,7691,5,6,7,2018,2022-12-18,studio
+206,1,4066,572,Elgar,Montreal,Dorchester,Quebec,Canada,sale,69313611,4873,3782,8,2,5,1907,2017-05-26,townhouse
+207,1,36,251,Walton,Montreal,Mont-Tremblant,Quebec,Canada,rent,2239,2900,6243,4,2,3,1939,2013-11-25,townhouse
+208,1,47,572,Bayside,Montreal,Belleville,Quebec,Canada,rent,9671,2396,9036,2,5,2,1962,2011-08-29,triplex
+209,0,34,733,Pearson,Montreal,Carman,Quebec,Canada,sale,28656073,1219,3728,2,5,6,1961,2019-05-07,duplex
+210,1,4183,691,Lawn,Montreal,Hudson Bay,Quebec,Canada,sale,46953430,3924,4643,7,8,3,1934,2014-10-15,quadruplex
+211,1,9086,748,Aberg,Montreal,Midland,Quebec,Canada,rent,7729,4676,8695,5,7,5,1978,2010-04-14,duplex
+212,1,0,306,Stang,Montreal,Berthierville,Quebec,Canada,sale,29666368,3601,5989,5,9,9,1917,2020-08-03,duplex
+213,1,52,754,Forest Dale,Montreal,Kugluktuk,Quebec,Canada,sale,45216892,1175,9903,1,2,9,2021,2013-06-07,studio
+214,1,3584,331,Lunder,Montreal,Sainte-Marthe-sur-le-Lac,Quebec,Canada,rent,9764,3530,9448,9,2,6,1954,2010-03-20,townhouse
+215,1,4917,717,Jenna,Montreal,North Saanich,Quebec,Canada,sale,38276041,3724,3317,6,10,7,1959,2013-11-08,townhouse
+216,0,342,422,Anhalt,Montreal,St. Thomas,Quebec,Canada,rent,8470,4284,2779,4,5,6,1908,2023-04-24,duplex
+217,0,2929,862,Birchwood,Montreal,Raymond,Quebec,Canada,rent,8668,4042,1497,9,10,7,2008,2022-05-05,other
+218,1,11,552,Cascade,Montreal,Carleton Place,Quebec,Canada,rent,3173,4525,7230,3,10,2,1919,2023-05-13,studio
+219,1,6967,529,Carey,Montreal,Neuville,Quebec,Canada,sale,23299057,3599,4290,8,6,4,2006,2012-01-23,studio
+220,1,9,917,Arkansas,Montreal,Amqui,Quebec,Canada,rent,2663,1637,6961,3,3,5,1905,2018-06-03,triplex
+221,1,2640,813,Starling,Montreal,Sechelt,Quebec,Canada,sale,12468067,2863,6351,4,3,5,2012,2020-06-26,other
+222,1,56,207,Dwight,Montreal,Catalina,Quebec,Canada,rent,5926,3187,7433,7,1,10,1931,2018-11-18,single-family
+223,1,2290,654,Gerald,Montreal,Prince Albert,Quebec,Canada,rent,8066,2261,5138,9,6,4,1912,2017-06-12,other
+224,1,9486,358,Gale,Montreal,Fort Smith,Quebec,Canada,rent,6772,4090,4204,6,5,8,1983,2015-05-07,triplex
+225,1,603,142,Susan,Montreal,Warwick,Quebec,Canada,rent,8751,3923,1689,7,1,6,1932,2015-07-26,studio
+226,1,9,365,Atwood,Montreal,Chambly,Quebec,Canada,sale,50154494,2810,9322,7,7,3,1961,2018-02-10,other
+227,1,784,862,Ryan,Montreal,Lunenburg,Quebec,Canada,sale,69356175,2941,3313,8,1,4,2002,2013-06-08,townhouse
+228,1,935,688,Pawling,Montreal,Invermere,Quebec,Canada,sale,81635321,1247,1256,1,2,8,1991,2019-10-02,other
+229,0,6543,694,Pawling,Montreal,Saint John,Quebec,Canada,sale,94184799,4255,4307,5,3,8,1980,2010-09-17,other
+230,0,42994,784,Fieldstone,Montreal,Richmond,Quebec,Canada,sale,70212390,176,5723,5,6,7,1918,2020-02-05,quadruplex
+231,1,9032,623,Farragut,Montreal,Val-d\'Or,Quebec,Canada,rent,1436,2254,5241,10,8,8,2015,2012-07-12,condominium
+232,1,62,985,Paget,Montreal,Wingham,Quebec,Canada,sale,28849619,983,8667,9,6,10,1963,2023-01-20,other
+233,1,92740,515,Lighthouse Bay,Montreal,Raymond,Quebec,Canada,rent,6887,4006,4515,7,2,1,1994,2019-10-07,single-family
+234,1,917,728,Hintze,Montreal,Kirkland,Quebec,Canada,sale,80635016,4842,8624,5,8,3,1952,2017-05-09,triplex
+235,1,7,713,Garrison,Montreal,Greater Napanee,Quebec,Canada,sale,4065919,2258,1556,1,7,2,2012,2020-05-30,single-family
+236,1,3,715,Briar Crest,Montreal,Houston,Quebec,Canada,rent,2453,1976,7889,8,1,1,2023,2023-06-23,duplex
+237,1,247,692,Gateway,Montreal,Drayton Valley,Quebec,Canada,sale,94641844,1917,7342,4,1,7,1966,2019-06-14,triplex
+238,1,2,412,Manufacturers,Montreal,Amherstburg,Quebec,Canada,sale,54430758,3287,8366,5,10,8,1926,2015-01-29,triplex
+239,1,7,1000,Arapahoe,Montreal,Kamsack,Quebec,Canada,sale,4580687,1338,6729,8,1,6,1942,2013-11-28,triplex
+240,1,5,931,Oak,Montreal,Lillooet,Quebec,Canada,sale,3561887,2536,1361,8,5,6,1920,2023-04-06,quadruplex
+241,1,2,855,Badeau,Montreal,Roblin,Quebec,Canada,rent,7828,4041,9253,8,6,1,1951,2014-03-13,townhouse
+242,1,31912,665,Derek,Montreal,Cache Creek,Quebec,Canada,sale,34334716,103,4565,2,5,9,1936,2010-07-22,quadruplex
+243,1,139,388,Springview,Montreal,Barrie,Quebec,Canada,rent,9124,1417,9985,3,9,2,1952,2012-11-13,duplex
+244,0,702,842,Mesta,Montreal,Ormstown,Quebec,Canada,sale,71073521,4445,6858,4,5,1,1990,2015-07-15,single-family
+245,1,3719,159,Carey,Montreal,Acton Vale,Quebec,Canada,sale,44360198,979,2891,10,5,10,1961,2010-02-25,townhouse
+246,1,15,559,Randy,Montreal,Petrolia,Quebec,Canada,sale,8607006,782,4634,2,6,7,1994,2018-05-11,condominium
+247,1,9,911,Forest Dale,Montreal,Bowen Island,Quebec,Canada,rent,3480,3179,7553,3,3,3,1917,2014-01-10,studio
+248,1,38206,582,Northland,Montreal,Kirkland Lake,Quebec,Canada,rent,3305,3089,7432,10,1,1,1913,2021-04-07,studio
+249,1,52,673,Maryland,Montreal,High Prairie,Quebec,Canada,sale,91522792,3941,8730,7,8,7,1971,2013-02-08,triplex
+250,1,8708,790,American Ash,Montreal,Amqui,Quebec,Canada,rent,8473,3253,2059,4,7,4,1955,2016-05-13,single-family
+251,1,1,876,Goodland,Montreal,Carbonear,Quebec,Canada,rent,2328,781,1921,5,5,4,1917,2014-06-30,townhouse
+252,1,658,533,Birchwood,Montreal,Abbotsford,Quebec,Canada,sale,7253743,1396,5078,6,5,10,1928,2016-08-23,condominium
+253,1,9,911,Village,Montreal,Vegreville,Quebec,Canada,sale,16542322,2978,9728,9,7,1,1918,2013-10-29,quadruplex
+254,0,96349,183,Porter,Montreal,Maple Creek,Quebec,Canada,rent,7920,3621,6109,8,10,3,1908,2020-03-20,quadruplex
+255,1,93427,269,Jenna,Montreal,Nakusp,Quebec,Canada,sale,13427310,2094,9800,7,8,2,2020,2016-02-24,other
+256,1,5507,634,Stuart,Montreal,Langenburg,Quebec,Canada,rent,9518,3558,7798,8,1,9,2006,2021-12-26,studio
+257,1,185,548,Mallard,Montreal,Lions Bay,Quebec,Canada,sale,77669112,4238,9576,3,4,10,1907,2018-12-31,other
+258,1,5,937,Ronald Regan,Montreal,Amqui,Quebec,Canada,sale,86080748,4963,4900,5,4,5,1927,2023-04-03,triplex
+259,1,4524,985,Armistice,Montreal,Thessalon,Quebec,Canada,rent,2171,1308,2834,3,1,1,1906,2020-12-11,townhouse
+260,1,87733,300,Swallow,Montreal,Lacombe,Quebec,Canada,rent,9472,3253,6633,9,7,6,2022,2022-04-28,studio
+261,1,340,836,Roth,Montreal,Lavaltrie,Quebec,Canada,rent,6632,4028,5259,3,7,10,1978,2016-11-29,single-family
+262,1,87846,472,Jenna,Montreal,Fort Macleod,Quebec,Canada,sale,54099359,173,1405,2,5,4,1959,2023-09-22,townhouse
+263,1,4,823,Kenwood,Montreal,Burnaby,Quebec,Canada,rent,412,1603,5189,8,2,7,1944,2011-09-03,studio
+264,1,9054,509,Nelson,Montreal,Macklin,Quebec,Canada,rent,1872,1423,4775,3,4,10,1904,2017-06-25,other
+265,1,0,831,David,Montreal,Lac La Biche,Quebec,Canada,rent,537,3537,9113,5,8,9,1941,2011-09-09,single-family
+266,1,24396,291,Drewry,Montreal,Charlemagne,Quebec,Canada,sale,68224410,2996,2770,5,4,7,2003,2021-05-13,other
+267,0,4971,171,Shopko,Montreal,Lewisporte,Quebec,Canada,rent,6117,3028,8555,6,4,7,1992,2018-05-03,quadruplex
+268,1,34747,270,School,Montreal,Bridgewater,Quebec,Canada,rent,9864,1748,5617,7,3,9,1939,2022-11-06,triplex
+269,1,15,628,Harbort,Montreal,Macamic,Quebec,Canada,sale,90045808,2687,7030,10,3,1,1906,2012-06-06,quadruplex
+270,1,17181,760,Melody,Montreal,Strathmore,Quebec,Canada,rent,6250,879,7407,5,2,10,2017,2012-05-06,other
+271,1,2,373,Tomscot,Montreal,Richibucto,Quebec,Canada,rent,7816,3778,8294,9,3,6,2022,2017-09-30,duplex
+272,1,72,832,Meadow Valley,Montreal,La Broquerie,Quebec,Canada,sale,84144342,657,5868,1,1,5,1990,2012-10-20,quadruplex
+273,0,86414,980,Red Cloud,Montreal,Nelson,Quebec,Canada,sale,6734550,384,8564,7,9,5,1934,2014-10-13,studio
+274,1,3,987,Summer Ridge,Montreal,Bromont,Quebec,Canada,sale,77001036,3285,2555,4,7,9,1912,2014-06-09,other
+275,1,25,997,Delladonna,Montreal,Victoriaville,Quebec,Canada,rent,2178,4602,5695,7,2,8,1927,2020-01-23,quadruplex
+276,0,309,202,Grayhawk,Montreal,Alberton,Quebec,Canada,rent,5558,4821,1528,9,9,9,1989,2020-04-09,other
+277,0,13,659,Waubesa,Montreal,Coaldale,Quebec,Canada,rent,1257,4541,4961,7,7,4,1963,2023-05-27,condominium
+278,1,4394,387,Blue Bill Park,Montreal,Morinville,Quebec,Canada,rent,9697,4529,8791,7,6,6,1950,2017-06-10,quadruplex
+279,1,3,479,American Ash,Montreal,Antigonish,Quebec,Canada,rent,8243,4466,2787,7,3,7,1905,2012-08-09,other
+280,1,601,833,Lyons,Montreal,Bridgewater,Quebec,Canada,sale,24125186,4758,8373,8,5,2,1976,2014-07-17,triplex
+281,1,9,793,Moulton,Montreal,Okanagan,Quebec,Canada,rent,4639,2012,3337,5,3,3,1910,2018-05-13,other
+282,1,18343,589,Scoville,Montreal,North Battleford,Quebec,Canada,rent,3870,1762,5804,5,2,6,1947,2016-10-12,townhouse
+283,1,82,314,Carioca,Montreal,Deep River,Quebec,Canada,rent,8374,4648,3234,1,9,10,2017,2015-11-23,condominium
+284,1,81448,180,American Ash,Montreal,Okotoks,Quebec,Canada,sale,45227389,4788,6882,7,10,7,2003,2016-06-15,townhouse
+285,1,9,602,Johnson,Montreal,Grand Bank,Quebec,Canada,sale,56832417,3403,7530,6,7,8,1948,2019-04-09,other
+286,1,2037,574,Norway Maple,Montreal,Kirkland Lake,Quebec,Canada,rent,6205,333,2583,5,1,4,1969,2019-10-31,duplex
+287,1,11579,168,Hayes,Montreal,Warwick,Quebec,Canada,rent,5574,2746,2279,6,8,9,1959,2015-08-21,triplex
+288,1,96,354,Crowley,Montreal,La Broquerie,Quebec,Canada,sale,59787938,1888,5485,3,4,8,1950,2011-07-05,other
+289,1,119,338,Mariners Cove,Montreal,Houston,Quebec,Canada,rent,5779,1031,3608,5,4,3,1925,2017-01-11,triplex
+290,0,1,254,Schurz,Montreal,Laval,Quebec,Canada,sale,74377672,3324,5577,1,2,7,1914,2015-04-18,duplex
+291,1,38,935,Schurz,Montreal,Morinville,Quebec,Canada,sale,86358247,2436,5569,8,5,3,1977,2015-04-17,triplex
+292,1,3690,786,Blackbird,Montreal,Ponoka,Quebec,Canada,rent,7723,2338,8470,3,1,9,1951,2012-06-09,duplex
+293,1,6,230,Thierer,Montreal,Altona,Quebec,Canada,sale,83721432,649,3009,3,5,8,1913,2018-04-18,condominium
+294,1,1193,209,Erie,Montreal,Kamsack,Quebec,Canada,rent,2654,503,6243,8,10,3,1949,2018-06-22,triplex
+295,1,607,375,Nevada,Montreal,High River,Quebec,Canada,sale,13666674,2915,8057,4,7,9,1978,2020-11-22,condominium
+296,1,468,171,Prairieview,Montreal,Selkirk,Quebec,Canada,rent,1451,4998,5930,6,3,7,1998,2011-10-28,townhouse
+297,0,1,109,Mallory,Montreal,Lunenburg,Quebec,Canada,rent,5124,246,1444,6,2,9,1998,2012-03-08,duplex
+298,1,39703,841,Paget,Montreal,Oliver,Quebec,Canada,rent,3115,221,3387,5,1,6,1923,2020-03-01,studio
+299,1,43,301,Pankratz,Montreal,Outlook,Quebec,Canada,sale,49745729,3348,5668,6,2,9,1904,2015-06-08,townhouse
+300,1,37,984,Butterfield,Montreal,Morris,Quebec,Canada,rent,206,4782,3359,3,4,7,1916,2021-08-08,condominium
+301,1,13,817,Melby,Montreal,Armstrong,Quebec,Canada,rent,6921,2589,3522,3,5,6,1960,2018-10-31,duplex
+302,1,4102,108,High Crossing,Montreal,Macamic,Quebec,Canada,rent,940,4940,9694,10,2,9,1911,2023-07-13,quadruplex
+303,1,464,288,Continental,Montreal,Waterloo,Quebec,Canada,sale,24003750,2470,8458,10,6,4,2001,2020-04-28,quadruplex
+304,1,306,617,Dixon,Montreal,Princeton,Quebec,Canada,sale,41521408,2494,2380,4,2,7,1962,2010-11-29,duplex
+305,1,77,704,Thackeray,Montreal,Smoky Lake,Quebec,Canada,rent,6503,4718,2796,7,2,9,1972,2022-07-25,duplex
+306,1,879,562,Thierer,Montreal,Carman,Quebec,Canada,sale,59078577,4748,7014,5,2,9,1931,2020-01-17,townhouse
+307,1,5,933,Clarendon,Montreal,Prévost,Quebec,Canada,rent,8397,2988,9140,9,2,2,1942,2016-05-18,studio
+308,1,697,671,Chive,Montreal,Oshawa,Quebec,Canada,rent,8647,3420,9616,5,3,9,1986,2021-12-26,triplex
+309,1,7844,792,Twin Pines,Montreal,Sydney Mines,Quebec,Canada,sale,78005154,4390,6002,7,3,2,1974,2010-05-10,studio
+310,1,28333,642,Fuller,Montreal,Swift Current,Quebec,Canada,rent,2360,1160,7652,9,3,8,1903,2019-12-11,single-family
+311,1,7,625,Lunder,Montreal,Outlook,Quebec,Canada,rent,1380,3256,5325,9,2,4,1917,2011-09-03,quadruplex
+312,1,701,883,Kennedy,Montreal,Macklin,Quebec,Canada,sale,81926790,1219,3123,8,7,4,2022,2020-11-02,duplex
+313,1,9,847,Randy,Montreal,Coquitlam,Quebec,Canada,rent,2581,2159,5757,2,7,8,1906,2021-02-13,quadruplex
+314,1,3,753,Maple Wood,Montreal,Saint-Augustin,Quebec,Canada,sale,36124936,1237,1573,4,2,8,2009,2022-12-16,townhouse
+315,1,9,161,Union,Montreal,Adstock,Quebec,Canada,sale,96085639,3562,4724,5,5,9,1923,2022-03-29,other
+316,1,1795,518,Fallview,Montreal,Sainte-Anne-des-Plaines,Quebec,Canada,rent,1186,1818,2750,8,6,1,2002,2012-09-26,single-family
+317,1,35,968,Delladonna,Montreal,Thompson,Quebec,Canada,rent,361,3773,4510,4,8,7,2016,2017-10-02,single-family
+318,0,3542,948,Vera,Montreal,Penticton,Quebec,Canada,rent,7451,2169,3792,8,2,1,1952,2010-11-01,townhouse
+319,1,1558,229,Porter,Montreal,Fruitvale,Quebec,Canada,rent,669,2621,3969,5,10,3,1905,2020-02-03,other
+320,1,56578,298,Milwaukee,Montreal,Dauphin,Quebec,Canada,rent,5027,2284,5267,3,1,7,2001,2018-11-02,quadruplex
+321,1,8495,243,Lakewood,Montreal,Saint-Rémi,Quebec,Canada,sale,75167226,4179,4796,3,1,7,2007,2015-03-19,townhouse
+322,1,9799,166,Hansons,Montreal,Cornwall,Quebec,Canada,rent,7150,2193,5182,10,2,4,2019,2022-03-11,studio
+323,1,85,933,Mandrake,Montreal,Nackawic,Quebec,Canada,sale,23847652,1717,3103,8,3,7,2015,2011-06-12,quadruplex
+324,1,553,794,Charing Cross,Montreal,Stettler,Quebec,Canada,sale,70795109,4999,9598,9,2,7,1948,2014-04-06,quadruplex
+325,1,999,850,Hazelcrest,Montreal,Gjoa Haven,Quebec,Canada,rent,2465,3800,8229,9,6,5,1910,2023-05-23,condominium
+326,1,40055,198,Summer Ridge,Montreal,Leduc,Quebec,Canada,sale,71445321,1819,3513,9,5,8,1931,2022-12-12,quadruplex
+327,1,7,193,Kings,Montreal,Sutton,Quebec,Canada,sale,93881026,443,1475,1,10,7,1953,2014-10-03,single-family
+328,1,511,195,Packers,Montreal,Vegreville,Quebec,Canada,sale,11146501,556,7929,6,1,6,1944,2019-03-20,other
+329,1,8141,229,5th,Montreal,Maniwaki,Quebec,Canada,sale,48634645,3564,1081,4,8,6,1989,2015-05-13,other
+330,1,36119,648,Rigney,Montreal,Lewisporte,Quebec,Canada,rent,4303,3981,8265,7,6,9,1963,2015-05-06,other
+331,1,18,903,Forest Dale,Montreal,North Perth,Quebec,Canada,rent,4090,763,4941,9,5,1,1920,2015-10-23,other
+332,1,6,591,Fieldstone,Montreal,Lac La Biche,Quebec,Canada,sale,12317590,3046,5856,1,9,8,1922,2010-10-19,townhouse
+333,1,8721,730,Butterfield,Montreal,Fredericton,Quebec,Canada,rent,5131,3294,2525,10,10,8,1907,2012-11-23,townhouse
+334,1,90,979,Summerview,Montreal,London,Quebec,Canada,rent,244,4313,7302,6,5,9,1963,2023-07-11,triplex
+335,1,8,334,Mitchell,Montreal,Biggar,Quebec,Canada,sale,25874261,3774,2810,8,2,1,1948,2021-10-27,quadruplex
+336,1,6475,699,Mandrake,Montreal,Saint-Jérôme,Quebec,Canada,rent,665,953,5255,1,6,1,1917,2012-04-30,duplex
+337,1,523,544,Sundown,Montreal,Aldergrove,Quebec,Canada,sale,85691049,4115,1888,8,8,4,1945,2010-05-04,single-family
+338,1,6,421,Rusk,Montreal,Rimouski,Quebec,Canada,rent,9304,4842,3458,4,10,1,1934,2021-05-18,other
+339,1,3466,588,Barnett,Montreal,Rocky Mountain House,Quebec,Canada,sale,24638430,762,1434,2,2,3,1968,2015-10-30,triplex
+340,1,76313,505,Beilfuss,Montreal,Moose Jaw,Quebec,Canada,rent,5034,1626,7015,2,10,3,2005,2014-11-01,townhouse
+341,1,8183,404,Grim,Montreal,Farnham,Quebec,Canada,sale,96506380,1273,3570,9,6,4,1926,2017-06-14,triplex
+342,1,84351,970,Caliangt,Montreal,Moose Jaw,Quebec,Canada,sale,75280671,3014,5037,6,2,3,1926,2020-09-09,studio
+343,1,8603,703,Hoard,Montreal,North York,Quebec,Canada,sale,7661601,2192,2363,6,6,2,1948,2013-08-02,studio
+344,1,2,827,Chinook,Montreal,Harrison Brook,Quebec,Canada,rent,9233,4747,7647,10,3,8,1924,2014-01-04,single-family
+345,1,9585,145,Crownhardt,Montreal,Antigonish,Quebec,Canada,rent,8148,2435,6792,4,10,7,2009,2015-03-17,townhouse
+346,1,89607,161,Longview,Montreal,Selkirk,Quebec,Canada,rent,8561,2957,3814,9,10,3,1980,2016-08-16,duplex
+347,0,8441,493,Saint Paul,Montreal,Rivière-du-Loup,Quebec,Canada,rent,8296,4577,5350,1,8,2,1956,2022-05-15,single-family
+348,1,88,536,Prairie Rose,Montreal,Parksville,Quebec,Canada,sale,70930781,3439,1585,8,6,4,1982,2015-11-23,studio
+349,1,98,684,Buena Vista,Montreal,Baie-Saint-Paul,Quebec,Canada,sale,27620652,1610,7579,3,9,8,1948,2011-08-13,townhouse
+350,1,18932,696,Golf View,Montreal,Richibucto,Quebec,Canada,rent,8493,2529,4055,10,2,2,1927,2013-08-23,studio
+351,0,77,371,Norway Maple,Montreal,Martensville,Quebec,Canada,sale,68921384,2597,6194,6,3,3,1973,2019-08-18,triplex
+352,0,9,770,Valley Edge,Montreal,Sarnia,Quebec,Canada,rent,2299,4203,5187,7,6,10,1978,2010-12-25,studio
+353,1,6,705,Mosinee,Montreal,Metchosin,Quebec,Canada,sale,33566925,4206,3260,2,10,9,1922,2023-09-21,triplex
+354,1,5358,192,Mosinee,Montreal,Lewisporte,Quebec,Canada,sale,69025812,2583,9281,9,4,4,1923,2017-08-07,duplex
+355,1,4595,525,Raven,Montreal,L\'Épiphanie,Quebec,Canada,sale,88072495,1681,1800,5,3,7,2003,2014-09-14,single-family
+356,1,323,460,Leroy,Montreal,Devon,Quebec,Canada,sale,32453416,4014,3234,10,2,3,1939,2013-03-16,single-family
+357,1,6963,671,Clove,Montreal,Chester,Quebec,Canada,sale,45622582,4703,1683,6,3,6,1968,2018-07-26,duplex
+358,1,479,679,Ridgeview,Montreal,Princeville,Quebec,Canada,rent,9525,3628,5917,8,3,8,1916,2020-07-09,duplex
+359,0,0,135,Porter,Montreal,Chase,Quebec,Canada,rent,9801,4525,7983,8,1,10,1972,2023-05-07,condominium
+360,1,13,141,Bunker Hill,Montreal,Princeton,Quebec,Canada,sale,50343163,3519,2638,2,9,9,1917,2015-10-01,duplex
+361,1,284,182,Eastlawn,Montreal,Markham,Quebec,Canada,sale,80465918,3588,6479,4,3,2,1992,2011-08-28,duplex
+362,1,83,110,Logan,Montreal,Sydney Mines,Quebec,Canada,sale,47767426,4158,9293,1,4,4,2013,2017-07-17,quadruplex
+363,1,5017,598,Darwin,Montreal,Dollard-Des Ormeaux,Quebec,Canada,sale,73231171,2391,8246,4,8,3,2013,2012-08-31,single-family
+364,1,8460,454,Main,Montreal,Kitchener,Quebec,Canada,rent,2628,4425,1908,5,8,10,1943,2018-04-25,condominium
+365,1,4903,954,Service,Montreal,Agassiz,Quebec,Canada,rent,7402,378,9231,3,7,7,1950,2015-11-20,condominium
+366,1,1,128,Helena,Montreal,Antigonish,Quebec,Canada,rent,3902,1031,3811,4,2,8,1946,2022-03-22,duplex
+367,0,44,990,Springview,Montreal,Hanna,Quebec,Canada,rent,5213,1431,9294,2,7,7,2005,2019-05-25,studio
+368,1,207,619,Warbler,Montreal,Banff,Quebec,Canada,rent,8302,3168,6994,7,10,9,1961,2020-11-02,other
+369,0,4133,291,Pleasure,Montreal,Saguenay,Quebec,Canada,sale,86766287,2251,7804,7,2,8,1953,2019-07-26,townhouse
+370,1,392,333,Jana,Montreal,Danville,Quebec,Canada,sale,9202187,170,5161,3,2,8,1924,2021-12-08,triplex
+371,1,934,357,Delaware,Montreal,Virden,Quebec,Canada,sale,75000522,273,9582,10,9,2,1964,2018-03-02,single-family
+372,1,0,817,Fulton,Montreal,Altona,Quebec,Canada,sale,82686587,4299,8209,8,4,8,1985,2014-04-01,condominium
+373,1,594,921,Towne,Montreal,Renfrew,Quebec,Canada,sale,65617448,640,2781,5,9,5,1998,2021-05-02,studio
+374,1,3,205,Havey,Montreal,Saint-Eustache,Quebec,Canada,rent,8937,2783,8812,10,6,2,1978,2018-08-29,triplex
+375,1,430,239,Springview,Montreal,Sussex,Quebec,Canada,rent,5390,2572,5667,9,2,4,1967,2018-12-21,townhouse
+376,1,985,459,Grayhawk,Montreal,Calmar,Quebec,Canada,rent,9373,2591,9574,8,6,3,1970,2016-11-02,triplex
+377,1,10329,676,Loftsgordon,Montreal,Notre-Dame-des-Prairies,Quebec,Canada,sale,53458387,735,1899,10,6,5,1965,2011-06-04,studio
+378,1,78852,808,Arizona,Montreal,Kitchener,Quebec,Canada,rent,4534,4179,1542,1,6,8,1984,2022-02-19,triplex
+379,1,35349,479,Shopko,Montreal,Taber,Quebec,Canada,rent,9160,3783,5876,6,6,1,1960,2022-08-29,single-family
+380,1,797,254,Dwight,Montreal,Gravelbourg,Quebec,Canada,rent,1489,3017,3735,10,4,6,2009,2014-03-14,single-family
+381,1,909,388,Straubel,Montreal,La Ronge,Quebec,Canada,rent,5995,4492,2595,7,2,7,1972,2011-07-09,studio
+382,1,710,833,Oak Valley,Montreal,La Tuque,Quebec,Canada,rent,5229,1512,7612,2,3,10,1956,2017-11-22,triplex
+383,1,4299,286,Union,Montreal,Kapuskasing,Quebec,Canada,sale,28877217,3131,8425,5,4,7,1992,2014-09-27,studio
+384,1,366,948,Kim,Montreal,Mirabel,Quebec,Canada,sale,8263718,4194,8627,4,2,5,1929,2012-01-02,duplex
+385,1,7,315,Farwell,Montreal,Leduc,Quebec,Canada,sale,39962085,4393,8066,10,9,2,1979,2010-06-15,triplex
+386,0,41,485,Monterey,Montreal,Golden,Quebec,Canada,sale,65097706,4725,9121,8,10,9,1903,2016-03-18,townhouse
+387,1,950,564,Shopko,Montreal,Edson,Quebec,Canada,sale,88083609,4976,2981,1,2,1,1966,2021-12-27,triplex
+388,1,25,276,Russell,Montreal,Watrous,Quebec,Canada,sale,21494402,300,6287,2,8,9,1925,2018-04-29,condominium
+389,1,69316,901,3rd,Montreal,Killam,Quebec,Canada,rent,4155,3667,4936,2,6,1,1963,2020-11-28,duplex
+390,1,5144,180,Little Fleur,Montreal,Rivière-du-Loup,Quebec,Canada,sale,25692833,2804,1326,3,7,9,1910,2016-02-29,quadruplex
+391,1,2413,900,Jana,Montreal,Aylmer,Quebec,Canada,rent,4653,1869,5622,4,9,2,1906,2011-04-15,duplex
+392,1,4015,925,Prentice,Montreal,Canmore,Quebec,Canada,rent,3175,4267,7315,7,2,7,1985,2021-08-12,quadruplex
+393,1,9,636,Manufacturers,Montreal,Ucluelet,Quebec,Canada,rent,6069,1984,5001,4,3,4,1983,2019-03-28,townhouse
+394,1,4,517,Caliangt,Montreal,Prévost,Quebec,Canada,rent,6405,911,8776,6,9,1,1908,2015-07-25,triplex
+395,1,5,255,Parkside,Montreal,Varennes,Quebec,Canada,rent,4909,4841,8555,10,1,9,1984,2014-06-16,studio
+396,1,68647,605,Holy Cross,Montreal,Milton,Quebec,Canada,rent,2109,3245,7441,8,8,9,1934,2014-04-28,triplex
+397,1,98,799,Randy,Montreal,Lethbridge,Quebec,Canada,rent,7112,3826,2906,6,1,9,1980,2019-08-08,quadruplex
+398,1,547,724,Leroy,Montreal,Fairview,Quebec,Canada,sale,70887101,3184,3432,6,7,8,2008,2013-04-02,townhouse
+399,1,86300,451,Northview,Montreal,Lloydminster,Quebec,Canada,sale,33956779,3881,5442,4,6,2,2009,2012-04-03,studio
+400,1,35802,543,Vahlen,Montreal,Greenwood,Quebec,Canada,sale,34906450,4898,8613,9,9,7,1996,2020-01-08,triplex
+401,1,19,419,Ramsey,Montreal,Baie-Comeau,Quebec,Canada,rent,7266,1740,7048,5,6,8,1933,2021-07-12,quadruplex
+402,1,4,712,Kings,Montreal,Port Hawkesbury,Quebec,Canada,rent,7896,1423,6469,9,5,6,2011,2022-04-30,condominium
+403,0,595,377,Northview,Montreal,Gibsons,Quebec,Canada,rent,5202,3504,6135,9,6,1,1983,2013-07-28,condominium
+404,1,15,588,Drewry,Montreal,Rosthern,Quebec,Canada,rent,9084,3390,9018,1,9,10,1926,2019-07-02,condominium
+405,1,95116,167,Johnson,Montreal,Joliette,Quebec,Canada,rent,6854,3145,3024,2,10,8,2002,2015-02-01,single-family
+406,1,1360,458,Lake View,Montreal,Montréal,Quebec,Canada,sale,99006908,4603,2611,7,4,5,1919,2021-04-15,studio
+407,1,47533,810,Amoth,Montreal,Drummondville,Quebec,Canada,rent,6884,4022,1415,10,4,1,1929,2016-04-08,townhouse
+408,1,6262,385,Warner,Montreal,Maple Creek,Quebec,Canada,rent,6884,3780,4887,6,4,2,1954,2023-09-13,condominium
+409,0,7,207,Graedel,Montreal,Saint John,Quebec,Canada,sale,49764806,1365,1777,6,10,5,1934,2020-12-23,quadruplex
+410,0,8,755,Sunnyside,Montreal,Lac-Brome,Quebec,Canada,sale,35954243,3335,7466,8,6,4,1951,2013-05-18,single-family
+411,1,0,594,Barby,Montreal,Saint-Augustin,Quebec,Canada,sale,44191788,2740,9378,1,3,4,1947,2013-11-18,condominium
+412,1,648,338,Grover,Montreal,Ladner,Quebec,Canada,sale,672558,3898,5618,10,6,5,1920,2020-05-12,duplex
+413,1,6,811,Continental,Montreal,High River,Quebec,Canada,sale,68042998,2405,9030,4,9,5,1902,2019-12-30,condominium
+414,1,75,513,Ludington,Montreal,Marystown,Quebec,Canada,sale,94304220,2756,1484,1,8,3,1966,2022-07-10,triplex
+415,1,2,984,Buena Vista,Montreal,Bécancour,Quebec,Canada,rent,266,4881,7511,2,7,7,1968,2020-09-09,triplex
+416,1,457,593,Clove,Montreal,Pilot Butte,Quebec,Canada,sale,99571486,4787,6085,6,8,5,1978,2021-04-12,single-family
+417,1,0,878,Pine View,Montreal,Waterloo,Quebec,Canada,rent,737,121,2932,6,3,5,1970,2023-05-29,other
+418,0,245,624,Gerald,Montreal,Bécancour,Quebec,Canada,sale,65453728,2158,1412,3,8,4,2017,2023-07-31,duplex
+419,0,6937,760,Mccormick,Montreal,Kugluktuk,Quebec,Canada,sale,87244831,4531,3723,2,2,9,1976,2012-07-15,condominium
+420,1,572,768,Pleasure,Montreal,Langford,Quebec,Canada,rent,3594,1358,5585,8,10,1,1942,2019-03-24,duplex
+421,1,62,772,Fordem,Montreal,Grande Prairie,Quebec,Canada,rent,674,3185,4230,3,3,4,1933,2015-01-11,single-family
+422,1,81,357,Buhler,Montreal,Cochrane,Quebec,Canada,rent,8005,3074,3408,7,8,4,1913,2011-10-13,other
+423,1,73568,839,Drewry,Montreal,Lavaltrie,Quebec,Canada,sale,60616027,915,1469,3,8,3,1989,2012-03-23,townhouse
+424,1,6278,254,Clyde Gallagher,Montreal,Cowansville,Quebec,Canada,rent,9927,230,2831,3,4,7,1944,2023-03-25,single-family
+425,1,58,805,Packers,Montreal,Edson,Quebec,Canada,rent,8655,3716,4797,8,6,9,1926,2022-01-12,studio
+426,1,3,349,Montana,Montreal,Shediac,Quebec,Canada,rent,3150,1489,8665,4,6,8,1915,2015-11-02,duplex
+427,1,74,311,Manitowish,Montreal,Longueuil,Quebec,Canada,sale,39362162,4723,7733,1,2,6,1926,2018-12-02,studio
+428,1,127,697,Grim,Montreal,Cornwall,Quebec,Canada,rent,7874,4703,1309,5,7,10,2017,2011-11-30,condominium
+429,1,8686,758,Delaware,Montreal,Port-Cartier,Quebec,Canada,rent,7202,3953,9138,8,1,4,1902,2022-03-17,duplex
+430,1,544,763,Dapin,Montreal,Vanderhoof,Quebec,Canada,rent,1006,876,9104,5,5,4,1917,2020-08-22,condominium
+431,1,7,492,Melvin,Montreal,Port Moody,Quebec,Canada,sale,53368499,279,6723,5,5,2,1919,2014-02-11,duplex
+432,1,5,748,Summit,Montreal,Rayside-Balfour,Quebec,Canada,rent,9473,2068,9884,4,7,2,1931,2023-06-17,townhouse
+433,1,78,686,Beilfuss,Montreal,Lebel-sur-Quévillon,Quebec,Canada,sale,31760555,1692,1679,7,7,2,1971,2014-04-25,studio
+434,1,17779,538,Riverside,Montreal,Saint-Lin-Laurentides,Quebec,Canada,rent,5548,3107,6398,6,5,4,1982,2011-08-12,single-family
+435,1,73059,974,Onsgard,Montreal,Keswick,Quebec,Canada,sale,7279145,3906,9379,6,3,1,1963,2018-07-03,quadruplex
+436,1,30574,789,Anthes,Montreal,Mont-Saint-Hilaire,Quebec,Canada,rent,1646,3394,6481,2,10,2,1906,2021-12-18,studio
+437,1,2,291,Mayfield,Montreal,Raymond,Quebec,Canada,rent,3093,1721,6642,8,1,4,1991,2018-06-19,other
+438,1,811,861,Saint Paul,Montreal,Lewisporte,Quebec,Canada,rent,1266,3566,3290,3,5,3,1920,2013-04-07,quadruplex
+439,1,4,818,7th,Montreal,Grimshaw,Quebec,Canada,sale,99921128,1512,7855,7,6,2,1988,2017-09-01,studio
+440,1,21885,397,Loeprich,Montreal,Winnipeg,Quebec,Canada,sale,46004515,1163,5051,2,1,5,1952,2022-05-12,quadruplex
+441,1,19,119,Hovde,Montreal,La Sarre,Quebec,Canada,sale,87098601,3887,9006,4,5,5,1919,2010-03-09,duplex
+442,1,80,196,Oriole,Montreal,Dollard-Des Ormeaux,Quebec,Canada,rent,9813,4798,7858,9,6,8,1908,2018-11-25,quadruplex
+443,1,847,113,Linden,Montreal,Vanderhoof,Quebec,Canada,rent,1415,1763,7598,9,7,5,1944,2010-09-13,duplex
+444,1,917,711,Eggendart,Montreal,Asbestos,Quebec,Canada,sale,26655581,192,7698,2,10,3,2006,2022-11-29,quadruplex
+445,1,78,457,Leroy,Montreal,Port Colborne,Quebec,Canada,sale,77570313,2097,4413,10,6,7,2010,2016-02-01,triplex
+446,1,916,539,Service,Montreal,Airdrie,Quebec,Canada,rent,8370,4004,3923,10,6,6,2018,2010-02-14,studio
+447,1,156,952,Menomonie,Montreal,Jonquière,Quebec,Canada,rent,3330,2653,4196,1,3,4,1961,2021-06-03,single-family
+448,0,9226,766,Oak,Montreal,Petrolia,Quebec,Canada,rent,3268,3551,2500,10,8,9,1921,2021-04-16,condominium
+449,1,9287,821,Thompson,Montreal,Viking,Quebec,Canada,sale,33079290,1414,4028,7,9,9,1951,2018-06-30,single-family
+450,1,314,507,Dorton,Montreal,Oxbow,Quebec,Canada,sale,90031545,3058,9339,4,1,5,1928,2012-09-27,condominium
+451,1,389,782,Granby,Montreal,Biggar,Quebec,Canada,sale,55190759,2509,8959,9,7,7,1959,2013-09-27,townhouse
+452,1,77,921,Debs,Montreal,Medicine Hat,Quebec,Canada,rent,620,1860,3557,1,6,7,1902,2013-06-05,other
+453,1,458,281,Grasskamp,Montreal,Otterburn Park,Quebec,Canada,sale,50012484,2809,9757,2,7,8,1927,2013-09-10,single-family
+454,1,5346,690,Buhler,Montreal,Stony Plain,Quebec,Canada,rent,5796,3317,4662,2,3,7,1940,2010-12-11,triplex
+455,1,2,663,Vahlen,Montreal,Dorchester,Quebec,Canada,rent,6505,3864,3438,2,9,5,2017,2021-04-25,quadruplex
+456,1,0,184,Dexter,Montreal,Lac-Mégantic,Quebec,Canada,sale,73812997,589,6864,1,5,7,1965,2019-01-24,condominium
+457,1,25088,665,Little Fleur,Montreal,Nelson,Quebec,Canada,rent,8912,1828,3680,1,7,6,1924,2010-09-08,triplex
+458,0,5,278,Swallow,Montreal,Niagara Falls,Quebec,Canada,sale,44042568,2210,5497,3,7,3,1922,2016-12-03,condominium
+459,1,710,757,Crest Line,Montreal,Côte-Saint-Luc,Quebec,Canada,sale,60074317,854,5051,9,6,10,1988,2014-09-22,other
+460,1,2,464,Ridge Oak,Montreal,Saint-Jérôme,Quebec,Canada,sale,86568707,241,2116,4,9,1,1941,2012-02-25,other
+461,1,75,886,Pennsylvania,Montreal,Lloydminster,Quebec,Canada,sale,93429374,2992,6105,8,10,3,2022,2022-10-15,quadruplex
+462,1,6,699,Little Fleur,Montreal,Sussex,Quebec,Canada,rent,1603,300,8323,5,10,3,1936,2017-10-29,townhouse
+463,1,67366,706,Melby,Montreal,Dieppe,Quebec,Canada,sale,87311880,543,6789,2,3,8,1924,2018-05-08,single-family
+464,1,39,600,Sunnyside,Montreal,Forestville,Quebec,Canada,sale,7774744,1987,1838,4,1,4,1969,2014-02-07,condominium
+465,1,59238,477,Springview,Montreal,Berthierville,Quebec,Canada,rent,8433,2906,5647,9,4,8,1975,2011-09-27,studio
+466,1,228,364,Pankratz,Montreal,Marathon,Quebec,Canada,sale,85076890,4120,5756,3,1,5,1919,2017-07-09,duplex
+467,1,70134,320,Hooker,Montreal,Roblin,Quebec,Canada,rent,770,4699,8515,1,1,5,1902,2012-12-30,single-family
+468,1,253,245,Magdeline,Montreal,Roberval,Quebec,Canada,sale,23910766,1263,5509,9,3,5,1984,2014-02-24,quadruplex
+469,1,61,937,Washington,Montreal,Cowansville,Quebec,Canada,sale,48557279,4754,9008,8,10,9,1946,2020-05-27,single-family
+470,1,202,190,Division,Montreal,Dauphin,Quebec,Canada,rent,1137,149,2803,7,4,4,1919,2012-02-12,condominium
+471,1,5,940,Coleman,Montreal,Iroquois Falls,Quebec,Canada,rent,7574,3132,2158,3,4,9,2009,2014-08-07,quadruplex
+472,1,31798,765,Laurel,Montreal,Maple Creek,Quebec,Canada,rent,1255,4357,9637,1,1,2,1944,2018-08-23,single-family
+473,1,6,495,Cordelia,Montreal,Val-d\'Or,Quebec,Canada,sale,52463852,493,3138,3,7,1,1966,2015-10-24,single-family
+474,1,12,728,Mosinee,Montreal,Swan Hills,Quebec,Canada,rent,2639,3873,6588,8,5,1,1919,2015-09-18,single-family
+475,1,85782,221,Sutteridge,Montreal,Wabana,Quebec,Canada,sale,67390003,4629,4036,6,9,8,1917,2021-10-31,condominium
+476,1,86,733,Schlimgen,Montreal,Nelson,Quebec,Canada,sale,58547049,2573,1425,5,8,4,1930,2012-07-21,studio
+477,1,449,275,Graceland,Montreal,Amherstburg,Quebec,Canada,sale,48222881,4552,4883,3,7,8,1954,2019-09-21,studio
+478,1,18,506,Washington,Montreal,Lewisporte,Quebec,Canada,rent,6039,866,4292,5,1,2,1907,2013-08-07,townhouse
+479,1,727,161,Clove,Montreal,Taber,Quebec,Canada,sale,29615932,1077,6476,7,7,5,1967,2011-06-06,townhouse
+480,1,613,919,7th,Montreal,Kerrobert,Quebec,Canada,sale,72831203,2614,4393,4,10,8,2022,2018-08-17,duplex
+481,0,802,402,Lunder,Montreal,Lanigan,Quebec,Canada,rent,8608,1010,8251,1,10,7,1951,2023-04-08,townhouse
+482,1,36,716,Morningstar,Montreal,Amos,Quebec,Canada,sale,19068019,3468,5171,2,3,3,2010,2010-06-05,studio
+483,1,15,291,American,Montreal,Lévis,Quebec,Canada,rent,8192,429,2240,7,10,2,1989,2014-09-07,townhouse
+484,1,480,926,Waxwing,Montreal,Jasper Park Lodge,Quebec,Canada,sale,38265893,3327,5187,6,1,5,1953,2018-04-22,other
+485,1,12,334,Bonner,Montreal,Milton,Quebec,Canada,rent,1436,2769,8551,9,6,4,1911,2021-10-15,other
+486,1,66,706,Mayer,Montreal,Virden,Quebec,Canada,rent,1860,2943,4485,2,3,4,1959,2021-03-01,duplex
+487,1,9,697,Nobel,Montreal,Lions Bay,Quebec,Canada,rent,6122,3809,1474,2,2,6,2009,2022-07-07,townhouse
+488,1,21299,212,Ludington,Montreal,Papineauville,Quebec,Canada,sale,71474034,1316,1062,2,2,2,1929,2021-05-14,triplex
+489,1,540,621,Roxbury,Montreal,Swan Hills,Quebec,Canada,rent,7821,4093,3594,9,10,1,1937,2023-03-25,condominium
+490,1,3753,581,Lakewood Gardens,Montreal,Thetford-Mines,Quebec,Canada,sale,49315045,3608,2339,7,6,3,1973,2014-01-27,studio
+491,1,66982,867,Hallows,Montreal,Okanagan,Quebec,Canada,sale,81051751,4873,2803,3,9,2,1976,2013-03-21,other
+492,1,973,516,Dixon,Montreal,Amherst,Quebec,Canada,rent,7554,144,7810,4,8,10,1973,2017-10-20,condominium
+493,0,7074,674,Paget,Montreal,Dorval,Quebec,Canada,rent,1777,1732,6404,9,2,7,1954,2021-08-12,quadruplex
+494,1,421,847,Stephen,Montreal,Varennes,Quebec,Canada,sale,58153324,4279,3187,1,5,7,1924,2010-08-13,townhouse
+495,1,41,262,Autumn Leaf,Montreal,Farnham,Quebec,Canada,sale,62170261,4274,5184,3,7,9,1943,2016-02-18,condominium
+496,1,31,241,Dawn,Montreal,Irricana,Quebec,Canada,rent,6187,2429,8292,5,6,7,1911,2011-02-19,studio
+497,1,9744,915,Union,Montreal,Osoyoos,Quebec,Canada,sale,29484347,2082,7434,4,8,5,1906,2013-08-24,studio
+498,1,429,477,Crownhardt,Montreal,Baie-D\'Urfé,Quebec,Canada,rent,3715,4731,8808,6,7,10,1992,2019-08-11,duplex
+499,1,807,812,Cascade,Montreal,Boisbriand,Quebec,Canada,sale,16990011,3385,9433,7,7,9,1945,2016-08-02,triplex
+500,1,3110,898,Hovde,Montreal,Pasadena,Quebec,Canada,rent,5514,1851,8358,6,8,4,1989,2012-08-25,townhouse
+501,1,80,112,Barnett,Montreal,Waterloo,Quebec,Canada,rent,1899,1785,4879,2,7,6,1968,2014-12-30,studio
+502,1,796,245,Springs,Montreal,Anmore,Quebec,Canada,rent,4864,743,4532,8,3,2,2005,2021-05-26,studio
+503,1,35,537,Mayfield,Montreal,Golden,Quebec,Canada,sale,76527506,4444,9646,8,6,1,1984,2013-10-21,other
+504,1,578,653,Oxford,Montreal,Daveluyville,Quebec,Canada,sale,10147104,2716,2035,10,3,9,1920,2022-05-09,duplex
+505,1,5508,540,Lakewood,Montreal,Owen Sound,Quebec,Canada,rent,8281,1387,1985,1,10,5,2012,2015-05-05,condominium
+506,1,6,894,Leroy,Montreal,Sainte-Anne-des-Monts,Quebec,Canada,sale,84852543,281,7707,4,7,4,1951,2011-03-03,quadruplex
+507,1,5540,656,Emmet,Montreal,Calgary,Quebec,Canada,rent,2817,3391,3956,2,6,1,1968,2016-03-22,quadruplex
+508,1,321,860,Anhalt,Montreal,Langenburg,Quebec,Canada,sale,93425963,1504,6521,10,9,9,1918,2018-09-25,condominium
+509,1,6,691,Waubesa,Montreal,Middleton,Quebec,Canada,rent,3329,2932,6425,2,2,8,1987,2012-02-17,duplex
+510,1,281,189,La Follette,Montreal,Kugluktuk,Quebec,Canada,rent,7584,2123,8468,4,4,5,1996,2015-02-24,townhouse
+511,1,21244,208,Vermont,Montreal,Cowansville,Quebec,Canada,sale,81517373,1350,9877,1,5,9,2002,2019-08-21,other
+512,0,657,565,Mendota,Montreal,Cabano,Quebec,Canada,sale,33074330,2800,2040,8,10,8,1996,2011-03-26,duplex
+513,0,59134,908,Onsgard,Montreal,Vegreville,Quebec,Canada,sale,12853395,2065,1171,10,5,1,1949,2014-07-07,triplex
+514,1,68744,204,Dayton,Montreal,Victoriaville,Quebec,Canada,rent,8537,1373,9428,8,3,9,1905,2020-08-22,other
+515,1,89,743,Hudson,Montreal,Irricana,Quebec,Canada,rent,4058,4589,2242,5,8,8,1929,2015-09-01,single-family
+516,1,0,150,Sachtjen,Montreal,Saint-Raymond,Quebec,Canada,rent,9893,1535,7740,7,9,5,1909,2015-10-28,townhouse
+517,1,9,453,La Follette,Montreal,Virden,Quebec,Canada,sale,48604399,2854,9190,8,3,5,1951,2011-09-03,single-family
+518,1,80733,710,Dakota,Montreal,Saint-Augustin-de-Desmaures,Quebec,Canada,rent,8715,1945,6859,7,6,3,1976,2017-11-20,quadruplex
+519,1,0,489,Autumn Leaf,Montreal,Ladner,Quebec,Canada,rent,9213,3045,2100,3,5,5,1966,2022-03-08,condominium
+520,1,628,256,Miller,Montreal,Moosomin,Quebec,Canada,sale,59991807,1768,6599,4,4,8,1967,2014-01-06,triplex
+521,0,4248,325,Ronald Regan,Montreal,Trois-Rivières,Quebec,Canada,sale,65486838,2568,5562,5,6,7,1978,2018-05-27,quadruplex
+522,1,990,327,Evergreen,Montreal,Woodstock,Quebec,Canada,sale,61647795,1261,6640,3,4,4,1963,2011-05-31,condominium
+523,1,42626,530,Tennyson,Montreal,Mont-Tremblant,Quebec,Canada,sale,58658359,317,8166,6,6,7,1975,2010-09-07,duplex
+524,1,73,278,Del Mar,Montreal,Morinville,Quebec,Canada,rent,578,1688,3496,4,5,10,1945,2015-11-01,quadruplex
+525,1,6503,660,Crest Line,Montreal,Waterloo,Quebec,Canada,rent,9539,4783,9544,2,6,8,1903,2015-12-11,studio
+526,0,92968,119,Bunker Hill,Montreal,Norman Wells,Quebec,Canada,sale,41008460,2993,1271,8,10,10,2022,2012-04-09,condominium
+527,1,7643,792,Shoshone,Montreal,Sechelt,Quebec,Canada,rent,2378,4625,3354,6,9,10,2019,2012-07-10,triplex
+528,1,2144,906,Mccormick,Montreal,Owen Sound,Quebec,Canada,rent,1791,1951,6112,9,1,3,1962,2011-09-16,triplex
+529,1,576,708,Farmco,Montreal,High Prairie,Quebec,Canada,sale,11113691,2163,2114,9,10,1,1990,2017-05-31,triplex
+530,1,203,829,Weeping Birch,Montreal,Fox Creek,Quebec,Canada,sale,32242606,2443,6791,4,5,3,1930,2010-07-31,duplex
+531,1,6,806,Corscot,Montreal,Stony Plain,Quebec,Canada,rent,203,2004,8911,6,8,9,2005,2014-03-07,single-family
+532,1,8247,201,Weeping Birch,Montreal,Baie-Comeau,Quebec,Canada,sale,42857050,996,8299,8,3,6,1989,2015-10-08,duplex
+533,0,5589,318,Corry,Montreal,Sainte-Anne-de-Bellevue,Quebec,Canada,sale,65021384,3566,5365,4,8,7,2022,2017-11-25,single-family
+534,1,5015,946,Blackbird,Montreal,Pilot Butte,Quebec,Canada,sale,30383890,2624,3850,6,4,10,2006,2018-06-08,townhouse
+535,1,626,515,8th,Montreal,Malartic,Quebec,Canada,sale,56214450,4515,8797,8,9,4,1994,2011-06-07,quadruplex
+536,1,53,590,Saint Paul,Montreal,Coaticook,Quebec,Canada,rent,1670,726,9688,8,7,9,1936,2014-08-28,other
+537,1,96300,609,Westerfield,Montreal,Vaudreuil-Dorion,Quebec,Canada,rent,7817,3122,8962,4,8,4,1917,2010-08-21,studio
+538,1,45,989,Monterey,Montreal,Dorchester,Quebec,Canada,sale,18601713,4461,3748,2,4,7,2012,2018-01-05,duplex
+539,1,71559,613,Lotheville,Montreal,Richmond,Quebec,Canada,sale,87927164,1694,6443,4,9,1,1911,2010-07-29,townhouse
+540,1,2,644,Delaware,Montreal,Gravelbourg,Quebec,Canada,sale,68775661,582,6663,1,8,3,1913,2020-06-09,townhouse
+541,1,708,102,6th,Montreal,Lewisporte,Quebec,Canada,rent,9921,2899,6603,10,2,3,1916,2019-01-25,condominium
+542,1,80,612,Westerfield,Montreal,Duncan,Quebec,Canada,rent,9813,4370,4898,1,2,9,2003,2022-01-17,other
+543,1,474,681,Butternut,Montreal,La Broquerie,Quebec,Canada,sale,98674260,2740,8172,3,4,6,1934,2015-03-30,triplex
+544,1,611,382,Di Loreto,Montreal,Carbonear,Quebec,Canada,rent,4683,679,9276,6,10,1,1912,2020-03-04,triplex
+545,1,2,908,Annamark,Montreal,Smoky Lake,Quebec,Canada,rent,3835,1177,6231,5,5,2,2002,2013-11-26,triplex
+546,1,60,348,Petterle,Montreal,Lambton Shores,Quebec,Canada,rent,1231,618,9797,2,7,8,2006,2021-09-25,condominium
+547,0,7782,397,Morrow,Montreal,Cornwall,Quebec,Canada,rent,3220,2201,9127,7,1,10,1930,2010-10-19,condominium
+548,1,5811,683,Daystar,Montreal,Daveluyville,Quebec,Canada,sale,28803257,3836,3352,2,4,9,1926,2018-07-31,single-family
+549,1,256,389,Ilene,Montreal,Drummondville,Quebec,Canada,sale,33753342,2581,6338,9,9,6,1987,2012-07-09,triplex
+550,1,86141,463,Packers,Montreal,Hudson,Quebec,Canada,sale,82790041,3295,9324,6,5,7,1906,2012-10-30,other
+551,1,84,666,Hanover,Montreal,Asbestos,Quebec,Canada,rent,402,2101,3282,8,6,4,2019,2016-12-30,single-family
+552,1,4779,970,Manufacturers,Montreal,Nackawic,Quebec,Canada,rent,725,1417,7036,10,2,1,2022,2011-02-07,duplex
+553,1,78,164,Dottie,Montreal,Matagami,Quebec,Canada,sale,67377595,3328,6089,3,7,6,1972,2010-11-20,triplex
+554,1,23,871,Oxford,Montreal,Kimberley,Quebec,Canada,sale,63951244,1812,4906,3,9,6,1991,2018-09-27,condominium
+555,1,7,783,Messerschmidt,Montreal,Two Hills,Quebec,Canada,sale,96219196,3111,7223,7,4,10,1967,2014-05-24,condominium
+556,1,9462,753,Briar Crest,Montreal,Kamsack,Quebec,Canada,sale,52255881,2777,5814,2,4,6,1920,2012-08-22,single-family
+557,1,9,969,Messerschmidt,Montreal,Toronto,Quebec,Canada,rent,4973,3591,9908,4,4,3,2012,2016-07-22,single-family
+558,1,15030,981,Glendale,Montreal,Barrhead,Quebec,Canada,sale,16147624,3022,9637,8,4,8,1943,2020-01-29,duplex
+559,1,35,408,Anhalt,Montreal,Watrous,Quebec,Canada,sale,31238686,4488,8700,5,8,2,1943,2017-10-15,other
+560,1,6622,133,Katie,Montreal,Jasper Park Lodge,Quebec,Canada,sale,5900271,234,5016,1,2,9,1941,2013-01-24,quadruplex
+561,1,231,762,Toban,Montreal,Delson,Quebec,Canada,sale,79437178,3340,4575,8,2,6,1955,2012-05-23,condominium
+562,0,676,987,Mayfield,Montreal,Oxford,Quebec,Canada,rent,4526,1925,2401,2,6,1,1924,2021-12-04,condominium
+563,0,7745,281,Vidon,Montreal,Weyburn,Quebec,Canada,rent,5694,4758,5730,3,2,8,1991,2015-07-16,other
+564,1,4981,499,Pearson,Montreal,Wolfville,Quebec,Canada,sale,83377223,1796,9959,9,5,3,1973,2022-05-08,single-family
+565,1,41,155,Luster,Montreal,Berthierville,Quebec,Canada,sale,73238690,1763,8581,8,5,6,1993,2017-09-30,triplex
+566,1,62,804,American,Montreal,Marathon,Quebec,Canada,sale,96313168,1310,2004,9,10,7,1916,2017-06-07,triplex
+567,1,226,814,Scott,Montreal,Golden,Quebec,Canada,rent,7243,1381,8630,1,2,7,1956,2023-10-06,single-family
+568,1,96628,137,Fieldstone,Montreal,Aylmer,Quebec,Canada,sale,10705299,2093,1281,8,6,1,2018,2013-01-26,other
+569,1,9,393,Ruskin,Montreal,Bonnyville,Quebec,Canada,rent,7760,4415,9756,5,1,7,1954,2013-10-10,other
+570,1,18,388,Bunting,Montreal,Val-d\'Or,Quebec,Canada,rent,1911,587,9826,9,7,1,1996,2011-10-01,townhouse
+571,1,78568,173,Mosinee,Montreal,Kitchener,Quebec,Canada,rent,7146,1850,6062,8,3,2,1956,2021-08-10,other
+572,1,635,941,Summer Ridge,Montreal,Prince Rupert,Quebec,Canada,rent,6904,3208,5553,5,4,10,1974,2013-08-20,single-family
+573,1,1,918,Susan,Montreal,Mont-Tremblant,Quebec,Canada,rent,6502,236,7507,5,8,4,1981,2016-12-05,duplex
+574,1,7,436,Maple Wood,Montreal,Macklin,Quebec,Canada,sale,79641538,1829,4759,1,7,8,2020,2018-10-04,other
+575,0,31,786,4th,Montreal,Mont-Joli,Quebec,Canada,rent,6225,3574,4728,2,7,4,1992,2012-01-20,studio
+576,1,1,909,Bayside,Montreal,Barrhead,Quebec,Canada,rent,3163,3587,6622,2,1,9,2013,2011-07-30,studio
+577,1,178,720,Ramsey,Montreal,Les Cèdres,Quebec,Canada,rent,9074,954,6288,1,9,7,2021,2018-02-13,duplex
+578,1,93380,710,Homewood,Montreal,New Glasgow,Quebec,Canada,rent,3533,1797,3433,4,3,1,1970,2016-01-19,studio
+579,1,71664,902,Vidon,Montreal,Labelle,Quebec,Canada,rent,2505,4409,5895,8,1,3,2021,2022-12-07,duplex
+580,1,7890,803,Vahlen,Montreal,Sicamous,Quebec,Canada,sale,39253152,1903,1084,3,2,6,2009,2010-01-26,condominium
+581,1,95602,893,Petterle,Montreal,Malartic,Quebec,Canada,sale,85036442,683,3110,2,5,4,2012,2016-07-09,triplex
+582,1,0,169,Raven,Montreal,Meadow Lake,Quebec,Canada,rent,9060,2459,3833,1,10,9,1967,2011-11-04,townhouse
+583,1,13,883,Brentwood,Montreal,Spirit River,Quebec,Canada,sale,96537771,1318,9470,2,8,1,1934,2010-10-21,townhouse
+584,1,0,605,Fallview,Montreal,Brant,Quebec,Canada,rent,9790,379,6892,7,4,2,1974,2021-09-10,quadruplex
+585,1,593,184,Doe Crossing,Montreal,Golden,Quebec,Canada,sale,82481448,2813,4318,6,8,6,1990,2012-04-03,duplex
+586,1,4,244,Graceland,Montreal,Hudson,Quebec,Canada,rent,2945,3449,5636,6,7,2,1978,2012-09-19,quadruplex
+587,1,103,711,Karstens,Montreal,Trois-Rivières,Quebec,Canada,sale,99828733,2093,7728,6,10,3,1921,2011-09-22,single-family
+588,1,3957,590,Hollow Ridge,Montreal,Moose Jaw,Quebec,Canada,sale,1056116,2637,8266,2,3,3,1927,2012-12-18,condominium
+589,1,64950,617,Everett,Montreal,Dalmeny,Quebec,Canada,rent,9949,4451,5415,6,7,6,2005,2016-01-12,condominium
+590,1,332,805,Westerfield,Montreal,Dorchester,Quebec,Canada,rent,1867,4806,2157,3,7,9,1969,2015-04-01,quadruplex
+591,1,40616,529,Farmco,Montreal,Senneterre,Quebec,Canada,rent,1572,2548,1233,6,8,2,1917,2023-05-25,other
+592,1,692,378,Fairfield,Montreal,Orillia,Quebec,Canada,sale,50040708,4225,3594,8,1,5,1960,2010-01-18,duplex
+593,0,71,668,Hallows,Montreal,Oromocto,Quebec,Canada,rent,2493,1274,1588,1,3,8,1917,2013-01-04,duplex
+594,1,4640,301,Reindahl,Montreal,Mattawa,Quebec,Canada,rent,4850,1145,2952,8,2,1,2011,2013-02-22,townhouse
+595,1,642,730,Arkansas,Montreal,Maple Creek,Quebec,Canada,rent,4365,2812,2180,5,2,5,1916,2019-12-09,duplex
+596,1,1,767,Sunfield,Montreal,Danville,Quebec,Canada,rent,8388,2718,2184,3,7,8,1957,2012-09-06,duplex
+597,1,1619,641,Stang,Montreal,Martensville,Quebec,Canada,sale,63232019,3568,4976,2,9,2,1976,2012-10-10,quadruplex
+598,0,3,179,Oak Valley,Montreal,Harrison Brook,Quebec,Canada,sale,47768765,698,8607,6,5,8,1955,2014-06-21,duplex
+599,1,53,250,Kenwood,Montreal,Salaberry-de-Valleyfield,Quebec,Canada,rent,8464,4749,8669,10,4,2,1992,2012-08-25,other
+600,1,25106,530,Chive,Montreal,Sainte-Sophie,Quebec,Canada,rent,9578,3698,8441,5,7,10,2019,2010-05-15,studio
+601,1,9950,202,Utah,Montreal,Athabasca,Quebec,Canada,rent,3544,2125,6424,9,6,9,1922,2014-01-08,duplex
+602,1,2799,721,Loomis,Montreal,Kamsack,Quebec,Canada,sale,76560967,137,6778,8,8,5,1913,2019-03-21,other
+603,0,58,675,Johnson,Montreal,Edson,Quebec,Canada,rent,7402,525,1327,7,2,9,1917,2017-02-28,other
+604,1,83,267,Independence,Montreal,Grand Bank,Quebec,Canada,rent,1759,4328,6748,1,9,4,1941,2020-12-08,single-family
+605,1,8,323,Eastwood,Montreal,Bonavista,Quebec,Canada,sale,81102740,4885,9429,1,3,1,1905,2021-04-14,triplex
+606,1,7,765,Arapahoe,Montreal,Lac La Biche,Quebec,Canada,sale,31485657,1696,6020,2,2,3,1935,2022-11-18,studio
+607,1,4,522,Eastwood,Montreal,Lunenburg,Quebec,Canada,sale,54954575,422,2054,3,3,4,1957,2016-12-30,townhouse
+608,1,27,436,Westridge,Montreal,Kitimat,Quebec,Canada,sale,57296232,811,1043,2,6,3,1983,2012-12-15,other
+609,1,5102,896,High Crossing,Montreal,Sundre,Quebec,Canada,rent,7199,2786,6010,1,9,9,1969,2023-05-30,other
+610,0,13816,842,Sutteridge,Montreal,Olds,Quebec,Canada,sale,25383010,3080,2093,5,2,5,2014,2021-09-17,condominium
+611,1,7,415,Kim,Montreal,Miramichi,Quebec,Canada,rent,7546,344,8686,9,1,8,1998,2013-01-14,other
+612,1,162,407,Novick,Montreal,Rosthern,Quebec,Canada,rent,4657,1133,3290,7,6,2,1988,2023-09-13,duplex
+613,1,7,167,Green,Montreal,Winnipeg,Quebec,Canada,sale,46099307,4682,6885,1,8,2,1957,2023-04-30,duplex
+614,0,0,364,Sunnyside,Montreal,Pemberton,Quebec,Canada,rent,8742,1468,9410,10,3,8,1997,2017-01-14,studio
+615,1,795,734,Prairie Rose,Montreal,Nackawic,Quebec,Canada,rent,1298,2995,7035,8,7,8,1999,2014-03-09,triplex
+616,1,87,195,Bobwhite,Montreal,Mont-Saint-Hilaire,Quebec,Canada,rent,7248,3199,2468,7,6,10,2017,2013-05-10,townhouse
+617,1,905,414,Laurel,Montreal,St. Thomas,Quebec,Canada,sale,18608716,4442,8037,2,7,6,1949,2012-05-15,condominium
+618,1,86608,539,Crowley,Montreal,Keswick,Quebec,Canada,sale,95479075,2944,3097,4,7,5,1988,2010-11-27,single-family
+619,1,85,258,Rieder,Montreal,Ashcroft,Quebec,Canada,sale,42015658,4551,2182,1,2,9,1975,2015-04-13,studio
+620,1,572,193,Anderson,Montreal,Neepawa,Quebec,Canada,sale,91827598,3918,1501,8,2,8,2012,2017-09-17,condominium
+621,1,88817,223,Kim,Montreal,Princeton,Quebec,Canada,rent,1260,178,3534,3,6,7,2009,2015-02-24,studio
+622,1,2249,515,Westridge,Montreal,Danville,Quebec,Canada,sale,19357550,303,1793,10,8,5,1902,2020-07-25,studio
+623,1,85,738,Ramsey,Montreal,Bedford,Quebec,Canada,sale,37249723,2030,3562,7,3,4,1917,2014-09-11,studio
+624,1,8,709,Corben,Montreal,Coaticook,Quebec,Canada,rent,4263,4653,7596,5,6,3,2000,2015-03-13,quadruplex
+625,1,8,723,Eagan,Montreal,Kapuskasing,Quebec,Canada,sale,60251679,4793,9309,9,7,1,1917,2011-02-01,single-family
+626,1,20,541,Debs,Montreal,Roblin,Quebec,Canada,sale,18618420,4797,1398,7,5,9,2020,2010-07-17,other
+627,1,21,274,Steensland,Montreal,Midland,Quebec,Canada,sale,74994232,3036,7880,5,2,9,1933,2023-01-14,quadruplex
+628,1,9,973,Dayton,Montreal,Ingersoll,Quebec,Canada,rent,2560,3689,9289,3,9,4,1958,2020-03-20,single-family
+629,1,1164,389,Grim,Montreal,Baie-D\'Urfé,Quebec,Canada,rent,4031,3794,5769,4,4,7,2021,2023-09-29,duplex
+630,1,1627,124,Debs,Montreal,Conception Bay South,Quebec,Canada,rent,2498,4073,2707,6,1,7,1973,2020-03-22,townhouse
+631,1,2,392,Merchant,Montreal,Havre-Saint-Pierre,Quebec,Canada,sale,88530550,1390,5351,4,10,9,1970,2012-11-12,studio
+632,1,63458,125,Stephen,Montreal,Kingsey Falls,Quebec,Canada,sale,26524856,2675,2012,7,9,10,1928,2022-12-14,duplex
+633,1,1,843,Westend,Montreal,Lachute,Quebec,Canada,sale,98731595,2665,7826,4,5,4,1911,2014-08-29,quadruplex
+634,1,33496,475,Butterfield,Montreal,Saint-Bruno,Quebec,Canada,rent,9753,976,2801,1,7,7,2017,2014-09-30,condominium
+635,1,163,406,Loftsgordon,Montreal,Timmins,Quebec,Canada,sale,39027724,3056,5094,5,10,2,2019,2013-11-24,quadruplex
+636,1,390,581,Calypso,Montreal,Thetford-Mines,Quebec,Canada,sale,50240324,3796,5506,6,1,4,1981,2023-09-26,other
+637,0,526,675,Loftsgordon,Montreal,Rosthern,Quebec,Canada,rent,4238,429,4044,9,10,6,1955,2010-03-10,quadruplex
+638,1,6737,106,Park Meadow,Montreal,Lloydminster,Quebec,Canada,rent,3270,1986,9727,4,6,5,2009,2013-01-08,studio
+639,1,7183,968,Morrow,Montreal,Lavaltrie,Quebec,Canada,rent,5818,3360,9407,9,7,7,1907,2019-02-15,quadruplex
+640,1,12302,215,Annamark,Montreal,Kindersley,Quebec,Canada,rent,2254,1568,4063,10,9,9,1934,2012-05-08,duplex
+641,1,1637,123,Haas,Montreal,Boucherville,Quebec,Canada,sale,77278530,4966,8975,1,7,1,1956,2014-09-17,triplex
+642,1,369,839,Eagle Crest,Montreal,Rimouski,Quebec,Canada,rent,5817,4469,2215,5,4,6,1989,2011-01-22,triplex
+643,1,47948,338,Kenwood,Montreal,Lac-Mégantic,Quebec,Canada,rent,9349,167,2446,9,6,3,1955,2011-08-22,triplex
+644,1,5229,147,Spohn,Montreal,Mont-Laurier,Quebec,Canada,sale,7580363,3679,9104,7,9,10,1983,2010-11-20,other
+645,1,6252,835,Graedel,Montreal,Napanee Downtown,Quebec,Canada,rent,986,2010,8225,3,9,8,2001,2012-05-25,condominium
+646,1,6,977,Laurel,Montreal,Flin Flon,Quebec,Canada,sale,13427264,1991,3554,5,2,1,2016,2016-07-01,duplex
+647,1,1,990,Chive,Montreal,Kelowna,Quebec,Canada,sale,4174626,2721,3811,6,9,10,1917,2020-04-24,studio
+648,1,8327,669,Vahlen,Montreal,Bassano,Quebec,Canada,sale,12323475,3225,5979,10,3,7,1927,2022-09-22,condominium
+649,1,1,815,Mccormick,Montreal,Little Current,Quebec,Canada,sale,34140773,1494,2239,8,10,10,1939,2018-12-11,other
+650,1,363,315,Sutherland,Montreal,Coaticook,Quebec,Canada,rent,4242,4286,3089,7,8,6,1923,2011-08-12,triplex
+651,1,0,310,Mosinee,Montreal,St. Thomas,Quebec,Canada,rent,8456,3710,8894,2,3,10,2005,2020-02-29,duplex
+652,1,629,374,Burning Wood,Montreal,Pangnirtung,Quebec,Canada,rent,2076,3487,4716,3,1,2,1998,2022-07-10,triplex
+653,1,1395,577,Harper,Montreal,Watrous,Quebec,Canada,sale,47355597,3130,3100,2,2,3,1979,2013-11-03,triplex
+654,1,889,425,Northland,Montreal,Ladysmith,Quebec,Canada,sale,10933751,453,6371,10,3,10,1951,2017-01-13,other
+655,0,7,842,5th,Montreal,Port Hawkesbury,Quebec,Canada,rent,7063,4478,3984,7,5,4,2018,2021-12-15,condominium
+656,1,10820,136,Nancy,Montreal,Bay Roberts,Quebec,Canada,sale,85130696,4335,4572,5,5,2,1952,2022-09-18,quadruplex
+657,1,85641,624,Laurel,Montreal,Québec,Quebec,Canada,rent,4911,148,6742,5,10,8,1969,2014-02-26,condominium
+658,1,5,979,Express,Montreal,Golden,Quebec,Canada,rent,4432,1774,7736,3,6,6,2021,2018-10-19,quadruplex
+659,1,53168,432,Claremont,Montreal,Meadow Lake,Quebec,Canada,rent,3725,3085,7776,7,4,10,1938,2016-07-20,other
+660,1,1,978,Brown,Montreal,Cornwall,Quebec,Canada,rent,1470,902,2496,6,5,9,1936,2010-01-10,single-family
+661,1,2942,155,Del Sol,Montreal,Niagara Falls,Quebec,Canada,sale,72117737,983,6130,5,8,6,1903,2020-09-13,townhouse
+662,1,8,180,Sugar,Montreal,Victoriaville,Quebec,Canada,rent,7628,1277,3606,4,8,3,1961,2012-01-19,triplex
+663,1,76,676,Sage,Montreal,Digby,Quebec,Canada,sale,90456094,3229,6909,5,2,1,1938,2018-01-07,townhouse
+664,1,971,536,Red Cloud,Montreal,Roblin,Quebec,Canada,sale,88522694,1590,8843,5,10,8,1997,2014-08-10,townhouse
+665,1,86,637,Crowley,Montreal,Sparwood,Quebec,Canada,rent,4845,2680,2107,4,4,6,1957,2015-03-15,other
+666,1,2,281,Ilene,Montreal,Drummondville,Quebec,Canada,sale,2856945,701,7281,3,10,8,1909,2015-12-05,studio
+667,1,95,177,Sherman,Montreal,Oakville,Quebec,Canada,sale,3143297,1751,9509,1,5,3,1930,2013-04-24,single-family
+668,1,7389,154,Leroy,Montreal,Nipawin,Quebec,Canada,sale,68460860,3198,9847,6,6,6,1998,2011-04-27,triplex
+669,1,497,113,Del Mar,Montreal,Fermont,Quebec,Canada,sale,29160806,3126,6996,9,7,8,1991,2020-07-19,studio
+670,1,708,743,Lien,Montreal,Nanaimo,Quebec,Canada,rent,5458,749,6075,3,3,8,1916,2023-03-15,triplex
+671,0,8,857,Warrior,Montreal,Pembroke,Quebec,Canada,rent,3026,2062,8757,2,1,1,1971,2023-02-18,studio
+672,1,63252,790,Macpherson,Montreal,Fort Macleod,Quebec,Canada,rent,6129,1622,1678,4,5,6,1992,2018-08-07,duplex
+673,1,0,851,Texas,Montreal,Abbotsford,Quebec,Canada,rent,4490,1196,6066,6,2,3,1978,2019-06-17,condominium
+674,1,2237,482,Kings,Montreal,Harbour Breton,Quebec,Canada,sale,59710817,837,4283,4,3,8,2020,2020-09-13,condominium
+675,1,6,276,Summit,Montreal,Estevan,Quebec,Canada,rent,6903,2091,1591,1,1,1,1976,2018-06-06,townhouse
+676,1,3,208,Atwood,Montreal,Baie-Saint-Paul,Quebec,Canada,rent,6766,922,7371,7,4,10,1955,2021-02-18,triplex
+677,1,538,806,Heath,Montreal,Estevan,Quebec,Canada,rent,8031,208,1350,5,1,2,1922,2021-03-18,studio
+678,1,6798,659,Pawling,Montreal,Miramichi,Quebec,Canada,sale,9758035,2311,9569,7,10,4,1962,2017-01-11,single-family
+679,1,639,108,Crownhardt,Montreal,Lumsden,Quebec,Canada,rent,1940,2814,3781,7,8,8,1933,2019-08-09,studio
+680,1,6334,833,Golf Course,Montreal,Bassano,Quebec,Canada,rent,7451,629,2803,7,7,4,1998,2015-01-28,studio
+681,1,63,209,Hanson,Montreal,Saint-André-Avellin,Quebec,Canada,rent,5668,4377,1679,9,9,6,1924,2019-11-27,other
+682,1,8,618,Sommers,Montreal,Whitehorse,Quebec,Canada,rent,3698,1695,4580,5,8,7,1950,2022-12-18,other
+683,1,53068,943,Holy Cross,Montreal,Stonewall,Quebec,Canada,rent,2602,139,8417,2,2,9,1967,2019-06-19,condominium
+684,1,86,929,Muir,Montreal,London,Quebec,Canada,sale,16286185,4657,1889,10,7,10,1943,2023-07-30,condominium
+685,1,9024,639,Anniversary,Montreal,Inuvik,Quebec,Canada,sale,99412257,2125,7428,6,6,4,1969,2015-04-05,triplex
+686,1,6,318,Orin,Montreal,Marieville,Quebec,Canada,sale,31164210,2778,1321,9,5,2,2007,2023-04-15,studio
+687,1,827,314,Katie,Montreal,Rosthern,Quebec,Canada,rent,3837,4445,9505,8,8,10,1998,2017-10-01,quadruplex
+688,1,99,548,Johnson,Montreal,Kirkland,Quebec,Canada,sale,12674989,4431,4686,5,4,7,1958,2010-01-15,single-family
+689,1,8,521,Crescent Oaks,Montreal,Lévis,Quebec,Canada,sale,51479413,3497,5777,4,3,3,1963,2016-05-01,studio
+690,1,6931,507,Goodland,Montreal,Pictou,Quebec,Canada,sale,64898514,495,6705,8,3,5,1942,2023-03-12,condominium
+691,1,3808,151,Lakeland,Montreal,Saint Andrews,Quebec,Canada,sale,89497666,4010,9507,6,6,1,1934,2015-01-05,condominium
+692,1,15252,201,Claremont,Montreal,Hantsport,Quebec,Canada,sale,3988751,2721,8909,2,1,3,2021,2012-06-12,townhouse
+693,1,74,250,Heath,Montreal,L\'Épiphanie,Quebec,Canada,sale,18313828,3560,7833,5,1,10,1913,2016-01-10,duplex
+694,0,0,258,Anniversary,Montreal,Saint-Bruno-de-Montarville,Quebec,Canada,rent,1671,373,1746,9,10,10,1983,2016-03-28,condominium
+695,1,39,245,Petterle,Montreal,South River,Quebec,Canada,sale,44294548,793,5352,2,8,9,2006,2011-04-19,townhouse
+696,1,51941,354,Manitowish,Montreal,Ottawa,Quebec,Canada,sale,3883821,3510,6828,9,5,5,1936,2021-09-27,condominium
+697,1,3116,609,Kinsman,Montreal,Whistler,Quebec,Canada,rent,4460,133,5640,7,1,2,1931,2021-06-21,studio
+698,0,1657,106,Armistice,Montreal,L\'Île-Perrot,Quebec,Canada,sale,78157348,3074,6291,10,4,8,2019,2019-02-26,townhouse
+699,0,2981,594,High Crossing,Montreal,Nackawic,Quebec,Canada,sale,97279365,2643,9843,3,7,8,1923,2020-06-28,single-family
+700,1,74,927,Corry,Montreal,Grande Cache,Quebec,Canada,rent,2050,1465,1815,10,7,8,2003,2016-10-12,condominium
+701,1,9,556,Kropf,Montreal,Beaverlodge,Quebec,Canada,rent,9876,435,1662,3,2,4,1919,2023-06-16,quadruplex
+702,0,960,534,Toban,Montreal,Blackfalds,Quebec,Canada,rent,7087,3427,5867,9,1,9,2006,2020-02-07,other
+703,1,128,688,Moulton,Montreal,Plessisville,Quebec,Canada,sale,27990419,1436,4621,2,1,10,1956,2020-04-27,studio
+704,1,42444,515,Ludington,Montreal,North York,Quebec,Canada,sale,76666522,4835,7074,8,1,8,1962,2012-07-21,duplex
+705,1,4,199,Oriole,Montreal,Arnprior,Quebec,Canada,rent,2158,4387,4736,4,1,7,1975,2018-12-07,duplex
+706,1,1,616,Pankratz,Montreal,Lillooet,Quebec,Canada,rent,5123,2795,2979,3,1,1,1916,2021-12-23,duplex
+707,0,69460,606,Kenwood,Montreal,Beaverlodge,Quebec,Canada,rent,9139,4181,5645,7,1,7,1981,2014-06-02,studio
+708,0,9,566,Lakeland,Montreal,Coaldale,Quebec,Canada,sale,99506068,2792,7698,2,2,6,1939,2019-07-26,other
+709,1,28,665,Vidon,Montreal,Medicine Hat,Quebec,Canada,sale,62180048,952,3535,2,4,10,1931,2016-06-07,other
+710,1,3454,781,Maryland,Montreal,Alma,Quebec,Canada,sale,32930722,4701,5233,8,6,4,1997,2023-03-18,duplex
+711,1,1054,548,Pankratz,Montreal,Belfast,Quebec,Canada,sale,4963474,2586,3917,8,8,4,1915,2015-06-03,single-family
+712,1,621,335,Loftsgordon,Montreal,Atikokan,Quebec,Canada,rent,8317,3353,7469,4,1,1,1956,2016-07-28,townhouse
+713,1,62,971,Memorial,Montreal,Labrador City,Quebec,Canada,rent,3165,1231,9062,8,9,8,1912,2015-11-11,studio
+714,1,49,175,Hayes,Montreal,Rosthern,Quebec,Canada,sale,18446996,964,2608,6,5,5,1946,2016-08-26,other
+715,1,7,514,Vernon,Montreal,Cowansville,Quebec,Canada,rent,3430,130,8276,9,5,8,1999,2011-01-19,condominium
+716,1,33,877,Mariners Cove,Montreal,Farnham,Quebec,Canada,sale,39932207,202,2686,9,8,1,2007,2022-12-01,triplex
+717,1,85352,881,Farwell,Montreal,Mississauga,Quebec,Canada,rent,3391,2075,7490,9,4,4,1973,2015-03-18,townhouse
+718,1,14996,706,Spaight,Montreal,Neuville,Quebec,Canada,sale,98285039,3164,8362,4,1,2,2015,2019-08-17,other
+719,1,7,293,Ohio,Montreal,Cabano,Quebec,Canada,rent,3665,1123,1282,8,4,7,1911,2019-11-26,duplex
+720,1,3,662,Muir,Montreal,Napierville,Quebec,Canada,rent,5251,1097,7617,3,4,1,2005,2023-07-09,other
+721,1,13,652,8th,Montreal,Longueuil,Quebec,Canada,sale,24600919,1125,1870,9,2,9,1958,2021-06-29,triplex
+722,1,9,472,Swallow,Montreal,Calgary,Quebec,Canada,rent,6086,1004,7403,2,6,7,1965,2015-07-23,condominium
+723,1,81855,535,Kenwood,Montreal,Mattawa,Quebec,Canada,sale,36051927,4938,8437,2,10,1,2000,2018-05-11,single-family
+724,1,0,825,Fair Oaks,Montreal,Melfort,Quebec,Canada,rent,6227,4477,5246,8,7,10,1927,2021-05-28,single-family
+725,1,8,818,Corscot,Montreal,Lavaltrie,Quebec,Canada,rent,9347,3986,2485,4,6,1,1934,2012-01-04,duplex
+726,1,57,395,Nevada,Montreal,Saint-Raymond,Quebec,Canada,sale,20300772,2702,1874,1,4,5,1918,2016-01-24,studio
+727,1,69203,363,Eastwood,Montreal,Prince Edward,Quebec,Canada,rent,4078,2800,5661,7,4,9,1906,2011-08-26,townhouse
+728,1,1201,119,Porter,Montreal,Kensington,Quebec,Canada,sale,57188903,4997,7024,8,8,9,2010,2010-12-28,townhouse
+729,1,30364,739,Dahle,Montreal,Pierreville,Quebec,Canada,sale,60760699,648,1161,8,9,1,1943,2019-04-28,triplex
+730,1,8,449,Shelley,Montreal,Port Hawkesbury,Quebec,Canada,rent,4973,555,5066,2,9,7,1929,2018-11-23,triplex
+731,0,69278,452,Sunnyside,Montreal,Kerrobert,Quebec,Canada,rent,7990,2436,8035,4,7,3,1998,2022-07-27,single-family
+732,1,6,819,Division,Montreal,Mascouche,Quebec,Canada,sale,96951298,843,6207,2,3,3,1999,2017-08-25,other
+733,1,5105,792,Warrior,Montreal,Golden,Quebec,Canada,rent,5969,2132,2121,7,7,5,1992,2012-11-18,studio
+734,1,9865,813,Shasta,Montreal,Anmore,Quebec,Canada,rent,5990,4613,6251,8,3,5,1955,2019-08-02,studio
+735,0,79541,603,Portage,Montreal,Rocky Mountain House,Quebec,Canada,rent,597,998,5725,7,4,3,1971,2022-11-20,duplex
+736,0,15,496,Brentwood,Montreal,Richmond,Quebec,Canada,rent,8988,423,7865,5,10,7,1921,2016-05-18,triplex
+737,1,4,337,Autumn Leaf,Montreal,Little Current,Quebec,Canada,sale,92252710,3343,8998,4,4,8,1906,2013-09-30,townhouse
+738,0,4,134,Autumn Leaf,Montreal,Oliver,Quebec,Canada,rent,8755,3993,5691,4,2,5,1946,2020-02-02,triplex
+739,1,758,952,Dahle,Montreal,Mont-Laurier,Quebec,Canada,sale,43072393,4332,7542,7,6,5,2005,2021-10-22,other
+740,1,25739,837,Sauthoff,Montreal,Burnaby,Quebec,Canada,sale,46997273,4178,9267,5,3,7,1985,2011-10-24,single-family
+741,1,8787,145,Springs,Montreal,Stonewall,Quebec,Canada,rent,2289,4359,6856,7,6,2,1933,2016-01-16,other
+742,1,64118,379,Oneill,Montreal,Anmore,Quebec,Canada,rent,5863,253,6658,5,3,5,1929,2022-10-06,other
+743,1,6678,318,Eagan,Montreal,Montague,Quebec,Canada,rent,2944,1725,6345,10,4,8,1992,2021-04-20,duplex
+744,1,229,841,Bellgrove,Montreal,Hanover,Quebec,Canada,sale,2551338,1945,8967,7,2,9,1989,2020-05-20,other
+745,1,1541,185,Lindbergh,Montreal,Mont-Saint-Hilaire,Quebec,Canada,rent,5821,3162,3971,2,7,10,1991,2018-09-05,townhouse
+746,1,923,832,Delladonna,Montreal,Les Coteaux,Quebec,Canada,sale,65501157,2966,5099,10,4,2,2002,2019-10-29,duplex
+747,1,5,543,Havey,Montreal,Hanna,Quebec,Canada,rent,5894,551,3220,7,7,9,1922,2010-07-03,townhouse
+748,0,36,461,Fieldstone,Montreal,Catalina,Quebec,Canada,sale,84009633,4011,1671,3,6,8,2000,2011-12-13,quadruplex
+749,1,98,724,Jay,Montreal,Bécancour,Quebec,Canada,sale,91304261,2008,8788,10,9,5,1911,2013-12-28,townhouse
+750,1,0,945,Delladonna,Montreal,Kelowna,Quebec,Canada,sale,82769054,2928,3088,5,6,1,2006,2020-05-20,other
+751,1,25,997,Vermont,Montreal,Niagara Falls,Quebec,Canada,rent,1510,907,8041,5,9,5,1992,2010-02-04,condominium
+752,1,13875,940,Longview,Montreal,Bay Roberts,Quebec,Canada,rent,4313,178,9887,1,7,3,1934,2018-03-23,townhouse
+753,1,3,329,Fieldstone,Montreal,Pilot Butte,Quebec,Canada,sale,87073855,3558,6083,6,6,4,2008,2016-06-04,other
+754,1,92,505,Boyd,Montreal,Saguenay,Quebec,Canada,sale,33469009,4324,1106,10,9,5,2020,2015-05-17,townhouse
+755,1,3779,911,Mcguire,Montreal,Kindersley,Quebec,Canada,rent,4850,4879,7117,5,8,9,1958,2023-03-21,townhouse
+756,1,3,997,Golf View,Montreal,Chambly,Quebec,Canada,rent,7395,3844,7210,7,7,2,1948,2017-07-29,studio
+757,1,9,415,Carey,Montreal,White City,Quebec,Canada,rent,6854,1069,7918,4,7,8,2005,2019-12-02,single-family
+758,1,77,186,Sutteridge,Montreal,Saint-Raymond,Quebec,Canada,rent,877,640,9966,1,7,3,1965,2010-11-22,triplex
+759,1,3,982,Marquette,Montreal,Moncton,Quebec,Canada,rent,8204,1262,3362,7,6,7,1913,2020-08-13,duplex
+760,1,76,966,Pierstorff,Montreal,Fort Erie,Quebec,Canada,sale,67003416,2822,4140,7,2,9,2016,2018-01-17,studio
+761,1,7081,241,Pankratz,Montreal,Coquitlam,Quebec,Canada,sale,70854579,211,1572,5,8,7,1910,2020-11-11,studio
+762,1,4188,792,6th,Montreal,Iroquois Falls,Quebec,Canada,sale,77248791,2153,6456,4,5,9,1948,2023-05-27,other
+763,1,3,747,Mallard,Montreal,Montréal,Quebec,Canada,rent,4012,497,4977,8,10,9,2016,2022-08-19,duplex
+764,1,13,397,Mayfield,Montreal,Stratford,Quebec,Canada,sale,79104206,3714,6772,9,1,5,2009,2014-05-05,studio
+765,1,8912,801,Scott,Montreal,Omemee,Quebec,Canada,rent,2931,1309,1215,7,3,8,2005,2018-10-11,studio
+766,1,269,546,Hintze,Montreal,Saint-Eustache,Quebec,Canada,rent,7572,3287,4164,4,2,9,1914,2019-01-19,single-family
+767,1,90895,567,Elgar,Montreal,Wingham,Quebec,Canada,rent,3366,2947,1467,9,3,10,2023,2017-04-02,condominium
+768,1,48,384,Dennis,Montreal,Charlottetown,Quebec,Canada,sale,73063772,3725,8517,8,3,4,1915,2018-06-15,duplex
+769,1,72,127,Stoughton,Montreal,Digby,Quebec,Canada,sale,387033,4953,1200,10,1,9,1964,2013-04-18,townhouse
+770,1,37,572,Lakewood Gardens,Montreal,Lumby,Quebec,Canada,sale,33944768,1118,6896,9,3,5,2017,2014-09-29,other
+771,1,15,340,La Follette,Montreal,North Saanich,Quebec,Canada,sale,6905807,513,9676,9,6,2,1933,2016-09-20,other
+772,0,6,735,Basil,Montreal,Keswick,Quebec,Canada,rent,4460,719,3200,9,6,6,1971,2013-08-01,quadruplex
+773,1,0,633,Melrose,Montreal,Kerrobert,Quebec,Canada,rent,9133,1216,2815,5,1,4,1917,2017-02-07,other
+774,1,7,899,Prairie Rose,Montreal,West Kelowna,Quebec,Canada,sale,53231917,2516,3499,3,2,2,1959,2016-11-12,triplex
+775,1,280,622,Hudson,Montreal,Timmins,Quebec,Canada,sale,79452753,192,7602,9,7,4,1947,2014-12-22,townhouse
+776,1,8831,505,Mcbride,Montreal,Ashcroft,Quebec,Canada,sale,38978902,2561,7412,8,8,4,1923,2014-03-17,single-family
+777,1,4,844,Oak,Montreal,Neuville,Quebec,Canada,rent,7376,4227,4252,7,2,9,1927,2019-02-14,townhouse
+778,1,7,177,Westerfield,Montreal,Wabana,Quebec,Canada,rent,1544,4346,3441,8,5,1,1931,2016-02-26,single-family
+779,1,13678,106,Kedzie,Montreal,Val-d\'Or,Quebec,Canada,sale,44637943,3932,4141,7,8,9,1954,2011-07-01,other
+780,1,9,952,Morningstar,Montreal,Maniwaki,Quebec,Canada,rent,8556,1224,1585,5,3,1,1987,2022-02-03,quadruplex
+781,1,3102,806,Summerview,Montreal,Collingwood,Quebec,Canada,sale,13916266,1714,5992,6,7,1,1953,2023-05-09,triplex
+782,0,13,450,La Follette,Montreal,Chambly,Quebec,Canada,rent,8346,4697,6476,5,8,9,1930,2018-08-22,other
+783,1,4694,257,Clove,Montreal,Waterloo,Quebec,Canada,rent,846,1011,3587,9,8,5,1980,2015-10-03,condominium
+784,0,990,729,Westport,Montreal,Laval,Quebec,Canada,sale,59842010,704,8375,6,4,1,1978,2014-03-07,studio
+785,1,346,519,Mcguire,Montreal,Peterborough,Quebec,Canada,sale,36907516,1304,2042,2,7,8,1945,2017-08-30,triplex
+786,1,3,659,Sundown,Montreal,Vaudreuil-Dorion,Quebec,Canada,sale,80099709,675,5311,3,3,10,1968,2013-09-07,townhouse
+787,1,2,840,Arkansas,Montreal,Baie-D\'Urfé,Quebec,Canada,rent,1174,3912,3819,8,7,10,2014,2012-01-17,single-family
+788,1,4,823,Havey,Montreal,Richibucto,Quebec,Canada,rent,9553,2446,9978,5,3,4,1915,2020-10-06,studio
+789,1,19440,167,Moose,Montreal,Raymond,Quebec,Canada,rent,973,2757,9013,8,5,1,1925,2017-11-29,studio
+790,1,7,181,Kim,Montreal,Digby,Quebec,Canada,sale,79881246,1686,8195,1,9,10,1923,2021-12-21,townhouse
+791,1,860,414,South,Montreal,Cookshire-Eaton,Quebec,Canada,sale,92922847,2967,8517,2,5,4,1910,2017-03-22,quadruplex
+792,1,2405,609,Sheridan,Montreal,Farnham,Quebec,Canada,sale,61453085,3541,3530,9,5,2,2005,2015-06-13,condominium
+793,1,80,829,Texas,Montreal,Grande Cache,Quebec,Canada,sale,43200636,1304,8509,5,6,6,2017,2016-10-06,single-family
+794,1,26,718,Manufacturers,Montreal,Dieppe,Quebec,Canada,sale,31773071,4710,7811,7,8,2,2013,2012-11-04,quadruplex
+795,1,42,510,Starling,Montreal,Kindersley,Quebec,Canada,sale,79629705,1110,6305,8,9,2,1936,2019-02-08,other
+796,1,5472,353,2nd,Montreal,Aylmer,Quebec,Canada,sale,12447813,1778,8784,2,10,7,2006,2014-08-04,condominium
+797,0,96,655,4th,Montreal,Pemberton,Quebec,Canada,sale,7599256,1626,6961,6,6,8,1999,2010-07-31,studio
+798,1,962,298,Jay,Montreal,Chambly,Quebec,Canada,sale,63674817,4012,6716,1,1,9,1929,2013-04-26,triplex
+799,1,6799,276,David,Montreal,Hudson,Quebec,Canada,rent,5700,3532,2110,3,9,7,1973,2015-10-19,studio
+800,1,5,886,Gale,Montreal,Grimshaw,Quebec,Canada,rent,6031,2431,1738,4,9,10,1932,2010-05-26,quadruplex
+801,1,9282,129,Knutson,Montreal,Fort Smith,Quebec,Canada,rent,8319,3639,8560,5,5,8,1943,2017-03-06,studio
+802,1,8,688,Sloan,Montreal,Nackawic,Quebec,Canada,sale,16645570,4379,7540,3,9,9,2009,2018-02-16,studio
+803,1,337,379,Eastwood,Montreal,Martensville,Quebec,Canada,sale,78488162,2674,5386,6,1,10,1919,2015-04-29,duplex
+804,1,1935,975,Eliot,Montreal,Warwick,Quebec,Canada,sale,47760867,1967,8420,4,10,2,2000,2018-05-23,duplex
+805,0,5,815,Oriole,Montreal,Burgeo,Quebec,Canada,sale,33709046,2595,6137,5,2,9,1929,2010-04-01,townhouse
+806,1,4444,155,Mifflin,Montreal,Cornwall,Quebec,Canada,rent,5003,489,7715,7,7,7,1906,2022-09-11,studio
+807,1,79,167,Golden Leaf,Montreal,Atikokan,Quebec,Canada,rent,4933,4077,1668,7,9,7,1980,2012-06-26,triplex
+808,1,0,756,Mosinee,Montreal,Oxford,Quebec,Canada,sale,52563104,601,3802,2,4,10,1975,2015-09-22,condominium
+809,1,63,655,Sutherland,Montreal,Ingersoll,Quebec,Canada,sale,87492401,4611,7973,2,6,5,1987,2014-10-13,townhouse
+810,1,5,754,Hazelcrest,Montreal,Killarney,Quebec,Canada,sale,71888039,578,6946,9,10,4,1940,2018-05-25,studio
+811,1,245,144,Susan,Montreal,Gibsons,Quebec,Canada,rent,5360,762,7662,5,5,6,1919,2021-07-06,other
+812,1,798,989,Acker,Montreal,Okanagan,Quebec,Canada,sale,8688516,4031,1678,1,10,9,1987,2014-07-02,duplex
+813,1,665,228,American,Montreal,Bells Corners,Quebec,Canada,rent,1276,2739,8177,4,10,2,1956,2015-11-27,townhouse
+814,1,5,927,Birchwood,Montreal,Boucherville,Quebec,Canada,rent,1482,1309,5486,9,2,5,2022,2013-11-17,other
+815,0,549,604,Bay,Montreal,Montréal-Est,Quebec,Canada,sale,39104016,4183,1066,3,4,9,1989,2018-08-03,other
+816,1,988,144,Pearson,Montreal,Millet,Quebec,Canada,sale,6031013,4358,2929,4,6,10,1950,2017-07-21,quadruplex
+817,1,436,605,Service,Montreal,Fort Erie,Quebec,Canada,rent,3847,615,7675,8,1,10,1918,2011-06-18,other
+818,1,123,163,Vermont,Montreal,Acton Vale,Quebec,Canada,sale,22933454,2706,4730,4,10,10,1948,2018-02-16,studio
+819,1,2,698,American,Montreal,Notre-Dame-de-l\'Île-Perrot,Quebec,Canada,sale,33333996,1712,8176,6,1,2,1975,2020-08-20,townhouse
+820,1,11,735,Hoffman,Montreal,Prince Albert,Quebec,Canada,rent,8735,442,7861,7,5,10,1975,2013-12-29,duplex
+821,0,527,150,Cottonwood,Montreal,Pont-Rouge,Quebec,Canada,rent,5070,4662,2707,2,1,4,2015,2021-10-01,townhouse
+822,1,627,592,Blackbird,Montreal,Concord,Quebec,Canada,sale,61216783,4937,5345,10,4,7,1999,2022-04-24,single-family
+823,0,353,627,Mosinee,Montreal,Kirkland,Quebec,Canada,rent,1743,3750,2703,2,9,1,1916,2021-11-24,triplex
+824,1,21037,450,Quincy,Montreal,Athabasca,Quebec,Canada,sale,77855405,1403,1955,6,9,1,1989,2012-01-13,quadruplex
+825,1,8,746,Blaine,Montreal,La Sarre,Quebec,Canada,sale,82142970,1948,5983,2,5,3,1969,2014-05-15,triplex
+826,1,382,409,Macpherson,Montreal,Sherbrooke,Quebec,Canada,rent,8511,3349,6281,7,1,4,1982,2019-05-07,townhouse
+827,1,9509,861,Monica,Montreal,Melville,Quebec,Canada,rent,7121,1955,4575,8,8,1,1924,2014-06-04,other
+828,1,3,225,Tony,Montreal,Norfolk County,Quebec,Canada,sale,3593850,2993,3136,10,5,9,1994,2019-06-22,townhouse
+829,1,703,994,Green,Montreal,Lumsden,Quebec,Canada,sale,91473086,910,9540,7,6,6,1919,2019-10-17,condominium
+830,1,647,368,Eastwood,Montreal,Aldergrove,Quebec,Canada,sale,91695354,619,9588,8,9,2,1911,2013-02-27,studio
+831,1,7105,687,Pankratz,Montreal,Saint-Bruno-de-Montarville,Quebec,Canada,sale,7021696,2327,1597,4,8,7,1942,2017-09-14,condominium
+832,1,1,838,Dakota,Montreal,Camlachie,Quebec,Canada,sale,33150523,4697,1831,7,10,2,2001,2015-01-06,other
+833,1,2168,550,Morningstar,Montreal,Princeville,Quebec,Canada,sale,76739397,4148,6107,7,9,3,2021,2022-12-30,studio
+834,1,6,962,Sundown,Montreal,Wingham,Quebec,Canada,sale,34356712,1629,8807,4,7,7,1925,2014-09-22,condominium
+835,1,958,344,Anhalt,Montreal,Crossfield,Quebec,Canada,sale,69653680,2738,7953,3,1,2,1988,2020-09-19,triplex
+836,1,73378,646,Montana,Montreal,Cochrane,Quebec,Canada,rent,5641,2823,6647,10,7,6,1914,2023-05-12,duplex
+837,1,32140,484,Vidon,Montreal,Harbour Breton,Quebec,Canada,rent,3377,2372,8178,2,1,9,1972,2016-02-24,studio
+838,1,3021,461,Talisman,Montreal,Plessisville,Quebec,Canada,sale,10985025,4981,6439,2,6,4,1955,2017-01-09,condominium
+839,1,8788,414,Larry,Montreal,Grande Cache,Quebec,Canada,sale,65410919,1837,7065,4,3,4,1937,2017-09-16,duplex
+840,1,27,128,Spaight,Montreal,Kentville,Quebec,Canada,sale,70255568,928,6643,8,8,2,1940,2023-09-10,other
+841,1,9,706,Havey,Montreal,Antigonish,Quebec,Canada,sale,8515508,3413,4244,5,4,3,1992,2017-02-14,studio
+842,1,19945,427,Waywood,Montreal,Mont-Saint-Hilaire,Quebec,Canada,rent,5899,3059,6392,10,6,3,2001,2016-04-07,quadruplex
+843,1,37,748,Dawn,Montreal,Woodstock,Quebec,Canada,sale,92383327,2523,4482,8,8,4,1923,2011-06-10,studio
+844,1,960,326,Sauthoff,Montreal,Markham,Quebec,Canada,rent,2536,2308,8908,7,2,9,2003,2011-06-19,duplex
+845,1,2,684,Norway Maple,Montreal,Osoyoos,Quebec,Canada,sale,12554067,1916,5338,8,8,10,1977,2010-04-26,studio
+846,1,72718,381,Shopko,Montreal,Saint-Constant,Quebec,Canada,sale,2917723,2214,7238,8,8,3,1944,2019-10-24,single-family
+847,1,23,673,Russell,Montreal,Burns Lake,Quebec,Canada,rent,8011,712,3645,4,8,4,2002,2012-07-27,studio
+848,1,75516,590,Clarendon,Montreal,Saint-Jérôme,Quebec,Canada,sale,14282404,1741,3517,8,8,1,2020,2023-04-21,studio
+849,1,6705,358,Charing Cross,Montreal,Whitehorse,Quebec,Canada,sale,71872161,1425,6301,1,2,10,2015,2022-04-12,quadruplex
+850,1,487,560,Little Fleur,Montreal,Kitimat,Quebec,Canada,sale,66422051,3052,1496,8,6,4,1915,2013-11-22,triplex
+851,1,48,499,Delaware,Montreal,Trois-Rivières,Quebec,Canada,rent,4355,4059,8483,7,5,5,1986,2023-09-20,quadruplex
+852,1,21,783,Division,Montreal,Sainte-Agathe-des-Monts,Quebec,Canada,rent,5597,3714,5751,6,9,9,1956,2019-09-10,single-family
+853,1,2,809,Southridge,Montreal,Marieville,Quebec,Canada,sale,42846522,1434,4996,3,7,5,2014,2011-09-26,other
+854,1,7948,400,Golf,Montreal,Campbellton,Quebec,Canada,rent,7884,1571,4860,9,7,10,1981,2021-03-18,quadruplex
+855,0,464,637,Chinook,Montreal,Swan Hills,Quebec,Canada,rent,4637,2077,6030,1,10,5,1925,2010-09-12,duplex
+856,1,29286,293,Crest Line,Montreal,Québec,Quebec,Canada,sale,78337368,4870,3711,10,10,8,2005,2015-08-16,studio
+857,1,525,965,Hudson,Montreal,Saint-Lambert-de-Lauzon,Quebec,Canada,sale,78373243,4554,9092,1,4,8,1934,2011-11-17,single-family
+858,1,202,214,Vernon,Montreal,Smoky Lake,Quebec,Canada,sale,67208339,2580,4359,1,7,5,1947,2013-02-18,single-family
+859,1,914,594,Lake View,Montreal,Saint-Raymond,Quebec,Canada,sale,48852514,1214,3816,2,1,5,1969,2013-10-20,single-family
+860,1,560,873,Fulton,Montreal,Bécancour,Quebec,Canada,rent,4593,1925,3904,6,9,6,1960,2020-05-15,studio
+861,1,1,319,Monica,Montreal,Inuvik,Quebec,Canada,rent,351,4014,1486,7,2,4,1968,2022-06-08,triplex
+862,1,6302,759,Nelson,Montreal,Mercier,Quebec,Canada,sale,41174842,1917,9149,5,2,5,2022,2010-08-16,townhouse
+863,1,92441,228,Monterey,Montreal,Pont-Rouge,Quebec,Canada,sale,37673530,3578,1949,5,3,2,1917,2020-06-09,other
+864,1,12978,504,Towne,Montreal,Winnipeg,Quebec,Canada,rent,5598,4724,5462,8,1,2,1920,2017-01-03,duplex
+865,1,97960,438,Forest,Montreal,Richmond,Quebec,Canada,rent,3789,2947,3370,4,3,4,1918,2016-04-25,triplex
+866,1,8505,812,Jackson,Montreal,Killam,Quebec,Canada,sale,62797181,4215,5172,5,10,3,1961,2020-03-16,quadruplex
+867,1,96229,262,Cherokee,Montreal,Saint-Raymond,Quebec,Canada,rent,5323,548,4069,3,5,9,1932,2016-09-03,triplex
+868,0,5572,534,Buell,Montreal,Amherst,Quebec,Canada,rent,2229,1724,4099,10,1,8,1984,2012-11-19,quadruplex
+869,1,81,229,Village Green,Montreal,Fruitvale,Quebec,Canada,sale,78788986,1363,8587,7,1,8,1964,2014-02-25,townhouse
+870,1,286,908,Luster,Montreal,Pierreville,Quebec,Canada,sale,54088468,1107,4937,7,4,10,1916,2019-05-01,triplex
+871,1,198,420,Hermina,Montreal,Mercier,Quebec,Canada,sale,58094304,2522,3679,4,7,2,2006,2011-08-28,duplex
+872,1,202,298,Grasskamp,Montreal,Agassiz,Quebec,Canada,rent,3031,3887,7987,9,1,8,1993,2010-10-22,other
+873,1,28113,991,Pennsylvania,Montreal,Grande Cache,Quebec,Canada,rent,9473,2282,3678,4,2,3,2013,2022-02-04,duplex
+874,1,102,207,Doe Crossing,Montreal,London,Quebec,Canada,sale,62980614,733,5722,5,1,2,1939,2010-11-08,duplex
+875,1,1293,662,Lillian,Montreal,Saint-Raymond,Quebec,Canada,sale,85703834,4768,5137,6,5,3,2007,2022-09-09,condominium
+876,1,455,517,Moulton,Montreal,Whistler,Quebec,Canada,sale,75469835,949,9416,10,3,7,1936,2019-09-25,other
+877,1,138,718,Arrowood,Montreal,Pangnirtung,Quebec,Canada,rent,1042,141,1922,2,5,2,1952,2017-11-05,duplex
+878,1,575,660,Veith,Montreal,Miramichi,Quebec,Canada,sale,50255928,4336,7387,3,7,9,1971,2023-01-26,condominium
+879,1,20,942,Manufacturers,Montreal,South River,Quebec,Canada,rent,6289,2223,9626,6,1,10,1994,2022-11-12,studio
+880,1,820,799,Spenser,Montreal,Minnedosa,Quebec,Canada,sale,93752444,1109,3983,1,2,3,1985,2016-04-10,triplex
+881,1,6211,366,Prairie Rose,Montreal,Collingwood,Quebec,Canada,rent,3229,1109,9426,6,10,9,1957,2023-02-23,studio
+882,1,60,820,Sugar,Montreal,Mont-Tremblant,Quebec,Canada,sale,21709450,2064,3860,3,6,4,2002,2015-02-24,condominium
+883,1,5,798,Fair Oaks,Montreal,Kentville,Quebec,Canada,rent,253,794,5758,10,9,9,2015,2021-03-24,single-family
+884,1,1,914,Shoshone,Montreal,Oxford,Quebec,Canada,rent,5449,1356,2790,7,1,8,1970,2018-06-26,quadruplex
+885,1,79906,991,Haas,Montreal,Oxbow,Quebec,Canada,rent,5916,2167,5531,10,7,5,1972,2016-11-18,triplex
+886,1,36,568,Linden,Montreal,Pont-Rouge,Quebec,Canada,rent,1023,4777,9965,10,10,9,1957,2021-03-23,townhouse
+887,1,3021,262,Raven,Montreal,Papineauville,Quebec,Canada,sale,91672442,2401,6941,9,7,2,1953,2017-09-17,quadruplex
+888,1,265,595,Chive,Montreal,Sainte-Anne-de-Bellevue,Quebec,Canada,sale,3502477,2741,2191,2,6,8,1998,2013-03-10,other
+889,1,4,318,Lake View,Montreal,Saint-Rémi,Quebec,Canada,rent,8848,4673,5120,9,2,5,1913,2019-03-23,quadruplex
+890,1,6,554,Trailsway,Montreal,Beauharnois,Quebec,Canada,rent,2477,3079,1799,6,6,3,1970,2016-10-21,condominium
+891,1,2080,806,Armistice,Montreal,Havre-Saint-Pierre,Quebec,Canada,sale,42647605,3599,6453,10,2,6,1916,2023-08-04,quadruplex
+892,1,6,498,Dorton,Montreal,Kelowna,Quebec,Canada,rent,7698,4175,4420,6,3,3,2007,2015-11-25,condominium
+893,1,66,387,Meadow Valley,Montreal,Pickering,Quebec,Canada,sale,89261971,829,4199,9,1,10,2009,2019-09-19,townhouse
+894,1,3,146,Hermina,Montreal,Berthierville,Quebec,Canada,rent,6571,2587,7447,2,1,1,1978,2012-07-14,single-family
+895,1,4,409,Little Fleur,Montreal,Petrolia,Quebec,Canada,sale,13798772,1524,9107,6,5,9,1984,2013-06-15,condominium
+896,1,5,518,Nova,Montreal,Petrolia,Quebec,Canada,rent,2113,475,1665,2,10,8,2005,2010-03-20,triplex
+897,1,9378,405,Bartillon,Montreal,Smoky Lake,Quebec,Canada,sale,48338229,3471,4427,2,3,10,1978,2021-01-24,single-family
+898,1,84,305,Vahlen,Montreal,Beauceville,Quebec,Canada,rent,5527,246,5113,3,9,8,2014,2016-10-12,triplex
+899,1,0,186,Pond,Montreal,St. Catharines,Quebec,Canada,rent,9935,695,6891,4,4,10,1949,2012-03-25,quadruplex
+900,1,3527,166,Cambridge,Montreal,Powassan,Quebec,Canada,sale,65410842,4932,6628,8,9,10,1972,2016-06-27,townhouse
+901,1,955,736,Division,Montreal,New-Richmond,Quebec,Canada,rent,5491,168,6630,10,8,10,1983,2011-06-14,quadruplex
+902,1,6,344,Washington,Montreal,Warwick,Quebec,Canada,rent,5909,3205,9004,4,3,1,1972,2020-11-03,quadruplex
+903,1,6,589,Nobel,Montreal,Stettler,Quebec,Canada,rent,3872,4615,3855,6,3,8,1906,2013-01-18,single-family
+904,1,665,725,Grayhawk,Montreal,Kamsack,Quebec,Canada,sale,8641411,1364,4901,1,7,6,1998,2010-03-27,townhouse
+905,1,42893,431,Erie,Montreal,Asbestos,Quebec,Canada,sale,84904528,2407,5234,8,6,9,1924,2014-02-23,studio
+906,1,469,550,3rd,Montreal,Fort McMurray,Quebec,Canada,sale,97600676,225,2435,5,1,3,2003,2010-03-26,condominium
+907,1,5,448,American,Montreal,Saint-André-Avellin,Quebec,Canada,rent,2790,2251,1792,5,7,5,2011,2016-07-30,duplex
+908,1,19913,427,Westport,Montreal,Drayton Valley,Quebec,Canada,sale,28219454,2664,4542,9,3,10,1922,2020-06-16,triplex
+909,1,1009,840,Heath,Montreal,Arnprior,Quebec,Canada,rent,932,2458,9510,10,2,4,1937,2011-08-28,triplex
+910,1,7262,175,Petterle,Montreal,Selkirk,Quebec,Canada,rent,418,4095,8283,10,8,6,1905,2017-09-04,studio
+911,1,2341,193,Chive,Montreal,Dorchester,Quebec,Canada,rent,5007,268,7770,4,2,8,1949,2013-09-20,triplex
+912,1,2,369,Atwood,Montreal,Port Colborne,Quebec,Canada,sale,45767509,3987,7177,1,1,2,1996,2018-08-21,condominium
+913,1,5,580,Crownhardt,Montreal,Swift Current,Quebec,Canada,rent,728,3638,3825,7,8,4,1989,2015-02-23,triplex
+914,1,9,594,Messerschmidt,Montreal,Mont-Laurier,Quebec,Canada,sale,87207418,3555,8905,3,2,1,1978,2012-10-28,townhouse
+915,1,4783,759,Prairie Rose,Montreal,High River,Quebec,Canada,rent,2048,4499,3394,3,3,5,1910,2014-10-28,single-family
+916,1,12909,875,Fremont,Montreal,Thompson,Quebec,Canada,rent,589,2419,1113,10,8,10,1917,2023-04-04,townhouse
+917,1,46,297,Gateway,Montreal,Chester,Quebec,Canada,rent,6128,1878,1394,9,5,2,1998,2011-03-02,quadruplex
+918,1,65619,106,Rowland,Montreal,Kirkland Lake,Quebec,Canada,rent,2018,1009,4576,9,4,5,1949,2010-01-29,other
+919,0,3435,246,Kinsman,Montreal,Conception Bay South,Quebec,Canada,rent,8966,992,1714,10,10,4,1916,2022-04-28,single-family
+920,1,543,248,Badeau,Montreal,Beloeil,Quebec,Canada,rent,9791,2998,4340,10,3,4,1912,2019-11-08,duplex
+921,1,6,503,Southridge,Montreal,Summerland,Quebec,Canada,sale,76415973,203,1375,9,1,7,1912,2022-09-30,townhouse
+922,1,7,263,Riverside,Montreal,Baie-D\'Urfé,Quebec,Canada,sale,89837210,2575,2009,8,3,5,1912,2010-09-30,townhouse
+923,1,4692,896,Pierstorff,Montreal,Flin Flon,Quebec,Canada,rent,876,1519,2737,6,8,5,1914,2021-02-02,duplex
+924,1,588,867,Mifflin,Montreal,Kamloops,Quebec,Canada,sale,2550505,3963,7052,5,5,3,1941,2011-10-08,townhouse
+925,1,94,791,Dwight,Montreal,Pictou,Quebec,Canada,sale,18935742,2130,5858,7,1,7,2001,2019-03-25,townhouse
+926,1,12277,222,Haas,Montreal,Farnham,Quebec,Canada,sale,53176982,3613,9233,4,8,4,1961,2010-03-29,townhouse
+927,1,9,350,Pennsylvania,Montreal,Summerland,Quebec,Canada,rent,3423,2168,7960,4,5,8,2023,2011-04-20,condominium
+928,1,686,860,Portage,Montreal,Saint-Lin-Laurentides,Quebec,Canada,rent,1172,2343,2268,8,6,3,2020,2022-11-29,other
+929,1,352,340,Nevada,Montreal,Drummondville,Quebec,Canada,sale,74135665,3436,6222,6,2,5,1924,2021-06-10,triplex
+930,1,44274,567,Atwood,Montreal,Fort Erie,Quebec,Canada,sale,64447311,4824,9405,2,1,1,1937,2019-05-14,triplex
+931,1,91729,204,Graceland,Montreal,Fort Macleod,Quebec,Canada,rent,4149,3336,4378,6,1,2,2000,2012-07-16,single-family
+932,1,4,213,Steensland,Montreal,North York,Quebec,Canada,rent,9655,2287,4658,8,8,3,1916,2016-08-28,studio
+933,1,71,172,Merchant,Montreal,Sicamous,Quebec,Canada,rent,6467,4929,3883,4,10,8,1979,2012-08-10,quadruplex
+934,1,80,479,Maryland,Montreal,North Saanich,Quebec,Canada,rent,9200,4924,9524,10,1,8,1959,2018-10-29,duplex
+935,1,5267,488,Fieldstone,Montreal,Concord,Quebec,Canada,sale,59006084,2126,7246,7,8,5,1905,2023-10-03,triplex
+936,1,4,659,South,Montreal,Dorchester,Quebec,Canada,rent,3248,4864,8291,8,6,5,1966,2016-09-26,quadruplex
+937,1,1,439,Helena,Montreal,Pasadena,Quebec,Canada,sale,68777123,253,5353,7,1,9,1916,2014-06-07,townhouse
+938,1,9234,724,3rd,Montreal,Nanaimo,Quebec,Canada,sale,54040151,2211,9308,4,2,2,1914,2010-09-26,other
+939,1,39,452,Everett,Montreal,Logan Lake,Quebec,Canada,sale,88024986,1334,3088,6,5,8,2006,2022-11-27,townhouse
+940,1,5842,481,Pawling,Montreal,North Vancouver,Quebec,Canada,sale,61479935,3100,1833,10,7,10,1947,2022-09-03,quadruplex
+941,1,3226,956,Warbler,Montreal,Dorchester,Quebec,Canada,sale,2926920,1783,3462,4,4,5,1917,2015-02-07,townhouse
+942,1,6085,460,Cascade,Montreal,Chase,Quebec,Canada,sale,12738190,1395,3831,10,7,6,1908,2011-01-18,other
+943,1,748,866,Burrows,Montreal,Abbotsford,Quebec,Canada,sale,25080712,557,5699,5,8,9,2015,2012-12-17,quadruplex
+944,1,6,454,Armistice,Montreal,Jasper Park Lodge,Quebec,Canada,sale,77741711,2406,4959,2,10,9,2006,2021-02-26,condominium
+945,1,673,642,Vermont,Montreal,Plessisville,Quebec,Canada,rent,4112,1548,7512,10,1,4,1958,2010-07-23,triplex
+946,0,1,809,Carberry,Montreal,Middleton,Quebec,Canada,rent,597,3658,8622,1,3,7,1948,2019-09-18,triplex
+947,1,202,638,Fairview,Montreal,Prince Rupert,Quebec,Canada,rent,6650,3770,8294,8,1,1,1981,2010-10-09,townhouse
+948,1,1097,675,Aberg,Montreal,Laval,Quebec,Canada,rent,1160,278,6808,10,10,5,2015,2011-11-24,quadruplex
+949,0,17,674,Sutteridge,Montreal,Barrie,Quebec,Canada,sale,43786591,4506,4321,3,1,1,1935,2019-05-21,other
+950,1,68,424,Claremont,Montreal,Gibsons,Quebec,Canada,rent,6550,507,7089,9,3,6,1917,2019-11-21,duplex
+951,0,4,378,Stephen,Montreal,Metchosin,Quebec,Canada,rent,2088,3570,6372,10,1,4,2009,2010-09-30,triplex
+952,1,9,631,Algoma,Montreal,Golden,Quebec,Canada,rent,3267,4354,2920,8,3,5,1920,2017-07-22,condominium
+953,1,50,630,Hoard,Montreal,Victoriaville,Quebec,Canada,sale,88196959,1490,9080,5,2,8,1904,2016-09-15,duplex
+954,1,860,625,Graceland,Montreal,Altona,Quebec,Canada,rent,5675,520,8536,5,6,8,1984,2016-03-21,condominium
+955,1,1,932,Thompson,Montreal,Mont-Saint-Hilaire,Quebec,Canada,rent,9929,4370,3850,2,4,8,1932,2015-07-15,townhouse
+956,1,39026,404,Washington,Montreal,Parry Sound,Quebec,Canada,sale,37729800,3536,5331,8,8,6,1929,2013-11-03,duplex
+957,1,54234,315,Toban,Montreal,Pangnirtung,Quebec,Canada,rent,7016,4942,2518,3,9,7,1946,2016-09-19,quadruplex
+958,0,8,592,Armistice,Montreal,Beauceville,Quebec,Canada,sale,42771688,1437,1316,9,9,4,1961,2013-03-17,single-family
+959,1,2377,473,Superior,Montreal,Port Hawkesbury,Quebec,Canada,rent,5151,4185,6835,8,3,10,1915,2013-07-16,single-family
+960,1,4829,698,Graceland,Montreal,Greenwood,Quebec,Canada,sale,95700112,1641,8111,5,6,1,1977,2014-03-21,single-family
+961,0,26917,920,Manitowish,Montreal,Saint-Rémi,Quebec,Canada,rent,3602,301,1484,10,10,10,1996,2022-01-24,other
+962,1,4604,494,Packers,Montreal,Boissevain,Quebec,Canada,sale,30393108,2235,7906,4,1,9,1954,2012-07-16,condominium
+963,0,4120,834,Grasskamp,Montreal,Lloydminster,Quebec,Canada,rent,5788,2258,1108,4,10,7,2022,2012-02-27,triplex
+964,1,1188,604,Knutson,Montreal,Wolfville,Quebec,Canada,rent,502,710,2933,7,4,5,1950,2013-02-02,quadruplex
+965,1,5,892,Cottonwood,Montreal,Greenwood,Quebec,Canada,sale,70863636,2245,6605,8,8,8,1902,2022-01-26,quadruplex
+966,1,2453,715,Westridge,Montreal,Atikokan,Quebec,Canada,sale,40639883,3170,1146,5,6,6,1934,2021-02-21,triplex
+967,1,1,782,Vera,Montreal,Niverville,Quebec,Canada,rent,5586,4092,2177,9,10,5,1977,2021-01-31,duplex
+968,1,1,390,Northview,Montreal,Coaldale,Quebec,Canada,sale,12547022,3356,4316,1,5,4,1958,2017-09-25,quadruplex
+969,1,36604,654,Anderson,Montreal,Prince Albert,Quebec,Canada,rent,2995,1289,9135,4,3,2,2019,2013-06-21,triplex
+970,1,703,511,Ridge Oak,Montreal,Les Cèdres,Quebec,Canada,rent,5217,4897,1885,3,3,7,1955,2012-02-12,condominium
+971,1,33752,696,Oneill,Montreal,Richibucto,Quebec,Canada,sale,94272862,4661,5434,6,4,2,1939,2019-06-30,condominium
+972,1,686,930,Reindahl,Montreal,Harbour Breton,Quebec,Canada,sale,83832530,3040,9968,7,7,10,2010,2017-07-11,duplex
+973,0,91,162,Ludington,Montreal,Concord,Quebec,Canada,sale,17328031,234,4252,7,10,1,1931,2016-10-24,single-family
+974,1,4,206,Corscot,Montreal,St. Thomas,Quebec,Canada,rent,6153,2968,7050,7,6,4,1997,2022-02-15,condominium
+975,1,1,988,Eggendart,Montreal,Parksville,Quebec,Canada,sale,90680868,2783,3937,5,8,9,2021,2011-09-11,condominium
+976,1,4,416,Lunder,Montreal,Montague,Quebec,Canada,sale,16679057,568,9428,5,10,9,2000,2011-03-01,single-family
+977,1,2108,240,Packers,Montreal,Saint-Lambert-de-Lauzon,Quebec,Canada,rent,6083,1235,2784,6,6,6,1949,2016-06-16,single-family
+978,1,48160,632,Stephen,Montreal,Prince Edward,Quebec,Canada,sale,76753799,2201,5138,2,10,5,1913,2013-10-04,single-family
+979,1,6,139,Old Gate,Montreal,North Cowichan,Quebec,Canada,sale,33755395,499,9464,4,10,6,1923,2011-09-08,other
+980,1,74,634,Ruskin,Montreal,Longueuil,Quebec,Canada,rent,9909,4089,3859,3,3,6,1974,2013-12-08,townhouse
+981,1,68682,494,Sherman,Montreal,Okotoks,Quebec,Canada,sale,15709794,3822,5760,10,6,5,1995,2012-04-27,duplex
+982,1,5,678,International,Montreal,Beaconsfield,Quebec,Canada,rent,5317,3234,1913,8,8,8,1991,2017-01-20,triplex
+983,0,14,127,Kennedy,Montreal,Toronto,Quebec,Canada,rent,8594,2555,3812,7,6,5,1971,2018-03-21,triplex
+984,1,8249,712,Merrick,Montreal,Nelson,Quebec,Canada,sale,1577198,3701,6396,9,9,2,1925,2016-09-01,other
+985,1,307,432,Barnett,Montreal,Warwick,Quebec,Canada,rent,422,1987,6553,1,3,2,1915,2020-04-04,quadruplex
+986,1,4057,143,Bluestem,Montreal,Waterloo,Quebec,Canada,rent,8626,4650,2326,6,3,8,1920,2013-02-26,single-family
+987,0,0,923,Del Sol,Montreal,Burns Lake,Quebec,Canada,rent,3111,4331,9245,8,1,5,2023,2014-06-29,duplex
+988,1,70,740,Mariners Cove,Montreal,Saint-Bruno-de-Guigues,Quebec,Canada,sale,77780773,880,5376,6,8,8,2022,2020-10-10,duplex
+989,1,2,848,Lien,Montreal,Sydney Mines,Quebec,Canada,sale,36647784,1106,6467,6,3,3,2009,2021-10-09,condominium
+990,1,7,997,Northport,Montreal,Roberval,Quebec,Canada,rent,7501,724,2678,8,2,7,1999,2023-06-13,single-family
+991,1,96,436,Village,Montreal,Oxbow,Quebec,Canada,sale,93815369,4115,8049,8,10,10,1989,2021-02-23,single-family
+992,1,41,460,Fair Oaks,Montreal,L\'Assomption,Quebec,Canada,sale,77120286,1118,4441,2,6,6,1943,2023-01-17,single-family
+993,1,581,535,Brown,Montreal,Oakville,Quebec,Canada,sale,11519019,4160,9054,3,8,8,1915,2014-04-05,triplex
+994,1,0,475,Orin,Montreal,Beauharnois,Quebec,Canada,sale,52091602,3809,3778,8,2,2,1999,2014-04-07,townhouse
+995,1,44251,567,Anzinger,Montreal,Chester,Quebec,Canada,sale,20065035,4063,6037,10,3,6,1983,2018-08-28,townhouse
+996,1,82017,264,Hermina,Montreal,Pictou,Quebec,Canada,sale,73051251,3059,9311,6,6,3,1904,2012-05-06,triplex
+997,1,943,509,Wayridge,Montreal,Belfast,Quebec,Canada,sale,8207508,4233,7468,1,6,1,1956,2010-05-24,triplex
+998,1,41,989,Porter,Montreal,West End,Quebec,Canada,sale,55728490,4457,4991,4,2,7,1930,2010-08-23,single-family
+999,1,728,922,Northfield,Montreal,Bay Roberts,Quebec,Canada,sale,24554956,1261,1163,4,7,3,1958,2020-10-23,triplex
+1000,1,4366,681,Mcguire,Montreal,Manning,Quebec,Canada,rent,8025,2499,8433,7,9,1,1981,2015-01-30,quadruplex
