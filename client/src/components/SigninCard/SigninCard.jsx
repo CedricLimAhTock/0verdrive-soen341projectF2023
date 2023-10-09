@@ -11,12 +11,12 @@ const SigninCard = () => {
     e.preventDefault();
 
     // try {
-    //     const res = await axios.post('http://localhost:5173/signup', {
+    //     const res = await axios.post('http://localhost:5173/signin', {
     //         username,
     //         password
     //     });
 
-    //     navigate("/login")
+    //     navigate("/")
     //     console.log(res.message);
     // } catch (err) {
     //     console.log(err);
