@@ -2,7 +2,8 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  height: 35em;
+  /* height: 35em; */
+  height: 100%;
   justify-content: space-between;
   align-items: center;
   padding: 3em;
@@ -11,8 +12,10 @@
 .listing-container-card {
   display: flex;
   flex-direction: column;
-  width: 30em;
-  height: 28em;
+  /* width: 30em; */
+  /* height: 28em; */
+  width: 100%;
+  height: 100%;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -20,8 +23,10 @@
 }
 
 .card-img {
-  width: 96%;
-  height: 16.5em;
+  /* width: 96%; */
+  /* height: 16.5em; */
+  width: 100%;
+  height: 100%;
   border-radius: 10px 10px 0 0;
   margin: 10px;
   margin-top: 0;
@@ -31,8 +36,10 @@
 .card-info {
   font-family: Inter;
   letter-spacing: 0.5px;
+  /* width: 100%; */
+  /* height: 6.75em; */
   width: 100%;
-  height: 6.75em;
+  height: 100%;
   bottom: 0;
   padding-left: 25px;
   padding-top: 25px;
@@ -58,8 +65,10 @@
 .icon-with-number {
   font-family: Inter;
   color: rgba(0, 0, 0, 0.378);
+  /* width: 100%; */
+  /* height: 6.75em; */
   width: 100%;
-  height: 6.75em;
+  height: 100%;
   border-radius: 0 0 10px 10px;
   display: flex;
   align-items: center;
@@ -69,8 +78,10 @@
 }
 
 .card-icon {
-  width: 30px;
-  height: 30px;
+  /* width: 30px; */
+  /* height: 30px; */
+  width: 100%;
+  height: 100%;
   margin-right: 5px;
 }
 
