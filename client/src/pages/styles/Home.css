@@ -114,6 +114,7 @@ h1 {
   justify-content: space-between;
   align-items: center;
   padding: 3em;
+  background-color: #cdcdcd22;
 }
 
 .listing-container-card {
@@ -121,7 +122,6 @@ h1 {
   flex-direction: column;
   width: 30em;
   height: 28em;
-  background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   cursor: pointer;
