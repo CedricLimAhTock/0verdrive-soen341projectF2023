@@ -8,6 +8,8 @@ import bathIcon from "../../assets/bath.svg";
 import rulerIcon from "../../assets/ruler.svg";
 // import saveIcon from "../../assets/saveIcon.svg";
 import SaveIcon from "../SaveIcon/SaveIcon";
+
+import Carousel from "../Carousel/Carousel";
 const PropertyCard = ({ property, onEventClick }) => {
   const settings = {
     dots: true,
@@ -32,13 +34,14 @@ const PropertyCard = ({ property, onEventClick }) => {
     <div className="card" onClick={() => toggleProperty(property)}>
       <div className="listing-container-card">
         <div className="card-img">
-          <Slider {...settings}>
+          {/* <Slider {...settings}>
             {images.map((image, index) => (
               <div key={index}>
                 <img src={image} alt={`Slide ${index + 1}`} />
               </div>
             ))}
-          </Slider>
+          </Slider> */}
+          <Carousel />
         </div>
         <div className="card-save"></div>
         <div className="card-info">
