@@ -10,15 +10,7 @@ import rulerIcon from "../../assets/ruler.svg";
 import SaveIcon from "../SaveIcon/SaveIcon";
 
 import Carousel from "../Carousel/Carousel";
-const PropertyCard = ({ property, onEventClick }) => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-
+const PropertyCard = ({ property, onEventClick, pictures }) => {
   const { images, price, address, bedrooms, bathrooms, size } = property;
 
   let [isSaved, setIsSaved] = useState(false);
@@ -34,14 +26,7 @@ const PropertyCard = ({ property, onEventClick }) => {
     <div className="card" onClick={() => toggleProperty(property)}>
       <div className="listing-container-card">
         <div className="card-img">
-          {/* <Slider {...settings}>
-            {images.map((image, index) => (
-              <div key={index}>
-                <img src={image} alt={`Slide ${index + 1}`} />
-              </div>
-            ))}
-          </Slider> */}
-          <Carousel />
+          <Carousel images={pictures} />
         </div>
         <div className="card-save"></div>
         <div className="card-info">

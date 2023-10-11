@@ -16,7 +16,7 @@ const images = [
   },
 ];
 
-const Carousel = () => {
+const Carousel = ({ images }) => {
   return (
     <ImageGallery
       additionalClass="carousel"
