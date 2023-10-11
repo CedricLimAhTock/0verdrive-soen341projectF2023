@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import "../SigninCard/SigninCard.css";
 import "@fontsource/inter";
@@ -9,7 +9,7 @@ const SigninCard = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         // try {
@@ -28,38 +28,35 @@ const SigninCard = () => {
     return (
         <div className="signin-card-container">
             <div className="logo">Lorem Ipsum</div>
-            <div className="signin-card">
-                <h1>Sign Up</h1>
-                <div className="fields">
-                    <form onSubmit={handleSubmit}>
-                    <div className="user">
+            <div className="login-container">
+                <h2>Sign up</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className='form-element user'>
                         <input
-                            type="text"
-                            placeholder="U S E R N A M E"
-                            className="signin-username" 
+                            type='text'
+                            placeholder='U S E R N A M E'
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             required
                         />
+                        <div className='form-element'>
+                            <input
+                                type='password'
+                                placeholder='P A S S W O R D'
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                required
+                            />
+                        </div>
+                        <div className='form-element pass'>
+                            <input
+                                type='submit'
+                                value='Sign up'
+                            />
+                            <Link to="/login">Have an account? Log in here</Link>
+                        </div>
                     </div>
-                    <div className="pass">
-                        <input
-                            type="password"
-                            placeholder="P A S S W O R D"
-                            className="signin-password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                    </div>
-                    </form>
-                </div>
-                <input
-                    type='submit'
-                    value='Sign Up'
-                    className="signinButton"
-                />
-                <Link to="/signin">Have an account?</Link>
+                </form>
             </div>
         </div>
     );
