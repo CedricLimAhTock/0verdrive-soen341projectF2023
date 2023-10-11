@@ -16,7 +16,7 @@ app.use(cors());
 //   })
 // );
 
-app.use('/login', loginRoutes);
+app.use('/signin', loginRoutes);
 app.use('/signup', signUpRoutes);
 
 //CONNECT THE DB HERE

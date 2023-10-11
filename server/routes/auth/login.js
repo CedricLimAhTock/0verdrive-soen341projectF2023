@@ -12,7 +12,7 @@ const pool = mysql.createPool({
   database: 'your-database-name',
 });
 
-router.post('/signin', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const { username, password } = req.body;
 
