@@ -10,6 +10,7 @@ import rulerIcon from "../../assets/ruler.svg";
 import SaveIcon from "../SaveIcon/SaveIcon";
 
 import Carousel from "../Carousel/Carousel";
+
 const PropertyCard = ({ property, onEventClick }) => {
   const { images, price, address, bedrooms, bathrooms, size } = property;
 
@@ -26,12 +27,12 @@ const PropertyCard = ({ property, onEventClick }) => {
     <div className="card" onClick={() => toggleProperty(property)}>
       <div className="listing-container-card">
         <div className="card-img">
-          <Carousel images={images} />
+          <Carousel images={images} className={"card-carousel"} />
         </div>
         <div className="card-save"></div>
         <div className="card-info">
-          <div className="card-price">
-            {price}
+          <div className="card-price-container">
+            <div className="card-price">{price}</div>
             {/* <img className="save-icon" src={saveIcon} alt="Save Icon" /> */}
             <SaveIcon
               onClick={handleIsSaved}

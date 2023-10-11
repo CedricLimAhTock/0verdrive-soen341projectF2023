@@ -117,17 +117,17 @@ h1 {
   background-color: #cdcdcd22;
 }
 
-.listing-container-card {
+/* .listing-container-card {
   display: flex;
   flex-direction: column;
   width: 30em;
   height: 28em;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
   cursor: pointer;
-}
+} */
 
-.card-img {
+/* .card-img {
   width: 96%;
   height: 16.5em;
   border-radius: 10px 10px 0 0;
@@ -192,4 +192,4 @@ h1 {
 
 .save-icon:hover {
   cursor: pointer;
-}
+} */
