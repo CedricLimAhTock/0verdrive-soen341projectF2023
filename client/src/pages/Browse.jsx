@@ -8,7 +8,17 @@ import searchImg from "../assets/search-img.svg";
 import Map from "../assets/calgary-mls-1.png";
 const Browse = () => {
   const property = {
-    images: [homeImg],
+    images: [
+      {
+        original: "https://picsum.photos/id/1018/1000/600/",
+      },
+      {
+        original: "https://picsum.photos/id/1015/1000/600/",
+      },
+      {
+        original: "https://picsum.photos/id/1019/1000/600/",
+      },
+    ],
     price: "$1,000,000",
     address: "1234 Main St, San Diego, CA 92101",
     bedrooms: 3,

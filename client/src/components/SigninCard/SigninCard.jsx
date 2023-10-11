@@ -25,35 +25,36 @@ const SigninCard = () => {
   return (
     <div className="signin-card-container">
       <div className="logo">Lorem Ipsum</div>
-      <div className="signin-card">
-        <h1>Sign In</h1>
-        <div className="fields">
-          <form onSubmit={handleSubmit}>
-            <div className="user">
-              <input
-                type="text"
-                placeholder="U S E R N A M E"
-                className="signin-username"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-              />
-            </div>
-            <div className="pass">
-              <input
-                type="text"
-                placeholder="P A S S W O R D"
-                className="signin-password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-          </form>
+      <div className="login-container">
+      <h2>Sign In</h2>
+      <form onSubmit={handleSubmit}>
+        <div className='form-element user'>
+          <input 
+            type='text'
+            placeholder='U S E R N A M E'
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        <div className='form-element pass'>
+          <input
+            type='password'
+            placeholder='P A S S W O R D'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
         </div>
-        <input type="submit" value="Sign In" className="signinButton" />
-        <Link to="/signup">Don't have an account yet?</Link>
-      </div>
+        <div className='form-element'>
+          <input
+            type='submit'
+            value= 'Sign In'
+          />
+          <Link to="/signup">Don't have an account? Sign up here</Link>
+        </div>
+        </div>
+      </form>
+    </div>
     </div>
   );
 };
