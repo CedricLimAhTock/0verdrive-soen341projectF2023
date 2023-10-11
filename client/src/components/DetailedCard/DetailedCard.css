@@ -63,21 +63,21 @@
   padding: 20px 0;
 }
 
-.feature {
+.features {
   display: flex;
   padding-right: 50px;
   color: rgba(0, 0, 0, 0.6);
 }
 
-/* .card-icon {
+.c-icons {
     width: 20px;
     height: 20px;
     margin-right: 10px;
-} */
+}
 
-/* .icon-number {
+.icon-numbers {
   font-size: 16px;
-} */
+}
 
 .right-side {
   width: 30%;
