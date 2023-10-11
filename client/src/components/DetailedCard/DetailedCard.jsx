@@ -4,12 +4,19 @@ import './DetailedCard.css'
 import bedIcon from "../../assets/bed.svg";
 import bathIcon from "../../assets/bath.svg";
 import rulerIcon from "../../assets/ruler.svg";
+import MortgageCalculator from '../MortgageCalculator/MortgageCalculator';
 
 
 const DetailedCard = ({ property }) => {
 
     const { images, title, price, address, description, bedrooms, bathrooms, size, broker } = property;
     const [activeTab, setActiveTab] = useState('description');
+
+    const [isFormOpen, setIsFormOpen] = useState(false);
+
+    const toggleForm = () => {
+        setIsFormOpen(!isFormOpen);
+    };
 
 
     return (
@@ -77,6 +84,8 @@ const DetailedCard = ({ property }) => {
                 <h2 className='price'>{price}</h2>
                 <button className="offer">Make an offer</button>
                 <button className="visit">Request a visit</button>
+                <button className="calc" onClick={setIsFormOpen}>Mortgage Calculator</button>
+                <MortgageCalculator isOpen={isFormOpen} onClose={toggleForm} property={property}/>
             </div>
         </div>
     )

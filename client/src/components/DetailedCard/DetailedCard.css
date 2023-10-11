@@ -97,7 +97,7 @@
 }
 
 .offer,
-.visit {
+.visit, .calc {
     background-color: #007bff;
     font-size: 18px;
     color: #fff;
@@ -110,6 +110,7 @@
 }
 
 .offer:hover,
-.visit:hover {
+.visit:hover,
+.calc:hover {
     background-color: #0056b3;
 }
