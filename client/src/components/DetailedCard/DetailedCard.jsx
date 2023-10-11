@@ -64,17 +64,17 @@ const DetailedCard = ({ property }) => {
                 <b>Features</b>
                 <div className="property-features">
 
-                    <div className="feature">
-                        <img className="card-icon" src={bedIcon} alt="Bed Icon" />
-                        <span className="icon-number">{bedrooms}</span>
+                    <div className="features">
+                        <img className="c-icons" src={bedIcon} alt="Bed Icon" />
+                        <span className="icon-numbers">{bedrooms}</span>
                     </div>
-                    <div className="feature">
-                        <img className="card-icon" src={bathIcon} alt="Bath Icon" />
-                        <span className="icon-number">{bathrooms}</span>
+                    <div className="features">
+                        <img className="c-icons" src={bathIcon} alt="Bath Icon" />
+                        <span className="icon-numbers">{bathrooms}</span>
                     </div>
-                    <div className="feature">
-                        <img className="card-icon" src={rulerIcon} alt="Ruler Icon" />
-                        <span className="icon-number">{size} sq ft</span>
+                    <div className="features">
+                        <img className="c-icons" src={rulerIcon} alt="Ruler Icon" />
+                        <span className="icon-numbers">{size} sq ft</span>
                     </div>
                 </div>
             </div>

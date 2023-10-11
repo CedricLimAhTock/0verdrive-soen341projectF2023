@@ -3,15 +3,16 @@ import React from "react";
 export default function SaveIcon(props) {
   return (
     <svg
-      width="37"
-      height="45"
-      viewBox="0 0 37 45"
-      {...props}
       xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="27"
+      viewBox="0 0 24 27"
+      {...props}
     >
       <path
-        d="M34 42L18.5 31.1667L3 42V7.33333C3 6.18406 3.46658 5.08186 4.2971 4.2692C5.12762 3.45655 6.25404 3 7.42857 3H29.5714C30.746 3 31.8724 3.45655 32.7029 4.2692C33.5334 5.08186 34 6.18406 34 7.33333V42Z"
-        stroke-width="5"
+        d="M22 24.5806L12 18.3082L2 24.5806V4.50896C2 3.84354 2.30102 3.20538 2.83684 2.73486C3.37266 2.26434 4.09938 2 4.85714 2H19.1429C19.9006 2 20.6273 2.26434 21.1632 2.73486C21.699 3.20538 22 3.84354 22 4.50896V24.5806Z"
+        stroke-opacity="0.4"
+        stroke-width="3"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
