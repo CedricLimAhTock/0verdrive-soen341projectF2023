@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: whitesmoke
+  background-color: whitesmoke;
 }
 
 .logo {
@@ -16,92 +16,77 @@
   top: 0;
   padding: 30px;
   color: rgba(0, 0, 0, 0.5);;
-  
 }
 
-.signin-card {
-  width: 350px;
-  height: 350px;
-  border-radius: 10px;
-  background: #fff;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.login-container {
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #cccccc;
+  padding: 20px;
+  width: 50%;
+  max-width: 400px;
 }
 
-button {
-  cursor: pointer;
-  width: 300px;
-  height: 50px;
-  border-radius: 5px;
-  background: #4a8d6a;
-  color: #fff;
-  font-family: Inter;
-  font-weight: 600;
-  font-size: 20px;
-  border: none;
+.login-container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-element {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.form-element input[type="text"],
+.form-element input[type="password"],
+.form-element input[type="submit"] {
+width: 90%;
+padding: 10px;
+margin-bottom: 15px;
+border: 1px solid #ccc;
+border-radius: 4px;
+font-size: 16px;
+letter-spacing: 2px;
+}
+
+.form-element input[type="text"]::placeholder,
+.form-element input[type="password"]::placeholder,
+.form-element input[type="submit"]::placeholder {
+  letter-spacing: 1px;
+}
+
+.form-element input[type="submit"] {
+background-color:  #5CB084;
+border-radius: 8px;
+color: white;
+cursor: pointer;
+}
+
+.form-element input[type="submit"]:hover {
+background-color: #54A078;
+}
+
+.form-element a {
+  display: block;
+  text-align: center;
   text-decoration: none;
-}
-
-button:hover {
-  background: #549876;
-}
-
-h1 {
-  color: #000;
-  font-family: Inter;
-  font-size: 30px;
-  font-weight: 600;
-  padding-right: 200px;
-}
-
-.fields {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 15px;
-  gap: 30px;
-
-}
-
-.signin-username, .signin-password {
-  width: 300px;
-  height: 60px;
-  border: none;
-  border-radius: 10px 10px 0 0;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
-  background: rgba(244, 244, 244, 0.465);
-  color: rgba(0, 0, 0, 0.25);
-  font-family: Inter;
-  font-weight: 300;
-  font-size: 18px;
-  padding-left: 30px;
-  outline: none;
-  caret-color: #4a8d6a;
-}
-
-input[type = "text"]:focus {
-  color: #000;
-}
-
-.signinButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: #0056b3;
 }
 
 .user > input[type="text"]::placeholder {
   background-image: url("../../assets/iconUser.svg");
-  background-position: right 41px center;
+  background-position: right 10px center;
   background-repeat: no-repeat;
-  background-size: 18px;
+  background-size: 15px;
 }
 
 .pass > input[type="text"]::placeholder {
   background-image: url("../../assets/iconLock.svg");
-  background-position: right 41px center;
+  background-position: right 10px center;
   background-repeat: no-repeat;
-  background-size: 18px;
+  background-size: 15px;
 }

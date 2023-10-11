@@ -1,0 +1,46 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; /* Background color for the form */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #333;
+  }
+  
+  /* Form Title */
+  .form h2 {
+    font-size: 24px; /* Increase font size for the title */
+    margin-bottom: 20px;
+  }
+  
+  /* Form Labels */
+  .form label {
+    text-align: left; /* Align labels to the left */
+    width: 100%; /* Full width for labels */
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  /* Form Inputs */
+  .form input {
+    width: 100%; /* Full width for input fields */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  /* Close Icon */
+  .close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+  }
