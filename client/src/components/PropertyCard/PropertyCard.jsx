@@ -10,7 +10,7 @@ import rulerIcon from "../../assets/ruler.svg";
 import SaveIcon from "../SaveIcon/SaveIcon";
 
 import Carousel from "../Carousel/Carousel";
-const PropertyCard = ({ property, onEventClick, pictures }) => {
+const PropertyCard = ({ property, onEventClick }) => {
   const { images, price, address, bedrooms, bathrooms, size } = property;
 
   let [isSaved, setIsSaved] = useState(false);
@@ -26,7 +26,7 @@ const PropertyCard = ({ property, onEventClick, pictures }) => {
     <div className="card" onClick={() => toggleProperty(property)}>
       <div className="listing-container-card">
         <div className="card-img">
-          <Carousel images={pictures} />
+          <Carousel images={images} />
         </div>
         <div className="card-save"></div>
         <div className="card-info">
