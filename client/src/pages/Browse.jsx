@@ -1,11 +1,8 @@
 import React from "react";
 import "./styles/Browse.css";
 import PropertyCard from "../components/PropertyCard/PropertyCard";
-import { NavLink } from "react-router-dom";
-import searchIcon from "../assets/searchIcon.svg";
-import homeImg from "../assets/tempHomeImg.svg";
-import searchImg from "../assets/search-img.svg";
 import Map from "../assets/calgary-mls-1.png";
+import Search from "../assets/searchIcon-browse.svg";
 const Browse = () => {
   const property = {
     images: [
@@ -34,6 +31,7 @@ const Browse = () => {
           <input type="select" placeholder="Min Price"></input>
           <input type="select" placeholder="Beds"></input>
           <input type="select" placeholder="Baths"></input>
+          <input type="image" src={Search}></input>
         </form>
       </div>
       <div className="items">
