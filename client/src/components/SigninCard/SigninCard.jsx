@@ -3,6 +3,7 @@ import "@fontsource/inter";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+
 const SigninCard = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -41,7 +42,7 @@ const SigninCard = () => {
             </div>
             <div className="pass">
               <input
-                type="text"
+                type="password"
                 placeholder="P A S S W O R D"
                 className="signin-password"
                 value={password}
@@ -52,7 +53,7 @@ const SigninCard = () => {
           </form>
         </div>
         <input type="submit" value="Sign In" className="signinButton" />
-        <Link to="/signup">Don't have an account yet?</Link>
+        <Link className = "redirection" to="/signup">Don't have an account yet?</Link>
       </div>
     </div>
   );

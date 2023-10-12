@@ -59,7 +59,7 @@ const SigninCard = () => {
                     value='Sign Up'
                     className="signinButton"
                 />
-                <Link to="/signin">Have an account?</Link>
+                <Link className = "redirection" to="/signin">Have an account?</Link>
             </div>
         </div>
     );
