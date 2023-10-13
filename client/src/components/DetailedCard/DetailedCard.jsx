@@ -5,6 +5,7 @@ import bedIcon from "../../assets/bed.svg";
 import bathIcon from "../../assets/bath.svg";
 import rulerIcon from "../../assets/ruler.svg";
 import MortgageCalculator from '../MortgageCalculator/MortgageCalculator';
+import Carousel from '../Carousel/Carousel';
 
 
 const DetailedCard = ({ property }) => {
@@ -19,12 +20,14 @@ const DetailedCard = ({ property }) => {
     };
 
 
+
     return (
 
         <div className="details">
             <div className="left-side">
 
-                <div className="images"><img src={images} alt="placeholder" className='images' /></div>
+                <div className="images"><Carousel images={images}  className="carousel-detailed"/></div>
+                
                 <div className="info">
                     <h2 className='title'>{title}</h2>
                     <p className='address'>{address}</p>
