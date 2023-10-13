@@ -7,10 +7,19 @@ import searchImg from "../assets/search-img.svg";
 import PropertyCard from "../components/PropertyCard/PropertyCard";
 
 const Home = () => {
-
   // COMMENTED FOR TESTING
   const property = {
-    images: [homeImg],
+    images: [
+      {
+        original: "https://picsum.photos/id/1018/1000/600/",
+      },
+      {
+        original: "https://picsum.photos/id/1015/1000/600/",
+      },
+      {
+        original: "https://picsum.photos/id/1019/1000/600/",
+      },
+    ],
     price: "$1,000,000",
     address: "1234 Main St, San Diego, CA 92101",
     bedrooms: 3,
@@ -21,7 +30,7 @@ const Home = () => {
   return (
     <div className="main-content">
       <div className="search-container">
-        <img className = "search-container-img" src = {searchImg}></img>
+        <img className="search-container-img" src={searchImg}></img>
         <div className="search-container-text">We lorem your home!</div>
         <div className="search-container-searchbox">
           <input
@@ -45,9 +54,9 @@ const Home = () => {
         </div>
       </div>
       <div className="listing-container">
-        <PropertyCard property={property}/>
-        <PropertyCard property={property}/>
-        <PropertyCard property={property}/>
+        <PropertyCard property={property} />
+        <PropertyCard property={property} />
+        <PropertyCard property={property} />
       </div>
     </div>
   );

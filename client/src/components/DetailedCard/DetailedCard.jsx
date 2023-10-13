@@ -5,6 +5,7 @@ import bedIcon from "../../assets/bed.svg";
 import bathIcon from "../../assets/bath.svg";
 import rulerIcon from "../../assets/ruler.svg";
 import MortgageCalculator from '../MortgageCalculator/MortgageCalculator';
+import Carousel from '../Carousel/Carousel';
 
 
 const DetailedCard = ({ property }) => {
@@ -19,12 +20,14 @@ const DetailedCard = ({ property }) => {
     };
 
 
+
     return (
 
         <div className="details">
             <div className="left-side">
 
-                <div className="images"><img src={images} alt="placeholder" className='images' /></div>
+                <div className="images"><Carousel images={images}  className="carousel-detailed"/></div>
+                
                 <div className="info">
                     <h2 className='title'>{title}</h2>
                     <p className='address'>{address}</p>
@@ -64,17 +67,17 @@ const DetailedCard = ({ property }) => {
                 <b>Features</b>
                 <div className="property-features">
 
-                    <div className="feature">
-                        <img className="card-icon" src={bedIcon} alt="Bed Icon" />
-                        <span className="icon-number">{bedrooms}</span>
+                    <div className="features">
+                        <img className="c-icons" src={bedIcon} alt="Bed Icon" />
+                        <span className="icon-numbers">{bedrooms}</span>
                     </div>
-                    <div className="feature">
-                        <img className="card-icon" src={bathIcon} alt="Bath Icon" />
-                        <span className="icon-number">{bathrooms}</span>
+                    <div className="features">
+                        <img className="c-icons" src={bathIcon} alt="Bath Icon" />
+                        <span className="icon-numbers">{bathrooms}</span>
                     </div>
-                    <div className="feature">
-                        <img className="card-icon" src={rulerIcon} alt="Ruler Icon" />
-                        <span className="icon-number">{size} sq ft</span>
+                    <div className="features">
+                        <img className="c-icons" src={rulerIcon} alt="Ruler Icon" />
+                        <span className="icon-numbers">{size} sq ft</span>
                     </div>
                 </div>
             </div>

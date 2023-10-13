@@ -1,116 +1,126 @@
 .left-side {
-    width: 70%;
-    padding: 0px 50px 0 0;
+  width: 70%;
+  padding: 0px 50px 0 0;
 }
 
 .details {
-    padding: 125px 50px;
-    display: flex;
+  padding: 125px 50px;
+  display: flex;
 }
 
 .images {
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
 }
 
 .info h2 {
-    font-weight: 500;
-    padding: 30px 0px 10px 0px;
-    letter-spacing: 0.5px;
+  font-weight: 500;
+  padding: 30px 0px 10px 0px;
+  letter-spacing: 0.5px;
 }
 
 .info p {
-    font-size: 15px;
-    font-weight: 500;
-    color: rgba(0, 0, 0, 0.6);
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .tabs {
-    padding: 0px 0 40px 0;
+  padding: 0px 0 40px 0;
 }
 
 .property-tabs {
-    padding: 30px 0 20px 0;
-    display: flex;
+  padding: 30px 0 20px 0;
+  display: flex;
 }
 
 .property-tabs button {
-    margin: 0px 50px 0px 0px;
-    padding: 10px 5px;
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    transition: border-bottom 0.3s ease-in-out;
-    font-weight: 600;
-    font-size: 16px;
+  margin: 0px 50px 0px 0px;
+  padding: 10px 5px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: border-bottom 0.3s ease-in-out;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .property-tabs button.active-tab {
-    color: #007bff;
-    background-color: transparent;
-    border-bottom: 2.5px solid #007bff;
+  color: #007bff;
+  background-color: transparent;
+  border-bottom: 2.5px solid #007bff;
 }
 
 .property-details {
-    font-size: 14px;
-    color: rgba(0, 0, 0, 0.6);
-    font-weight: 500;
-    letter-spacing: 0.5px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 .property-features {
-    display: flex;
-    padding: 20px 0;
+  display: flex;
+  padding: 20px 0;
 }
 
-.feature {
-    display: flex;
-    padding-right: 50px;
-    color: rgba(0, 0, 0, 0.6);
+.features {
+  display: flex;
+  padding-right: 50px;
+  color: rgba(0, 0, 0, 0.6);
 }
 
-.card-icon {
+.c-icons {
     width: 20px;
     height: 20px;
     margin-right: 10px;
 }
 
-.icon-number {
-    font-size: 16px;
+.icon-numbers {
+  font-size: 16px;
 }
 
 .right-side {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 25px;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
 }
 
 .price {
-    font-size: 24px;
-    color: rgba(51, 51, 51, 0.7);
-    margin-bottom: 10px;
+  font-size: 24px;
+  color: rgba(51, 51, 51, 0.7);
+  margin-bottom: 10px;
 }
 
 .offer,
-.visit, .calc {
-    background-color: #007bff;
-    font-size: 18px;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.visit,
+.calc {
+  background-color: #007bff;
+  font-size: 18px;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .offer:hover,
 .visit:hover,
 .calc:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
+}
+
+.carousel-detailed {
+  z-index: -1;
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
 }
