@@ -217,7 +217,12 @@ python3 populate_tables.py -u <user> -d <dbname> -p '<your DB password>'
     npm install
     npm run dev
     ```
+3. In the ```server``` folder run
 
+    ```sh
+    npm install
+    node index.js
+    ```
 <br>
 
 ## License
