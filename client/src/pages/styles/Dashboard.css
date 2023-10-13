@@ -1,0 +1,79 @@
+body, html {
+    height: 100%; /* Set the height of the body and html to 100% */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+.dashboard {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.sidebar {
+    background-color: #fdfdfd;
+    height: 100%;
+    width: 20%;
+    position: fixed;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 100px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar button {
+    background-color: #fdfdfd;
+    border: none;
+    color: rgb(113, 123, 143, 0.9);
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sidebar button:hover {
+    background-color: #f1f1f1;
+    color: #007bff;
+}
+
+.sidebar .active-tab {
+    color: #007bff;
+}
+
+.dashboard-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 90px;
+    padding-left: 20%;
+}
+
+.banner {
+    padding: 20px;
+    background-color: white;
+    height: 80px;
+}
+
+.banner p{
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.logout {
+    margin-top: auto;
+    align-self: flex-end; 
+    margin-bottom: 20px;;
+    transition: background-color 0.3s;
+}
