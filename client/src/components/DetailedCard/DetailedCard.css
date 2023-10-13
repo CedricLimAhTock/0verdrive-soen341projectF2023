@@ -115,3 +115,12 @@
 .calc:hover {
   background-color: #0056b3;
 }
+
+.carousel-detailed {
+  z-index: -1;
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+}
