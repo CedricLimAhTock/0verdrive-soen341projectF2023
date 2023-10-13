@@ -12,7 +12,7 @@
   width: 100%;
   object-fit: hidden;
   border-radius: 0.625rem 0.625rem 0rem 0rem;
-  overflow: hidden; /* Adjust the value as needed */
+  overflow: hidden;
 }
 .card-img {
   margin-bottom: 2.25rem;

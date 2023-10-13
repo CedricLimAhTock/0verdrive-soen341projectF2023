@@ -30,8 +30,9 @@ const SigninCard = () => {
       <div className="logo">Lorem Ipsum</div>
       <div className="login-container">
         <h2>Sign up</h2>
+        <div className = "form-container">
         <form onSubmit={handleSubmit}>
-          <div className="form-element user">
+          <div className="form-element">
             <input
               type="text"
               placeholder="U S E R N A M E"
@@ -39,6 +40,7 @@ const SigninCard = () => {
               onChange={(e) => setUsername(e.target.value)}
               required
             />
+            </div>
             <div className="form-element">
               <input
                 type="password"
@@ -48,13 +50,13 @@ const SigninCard = () => {
                 required
               />
             </div>
-            <div className="form-element pass">
+            <div className="form-element">
               <input type="submit" value="Sign up" />
               <Link to="/signin">Have an account? Log in here</Link>
             </div>
-          </div>
         </form>
-      </div>
+        </div>
+        </div>
     </div>
   );
 };
