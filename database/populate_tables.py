@@ -23,7 +23,7 @@ def insert_user(connection, cursor, filepath):
                 #print(f'Column names are {", ".join(row)}')
                 line_count += 1
             else:
-                query = f"""INSERT INTO `user` (`id`, `active`, `firstname`, `lastname`, `username`, `password_hash`, `email`, `phone`, `created`, `modified`) 
+                query = f"""INSERT INTO `user` (`id`, `active`, `firstname`, `lastname`, `username`, `password_hash`, `email`, `phone`, `createdAt`, `updatedAt`) 
                 VALUES (0, {row[1]}, '{row[2]}', '{row[3]}', '{row[4]}', '{row[5]}', '{row[6]}', '{row[7]}', '{row[8]}','{row[9]}')"""
                 #print(query)
                 cursor.execute(query)

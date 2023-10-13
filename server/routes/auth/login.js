@@ -1,31 +1,26 @@
-const express = require('express');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const mysql = require('mysql2/promise');
+import express from 'express';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import User from '../../models/user.js';
+import User_role from '../../models/user_role.js';
 
 const router = express.Router();
 
-const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'your-mysql-username',
-  password: 'your-mysql-password',
-  database: 'your-database-name',
-});
 
 router.post('/', async (req, res) => {
   try {
     const { username, password } = req.body;
 
-    const [rows] = await pool.query('SELECT id, username, password_hash FROM user WHERE username = ?', [username]);
+    //const [rows] = await pool.query('SELECT id, username, password_hash FROM user WHERE username = ?', [username]);
+    const user = await User.findOne({ where: {username: username}});
+
 
     if (rows.length === 0) {
       return res.status(401).json({ 
         message: 'No user with this username' 
       });
     }
-
-    const user = rows[0];
-
+    
     const passwordMatch = await bcrypt.compare(password, user.password_hash);
 
     if (!passwordMatch) {
@@ -34,13 +29,20 @@ router.post('/', async (req, res) => {
       });
     }
 
-    const [roleRows] = await pool.query(`
-      SELECT r.type FROM role r
-      INNER JOIN user_role ur ON r.id = ur.role_id
-      WHERE ur.user_id = ?
-    `, [user.id]);
+    // const [roleRows] = await pool.query(`
+    //   SELECT r.type FROM role r
+    //   INNER JOIN user_role ur ON r.id = ur.role_id
+    //   WHERE ur.user_id = ?
+    // `, [user.id]);
 
-    const roles = roleRows.map((row) => row.type);
+    const roles = await User_role.findAll({
+      attributes: ['type'],
+      include: ['role'],
+      where: {user_id: user.id}
+    });
+    console.log(roles);
+
+    //const roles = roleRows.map((row) => row.type);
 
     const token = jwt.sign({ 
         id: user.id, 
@@ -55,4 +57,4 @@ router.post('/', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
