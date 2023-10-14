@@ -70,9 +70,9 @@
 }
 
 .c-icons {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 }
 
 .icon-numbers {
@@ -116,11 +116,22 @@
   background-color: #0056b3;
 }
 
-.carousel-detailed {
-  z-index: -1;
-}
-
 .details {
   display: flex;
   flex-wrap: wrap;
+}
+
+.carousel-detailed {
+  width: 100%;
+  object-fit: hidden;
+  border-radius: 0.625rem 0.625rem 0.625rem 0.625rem;
+  overflow: hidden;
+}
+
+.carousel-detailed .image-gallery-left-nav {
+  scale: 65%;
+}
+
+.carousel-detailed .image-gallery-right-nav {
+  scale: 65%;
 }
