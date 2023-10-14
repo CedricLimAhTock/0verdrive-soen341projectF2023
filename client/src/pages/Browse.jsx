@@ -24,15 +24,18 @@ const Browse = () => {
   };
   return (
     <div className="browse-container">
+      <div className = "filters-container">
       <div className="filters">
         <form className="search">
-          <input type="text" placeholder="City, Neighbourhood, Address"></input>
-          <input type="select" placeholder="For Sale"></input>
-          <input type="select" placeholder="Min Price"></input>
-          <input type="select" placeholder="Beds"></input>
-          <input type="select" placeholder="Baths"></input>
+          <input className = "search-area" type="text" placeholder="City, Neighbourhood, Address..."></input>
+          <input className = "search-select" type="select" placeholder="For Sale"></input>
+          <input className = "search-select" type="select" placeholder="Min Price"></input>
+          <input className = "search-select" type="select" placeholder="Max Price"></input>
+          <input className = "search-select" type="select" placeholder="Beds"></input>
+          <input className = "search-select-baths" type="select" placeholder="Baths"></input>
           <input type="image" src={Search}></input>
         </form>
+      </div>
       </div>
       <div className="items">
         <div className="browse-cards">
@@ -46,7 +49,6 @@ const Browse = () => {
           <PropertyCard property={property} className="property-card" />
         </div>
         <div className="map">
-          <img src={Map} className="map-img" />
         </div>
       </div>
     </div>

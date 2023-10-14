@@ -1,6 +1,6 @@
 .card {
-  width: 32.8125rem;
-  height: 32.5rem;
+  width: 27rem;
+  height: 27rem;
   flex-shrink: 0;
   border-radius: 1.25rem;
   border: 1.5px solid rgba(0, 0, 0, 0.1);
@@ -15,7 +15,7 @@
   overflow: hidden;
 }
 .card-img {
-  margin-bottom: 2.25rem;
+  margin-bottom: 1.5rem;
 }
 .card-info {
   margin-left: 2.13rem;
@@ -23,7 +23,7 @@
 .card-price {
   color: #000;
   font-family: Inter;
-  font-size: 2.25rem;
+  font-size: 1.8rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -36,7 +36,7 @@
 .card-address {
   color: rgba(0, 0, 0, 0.5);
   font-family: Inter;
-  font-size: 1.125rem;
+  font-size: .9rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -46,7 +46,7 @@
 }
 
 .card-icon {
-  width: 2.625rem;
+  width: 2rem;
   height: 2.75rem;
   flex-shrink: 0;
 }
@@ -61,7 +61,7 @@
 .icon-number {
   color: rgba(0, 0, 0, 0.4);
   font-family: Inter;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -72,4 +72,9 @@
 .icon-with-number {
   display: flex;
   align-items: center;
+}
+
+.card-save-icon {
+  width: 2rem;
+  height: 2rem;
 }

@@ -38,7 +38,7 @@ const PropertyCard = ({ property, onEventClick }) => {
               onClick={handleIsSaved}
               fill={isSaved ? "rgba(255, 153, 0, 1)" : "rgba(0, 0, 0, 0)"}
               stroke={isSaved ? "rgba(255, 153, 0, 1)" : "rgba(0, 0, 0, 1)"}
-              className="SaveIcon"
+              className="card-save-icon"
             />
           </div>
           <div className="card-address">{address}</div>
@@ -54,7 +54,7 @@ const PropertyCard = ({ property, onEventClick }) => {
           </div>
           <div className="icon-with-number">
             <img className="card-icon" src={rulerIcon} alt="Ruler Icon" />
-            <span className="icon-number">{size} sq ft</span>
+            <span className="icon-number">{size} ft<sup>2</sup></span>
           </div>
         </div>
       </div>
