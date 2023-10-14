@@ -31,7 +31,7 @@ const Dashboard = () => {
 
     };
 
-    const userRole = 'broker';
+    const userRole = 'admin';
 
     return (
         <div className='dashboard'>
@@ -107,7 +107,7 @@ const Dashboard = () => {
                 <div className="dashboard-data">
                     {activeTab === 'profile' && <Profile data={data} />}
                     {activeTab === 'favorites' && <Favorites />}
-                    {activeTab === 'bookings' && <Bookings />}
+                    {activeTab === 'bookings' && <Bookings data={data}/>}
                     {activeTab === 'offers' && <Offers />}
                     {activeTab === 'listings' && <Listings />}
                     {activeTab === 'users' && <Users />}

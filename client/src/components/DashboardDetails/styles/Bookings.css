@@ -1,0 +1,121 @@
+/* Bookings.css */
+.bookings {
+    width: 85%;
+    margin: 50px auto; /* Center horizontally */
+    background-color: #ffffff;
+    height: 500px;
+}
+
+.booking-header {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0; /* Background color for the header */
+}
+
+.header-type,
+.header-status,
+.header-address,
+.header-price,
+.header-broker {
+    padding: 10px;
+    text-align: center;
+    border-right: 1px solid #ccc;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.6);
+    background-color: #f0f0f0; /* Background color for header cells */
+}
+
+.broker {
+    border-right: none;
+}
+
+.header-type {
+    width: 15%;
+}
+
+.header-status {
+    width: 20%;
+}
+
+.header-address {
+    width: 35%;
+}
+
+.header-price {
+    width: 15%;
+}
+
+.header-broker {
+    width: 15%;
+    border-right: none;
+}
+
+.booking-cards {
+    display: flex;
+    flex-direction: column;
+}
+
+.buyer-booking-card {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: #f3f3f3; /* Background color for card */
+    margin: 20px 0; /* Add some margin between cards for spacing */
+    height: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}
+
+.property-type {
+    width: 15%;
+}
+
+.property-status {
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+    width: 100px;
+    margin: 0 auto;
+    height: 30px;
+    text-transform: uppercase;
+}
+
+.property-address {
+    width: 35%;
+}
+
+.property-price {
+    width: 15%;
+}
+
+.property-broker {
+    width: 15%;
+    border-right: none;
+}
+
+.status-confirmed {
+    background-color: #5bc0de;
+}
+
+.status-hold {
+    background-color: #f0ad4e;
+}
+
+.status-declined {
+    background-color: rgba(217, 83, 79, 0.8);
+}
+
+.expanded-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.buyer-booking-card{
+    cursor: pointer;
+    
+}
