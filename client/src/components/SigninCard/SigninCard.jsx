@@ -36,7 +36,7 @@ const SigninCard = () => {
             onChange={(e) => setUsername(e.target.value)}
             required
           />
-        <div className="orm-element">
+        <div className="form-element">
           <input
             type='password'
             placeholder='P A S S W O R D'
