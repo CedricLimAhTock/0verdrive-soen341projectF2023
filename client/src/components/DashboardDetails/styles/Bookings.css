@@ -1,8 +1,5 @@
 /* Bookings.css */
 .bookings {
-    width: 85%;
-    margin: 50px auto; /* Center horizontally */
-    background-color: #ffffff;
     height: 500px;
 }
 
@@ -59,7 +56,7 @@
     display: flex;
     align-items: center;
     text-align: center;
-    background-color: #f3f3f3; /* Background color for card */
+    background-color: transparent; /* Background color for card */
     margin: 20px 0; /* Add some margin between cards for spacing */
     height: 50px;
     font-size: 14px;
@@ -76,9 +73,9 @@
 .property-status {
     color: #ffffff;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 5px 10px;
-    font-size: 14px;
+    font-size: 13px;
     width: 100px;
     margin: 0 auto;
     height: 30px;
@@ -99,15 +96,18 @@
 }
 
 .status-confirmed {
-    background-color: #5bc0de;
+    color: rgba(64, 123,22);
+    background-color: rgba(233,245,230);
 }
 
 .status-hold {
-    background-color: #f0ad4e;
+    color: rgba(191, 143, 60);
+    background-color: rgba(250, 250, 244);
 }
 
 .status-declined {
-    background-color: rgba(217, 83, 79, 0.8);
+    color: rgba(157, 62, 47);
+    background-color: rgba(246, 233, 234);
 }
 
 .expanded-content {

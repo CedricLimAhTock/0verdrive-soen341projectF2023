@@ -77,3 +77,10 @@ body {
     margin-bottom: 20px;;
     transition: background-color 0.3s;
 }
+
+
+.dashboard-data {
+    width: 85%;
+    margin: 50px auto; /* Center horizontally */
+    background-color: #ffffff;
+}

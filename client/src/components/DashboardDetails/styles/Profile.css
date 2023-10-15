@@ -1,10 +1,9 @@
 .profile {
-    padding: 70px;
     display: flex;
-    flex-direction: row;
     background-color: aquamarine;
     flex-direction: row;
     justify-content: space-between;
+    height: 500px;
 }
 
 .profile-card {
@@ -33,7 +32,6 @@
     align-items: center;
     background-color: white;
     padding: 20px;
-    margin-bottom: 20px;
 }
 
 .profile-details form {

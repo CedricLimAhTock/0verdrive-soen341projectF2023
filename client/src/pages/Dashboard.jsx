@@ -31,7 +31,7 @@ const Dashboard = () => {
 
     };
 
-    const userRole = 'admin';
+    const userRole = 'renter';
 
     return (
         <div className='dashboard'>
