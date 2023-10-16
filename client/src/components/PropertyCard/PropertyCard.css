@@ -1,6 +1,6 @@
 .card {
-  width: 27rem;
-  height: 27rem;
+  width: 350px;
+  height: auto;
   flex-shrink: 0;
   border-radius: 1.25rem;
   border: 1.5px solid rgba(0, 0, 0, 0.1);
@@ -12,69 +12,49 @@
   width: 100%;
   object-fit: hidden;
   border-radius: 0.625rem 0.625rem 0rem 0rem;
-  overflow: hidden;
+  overflow: hidden; /* Adjust the value as needed */
 }
-.card-img {
-  margin-bottom: 1.5rem;
-}
-.card-info {
-  margin-left: 2.13rem;
-}
+
 .card-price {
-  color: #000;
-  font-family: Inter;
-  font-size: 1.8rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  margin-right: 13.87rem;
+  font-weight: 500;
+  font-size: 30px;
 }
 .card-price-container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
+
+.card-info {
+  padding: 10px;
+}
+
 .card-address {
   color: rgba(0, 0, 0, 0.5);
-  font-family: Inter;
-  font-size: .9rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  letter-spacing: 0.05625rem;
-  margin-top: 0.62rem;
-  margin-bottom: 1.32rem;
 }
 
 .card-icon {
-  width: 2rem;
-  height: 2.75rem;
+  width: 30px;
+  height: 100%;
   flex-shrink: 0;
 }
 
 .card-icons {
   display: flex;
-  margin-left: 2.13rem;
+  padding: 10px;
   justify-content: space-between;
-  margin-right: 1.06rem;
 }
 
 .icon-number {
-  color: rgba(0, 0, 0, 0.4);
-  font-family: Inter;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 600;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 16px;
+  font-weight: 700;
   line-height: normal;
-  letter-spacing: 0.0625rem;
-  margin-left: 0.62rem;
+  margin-left: 10px;
 }
 
 .icon-with-number {
   display: flex;
   align-items: center;
-}
-
-.card-save-icon {
-  width: 2rem;
-  height: 2rem;
+  padding: 10px;
 }

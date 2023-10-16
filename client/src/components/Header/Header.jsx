@@ -11,11 +11,15 @@ export default function Header() {
         Lorem Ipsum
       </NavLink>
       <div className="nav">
-        <NavLink className="nav-item">HOME</NavLink>
+        <NavLink to="/" className="nav-item">
+          HOME
+        </NavLink>
         <NavLink to="/browse" className="nav-item">
           BROWSE
         </NavLink>
-        <NavLink className="nav-item">DASHBOARD</NavLink>
+        <NavLink to="/dashboard" className="nav-item">
+          DASHBOARD
+        </NavLink>
       </div>
       <div className="buttons">
         <img className="darkToggle" src={darkToggle} />

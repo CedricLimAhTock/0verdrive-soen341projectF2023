@@ -1,0 +1,11 @@
+.favorites {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Horizontally center items */
+    align-items: center; /* Vertically center items */
+    padding: 50px;
+  }
+
+  .card-fav {
+    padding: 25px;
+  }
