@@ -5,3 +5,7 @@
     align-items: center; /* Vertically center items */
     padding: 50px;
   }
+
+  .card-fav {
+    padding: 25px;
+  }

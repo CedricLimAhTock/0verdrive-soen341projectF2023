@@ -25,13 +25,21 @@ const Favorites = () => {
 
   return (
     <div className='favorites'>
-      <PropertyCard className='test' property={property}/>
-      <PropertyCard className='test' property={property}/>
-      <PropertyCard className='test' property={property}/>
-      <PropertyCard className='test' property={property}/>
-      <PropertyCard className='test' property={property}/>
-      <PropertyCard className='test' property={property}/>
-      <PropertyCard className='test' property={property}/>
+      <div className="card-fav">
+        <PropertyCard property={property} />
+      </div>
+      <div className="card-fav">
+        <PropertyCard property={property} />
+      </div>
+      <div className="card-fav">
+        <PropertyCard property={property} />
+      </div>
+      <div className="card-fav">
+        <PropertyCard property={property} />
+      </div>
+      <div className="card-fav">
+        <PropertyCard property={property} />
+      </div>
     </div>
   )
 }
