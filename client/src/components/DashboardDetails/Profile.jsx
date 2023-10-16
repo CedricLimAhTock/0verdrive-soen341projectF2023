@@ -1,24 +1,47 @@
-import React, { useState } from 'react';
-import './styles/Profile.css';
-import ProfilePicture from '../../assets/profile-picture.png'
+import React, { useState, useRef } from "react";
+import "./styles/Profile.css";
+import ProfilePicture from "../../assets/profile-picture.png";
 
 const Profile = ({ data }) => {
-  // Initialize state variables with data from the prop
-  const [name, setName] = useState(data.name || '');
-  const [username, setUsername] = useState(data.username || '');
+  const [name, setName] = useState(data.name || "");
+  const [username, setUsername] = useState(data.username || "");
   const [firstName, setFirstName] = useState(data.firstName);
-  const [lastName, setLastName] = useState(data.lastName || '');
-  const [email, setEmail] = useState(data.email || '');
-  const [phone, setPhoneNumber] = useState(data.phone || '');
+  const [lastName, setLastName] = useState(data.lastName || "");
+  const [email, setEmail] = useState(data.email || "");
+  const [phone, setPhoneNumber] = useState(data.phone || "");
 
   const handleSubmit = (event) => {
     event.preventDefault();
   };
 
+  const inputRef = useRef(null);
+  const [profilePic, setProfilePic] = useState(null);
+
+  const handleImageClick = () => {
+    inputRef.current.click();
+  };
+
+  const handleImageChange = (event) => {
+    setProfilePic(event.target.files[0]);
+  };
+
   return (
-    <div className='profile'>
+    <div className="profile">
       <div className="profile-card">
-      <img src={ProfilePicture} alt="profile-pic" className="profile-picture" />
+        <div onClick={handleImageClick}>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageChange}
+            ref={inputRef}
+            style={{ display: "none" }}
+          />
+          <img
+            src={profilePic ? URL.createObjectURL(profilePic) : ProfilePicture}
+            alt="profile-pic"
+            className="profile-picture"
+          />
+        </div>
         <p className="name">{name}</p>
         <p className="username">@john.doe</p>
         <div className="seperator"></div>
@@ -72,11 +95,13 @@ const Profile = ({ data }) => {
               />
             </div>
           </div>
-          <button className='profile-update' type="submit">Update</button>
+          <button className="profile-update" type="submit">
+            Update
+          </button>
         </form>
       </div>
     </div>
   );
-}
+};
 
 export default Profile;
