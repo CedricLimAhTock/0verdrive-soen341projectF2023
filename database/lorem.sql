@@ -8,19 +8,19 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `active` tinyint NOT NULL DEFAULT '0',
-  `firstname` varchar(64) NOT NULL,
-  `lastname` varchar(64) NOT NULL,
+  `firstname` varchar(64) DEFAULT NULL,
+  `lastname` varchar(64) DEFAULT NULL,
   `username` varchar(100) NOT NULL,
   `password_hash` varchar(255) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
   `phone` varchar(100) DEFAULT NULL,
-  `created` timestamp NULL DEFAULT NULL,
-  `modified` timestamp NULL DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_name_UN` (`username`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
-INSERT INTO `user` (`id`, `active`, `firstname`, `lastname`, `username`, `password_hash`, `email`, `phone`, `created`, `modified`) VALUES
+INSERT INTO `user` (`id`, `active`, `firstname`, `lastname`, `username`, `password_hash`, `email`, `phone`, `createdAt`, `updatedAt`) VALUES
 (NULL, 1, 'root1', 'root1', 'root1', '', 'root1', '000-000-0000', '2000-01-01T00:00:00.379-04:00', '2000-01-01T00:00:00.379-04:00'),
 (NULL, 1, 'root2', 'root2', 'root2', '', 'root2', '000-000-0000', '2000-01-01T00:00:00.379-04:00', '2000-01-01T00:00:00.379-04:00'),
 (NULL, 1, 'root3', 'root3', 'root3', '', 'root3', '000-000-0000', '2000-01-01T00:00:00.379-04:00', '2000-01-01T00:00:00.379-04:00');
@@ -31,6 +31,8 @@ CREATE TABLE `role` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `active` tinyint NOT NULL DEFAULT '0',
   `type` enum('member', 'broker', 'admin') DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -47,6 +49,8 @@ CREATE TABLE `user_role` (
   `active` tinyint NOT NULL DEFAULT '0',
   `user_id` bigint NOT NULL,
   `role_id` bigint NOT NULL,
+  `createdAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_role_FK` (`user_id`),
   KEY `user_role_FK_1` (`role_id`),
@@ -59,7 +63,7 @@ DROP TABLE IF EXISTS `property`;
 
 CREATE TABLE `property` (
 	`id` BIGINT NOT NULL AUTO_INCREMENT,
-  `active` BOOL DEFAULT 0 NOT NULL,
+	`active` BOOL DEFAULT 0 NOT NULL,
 	`civicAddress` INT UNSIGNED NULL,
 	`aptNumber` INT UNSIGNED NULL,
 	`street` varchar(50) NULL,
@@ -67,17 +71,19 @@ CREATE TABLE `property` (
 	`city` varchar(50) NULL,
 	`province` varchar(50) NULL,
 	`country` varchar(50) NULL,
-  `listingType` ENUM('sale','rent') NOT NULL,
+	`listingType` ENUM('sale','rent') NOT NULL,
 	`price` FLOAT NULL,
 	`livingArea` FLOAT NULL,
 	`propertyArea` FLOAT NULL,
 	`numOfBedrooms` TINYINT UNSIGNED NULL,
 	`numOfBathrooms` TINYINT UNSIGNED NULL,
 	`numOfFloors` TINYINT UNSIGNED NULL,
-	`yearBuilt` YEAR NULL,
+	`yearBuilt` DATE NULL,
 	`listedDate` DATE NULL,
 	`propertyType` ENUM('single-family', 'duplex', 'triplex', 'quadruplex', 'townhouse', 'studio', 'condominium', 'other') NULL,
-	CONSTRAINT `property_PK` PRIMARY KEY (`id`)
+	`createdAt` timestamp NULL DEFAULT NULL,
+  	`updatedAt` timestamp NULL DEFAULT NULL,
+  CONSTRAINT `property_PK` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
@@ -86,7 +92,9 @@ CREATE TABLE `amenity` (
 	`id` BIGINT auto_increment NOT NULL,
 	`active` BOOL DEFAULT 0 NULL,
 	`name` ENUM('elevator', 'gym', 'pool', 'laundry room', 'internet', 'water', 'hydro', 'public transportation', 'park', 'accessibility') NULL,
-	CONSTRAINT `amenity_PK` PRIMARY KEY (`id`)
+	`createdAt` timestamp NULL DEFAULT NULL,
+  	`updatedAt` timestamp NULL DEFAULT NULL,
+  CONSTRAINT `amenity_PK` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
@@ -110,6 +118,8 @@ CREATE TABLE `property_amenity` (
 	`active` BOOL DEFAULT 0 NULL,
 	`property_id` BIGINT NOT NULL,
 	`amenity_id` BIGINT NOT NULL,
+	`createdAt` timestamp NULL DEFAULT NULL,
+  	`updatedAt` timestamp NULL DEFAULT NULL,
 	CONSTRAINT `property_amenity_PK` PRIMARY KEY (`id`),
 	CONSTRAINT `property_amenity_FK` FOREIGN KEY (`property_id`) REFERENCES `property`(`id`) ON DELETE CASCADE,
 	CONSTRAINT `property_amenity_FK_1` FOREIGN KEY (`amenity_id`) REFERENCES `amenity`(`id`) ON DELETE CASCADE

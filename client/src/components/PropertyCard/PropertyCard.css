@@ -23,7 +23,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
 .card-info {
@@ -32,7 +31,6 @@
 
 .card-address {
   color: rgba(0, 0, 0, 0.5);
-
 }
 
 .card-icon {
