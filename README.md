@@ -187,6 +187,13 @@ MongoDB - NoSQL:
 
 #### Setting Up Database
 
+##### configure api server database connection
+```sh
+cd server/
+echo "DB_NAME=\"lorem\"\nDB_USER=\"lorem\"\nDB_PWD=\"lorem3#(xruN\"\nDB_HOST=\"127.0.0.1\"\nPORT=\"8080\"" > .env
+```
+
+##### create database
 ```sh
 # navigate to directory with the sql files
 cd /<your-path>/project/database
@@ -197,6 +204,7 @@ mysql -u <user> -p < lorem.sql
 # OR from inside your mysql
 mysql> source lorem.sql
 ```
+##### import data into tables
 
 ```sh
 # Add data to the database
