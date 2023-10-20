@@ -1,10 +1,14 @@
 import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
+import { config } from 'dotenv';
 
 import signUpRoutes from './routes/auth/signup.js';
 import loginRoutes from './routes/auth/login.js';
-import { config } from 'dotenv';
+import userRoutes from './routes/user.js';
+import userRoleRoutes from './routes/user_role.js';
+import roleRoutes from './routes/role.js';
+
 
 console.log(config());
 
@@ -23,12 +27,8 @@ app.use(cors());
 
 app.use('/signin', loginRoutes);
 app.use('/signup', signUpRoutes);
+app.use('/user', userRoutes);
+app.use('/user_role', userRoleRoutes);
+app.use('/role', roleRoutes);
 
-app.get("/", (req, res) => {
-    res.json({ message: "Welcome." });
-});
-
-const serverPort = process.env.PORT || 8080;
-app.listen(serverPort, () => {
-    console.log(`Server is running on port ${serverPort}`);
-});
+export default app;

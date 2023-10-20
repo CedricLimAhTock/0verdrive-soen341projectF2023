@@ -11,7 +11,7 @@ CREATE TABLE `user` (
   `firstname` varchar(64) DEFAULT NULL,
   `lastname` varchar(64) DEFAULT NULL,
   `username` varchar(100) NOT NULL,
-  `password_hash` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
   `phone` varchar(100) DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT NULL,
@@ -20,7 +20,7 @@ CREATE TABLE `user` (
   UNIQUE KEY `user_name_UN` (`username`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
-INSERT INTO `user` (`id`, `active`, `firstname`, `lastname`, `username`, `password_hash`, `email`, `phone`, `createdAt`, `updatedAt`) VALUES
+INSERT INTO `user` (`id`, `active`, `firstname`, `lastname`, `username`, `password`, `email`, `phone`, `createdAt`, `updatedAt`) VALUES
 (NULL, 1, 'root1', 'root1', 'root1', '', 'root1', '000-000-0000', '2000-01-01T00:00:00.379-04:00', '2000-01-01T00:00:00.379-04:00'),
 (NULL, 1, 'root2', 'root2', 'root2', '', 'root2', '000-000-0000', '2000-01-01T00:00:00.379-04:00', '2000-01-01T00:00:00.379-04:00'),
 (NULL, 1, 'root3', 'root3', 'root3', '', 'root3', '000-000-0000', '2000-01-01T00:00:00.379-04:00', '2000-01-01T00:00:00.379-04:00');
