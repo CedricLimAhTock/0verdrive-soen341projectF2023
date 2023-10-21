@@ -9,8 +9,6 @@ router.get('/:id', userRoleController.listById);
 
 router.get('/user_id/:user_id', userRoleController.listByUserId);
 
-router.get('/role_id/:role_id', userRoleController.listByRoleId);
-
 router.post('/', userRoleController.create);
 
 router.put('/', userRoleController.update);

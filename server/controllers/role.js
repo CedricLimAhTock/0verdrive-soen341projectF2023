@@ -24,7 +24,7 @@ const list = async (req, res) => {
 const listById = async (req, res) => {
     try {
         let role = await Role.findOne({
-            where: {id: req.params.id}
+            where: {id: req.params.id, active: 1}
         });
 
         if (!role) {

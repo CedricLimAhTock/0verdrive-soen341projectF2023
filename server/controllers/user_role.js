@@ -24,7 +24,7 @@ const list = async (req, res) => {
 const listById = async (req, res) => {
     try {
         let user_role = await User_role.findOne({
-            where: {id: req.params.id}
+            where: {id: req.params.id, active: 1}
         });
 
         if (!user_role) {
@@ -44,11 +44,11 @@ const listById = async (req, res) => {
 const listByUserId = async (req, res) => {
     try {
         const user_role = await User_role.findOne({
-            where: {user_id: req.params.user_id}
+            where: {user_id: req.params.user_id, active: 1}
         });
 
         if (!user_role) {
-            res.status(400).json({});
+            res.status(400).json();
         } else {
             res.status(200).send(user_role);
         }
@@ -61,34 +61,15 @@ const listByUserId = async (req, res) => {
     }
 }
 
-const listByRoleId = async (req, res) => {
-    try {
-        const user_role = await User_role.findOne({
-            where: {role_id: req.params.role_id}
-        });
-
-        if (!user_role) {
-            res.status(400).json({});
-        } else {
-            res.status(200).send(user_role);
-        }
-        
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({
-            message: 'Server error'
-        });
-    }
-}
 
 const create = async (req, res) => {
     try {
         const data = req.body;
 
-        const user_role = await User_role.findOrCreate({where: {username: data.username}}, data);
+        const user_role = await User_role.findOrCreate({where: {username: data.username, active: 1}}, data);
 
         if (!user_role) {
-            res.status(400).json({});
+            res.status(400).json();
         } else {
             res.status(200).send(user_role);
         }
@@ -107,7 +88,7 @@ const update = async (req, res) => {
         if(req.body.id == null){
             return res.status(400).json();
         }
-        const user_role = await User_role.findOne({where: {id: req.body.id}});
+        const user_role = await User_role.findOne({where: {id: req.body.id, active: 1}});
 
         if (!user_role) {
             return res.status(400).json();
@@ -131,7 +112,7 @@ const updateById = async (req, res) => {
         if(req.body == null){
             return res.status(400).json();
         }
-        const user_role = await User_role.findOne({where: {id: req.params.id}});
+        const user_role = await User_role.findOne({where: {id: req.params.id, active: 1}});
 
         if (!user_role) {
             return res.status(400).json();
@@ -153,7 +134,10 @@ const updateById = async (req, res) => {
 const destroy = async (req, res) => {
     try {
         const user_role = await User_role.findOne({
-            where: {id: req.params.id}
+            where: {
+                id: req.params.id,
+                active: 1
+            }
         });
 
         if (!user_role) {
@@ -177,4 +161,4 @@ const destroy = async (req, res) => {
     }
 }
 
-export default {list, listById, listByRoleId, listByUserId, create, update, updateById, destroy};
+export default {list, listById, listByUserId, create, update, updateById, destroy};

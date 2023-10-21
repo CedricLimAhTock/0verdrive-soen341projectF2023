@@ -7,7 +7,7 @@ router.get('/', userController.list);
 
 router.get('/:id', userController.listById);
 
-router.get('/byUsername/:username', userController.listByUsername);
+router.get('/username/:username', userController.listByUsername);
 
 router.post('/', userController.create);
 

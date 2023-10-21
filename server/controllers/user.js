@@ -25,7 +25,7 @@ const list = async (req, res) => {
 const listById = async (req, res) => {
     try {
         let user = await User.findOne({
-            where: {id: req.params.id}
+            where: {id: req.params.id, active: 1}
         });
 
         if (!user) {
@@ -45,7 +45,7 @@ const listById = async (req, res) => {
 const listByUsername = async (req, res) => {
     try {
         const user = await User.findOne({
-            where: {username: req.params.username}
+            where: {username: req.params.username, active: 1}
         });
 
         if (!user) {
@@ -66,7 +66,7 @@ const create = async (req, res) => {
     try {
         const data = req.body;
 
-        await User.findOrCreate({where: {username: data.username}}, data);
+        await User.findOrCreate({where: {username: data.username, active: 1}}, data);
         
     } catch (error) {
         console.log(error);
@@ -81,7 +81,7 @@ const update = async (req, res) => {
         if(req.body.id == null){
             return res.status(400).json();
         }
-        const user = await User.findOne({where: {id: req.body.id}});
+        const user = await User.findOne({where: {id: req.body.id, active: 1}});
 
         if (!user) {
             return res.status(400).json();
@@ -106,7 +106,7 @@ const updateById = async (req, res) => {
         if(req.body == null){
             return res.status(400).json();
         }
-        const user = await User.findOne({where: {id: req.params.id}});
+        const user = await User.findOne({where: {id: req.params.id, active: 1}});
 
         if (!user) {
             return res.status(400).json();
@@ -128,7 +128,7 @@ const updateById = async (req, res) => {
 const destroy = async (req, res) => {
     try {
         const user = await User.findOne({
-            where: {id: req.params.id}
+            where: {id: req.params.id, active: 1}
         });
 
         if (!user) {
