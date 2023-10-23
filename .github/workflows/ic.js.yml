@@ -20,6 +20,7 @@ jobs:
 
       - name: Install Client Dependencies
         run: npm ci
+        working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/client
 
       - name: Build Client
         run: npm run build --if-present
