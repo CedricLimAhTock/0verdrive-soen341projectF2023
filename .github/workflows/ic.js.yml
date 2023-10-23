@@ -24,8 +24,10 @@ jobs:
 
       - name: Build Client
         run: npm run build --if-present
+        working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/client
 
       - name: Test Client
         run: npm test
+        working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/client
 
 
