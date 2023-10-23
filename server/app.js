@@ -8,6 +8,8 @@ import loginRoutes from './routes/auth/login.js';
 import userRoutes from './routes/user.js';
 import userRoleRoutes from './routes/user_role.js';
 import roleRoutes from './routes/role.js';
+import propertyRoutes from './routes/property.js';
+
 
 
 console.log(config());
@@ -30,5 +32,7 @@ app.use('/signup', signUpRoutes);
 app.use('/user', userRoutes);
 app.use('/user_role', userRoleRoutes);
 app.use('/role', roleRoutes);
+app.use('/property', propertyRoutes);
+
 
 export default app;

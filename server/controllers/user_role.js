@@ -3,9 +3,7 @@ import User_role from '../models/user_role.js';
 
 const list = async (req, res) => {
     try {
-        let user_roles = await User_role.findAll({
-            where: {active: 1}
-        });
+        let user_roles = await User_role.findAll();
 
         if (!user_roles) {
             res.status(400).json({});
@@ -24,7 +22,7 @@ const list = async (req, res) => {
 const listById = async (req, res) => {
     try {
         let user_role = await User_role.findOne({
-            where: {id: req.params.id, active: 1}
+            where: {id: req.params.id}
         });
 
         if (!user_role) {
@@ -44,7 +42,7 @@ const listById = async (req, res) => {
 const listByUserId = async (req, res) => {
     try {
         const user_role = await User_role.findOne({
-            where: {user_id: req.params.user_id, active: 1}
+            where: {user_id: req.params.user_id}
         });
 
         if (!user_role) {
@@ -66,7 +64,7 @@ const create = async (req, res) => {
     try {
         const data = req.body;
 
-        const user_role = await User_role.findOrCreate({where: {username: data.username, active: 1}}, data);
+        const user_role = await User_role.findOrCreate({where: {username: data.username}}, data);
 
         if (!user_role) {
             res.status(400).json();
@@ -88,7 +86,7 @@ const update = async (req, res) => {
         if(req.body.id == null){
             return res.status(400).json();
         }
-        const user_role = await User_role.findOne({where: {id: req.body.id, active: 1}});
+        const user_role = await User_role.findOne({where: {id: req.body.id}});
 
         if (!user_role) {
             return res.status(400).json();
@@ -112,7 +110,7 @@ const updateById = async (req, res) => {
         if(req.body == null){
             return res.status(400).json();
         }
-        const user_role = await User_role.findOne({where: {id: req.params.id, active: 1}});
+        const user_role = await User_role.findOne({where: {id: req.params.id}});
 
         if (!user_role) {
             return res.status(400).json();
@@ -130,13 +128,11 @@ const updateById = async (req, res) => {
     }
 }
 
-// TODO delete cascade associated resources
 const destroy = async (req, res) => {
     try {
         const user_role = await User_role.findOne({
             where: {
-                id: req.params.id,
-                active: 1
+                id: req.params.id
             }
         });
 
@@ -145,11 +141,6 @@ const destroy = async (req, res) => {
         }
 
         user_role.destroy();
-        
-        // del user_role
-        await User_role.destroy({
-            where: {user_id: req.params.id}
-        })
         
         res.status(200).json();
 
