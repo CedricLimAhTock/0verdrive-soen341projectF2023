@@ -31,7 +31,7 @@ const Dashboard = () => {
 
     };
 
-    const userRole = 'broker';
+    const userRole = 'admin';
 
     return (
         <div className='dashboard'>
