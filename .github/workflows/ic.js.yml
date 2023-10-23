@@ -7,36 +7,28 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build-client:
+  build:
+
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+        
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: Change to Client Directory
-      run: cd client
     - name: Install Client Dependencies
+      working-directory: client
       run: npm ci
     - name: Build Client
+      working-directory: client
       run: npm run build --if-present
-
-  build-server:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - name: Change to Server Directory
-      run: cd server
-    - name: Install Server Dependencies
-      run: npm ci
-    - name: Build Server
-      run: npm run build --if-present
+    - name: Test Client
+      working-directory: client
+      run: npm test
