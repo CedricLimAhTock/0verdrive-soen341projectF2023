@@ -2,15 +2,9 @@ name: Node.js CI
 
 on: 
   push:
-    paths:
-      - 'client/**'
-      - '.github/**'
     branches:
       - 'main'
-      - 'new_ci_workflow'
   pull_request:
-    paths:
-      - 'server/**'
     branches:
       - 'main'
 
@@ -20,12 +14,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - uses: dorny/paths-filter@v2
-        id: filter
-        with:
-          filters: |
-            client:
-            - 'client/**'
 
       - name: Use Node.js
         uses: actions/setup-node@v3
@@ -52,12 +40,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - uses: dorny/paths-filter@v2
-        id: filter
-        with:
-          filters: |
-            server:
-            - 'server/**'
+      
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
