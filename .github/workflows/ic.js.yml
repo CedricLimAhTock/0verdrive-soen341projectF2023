@@ -58,6 +58,6 @@ jobs:
         run: npm run build --if-present
         working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/server
 
-      - name: Test Server
+      - name: Test Serverr
         run: npm test
         working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/server
