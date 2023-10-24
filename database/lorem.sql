@@ -126,6 +126,19 @@ CREATE TABLE `property_amenity` (
 	CONSTRAINT `property_amenity_FK_1` FOREIGN KEY (`amenity_id`) REFERENCES `amenity`(`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+DROP TABLE IF EXISTS `visit`;
+CREATE TABLE `visit` (
+`id` BIGINT auto_increment NOT NULL,
+`property_id` BIGINT NOT NULL,
+`client_id` BIGINT NOT NULL,
+`broker_id` BIGINT NOT NULL, 
+`time` DATETIME NOT NULL,
+`status` ENUM ('requested', 'booked', 'completed', 'other'),
+CONSTRAINT `visit_PK` PRIMARY KEY (`id`),
+CONSTRAINT `visit_FK` FOREIGN KEY (`property_id`) REFERENCES `property`(`id`) ON DELETE CASCADE,
+CONSTRAINT `visit_FK_1` FOREIGN KEY (`client_id`) REFERENCES `client`(`id`) ON DELETE CASCADE,
+CONSTRAINT `visit_FK_2` FOREIGN KEY (`broker_id`) REFERENCES `broker`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 DROP USER IF EXISTS 'lorem'@'%';
 FLUSH PRIVILEGES;
