@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Header.css";
 import darkToggle from "./assets/darkToggle.svg";
 import bulb from "./assets/bulb.svg";
 import hamburgerMenu from "./assets/hamburgerMenu.svg";
-export default function Header() {
+
+export default function Header({ props }) {
+  const displayUsername = props ? props.id : 'Test';
+
   return (
     <div className="header">
       <NavLink to="/" className="name">
@@ -22,9 +25,10 @@ export default function Header() {
         </NavLink>
       </div>
       <div className="buttons">
-        <img className="darkToggle" src={darkToggle} />
-        <img className="bulb" src={bulb} />
-        <img className="hamburgerMenu" src={hamburgerMenu} />
+        <img className="darkToggle" src={darkToggle} alt="Dark Toggle" />
+        <img className="bulb" src={bulb} alt="Bulb" />
+        <img className="hamburgerMenu" src={hamburgerMenu} alt="Hamburger Menu" />
+        <div className="username-display">{displayUsername}</div>
       </div>
     </div>
   );

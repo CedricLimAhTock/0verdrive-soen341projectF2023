@@ -18,7 +18,7 @@ const SigninCard = () => {
                 password
             });
 
-            navigate("/login")
+            navigate("/signin")
             console.log(res.message);
         } catch (err) {
             console.log(err);
