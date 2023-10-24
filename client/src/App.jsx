@@ -1,4 +1,4 @@
-import react from "react";
+import react, {useEffect} from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Browse from "./pages/Browse";
@@ -8,8 +8,12 @@ import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import Detailed from "./pages/Detailed";
 import Dashboard from "./pages/Dashboard";
+import jwt_decode from "jwt-decode";
 
 function App() {
+  const token = localStorage.getItem("jwtToken"); 
+  const decodedToken = token ? jwt_decode(token) : null;
+
   return (
     <Router>
       <div>
@@ -17,7 +21,7 @@ function App() {
           <Route
             path="/"
             element={
-              <Layout>
+              <Layout props={decodedToken}>
                 <Home />
               </Layout>
             }

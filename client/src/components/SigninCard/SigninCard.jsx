@@ -10,17 +10,19 @@ const SigninCard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // try {
-    //     const res = await axios.post('http://localhost:5173/signin', {
-    //         username,
-    //         password
-    //     });
-
-    //     navigate("/")
-    //     console.log(res.message);
-    // } catch (err) {
-    //     console.log(err);
-    // }
+    try {
+        const res = await axios.post('http://127.0.0.1:8080/signin', {
+            username,
+            password
+        });
+        console.log(res.data);
+        localStorage.setItem('jwtToken', res.data.token);
+        console.log(res.data.token);
+        navigate("/")
+        console.log(res.message);
+    } catch (err) {
+        console.log(err);
+    }
   };
   return (
     <div className="signin-card-container">
