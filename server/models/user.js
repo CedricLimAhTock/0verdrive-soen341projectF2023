@@ -27,7 +27,7 @@ const User = sequelize.define(
         email: {
             type: DataTypes.STRING,
         },
-        password_hash: {
+        password: {
             type: DataTypes.STRING,
             allowNull: false
         },

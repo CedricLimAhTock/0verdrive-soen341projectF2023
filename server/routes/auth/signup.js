@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
         const newuser = await User.create({
             active: 1,
             username: username,
-            password_hash: hashedPassword
+            password: hashedPassword
         });
         console.log(newuser);
 
