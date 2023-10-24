@@ -9,6 +9,7 @@ import Signup from "./pages/Signup";
 import Detailed from "./pages/Detailed";
 import Dashboard from "./pages/Dashboard";
 import jwt_decode from "jwt-decode";
+import Page404 from "./pages/Page404";
 
 function App() {
   const token = localStorage.getItem("jwtToken"); 
@@ -52,6 +53,7 @@ function App() {
               </Layout>
             }
           />
+          <Route path = "*" element = {<Page404 />} />
         </Routes>
       </div>
     </Router>
