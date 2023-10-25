@@ -7,11 +7,11 @@ router.get('/', visitController.list);
 
 router.get('/:id', visitController.listById);
 
-router.get('/:status', visitController.listByStatus);
+router.get('/status/:status', visitController.listByStatus);
 
-router.get('/:property_id', visitController.listByPropertyId);
+router.get('/property/:property_id', visitController.listByPropertyId);
 
-router.get('/:client_id', visitController.listByClientId);
+router.get('/client/:client_id', visitController.listByClientId);
 
 //router.post('/', visitController.create);
 
