@@ -64,12 +64,13 @@ DROP TABLE IF EXISTS `property`;
 CREATE TABLE `property` (
 	`id` BIGINT NOT NULL AUTO_INCREMENT,
 	`active` BOOL DEFAULT 0 NOT NULL,
-	`civicAddress` INT UNSIGNED NULL,
-	`aptNumber` INT UNSIGNED NULL,
+	`civicAddress` varchar(50) NULL,
+	`aptNumber` varchar(50) NULL,
 	`street` varchar(50) NULL,
 	`neighbourhood` varchar(50) NULL,
 	`city` varchar(50) NULL,
 	`province` varchar(50) NULL,
+	`postalCode` varchar(10) NULL,
 	`country` varchar(50) NULL,
 	`listingType` ENUM('sale','rent') NOT NULL,
 	`price` FLOAT NULL,
@@ -117,14 +118,27 @@ CREATE TABLE `property_amenity` (
 	`id` BIGINT auto_increment NOT NULL,
 	`active` BOOL DEFAULT 0 NULL,
 	`property_id` BIGINT NOT NULL,
-	`amenity_id` BIGINT NOT NULL,
+	`amenity_id` BIGINT NULL,
 	`createdAt` timestamp NULL DEFAULT NULL,
   	`updatedAt` timestamp NULL DEFAULT NULL,
 	CONSTRAINT `property_amenity_PK` PRIMARY KEY (`id`),
 	CONSTRAINT `property_amenity_FK` FOREIGN KEY (`property_id`) REFERENCES `property`(`id`) ON DELETE CASCADE,
-	CONSTRAINT `property_amenity_FK_1` FOREIGN KEY (`amenity_id`) REFERENCES `amenity`(`id`) ON DELETE CASCADE
+	CONSTRAINT `property_amenity_FK_1` FOREIGN KEY (`amenity_id`) REFERENCES `amenity`(`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+DROP TABLE IF EXISTS `visit`;
+CREATE TABLE `visit` (
+`id` BIGINT auto_increment NOT NULL,
+`property_id` BIGINT NOT NULL,
+`client_id` BIGINT NOT NULL,
+`broker_id` BIGINT NOT NULL, 
+`time` DATETIME NOT NULL,
+`status` ENUM ('requested', 'booked', 'completed', 'other'),
+CONSTRAINT `visit_PK` PRIMARY KEY (`id`),
+CONSTRAINT `visit_FK` FOREIGN KEY (`property_id`) REFERENCES `property`(`id`) ON DELETE CASCADE,
+CONSTRAINT `visit_FK_1` FOREIGN KEY (`client_id`) REFERENCES `user`(`id`) ON DELETE CASCADE,
+CONSTRAINT `visit_FK_2` FOREIGN KEY (`broker_id`) REFERENCES `user`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 DROP USER IF EXISTS 'lorem'@'%';
 FLUSH PRIVILEGES;

@@ -14,10 +14,11 @@ const Property = sequelize.define(
             type: DataTypes.BOOLEAN,
         },
         civicAddress: {
-            type: DataTypes.INTEGER
+            type: DataTypes.STRING
         },
         aptNumber: {
-            type: DataTypes.INTEGER
+            type: DataTypes.STRING,
+            default: null
         },
         street: {
             type: DataTypes.STRING,
@@ -28,11 +29,14 @@ const Property = sequelize.define(
         province: {
             type: DataTypes.STRING,
         },
+        postalCode: {
+            type: DataTypes.STRING,
+        },
         country: {
             type: DataTypes.STRING,
         },
         listingType: {
-            type: DataTypes.ENUM,
+            type: DataTypes.ENUM('sale', 'rent'),
         },
         price: {
             type: DataTypes.FLOAT

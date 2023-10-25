@@ -3,9 +3,7 @@ import Role from '../models/role.js';
 
 const list = async (req, res) => {
     try {
-        let roles = await Role.findAll({
-            where: {active: 1}
-        });
+        let roles = await Role.findAll();
 
         if (!roles) {
             res.status(400).json({});
@@ -24,7 +22,7 @@ const list = async (req, res) => {
 const listById = async (req, res) => {
     try {
         let role = await Role.findOne({
-            where: {id: req.params.id, active: 1}
+            where: {id: req.params.id}
         });
 
         if (!role) {
