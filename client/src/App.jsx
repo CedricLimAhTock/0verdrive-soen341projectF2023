@@ -38,7 +38,7 @@ function App() {
             path="/dashboard"
             element={
               <Layout>
-                <Dashboard />
+                <Dashboard token={decodedToken}/>
               </Layout>
             }
           />

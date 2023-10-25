@@ -2,13 +2,13 @@ import React, { useState, useRef } from "react";
 import "./styles/Profile.css";
 import ProfilePicture from "../../assets/profile-picture.png";
 
-const Profile = ({ data }) => {
-  const [name, setName] = useState(data.name || "");
-  const [username, setUsername] = useState(data.username || "");
-  const [firstName, setFirstName] = useState(data.firstName);
-  const [lastName, setLastName] = useState(data.lastName || "");
-  const [email, setEmail] = useState(data.email || "");
-  const [phone, setPhoneNumber] = useState(data.phone || "");
+const Profile = ({ data, token}) => {
+  const [name, setName] = useState(token.name || "");
+  const [username, setUsername] = useState(token.username || "");
+  const [firstName, setFirstName] = useState(token.firstName);
+  const [lastName, setLastName] = useState(token.lastName || "");
+  const [email, setEmail] = useState(token.email || "");
+  const [phone, setPhoneNumber] = useState(token.phone || "");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -43,7 +43,7 @@ const Profile = ({ data }) => {
           />
         </div>
         <p className="name">{name}</p>
-        <p className="username">@john.doe</p>
+        <p className="username">{username}</p>
         <div className="seperator"></div>
         <p className="listings">Listings</p>
         {/*<span>{data.listings.length}</span>*/}

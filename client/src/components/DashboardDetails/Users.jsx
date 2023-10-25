@@ -3,7 +3,7 @@ import UserListingCard from './UserListingCard';
 import './styles/Users.css';
 import UserForm from './UserForm';
 
-const Users = () => {
+const Users = ({token}) => {
   const data = [
     {
       name: "John Doe",
