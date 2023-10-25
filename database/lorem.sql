@@ -136,8 +136,8 @@ CREATE TABLE `visit` (
 `status` ENUM ('requested', 'booked', 'completed', 'other'),
 CONSTRAINT `visit_PK` PRIMARY KEY (`id`),
 CONSTRAINT `visit_FK` FOREIGN KEY (`property_id`) REFERENCES `property`(`id`) ON DELETE CASCADE,
-CONSTRAINT `visit_FK_1` FOREIGN KEY (`client_id`) REFERENCES `client`(`id`) ON DELETE CASCADE,
-CONSTRAINT `visit_FK_2` FOREIGN KEY (`broker_id`) REFERENCES `broker`(`id`) ON DELETE CASCADE
+CONSTRAINT `visit_FK_1` FOREIGN KEY (`client_id`) REFERENCES `user`(`id`) ON DELETE CASCADE,
+CONSTRAINT `visit_FK_2` FOREIGN KEY (`broker_id`) REFERENCES `user`(`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 DROP USER IF EXISTS 'lorem'@'%';
