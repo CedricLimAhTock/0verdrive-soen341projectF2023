@@ -8,19 +8,18 @@ import bathIcon from "../../assets/bath.svg";
 import rulerIcon from "../../assets/ruler.svg";
 // import saveIcon from "../../assets/saveIcon.svg";
 import SaveIcon from "../SaveIcon/SaveIcon";
-
 import Carousel from "../Carousel/Carousel";
 
 const PropertyCard = ({ property, onEventClick }) => {
-  const { images, price, address, bedrooms, bathrooms, size } = property;
-
+  const { images, price, street, city, province, country, numOfBedrooms, numOfBathrooms, propertyArea, id} = property;
+  const address = `${street}, ${city}, ${province}, ${country}`;
   let [isSaved, setIsSaved] = useState(false);
 
   const handleIsSaved = () => {
     setIsSaved(!isSaved);
   };
   const toggleProperty = () => {
-    onEventClick(property);
+    onEventClick(property.id);
   };
 
   return (
@@ -46,15 +45,15 @@ const PropertyCard = ({ property, onEventClick }) => {
         <div className="card-icons">
           <div className="icon-with-number">
             <img className="card-icon" src={bedIcon} alt="Bed Icon" />
-            <span className="icon-number">{bedrooms}</span>
+            <span className="icon-number">{numOfBedrooms}</span>
           </div>
           <div className="icon-with-number">
             <img className="card-icon" src={bathIcon} alt="Bath Icon" />
-            <span className="icon-number">{bathrooms}</span>
+            <span className="icon-number">{numOfBathrooms}</span>
           </div>
           <div className="icon-with-number">
             <img className="card-icon" src={rulerIcon} alt="Ruler Icon" />
-            <span className="icon-number">{size} ft<sup>2</sup></span>
+            <span className="icon-number">{propertyArea} ft<sup>2</sup></span>
           </div>
         </div>
       </div>

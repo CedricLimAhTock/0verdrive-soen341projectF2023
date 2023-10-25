@@ -3,7 +3,7 @@ import axios from "axios";
 import BuyerBookingCard from "./BuyerBookingCard";
 import "./styles/Bookings.css";
 
-const Bookings = ({ data }) => {
+const Bookings = ({ data, token }) => {
   const [expandedCard, setExpandedCard] = useState(null);
 
   const toggleExpand = (index) => {

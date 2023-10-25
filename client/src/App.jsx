@@ -1,4 +1,4 @@
-import react, {useEffect} from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Browse from "./pages/Browse";
@@ -12,7 +12,7 @@ import jwt_decode from "jwt-decode";
 import Page404 from "./pages/Page404";
 
 function App() {
-  const token = localStorage.getItem("jwtToken"); 
+  const token = localStorage.getItem("jwtToken");
   const decodedToken = token ? jwt_decode(token) : null;
 
   return (
@@ -39,7 +39,7 @@ function App() {
             path="/dashboard"
             element={
               <Layout>
-                <Dashboard />
+                <Dashboard token={decodedToken} />
               </Layout>
             }
           />
@@ -53,7 +53,15 @@ function App() {
               </Layout>
             }
           />
-          <Route path = "*" element = {<Page404 />} />
+          <Route
+            path="/property/:id"
+            element={
+              <Layout>
+                <Detailed />
+              </Layout>
+            }
+          />
+          <Route path="*" element={<Page404 />} />
         </Routes>
       </div>
     </Router>

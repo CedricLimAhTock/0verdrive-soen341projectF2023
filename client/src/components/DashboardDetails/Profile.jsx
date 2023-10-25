@@ -1,21 +1,45 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./styles/Profile.css";
 import ProfilePicture from "../../assets/profile-picture.png";
+import axios from "axios";
 
-const Profile = ({ data }) => {
-  const [name, setName] = useState(data.name || "");
-  const [username, setUsername] = useState(data.username || "");
-  const [firstName, setFirstName] = useState(data.firstName);
-  const [lastName, setLastName] = useState(data.lastName || "");
-  const [email, setEmail] = useState(data.email || "");
-  const [phone, setPhoneNumber] = useState(data.phone || "");
+const Profile = ({ data, token }) => {
+  const [username, setUsername] = useState(token.username || "");
+  const [firstName, setFirstName] = useState(token.firstName || "");
+  const [lastName, setLastName] = useState(token.lastName || "");
+  const [email, setEmail] = useState(token.email || "");
+  const [phone, setPhoneNumber] = useState(token.phone || "");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
+    try {
+      const userID = token.id;
+      const response = await axios.put(`http://127.0.0.1:8080/user/${userID}`, {
+        firstName: firstName.toString(),
+        lastName: lastName.toString(),
+        email: email.toString(),
+        phone: phone.toString(),
+      });
+
+      if (response.status === 200) {
+        alert('Updated');
+        console.log(response);
+      } else {
+        console.log(response);
+        console.log('Failed to update');
+      }
+    } catch (err) {
+      console.log('Error updating');
+      console.error(err);
+    }
+
+
+
   };
 
-  const inputRef = useRef(null);
-  const [profilePic, setProfilePic] = useState(null);
+  const inputRef = useRef();
+  const [profilePic, setProfilePic] = useState();
 
   const handleImageClick = () => {
     inputRef.current.click();
@@ -24,6 +48,24 @@ const Profile = ({ data }) => {
   const handleImageChange = (event) => {
     setProfilePic(event.target.files[0]);
   };
+
+  useEffect(() => {
+    // Fetch user info from the database after the component is mounted
+    if (username) {
+      axios
+        .get(`http://localhost:8080/user/username/${username}`)
+        .then((res) => {
+          setFirstName(res.data.firstName);
+          setLastName(res.data.lastName);
+          setUsername(res.data.username);
+          setEmail(res.data.email);
+          setPhoneNumber(res.data.phone);
+        })
+        .catch((error) => {
+          console.log("Error in profile.jsx: ", error);
+        });
+    }
+  }, [username]); // Add username as a dependency to run this effect when it changes
 
   return (
     <div className="profile">
@@ -42,8 +84,7 @@ const Profile = ({ data }) => {
             className="profile-picture"
           />
         </div>
-        <p className="name">{name}</p>
-        <p className="username">@john.doe</p>
+        <p className="username">{username}</p>
         <div className="seperator"></div>
         <p className="listings">Listings</p>
         {/*<span>{data.listings.length}</span>*/}

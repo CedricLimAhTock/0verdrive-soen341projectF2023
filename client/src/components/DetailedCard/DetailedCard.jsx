@@ -10,7 +10,11 @@ import Carousel from '../Carousel/Carousel';
 
 const DetailedCard = ({ property }) => {
 
-    const { images, title, price, address, description, bedrooms, bathrooms, size, broker } = property;
+    const { images, price, street, city, province, country, numOfBedrooms, numOfBathrooms, propertyArea, id} = property;
+    const address = `${street}, ${city}, ${province}, ${country}`;
+    const description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui.";
+    const broker = "John Doe";
+    
     const [activeTab, setActiveTab] = useState('description');
 
     const [isFormOpen, setIsFormOpen] = useState(false);
@@ -29,7 +33,7 @@ const DetailedCard = ({ property }) => {
                 <div className="images"><Carousel images={images}  className="carousel-detailed"/></div>
                 
                 <div className="info">
-                    <h2 className='title'>{title}</h2>
+                    <h2 className='title'>{price}</h2>
                     <p className='address'>{address}</p>
                 </div>
 
@@ -69,15 +73,15 @@ const DetailedCard = ({ property }) => {
 
                     <div className="features">
                         <img className="c-icons" src={bedIcon} alt="Bed Icon" />
-                        <span className="icon-numbers">{bedrooms}</span>
+                        <span className="icon-numbers">{numOfBedrooms}</span>
                     </div>
                     <div className="features">
                         <img className="c-icons" src={bathIcon} alt="Bath Icon" />
-                        <span className="icon-numbers">{bathrooms}</span>
+                        <span className="icon-numbers">{numOfBathrooms}</span>
                     </div>
                     <div className="features">
                         <img className="c-icons" src={rulerIcon} alt="Ruler Icon" />
-                        <span className="icon-numbers">{size} sq ft</span>
+                        <span className="icon-numbers">{propertyArea} sq ft</span>
                     </div>
                 </div>
             </div>
