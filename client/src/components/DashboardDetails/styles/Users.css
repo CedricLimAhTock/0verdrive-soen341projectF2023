@@ -26,44 +26,28 @@
 }
 
 .header-name {
-    width: 20%;
-}
-
-.header-join {
-    width: 15%;
-}
-
-.header-address {
     width: 30%;
 }
 
-.header-listings {
-    width: 10%;
+.header-join {
+    width: 30%;
 }
 
 .header-email {
-    width: 25%;
+    width: 40%;
     border-right: none;
 }
 
 .broker-name {
-    width: 20%;
-}
-
-.broker-join {
-    width: 15%;
-}
-
-.broker-address {
     width: 30%;
 }
 
-.broker-listings {
-    width: 10%;
-}  
+.broker-join {
+    width: 30%;
+}
 
 .broker-email {
-    width: 25%;
+    width: 40%;
     border-right: none;
 }  
 

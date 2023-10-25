@@ -3,7 +3,7 @@ import './styles/Users.css'
 
 const UserListingCard = ({ data, expanded, toggleExpand }) => {
 
-    const { name, dateJoined, address, noOfListings, email} = data;
+    const { firstName, lastName, createdAt, address, noOfListings, email} = data;
 
     const expand = () => {
         toggleExpand();
@@ -14,10 +14,8 @@ const UserListingCard = ({ data, expanded, toggleExpand }) => {
     return (
         <div className="whole-card" onClick={() => expand(event)}>
             <div className="broker-detail-card">
-                <div className="broker-name">{name}</div>
-                <div className="broker-join">{dateJoined}</div>
-                <div className="broker-address">{address}</div>
-                <div className="broker-listings">{noOfListings}</div>
+                <div className="broker-name">{firstName}</div>
+                <div className="broker-join">{createdAt}</div>
                 <div className="broker-email">{email}</div>
 
             </div>
