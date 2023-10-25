@@ -1,6 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./styles/Profile.css";
 import ProfilePicture from "../../assets/profile-picture.png";
+import axios from "axios";
 
 const Profile = ({ data, token}) => {
   const [name, setName] = useState(token.name || "");
@@ -24,6 +25,23 @@ const Profile = ({ data, token}) => {
   const handleImageChange = (event) => {
     setProfilePic(event.target.files[0]);
   };
+
+  // Fetch users info from the database
+  useEffect(() => {
+    axios
+      .get('http://localhost:8080/user/username/${username}')
+      .then((res) => {
+        console.log(res.data);
+        setFirstName(res.data.firstName);
+        setLastName(res.data.lastName);
+        setUsername(res.data.username);
+        setEmail(res.data.email);
+        setPhoneNumber(res.data.phone);
+      })
+      .catch((error) => {
+        console.log("Error in prfile.jsx: ", error);
+      });
+  }, []);
 
   return (
     <div className="profile">
