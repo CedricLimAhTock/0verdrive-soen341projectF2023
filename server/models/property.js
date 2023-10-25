@@ -23,6 +23,9 @@ const Property = sequelize.define(
         street: {
             type: DataTypes.STRING,
         },
+        neighbourhood: {
+            type: DataTypes.STRING,
+        },
         city: {
             type: DataTypes.STRING,
         },

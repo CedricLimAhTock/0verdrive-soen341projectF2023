@@ -6,7 +6,7 @@ const sequelize = new Sequelize(
   process.env.DB_PWD,
   {
     host: process.env.DB_HOST,
-    dialect: "mysql",
+    dialect: "mysql"
   }
 );
 
