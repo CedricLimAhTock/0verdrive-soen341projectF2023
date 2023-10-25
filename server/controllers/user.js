@@ -1,5 +1,6 @@
 import User from '../models/user.js';
 import User_role from '../models/user_role.js';
+import Role from '../models/role.js';
 
 
 const list = async (req, res) => {
@@ -50,6 +51,42 @@ const listByUsername = async (req, res) => {
             res.status(400).json();
         } else {
             res.status(200).send(user);
+        }
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Server error'
+        });
+    }
+}
+
+const listByRole = async (req, res) => {
+    try {
+        const users = await User.findAll({
+            include: [
+                {
+                    model: User_role,
+                    required: true, // do not generate INNER JOIN
+                    attributes: [], // don't return any columns
+                    //right: true,    //does a right join
+                    include:
+                    {
+                        model: Role,
+                        attributes: [],
+                        where: {
+                            type: req.params.type
+                        },
+                        //right: true
+                    }
+                }
+            ]
+        });
+
+        if (!users) {
+            res.status(400).json();
+        } else {
+            res.status(200).send(users);
         }
         
     } catch (error) {
@@ -155,4 +192,4 @@ const destroy = async (req, res) => {
     }
 }
 
-export default {list, listById, listByUsername, create, update, updateById, destroy};
+export default {list, listById, listByUsername, listByRole, create, update, updateById, destroy};
