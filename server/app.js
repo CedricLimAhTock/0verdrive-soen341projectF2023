@@ -6,9 +6,12 @@ import { config } from 'dotenv';
 import signUpRoutes from './routes/auth/signup.js';
 import loginRoutes from './routes/auth/login.js';
 import userRoutes from './routes/user.js';
-import userRoleRoutes from './routes/user_role.js';
 import roleRoutes from './routes/role.js';
+import userRoleRoutes from './routes/user_role.js';
 import propertyRoutes from './routes/property.js';
+import propertySearchRoutes from './routes/propertySearch.js';
+
+
 
 
 
@@ -33,6 +36,6 @@ app.use('/user', userRoutes);
 app.use('/user_role', userRoleRoutes);
 app.use('/role', roleRoutes);
 app.use('/property', propertyRoutes);
-
+app.use('/property/search', propertySearchRoutes);
 
 export default app;
