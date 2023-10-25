@@ -185,14 +185,6 @@ MongoDB - NoSQL:
 
 ### Installation
 
-#### Setting Up Database
-
-##### configure api server database connection
-```sh
-cd server/
-echo "DB_NAME=\"lorem\"\nDB_USER=\"lorem\"\nDB_PWD=\"lorem3#(xruN\"\nDB_HOST=\"127.0.0.1\"\nPORT=\"8080\"" > .env
-```
-
 ##### create database
 ```sh
 # navigate to directory with the sql files
@@ -225,12 +217,20 @@ python3 populate_tables.py -u <user> -d <dbname> -p '<your DB password>'
     npm install
     npm run dev
     ```
-3. In the ```server``` folder run
+
+3. In the server folder; configure api server database connection
+
+  ```sh
+  echo "DB_NAME=\"lorem\"\nDB_USER=\"lorem\"\nDB_PWD=\"lorem3#(xruN\"\nDB_HOST=\"127.0.0.1\"\nPORT=\"8080\"" > .env
+  ```
+
+1. In the ```server``` folder run
 
     ```sh
     npm install
-    node index.js
+    node server.js
     ```
+
 <br>
 
 ## License

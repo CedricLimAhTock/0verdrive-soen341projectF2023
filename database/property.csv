@@ -1,4 +1,4 @@
-id,active,civicAddress,aptNumber,street,neighbourhood,city,province,postalCode,country,listingType,price,livingArea,propertyAre,numOfBedrooms,numOfBathrooms,numOfFloors,yearBuilt,listedDate,propertyType
+id,active,civicAddress,aptNumber,street,city,neighbourhood,province,postalCode,country,listingType,price,livingArea,propertyAre,numOfBedrooms,numOfBathrooms,numOfFloors,yearBuilt,listedDate,propertyType
 1,1,4,801,Heffernan,Montreal,Conception Bay South,Quebec,I6Y 1M6,Canada,rent,9256,3122,8996,3,8,4,1923-01-01,2022-12-15,condominium
 2,1,439,877,Eastlawn,Montreal,Barrhead,Quebec,F0N 3W9,Canada,sale,52419447,554,1257,5,6,1,1947-01-01,2020-09-21,quadruplex
 3,1,304,283,Fair Oaks,Montreal,Boisbriand,Quebec,Y9T 6Y1,Canada,sale,71538408,1394,9578,3,7,6,1937-01-01,2011-01-02,condominium

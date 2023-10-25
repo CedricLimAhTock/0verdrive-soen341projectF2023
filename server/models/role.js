@@ -18,9 +18,9 @@ const Role = sequelize.define(
         }
     },
     {
+        freezeTableName: true,
         tableName: "role",
     }
 );
-
 
 export default Role;

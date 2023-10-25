@@ -31,9 +31,18 @@ const User_role = sequelize.define(
         }
     },
     {
+        timestamps: false,
+        underscored: true,
+        freezeTableName: true,
         tableName: "user_role",
     }
 );
+
+User.hasMany(User_role, { foreignKey: 'user_id' });
+Role.hasMany(User_role, { foreignKey: 'role_id' });
+Role.belongsToMany(User, { through: User_role });
+User_role.belongsTo(Role);
+User_role.belongsTo(User);
 
 
 export default User_role;

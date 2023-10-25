@@ -36,6 +36,7 @@ const User = sequelize.define(
         },
     },
     {
+        freezeTableName: true,
         tableName: "user",
     }
 );
