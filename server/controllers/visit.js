@@ -128,10 +128,11 @@ const create = async (req, res) => {
                 client_id: data.client_id,
                 broker_id: data.broker_id,
                 status: data.status,
-                time: data.time
+                time: data.time,
+                message: data.message
             },
             defaults: {
-                status: other
+                status: 'other'
             }
         });
         if (!created) {

@@ -83,7 +83,6 @@ const listById = async (req, res) => {
     }
 }
 
-
 const create = async (req, res) => {
     try {
         const data = req.body;
@@ -127,6 +126,7 @@ const create = async (req, res) => {
         });
     }
 }
+
 
 const update = async (req, res) => {
     try {

@@ -134,6 +134,7 @@ CREATE TABLE `visit` (
 `broker_id` BIGINT NULL, 
 `time` timestamp NULL DEFAULT NULL,
 `status` ENUM ('requested', 'booked', 'completed', 'other') NULL DEFAULT NULL,
+`message` TEXT NULL,
 CONSTRAINT `visit_PK` PRIMARY KEY (`id`),
 UNIQUE KEY `visit_UN` (`client_id`,`property_id`,`broker_id`),
   KEY `visit_FK` (`property_id`),
