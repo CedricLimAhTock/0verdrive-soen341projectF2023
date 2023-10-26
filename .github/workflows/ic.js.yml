@@ -18,13 +18,19 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "14.x"
+          node-version: "18.x"
+
+      - name: Cache Node.js dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: <span class="math-inline">\{\{ runner\.os \}\}\-npm\-</span>{{ hashFiles('**/package-lock.json') }}
 
       - name: Change to Client Directory
         run: cd client
 
       - name: Install Client Dependencies
-        run: npm ci
+        run: npm install --if-present
         working-directory: ./client
 
       - name: Build Client
@@ -44,10 +50,19 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "14.x"
+          node-version: "18.x"
+
+      - name: Cache Node.js dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: <span class="math-inline">\{\{ runner\.os \}\}\-npm\-</span>{{ hashFiles('**/package-lock.json') }}
+
+      - name: Change to Server Directory
+        run: cd server
 
       - name: Install Server Dependencies
-        run: npm ci
+        run: npm install --if-present
         working-directory: ./server
 
       - name: Build Server
@@ -75,7 +90,7 @@ jobs:
       - name: Import SQL file
         run: mysql -u root -p < ./database/lorem.sql
 
-  setup-db:
+  test-db:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -89,6 +104,5 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Build DB
-        run: python populate_tables.py
-        working-directory: ./database
+      - name: Test DB
+        run: python test_db.py
