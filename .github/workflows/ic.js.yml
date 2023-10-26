@@ -75,9 +75,6 @@ jobs:
         with:
           mysql-version: "8.0"
 
-      - name: Start MySQL
-        run: sudo service mysql start
-
       - name: Import SQL file
         run: mysql -u root -p < /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/database/lorem.sql
 
