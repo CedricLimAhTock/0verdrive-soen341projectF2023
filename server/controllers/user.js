@@ -166,8 +166,7 @@ const updateById = async (req, res) => {
             return res.status(400).json();
         }
 
-        await User.update(req.body, {where: {id: req.params.id}});
-
+        await User.update(req.body, {where: {id: req.body.id}});
         res.status(200).json();
 
     } catch (error) {
@@ -195,7 +194,7 @@ const destroy = async (req, res) => {
             where: {user_id: req.params.id}
         })
  
-        res.status(200).json(null);
+        res.status(200).json();
 
     } catch (error) {
         console.log(error);

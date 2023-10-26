@@ -86,6 +86,71 @@ const listById = async (req, res) => {
 const create = async (req, res) => {
     try {
         const data = req.body;
+
+        let q = {};
+        if (fields.civicAddress) {
+            q.civicAddress = fields.civicAddress;
+        }
+        if (fields.street) {
+            q.street = fields.street;
+        }
+        if (fields.neighbourhood) {
+            q.neighbourhood = fields.neighbourhood;
+        }
+        if (fields.city) {
+            q.city = fields.city;
+        }
+        if (fields.province) {
+            q.province = fields.province;
+        }
+        if (fields.postalCode) {
+            q.postalCode = fields.postalCode;
+        }
+        if (fields.country) {
+            q.country = fields.country;
+        }
+        if (fields.price) {
+            q.price = fields.price;
+        }
+        if (fields.livingArea) {
+            q.livingArea = {
+                [Op.gte]: (!fields.livingArea.min ? 0 : fields.livingArea.min),
+                [Op.lte]: (!fields.livingArea.max ? Number.MAX_SAFE_INTEGER : fields.livingArea.max)
+            };
+        }
+        if (fields.propertyArea) {
+            q.propertyArea = {
+                [Op.gte]: (!fields.propertyArea.min ? 0 : fields.propertyArea.min),
+                [Op.lte]: (!fields.propertyArea.max ? Number.MAX_SAFE_INTEGER : fields.propertyArea.max)
+            };
+        }
+        if (fields.numOfBedrooms) {
+            q.numOfBedrooms = {
+                [Op.gte]: (!fields.numOfBedrooms.min ? 0 : fields.numOfBedrooms.min),
+                [Op.lte]: (!fields.numOfBedrooms.max ? Number.MAX_SAFE_INTEGER : fields.numOfBedrooms.max)
+            };
+        }
+        if (fields.numOfFloors) {
+            q.numOfFloors = {
+                [Op.gte]: (!fields.numOfFloors.min ? 0 : fields.numOfFloors.min),
+                [Op.lte]: (!fields.numOfFloors.max ? Number.MAX_SAFE_INTEGER : fields.numOfFloors.max)
+            };
+        }
+        if (fields.yearBuilt) {
+            q.yearBuilt = {
+                [Op.gte]: (!fields.yearBuilt.min ? 0 : fields.yearBuilt.min),
+                [Op.lte]: (!fields.yearBuilt.max ? Number.MAX_SAFE_INTEGER : fields.yearBuilt.max)
+            };
+        }
+        if (fields.listedDate) {
+            q.listedDate = {
+                [Op.gte]: (!fields.listedDate.min ? 0 : fields.listedDate.min),
+                [Op.lte]: (!fields.listedDate.max ? Number.MAX_SAFE_INTEGER : fields.listedDate.max)
+            };
+        }
+        if (fields.propertyType) {
+            q.propertyType = fields.propertyType;
+        }
         
         const [property, created] = await Property.findOrCreate({
             where: {

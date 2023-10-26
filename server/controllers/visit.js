@@ -157,7 +157,7 @@ const update = async (req, res) => {
         if(req.body.id == null){
             return res.status(400).json();
         }
-        const visit = await visit.findOne({where: {id: req.body.id}});
+        const visit = await Visit.findOne({where: {id: req.body.id}});
 
         if (!visit) {
             return res.status(400).json();
@@ -201,6 +201,9 @@ const updateById = async (req, res) => {
 
 const destroy = async (req, res) => {
     try{
+        if(!req.params.id) {
+            res.status(400).json({});
+        }
         const visit = await Visit.findOne({
             where:{
                 id: req.params.id

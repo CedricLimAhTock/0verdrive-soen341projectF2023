@@ -13,10 +13,10 @@ const User = sequelize.define(
         active: {
             type: DataTypes.BOOLEAN,
         },
-        firstName: {
+        firstname: {
             type: DataTypes.STRING
         },
-        lastName: {
+        lastname: {
             type: DataTypes.STRING
         },
         username: {
