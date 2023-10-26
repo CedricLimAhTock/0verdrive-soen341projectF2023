@@ -79,4 +79,4 @@ jobs:
         run: mysql -u root < /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/database/lorem.sql
 
       - name: Populate Tables
-        run: python /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/server/database/populate_tables.py
+        run: python /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/database/populate_tables.py
