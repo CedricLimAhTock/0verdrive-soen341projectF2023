@@ -82,4 +82,5 @@ jobs:
         run: pip install mysql-connector-python
 
       - name: Populate Tables
-        run: python /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/database/populate_tables.py
+        run: python ./populate_tables.py
+        working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/database
