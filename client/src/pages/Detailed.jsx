@@ -3,13 +3,13 @@ import DetailedCard from '../components/DetailedCard/DetailedCard'
 import homeImg from '../assets/slideshow-template.jpg'
 import { useLocation } from "react-router-dom";
 
-const Detailed = () => {
+const Detailed = (decodedToken) => {
   const location = useLocation();
   const property = location.state.property;
 
   return (
     <div>
-        <DetailedCard property={property}/>
+        <DetailedCard property={property} token={decodedToken}/>
     </div>
   )
 }
