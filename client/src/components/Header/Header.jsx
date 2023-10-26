@@ -6,7 +6,7 @@ import bulb from "./assets/bulb.svg";
 import hamburgerMenu from "./assets/hamburgerMenu.svg";
 
 export default function Header({ props }) {
-  const displayUsername = props ? props.id : 'Test';
+  const displayUsername = props ? props.username : 'Test123';
 
   return (
     <div className="header">

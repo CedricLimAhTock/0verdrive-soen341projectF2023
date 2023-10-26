@@ -3,7 +3,7 @@ import PropertyListingCard from './PropertyListingCard'
 import PropertyForm from './PropertyForm'
 import './styles/Listings.css'
 
-const Listings = () => {
+const Listings = ({token}) => {
   const data = [
     {
       type: "House",

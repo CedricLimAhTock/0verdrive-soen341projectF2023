@@ -58,3 +58,8 @@
   align-items: center;
   padding: 10px;
 }
+
+.link-no-deco {
+  text-decoration: none;
+  color: inherit;
+}

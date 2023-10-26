@@ -2,7 +2,7 @@ import React from 'react'
 import PropertyCard from '../PropertyCard/PropertyCard'
 import './styles/Favorites.css'
 
-const Favorites = () => {
+const Favorites = ({token}) => {
 
   const property = {
     images: [

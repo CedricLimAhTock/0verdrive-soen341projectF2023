@@ -1,33 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import UserListingCard from './UserListingCard';
 import './styles/Users.css';
 import UserForm from './UserForm';
 
-const Users = () => {
-  const data = [
-    {
-      name: "John Doe",
-      dateJoined: "01/01/2021",
-      address: "1234 Main St, San Diego, CA 92101",
-      noOfListings: "3",
-      email: "idk@gmail.com",
-    },
-    {
-      name: "Susmita",
-      dateJoined: "99/99/9999",
-      address: "New York City, New York, U.S",
-      noOfListings: "MILLIONS",
-      email: "BRUHHHH@gmail.com",
-    }
-    // Add more booking data as needed
-  ];
-
+const Users = ({ token }) => {
+  const [userData, setUserData] = useState([]); // State to store user data
   const [isFormOpen, setFormOpen] = useState(false);
   const [selectedUserData, setSelectedUserData] = useState(null);
 
-  const toggleExpand = (index) => {
-    console.log("expand1");
-    setSelectedUserData(data[index]);
+  const toggleExpand = (userData) => {
+    setSelectedUserData(userData);
     setFormOpen(true);
   };
 
@@ -35,28 +18,39 @@ const Users = () => {
     setFormOpen(false);
   };
 
+  useEffect(() => {
+    // Fetch user info from the API after the component is mounted
+    axios
+      .get('http://localhost:8080/user/')
+      .then((res) => {
+        setUserData(res.data); // Assuming the API response is an array of user data
+      })
+      .catch((error) => {
+        console.log('Error in Users.jsx ', error);
+      });
+  }, []); // Use an empty dependency array to fetch data only once on component mount
+
   return (
     <div className='listings'>
       <div className="brokers-header">
         <div className="header-name">Name</div>
         <div className="header-join">Date joined</div>
-        <div className="header-address">Address</div>
-        <div className="header-listings">Listings</div>
         <div className="header-email">Email</div>
       </div>
 
       <div className="brokers-cards">
-        {data.map((userData, index) => (
+        {userData.map((userData, index) => (
           <UserListingCard
             key={index}
             data={userData}
-            toggleExpand={() => toggleExpand(index)}
+            toggleExpand={() => toggleExpand(userData)}
           />
         ))}
       </div>
 
       {isFormOpen && selectedUserData && (
         <UserForm
+          username={selectedUserData.username}
           isFormOpen={isFormOpen}
           closeForm={closeForm}
           data={selectedUserData}

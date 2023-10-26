@@ -7,7 +7,7 @@ import Offers from '../components/DashboardDetails/Offers'
 import Listings from '../components/DashboardDetails/Listings'
 import Users from '../components/DashboardDetails/Users'
 
-const Dashboard = () => {
+const Dashboard = ({token}) => {
 
     const [activeTab, setActiveTab] = useState('profile');
 
@@ -31,7 +31,7 @@ const Dashboard = () => {
 
     };
 
-    const userRole = 'broker';
+    const userRole = 'admin';
 
     return (
         <div className='dashboard'>
@@ -105,12 +105,12 @@ const Dashboard = () => {
                 </div>
 
                 <div className="dashboard-data">
-                    {activeTab === 'profile' && <Profile data={data} />}
-                    {activeTab === 'favorites' && <Favorites />}
-                    {activeTab === 'bookings' && <Bookings data={data}/>}
-                    {activeTab === 'offers' && <Offers />}
-                    {activeTab === 'listings' && <Listings />}
-                    {activeTab === 'users' && <Users />}
+                    {activeTab === 'profile' && <Profile data={data} token={token} />}
+                    {activeTab === 'favorites' && <Favorites token={token}/>}
+                    {activeTab === 'bookings' && <Bookings data={data} token={token}/>}
+                    {activeTab === 'offers' && <Offers token={token}/>}
+                    {activeTab === 'listings' && <Listings token={token}/>}
+                    {activeTab === 'users' && <Users token={token}/>}
                 </div>
 
             </div>
