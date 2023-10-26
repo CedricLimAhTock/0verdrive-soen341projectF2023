@@ -1,12 +1,12 @@
 name: Node.js CI
 
-on: 
+on:
   push:
     branches:
-      - 'main'
+      - "main"
   pull_request:
     branches:
-      - 'main'
+      - "main"
 
 jobs:
   build-client:
@@ -18,7 +18,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version: "18.x"
 
       - name: Change to Client Directory
         run: cd client
@@ -40,11 +40,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
+
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version: "18.x"
 
       - name: Install Server Dependencies
         run: npm ci
@@ -57,3 +57,30 @@ jobs:
       - name: Test Serverr
         run: npm test
         working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/server
+
+  build-db:
+    needs: [build-client, build-server]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+
+      - name: Install MySQL
+        uses: shogo82148/actions-setup-mysql@v1
+        with:
+          mysql-version: "8.0"
+
+      - name: Import SQL file
+        run: mysql -u root < /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/database/lorem.sql
+
+      - name: Install pip package
+        run: pip install mysql-connector-python
+
+      - name: Populate Tables
+        run: python ./populate_tables.py
+        working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/database
