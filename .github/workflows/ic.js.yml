@@ -71,7 +71,7 @@ jobs:
           node-version: "18.x"
 
       - name: Import SQL file
-        run: mysql -u root -p root < /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/database/lorem.sql
+        run: mysql -u root -p < /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/database/lorem.sql
 
       - name: Populate Tables
         run: python /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/server/database/populate_tables.py
