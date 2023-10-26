@@ -54,7 +54,7 @@ jobs:
         run: npm run build --if-present
         working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/server
 
-      - name: Test Serverr
+      - name: Test Server
         run: npm test
         working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/server
 
@@ -70,6 +70,7 @@ jobs:
           mysql-version: "8.0"
       - run: mysql -uroot -e 'SELECT version()'
         working-directory: /home/runner/workspace/0verdrive-soen341project2023/0verdrive-soen341projectF2023/database
+
       - name: Import SQL file
         run: mysql -u root -p < /home/runner/workspace/0verdrive-soen341project2023/0verdrive-soen341projectF2023/database/lorem.sql
 
@@ -80,12 +81,14 @@ jobs:
         python-version: ["pypy3.9", "pypy3.10", "3.9", "3.10", "3.11", "3.12"]
 
     steps:
+        name: Checkout code
       - uses: actions/checkout@v4
+
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-      # You can test your matrix by printing the current Python version
+
       - name: Build DB
         run: python ./populate_tables.py
         working-directory: /home/runner/workspace/0verdrive-soen341project2023/0verdrive-soen341projectF2023/database
