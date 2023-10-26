@@ -87,13 +87,39 @@ const listById = async (req, res) => {
 const create = async (req, res) => {
     try {
         const data = req.body;
-        const property = await Property.create(data);
         
-        if (!property) {
-            res.status(400).json();
+        const [property, created] = await Property.findOrCreate({
+            where: {
+                civicAddress: data.civicAddress,
+                aptNumber: data.aptNumber,
+                street: data.street,
+                neighbourhood: data.neighbourhood,
+                city: data.city,
+                province:data.province,
+                postalCode:data.postalCode,
+                country:data.country,
+                listingType: data.listingType,
+                price: data.price,
+                livingArea: data.livingArea,
+                propertyArea: data.propertyArea,
+                numOfBedrooms: data.numOfBedrooms,
+                numOfBathrooms: data.numOfBathrooms,
+                numOfFloors: data.numOfFloors,
+                yearBuilt: data.yearBuilt,
+                listedDate: data.listedDate
+                
+            },
+            defaults: {
+                status: 1,
+                aptNumber: ""
+            }
+        });
+        if (!created) {
+            res.status(400).json({message: "Already exists."});
         } else {
             res.status(200).send(property);
         }
+        
     } catch (error) {
         console.log(error);
         res.status(500).json({
