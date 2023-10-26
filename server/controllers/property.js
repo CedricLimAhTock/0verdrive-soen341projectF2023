@@ -1,4 +1,6 @@
 import Property from '../models/property.js';
+import User from '../models/user.js';
+import Listing from '../models/listing.js';
 
 const list = async (req, res) => {
     try {

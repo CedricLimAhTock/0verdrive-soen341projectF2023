@@ -97,6 +97,47 @@ def insert_property_amenity(connection, cursor, filepath):
     records = cursor.fetchone()
     print(f"Inserted {records} records into table property_amenity.")
 
+def insert_visits(connection, cursor, filepath):
+    
+    path = pathlib.Path(filepath)
+    with open(path) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        line_count = 0
+        for row in csv_reader:
+            if line_count == 0:
+                #print(f'Column names are {", ".join(row)}')
+                line_count += 1
+            else:
+                query = f"""INSERT INTO `visit` (`id`, `property_id`, `client_id`, `broker_id`, `status`, `time`) 
+                VALUES (0, {row[1]}, {row[2]}, {row[3]}, '{row[4]}', '{row[5]}')"""
+                #print(query)
+                cursor.execute(query)
+                connection.commit()
+    
+    cursor.execute("select COUNT(*) from visit")
+    records = cursor.fetchone()
+    print(f"Inserted {records} records into table visit.")
+    
+def insert_listings(connection, cursor, filepath):
+    
+    path = pathlib.Path(filepath)
+    with open(path) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        line_count = 0
+        for row in csv_reader:
+            if line_count == 0:
+                line_count += 1
+            else:
+                query = f"""INSERT INTO `listing` (`id`, `active`, `property_id`, `user_id`, `title`, `description`) 
+                VALUES (0, {row[1]}, {row[2]}, {row[3]}, '{row[4]}', '{row[5]}')"""
+                #print(query)
+                cursor.execute(query)
+                connection.commit()
+    
+    cursor.execute("select COUNT(*) from listing")
+    records = cursor.fetchone()
+    print(f"Inserted {records} records into table listing.")
+
 
 if __name__ == "__main__":
     
@@ -126,6 +167,10 @@ if __name__ == "__main__":
             insert_property(connection, cursor, "./property.csv")
             print("Populating table property_amenity...")
             insert_property_amenity(connection, cursor, "./property_amenity.csv")
+            print("Populating table visit...")
+            insert_visits(connection, cursor, "./visit.csv")
+            print("Populating table listing...")
+            insert_listings(connection, cursor, "./listing.csv")
     except Error as e:
         print("Error while connecting to MySQL", e)
     finally:
