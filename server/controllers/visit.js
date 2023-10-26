@@ -60,7 +60,7 @@ const listByStatus = async (req,res) => {
 
 const listByPropertyId = async (req,res) => {
     try{
-        visit = await Visit.findOne({
+        let visit = await Visit.findAll({
             where: {property_id: req.params.property_id}
         });
 
@@ -79,7 +79,7 @@ const listByPropertyId = async (req,res) => {
 
 const listByClientId = async (req,res) => {
     try{
-        visit = await Visit.findOne({
+        let visit = await Visit.findAll({
             where: {client_id: req.params.client_id}
         });
 
@@ -93,6 +93,97 @@ const listByClientId = async (req,res) => {
         console.log(error);
         res.status(500).json({
             message: 'Server Error'
+        });
+    }
+}
+
+const listByBrokerId = async (req,res) => {
+    try{
+        let visit = await Visit.findAll({
+            where: {broker_id: req.params.broker_id}
+        });
+
+        if(!visit){
+            res.status(400).json({});
+        } else {
+            res.status(200).send(visit);
+        }
+
+    } catch (error){
+        console.log(error);
+        res.status(500).json({
+            message: 'Server Error'
+        });
+    }
+}
+
+const create = async (req, res) => {
+    try {
+        const data = req.body;
+
+        if(!data){
+           return res.status(400).json();
+        }
+
+        const visit = await Visit.create(data);
+        
+        if (!visit) {
+            res.status(400).json();
+        } else {
+            res.status(200).send(visit);
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Server error'
+        });
+    }
+}
+
+
+const update = async (req, res) => {
+    try {
+        if(req.body.id == null){
+            return res.status(400).json();
+        }
+        const visit = await visit.findOne({where: {id: req.body.id}});
+
+        if (!visit) {
+            return res.status(400).json();
+        }
+
+        await Visit.update(req.body, {where: {id: req.body.id}});
+
+        res.status(200).json();
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Server error'
+        });
+    }
+}
+
+const updateById = async (req, res) => {
+    try {
+
+        if (req.params.id == null || req.body == null) {
+            return res.status(400).json();
+        }
+        const visit = await Visit.findOne({where: {id: req.params.id}});
+
+        if (!visit) {
+            return res.status(400).json();
+        }
+
+        await Visit.update(req.body, {where: {id: req.params.id}});
+
+        res.status(200).json();
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Server error'
         });
     }
 }
@@ -121,8 +212,6 @@ const destroy = async (req, res) => {
     }
 }
 
-//create
-//update status
-//destroy
 
-export default {list, listById, listByClientId, listByPropertyId, listByStatus, destroy};
+
+export default {list, listById, listByClientId, listByBrokerId, listByPropertyId, listByStatus, create, update, updateById, destroy};

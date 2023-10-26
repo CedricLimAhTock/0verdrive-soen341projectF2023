@@ -129,15 +129,35 @@ CREATE TABLE `property_amenity` (
 DROP TABLE IF EXISTS `visit`;
 CREATE TABLE `visit` (
 `id` BIGINT auto_increment NOT NULL,
-`property_id` BIGINT NOT NULL,
-`client_id` BIGINT NOT NULL,
-`broker_id` BIGINT NOT NULL, 
-`time` DATETIME NOT NULL,
-`status` ENUM ('requested', 'booked', 'completed', 'other'),
+`property_id` BIGINT NULL,
+`client_id` BIGINT NULL,
+`broker_id` BIGINT NULL, 
+`time` timestamp NULL DEFAULT NULL,
+`status` ENUM ('requested', 'booked', 'completed', 'other') NULL DEFAULT NULL,
 CONSTRAINT `visit_PK` PRIMARY KEY (`id`),
-CONSTRAINT `visit_FK` FOREIGN KEY (`property_id`) REFERENCES `property`(`id`) ON DELETE CASCADE,
-CONSTRAINT `visit_FK_1` FOREIGN KEY (`client_id`) REFERENCES `user`(`id`) ON DELETE CASCADE,
-CONSTRAINT `visit_FK_2` FOREIGN KEY (`broker_id`) REFERENCES `user`(`id`) ON DELETE CASCADE
+UNIQUE KEY `visit_UN` (`client_id`,`property_id`,`broker_id`),
+  KEY `visit_FK` (`property_id`),
+  KEY `visit_FK_2` (`broker_id`),
+  CONSTRAINT `visit_FK` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `visit_FK_1` FOREIGN KEY (`client_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `visit_FK_2` FOREIGN KEY (`broker_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+-- lorem.listing definition
+DROP TABLE IF EXISTS `listing`;
+CREATE TABLE `listing` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `active` tinyint(1) DEFAULT NULL,
+  `property_id` bigint DEFAULT NULL,
+  `user_id` bigint DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `description` text,
+  PRIMARY KEY (`id`),
+  KEY `listing_FK` (`property_id`),
+  KEY `listing_FK_1` (`user_id`),
+  CONSTRAINT `listing_FK` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `listing_FK_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 DROP USER IF EXISTS 'lorem'@'%';

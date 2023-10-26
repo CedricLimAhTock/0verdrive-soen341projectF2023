@@ -1,5 +1,7 @@
-import { DataTypes } from "sequilize";
+import { DataTypes } from "sequelize";
 import sequelize from "../database/database.js";
+import Property from "./property.js";
+import User from "./user.js";
 
 const Visit = sequelize.define(
     "Visit",
@@ -32,13 +34,14 @@ const Visit = sequelize.define(
             },
         },
         time: {
-            type: DataTypes.DATETIME,
+            type: DataTypes.DATE,
         },
         status:{
             type: DataTypes.ENUM('requested', 'booked', 'completed', 'other'),
         }
     },
-    {
+    {   
+        timestamps: false,
         tableName: "visit",
     }
 );
