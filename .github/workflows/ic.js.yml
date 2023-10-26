@@ -18,22 +18,22 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18.x"
+          node-version: "14.x"
 
       - name: Change to Client Directory
         run: cd client
 
       - name: Install Client Dependencies
         run: npm ci
-        working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/client
+        working-directory: ./client
 
       - name: Build Client
         run: npm run build --if-present
-        working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/client
+        working-directory: ./client
 
       - name: Test Client
         run: npm test
-        working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/client
+        working-directory: ./client
 
   build-server:
     runs-on: ubuntu-latest
@@ -44,35 +44,36 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18.x"
+          node-version: "14.x"
 
       - name: Install Server Dependencies
         run: npm ci
-        working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/server
+        working-directory: ./server
 
       - name: Build Server
         run: npm run build --if-present
-        working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/server
+        working-directory: ./server
 
       - name: Test Server
         run: npm test
-        working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/server
+        working-directory: ./server
 
   build-db:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
 
-        name: Setup MySQL
-      - uses: shogo82148/actions-setup-mysql@v1
+      - name: Setup MySQL
+        uses: shogo82148/actions-setup-mysql@v1
         with:
           mysql-version: "8.0"
-      - run: mysql -uroot -e 'SELECT version()'
-        working-directory: /home/runner/workspace/0verdrive-soen341project2023/0verdrive-soen341projectF2023/database
+
+      - name: Check MySQL version
+        run: mysql -uroot -e 'SELECT version()'
 
       - name: Import SQL file
-        run: mysql -u root -p < /home/runner/workspace/0verdrive-soen341project2023/0verdrive-soen341projectF2023/database/lorem.sql
+        run: mysql -u root -p < ./database/lorem.sql
 
   setup-db:
     runs-on: ubuntu-latest
@@ -84,10 +85,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
 
       - name: Build DB
-        run: python ./populate_tables.py
-        working-directory: /home/runner/workspace/0verdrive-soen341project2023/0verdrive-soen341projectF2023/database
+        run: python populate_tables.py
+        working-directory: ./database
