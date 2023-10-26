@@ -12,8 +12,19 @@ import jwt_decode from "jwt-decode";
 import Page404 from "./pages/Page404";
 
 function App() {
-  const token = localStorage.getItem("jwtToken");
-  const decodedToken = token ? jwt_decode(token) : null;
+  const [decodedToken, setDecodedToken] = React.useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      const token = await localStorage.getItem("jwtToken");
+      const decoded = await jwt_decode(token);
+      setDecodedToken(decoded);
+    }
+
+    fetchData();
+  }, []);
+
+
 
   return (
     <Router>
@@ -57,7 +68,7 @@ function App() {
             path="/property/:id"
             element={
               <Layout decodedToken={decodedToken}>
-                <Detailed />
+                <Detailed decodedToken={decodedToken}/>
               </Layout>
             }
           />

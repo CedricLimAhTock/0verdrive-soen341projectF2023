@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import template from '../../assets/slideshow-template.jpg'
 import './DetailedCard.css'
 import bedIcon from "../../assets/bed.svg";
@@ -6,11 +6,26 @@ import bathIcon from "../../assets/bath.svg";
 import rulerIcon from "../../assets/ruler.svg";
 import MortgageCalculator from '../MortgageCalculator/MortgageCalculator';
 import Carousel from '../Carousel/Carousel';
+import VisitForm from '../VisitForm/VisitForm';
+import jwt_decode from "jwt-decode";
 
-
-const DetailedCard = ({ property }) => {
+const DetailedCard = ({ property}) => {
 
     const { images, price, street, city, province, country, numOfBedrooms, numOfBathrooms, propertyArea, id} = property;
+
+
+    const [decodedToken, setDecodedToken] = React.useState(null);
+
+    useEffect(() => {
+        function fetchData() {
+        const token = localStorage.getItem("jwtToken");
+        const decoded = jwt_decode(token);
+        setDecodedToken(decoded);
+      }
+  
+      fetchData();
+    }, []);
+
     const address = `${street}, ${city}, ${province}, ${country}`;
     const description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui.";
     const broker = "John Doe";
@@ -18,12 +33,15 @@ const DetailedCard = ({ property }) => {
     const [activeTab, setActiveTab] = useState('description');
 
     const [isFormOpen, setIsFormOpen] = useState(false);
+    const [isVisitForm, setVisitForm] = useState(false);
+
+    const toggleVisitForm = () => {
+        setVisitForm(!isVisitForm);
+    }
 
     const toggleForm = () => {
         setIsFormOpen(!isFormOpen);
     };
-
-
 
     return (
 
@@ -90,9 +108,18 @@ const DetailedCard = ({ property }) => {
             <div className="right-side">
                 <h2 className='price'>{price}</h2>
                 <button className="offer">Make an offer</button>
-                <button className="visit">Request a visit</button>
+                <button className="visit" onClick={() => toggleVisitForm(true)}>Request a visit</button>
                 <button className="calc" onClick={setIsFormOpen}>Mortgage Calculator</button>
                 <MortgageCalculator isOpen={isFormOpen} onClose={toggleForm} property={property}/>
+
+                {isVisitForm && (
+                    <VisitForm
+                        isFormOpen={isVisitForm}
+                        onClose={toggleVisitForm}
+                        property={property}
+                    />
+                )                
+                }
             </div>
         </div>
     )
