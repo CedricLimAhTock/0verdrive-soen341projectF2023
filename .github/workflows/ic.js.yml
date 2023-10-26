@@ -71,7 +71,7 @@ jobs:
           node-version: "18.x"
 
       - name: Install MySQL
-        uses: actions/setup-mysql@v2
+        uses: shogo82148/actions-setup-mysql@v1
         with:
           mysql-version: "8.0"
 
