@@ -123,16 +123,10 @@ const create = async (req, res) => {
         const data = req.body;
         
         const [visit, created] = await Visit.findOrCreate({
-            where: {
-                property_id: data.property_id,
-                client_id: data.client_id,
-                broker_id: data.broker_id,
-                status: data.status,
-                time: data.time,
-                message: data.message
-            },
+            where: data,
             defaults: {
-                status: 'other'
+                status: 'other',
+                message: ""
             }
         });
         if (!created) {

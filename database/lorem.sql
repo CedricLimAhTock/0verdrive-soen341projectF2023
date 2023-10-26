@@ -83,7 +83,7 @@ CREATE TABLE `property` (
 	`listedDate` DATE NULL,
 	`propertyType` ENUM('single-family', 'duplex', 'triplex', 'quadruplex', 'townhouse', 'studio', 'condominium', 'other') NULL,
 	`createdAt` timestamp NULL DEFAULT NULL,
-  	`updatedAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
   CONSTRAINT `property_PK` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
