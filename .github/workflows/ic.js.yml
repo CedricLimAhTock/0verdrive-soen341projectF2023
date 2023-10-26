@@ -78,5 +78,8 @@ jobs:
       - name: Import SQL file
         run: mysql -u root < /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/database/lorem.sql
 
+      - name: Install pip package
+        run: pip install mysql-connector-python
+
       - name: Populate Tables
         run: python /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/database/populate_tables.py
