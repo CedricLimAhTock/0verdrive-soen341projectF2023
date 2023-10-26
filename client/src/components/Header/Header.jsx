@@ -5,8 +5,8 @@ import darkToggle from "./assets/darkToggle.svg";
 import bulb from "./assets/bulb.svg";
 import hamburgerMenu from "./assets/hamburgerMenu.svg";
 
-export default function Header({ props }) {
-  const displayUsername = props ? props.username : 'Test123';
+export default function Header({ decodedToken }) {
+  const displayUsername = decodedToken ? decodedToken.username : 'Guest!';
 
   return (
     <div className="header">
@@ -25,10 +25,10 @@ export default function Header({ props }) {
         </NavLink>
       </div>
       <div className="buttons">
-        <img className="darkToggle" src={darkToggle} alt="Dark Toggle" />
+        {/* <img className="darkToggle" src={darkToggle} alt="Dark Toggle" />
         <img className="bulb" src={bulb} alt="Bulb" />
-        <img className="hamburgerMenu" src={hamburgerMenu} alt="Hamburger Menu" />
-        <div className="username-display">{displayUsername}</div>
+        <img className="hamburgerMenu" src={hamburgerMenu} alt="Hamburger Menu" /> */}
+        <div className="username-display">Hello, {displayUsername}</div>
       </div>
     </div>
   );
