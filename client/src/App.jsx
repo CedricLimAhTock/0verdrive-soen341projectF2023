@@ -22,7 +22,7 @@ function App() {
           <Route
             path="/"
             element={
-              <Layout props={decodedToken}>
+              <Layout decodedToken={decodedToken}>
                 <Home />
               </Layout>
             }
@@ -30,7 +30,7 @@ function App() {
           <Route
             path="/detailed"
             element={
-              <Layout>
+              <Layout decodedToken={decodedToken}>
                 <Detailed />
               </Layout>
             }
@@ -38,7 +38,7 @@ function App() {
           <Route
             path="/dashboard"
             element={
-              <Layout>
+              <Layout decodedToken={decodedToken}>
                 <Dashboard token={decodedToken} />
               </Layout>
             }
@@ -48,7 +48,7 @@ function App() {
           <Route
             path="/browse"
             element={
-              <Layout>
+              <Layout decodedToken={decodedToken}>
                 <Browse />
               </Layout>
             }
@@ -56,7 +56,7 @@ function App() {
           <Route
             path="/property/:id"
             element={
-              <Layout>
+              <Layout decodedToken={decodedToken}>
                 <Detailed />
               </Layout>
             }

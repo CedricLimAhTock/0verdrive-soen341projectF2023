@@ -2,10 +2,10 @@ import React from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import "./Layout.css";
-const Layout = ({ children, props}) => {
+const Layout = ({ children, decodedToken}) => {
   return (
     <div>
-      <Header props={props}/>
+      <Header decodedToken={decodedToken}/>
       <main className="content">{children}</main>
       <Footer />
     </div>
