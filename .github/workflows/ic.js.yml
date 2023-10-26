@@ -87,7 +87,7 @@ jobs:
 
       - name: Check MySQL version
         run: |
-          mysql -uroot -e 'SELECT version()' | grep -o '[0-9]+\.[0-9]+\.[0-9]+'
+          mysql -uroot -e 'SELECT version()' | grep -o '[0-9]+\.[0-9]+\.[0.9]+'
           mysql -u root -p < ./database/lorem.sql
 
   populate-db:
