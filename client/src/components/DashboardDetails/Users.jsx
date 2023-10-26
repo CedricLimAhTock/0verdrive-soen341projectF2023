@@ -3,10 +3,12 @@ import axios from 'axios';
 import UserListingCard from './UserListingCard';
 import './styles/Users.css';
 import UserForm from './UserForm';
+import AddUserForm from './AddUserForm';
 
 const Users = ({ token }) => {
-  const [userData, setUserData] = useState([]); // State to store user data
+  const [userData, setUserData] = useState([]);
   const [isFormOpen, setFormOpen] = useState(false);
+  const [isAddFormOpen, setAddFormOpen] = useState(false);
   const [selectedUserData, setSelectedUserData] = useState(null);
 
   const toggleExpand = (userData) => {
@@ -19,11 +21,10 @@ const Users = ({ token }) => {
   };
 
   useEffect(() => {
-    // Fetch user info from the API after the component is mounted
     axios
-      .get('http://localhost:8080/user/')
+      .get('http://localhost:8080/user/broker')
       .then((res) => {
-        setUserData(res.data); // Assuming the API response is an array of user data
+        setUserData(res.data);
       })
       .catch((error) => {
         console.log('Error in Users.jsx ', error);
@@ -32,6 +33,15 @@ const Users = ({ token }) => {
 
   return (
     <div className='listings'>
+      <div className="user-count">
+        <h2>All users</h2>
+        <div className="users-right">
+          <p>{userData.length} users</p>
+          <button className="add-user" onClick={() => setAddFormOpen(true)}>
+            Add User
+          </button>
+        </div>
+      </div>
       <div className="brokers-header">
         <div className="header-name">Name</div>
         <div className="header-join">Date joined</div>
@@ -39,11 +49,11 @@ const Users = ({ token }) => {
       </div>
 
       <div className="brokers-cards">
-        {userData.map((userData, index) => (
+        {userData.map((user, index) => (
           <UserListingCard
             key={index}
-            data={userData}
-            toggleExpand={() => toggleExpand(userData)}
+            data={user}
+            toggleExpand={() => toggleExpand(user)}
           />
         ))}
       </div>
@@ -54,6 +64,13 @@ const Users = ({ token }) => {
           isFormOpen={isFormOpen}
           closeForm={closeForm}
           data={selectedUserData}
+        />
+      )}
+
+      {isAddFormOpen && (
+        <AddUserForm
+          isFormOpen={isAddFormOpen}
+          closeForm={() => setAddFormOpen(false)}
         />
       )}
     </div>
