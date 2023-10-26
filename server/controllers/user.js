@@ -100,12 +100,19 @@ const listByRole = async (req, res) => {
 const create = async (req, res) => {
     try {
         const data = req.body;
+        
+        let user = await User.findOne({
+            where: {username: req.body.username}
+        });
+        if (user) {
+            res.status(400).json({ message: "Already exists" });
+        }
 
-        const user = await User.findOrCreate({ where: { username: data.username} }, data);
-        if (!user) {
+        let nuser = await User.create(data);
+        if (!nuser) {
             res.status(400).json();
         } else {
-            res.status(200).send(user);
+            res.status(200).send(nuser);
         }
         
     } catch (error) {

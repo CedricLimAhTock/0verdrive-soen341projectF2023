@@ -87,9 +87,7 @@ const listById = async (req, res) => {
 const create = async (req, res) => {
     try {
         const data = req.body;
-        const property = await Property.create(data,{
-            omitNull: false,
-        });
+        const property = await Property.create(data);
         
         if (!property) {
             res.status(400).json();
