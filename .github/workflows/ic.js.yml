@@ -24,17 +24,17 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.npm
-          key: <span class="math-inline">\{\{ runner\.os \}\}\-npm\-</span>{{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-npm-{{ hashFiles('**/package-lock.json') }}
 
       - name: Change to Client Directory
         run: cd client
 
       - name: Install Client Dependencies
-        run: npm install --if-present
+        run: npm install
         working-directory: ./client
 
       - name: Build Client
-        run: npm run build --if-present
+        run: npm run build
         working-directory: ./client
 
       - name: Test Client
@@ -56,17 +56,17 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.npm
-          key: <span class="math-inline">\{\{ runner\.os \}\}\-npm\-</span>{{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-npm-{{ hashFiles('**/package-lock.json') }}
 
       - name: Change to Server Directory
         run: cd server
 
       - name: Install Server Dependencies
-        run: npm install --if-present
+        run: npm install
         working-directory: ./server
 
       - name: Build Server
-        run: npm run build --if-present
+        run: npm run build
         working-directory: ./server
 
       - name: Test Server
@@ -75,6 +75,7 @@ jobs:
 
   build-db:
     runs-on: ubuntu-latest
+    needs: [build-client, build-server]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -85,16 +86,16 @@ jobs:
           mysql-version: "8.0"
 
       - name: Check MySQL version
-        run: mysql -uroot -e 'SELECT version()'
+        run: |
+          mysql -uroot -e 'SELECT version()' | grep -o '[0-9]+\.[0-9]+\.[0-9]+'
+          mysql -u root -p < ./database/lorem.sql
 
-      - name: Import SQL file
-        run: mysql -u root -p < ./database/lorem.sql
-
-  test-db:
+  populate-db:
     runs-on: ubuntu-latest
+    needs: [build-client, build-server, build-db]
     strategy:
       matrix:
-        python-version: ["3.8.0", "3.9.0", "3.10.0", "3.11.0", "3.12.0]
+        python-version: ["3.8.0", "3.9.0", "3.10.0", "3.11.0", "3.12.0"]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -105,4 +106,4 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Test DB
-        run: python test_db.py
+        run: python ./database/populate_tables.py
