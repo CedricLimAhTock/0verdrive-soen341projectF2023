@@ -10,7 +10,8 @@ import roleRoutes from './routes/role.js';
 import userRoleRoutes from './routes/user_role.js';
 import propertyRoutes from './routes/property.js';
 import propertySearchRoutes from './routes/propertySearch.js';
-
+import visitRoutes from './routes/visit.js';
+import listingRoutes from './routes/listing.js';
 
 
 
@@ -37,5 +38,7 @@ app.use('/user_role', userRoleRoutes);
 app.use('/role', roleRoutes);
 app.use('/property', propertyRoutes);
 app.use('/property/search', propertySearchRoutes);
+app.use('/visit', visitRoutes);
+app.use('/listing', listingRoutes);
 
 export default app;
