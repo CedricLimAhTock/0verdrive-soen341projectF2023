@@ -27,7 +27,7 @@ def insert_user(connection, cursor, filepath):
                 VALUES (0, {row[1]}, '{row[2]}', '{row[3]}', '{row[4]}', '{row[5]}', '{row[6]}', '{row[7]}', '{row[8]}','{row[9]}')"""
                 #print(query)
                 cursor.execute(query)
-                connection.commit()
+        connection.commit()
     
     cursor.execute("select COUNT(*) from user")
     records = cursor.fetchone()
@@ -49,7 +49,7 @@ def insert_user_role(connection, cursor, filepath):
                 VALUES (0, {row[1]}, {row[2]}, {row[3]})"""
                 #print(query_role)
                 cursor.execute(query)
-                connection.commit()
+        connection.commit()
     
     cursor.execute("select COUNT(*) from user_role")
     records = cursor.fetchone()
@@ -70,7 +70,7 @@ def insert_property(connection, cursor, filepath):
                 VALUES (0, {row[1]}, '{row[2]}', '{row[3]}', '{row[4]}', '{row[5]}', '{row[6]}', '{row[7]}', '{row[8]}','{row[9]}', '{row[10]}', {row[11]}, {row[12]}, {row[13]}, {row[14]}, {row[15]}, {row[16]}, '{row[17]}', '{row[18]}', '{row[19]}')"""
                 #print(query)
                 cursor.execute(query)
-                connection.commit()
+        connection.commit()
     
     cursor.execute("select COUNT(*) from property")
     records = cursor.fetchone()
@@ -91,7 +91,7 @@ def insert_property_amenity(connection, cursor, filepath):
                 VALUES (0, {row[1]}, {row[2]}, {row[3]})"""
                 #print(query)
                 cursor.execute(query)
-                connection.commit()
+        connection.commit()
     
     cursor.execute("select COUNT(*) from property_amenity")
     records = cursor.fetchone()
@@ -112,7 +112,7 @@ def insert_visits(connection, cursor, filepath):
                 VALUES (0, {row[1]}, {row[2]}, {row[3]}, '{row[4]}', '{row[5]}')"""
                 #print(query)
                 cursor.execute(query)
-                connection.commit()
+        connection.commit()
     
     cursor.execute("select COUNT(*) from visit")
     records = cursor.fetchone()
@@ -132,7 +132,7 @@ def insert_listings(connection, cursor, filepath):
                 VALUES (0, {row[1]}, {row[2]}, {row[3]}, '{row[4]}', '{row[5]}')"""
                 #print(query)
                 cursor.execute(query)
-                connection.commit()
+        connection.commit()
     
     cursor.execute("select COUNT(*) from listing")
     records = cursor.fetchone()
