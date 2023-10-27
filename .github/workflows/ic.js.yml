@@ -9,7 +9,7 @@ on:
       - "main"
 
 jobs:
-  build-client:
+  build-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -18,10 +18,13 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "18.x"
+          node-version: "20.x"
 
-      - name: Change to Client Directory
-        run: cd client
+      # - name: Use MySQL
+      #   uses: shogo82148/actions-setup-mysql@v1
+      #   with:
+      #     mysql-version: "8.0"
+      # - run: mysql -uroot -e 'SELECT version()'
 
       - name: Install Client Dependencies
         run: npm ci
@@ -34,17 +37,18 @@ jobs:
       - name: Test Client
         run: npm test
         working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/client
+      - name: Start SQL Service
+        run: sudo /etc/init.d/mysql start
 
-  build-server:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Import SQL file
+        run: mysql -u root -p"root" < /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/database/lorem.sql
 
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18.x"
+      - name: Install pip package
+        run: pip install mysql-connector-python
+
+      - name: Populate Tables
+        run: python ./populate_tables.py
+        working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/database
 
       - name: Install Server Dependencies
         run: npm ci
@@ -54,33 +58,16 @@ jobs:
         run: npm run build --if-present
         working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/server
 
-      - name: Test Serverr
-        run: npm test
+      - name: Allow connection
+        run: sudo ufw allow 3306
+
+      - name: Start Server
+        run: npm start &
         working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/server
 
-  build-db:
-    needs: [build-client, build-server]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Wait a moment
+        run: sleep 3
 
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "18.x"
-
-      - name: Install MySQL
-        uses: shogo82148/actions-setup-mysql@v1
-        with:
-          mysql-version: "8.0"
-
-      - name: Import SQL file
-        run: mysql -u root < /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/database/lorem.sql
-
-      - name: Install pip package
-        run: pip install mysql-connector-python
-
-      - name: Populate Tables
-        run: python ./populate_tables.py
-        working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/database
+      - name: Test Server
+        run: npm test
+        working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/server
