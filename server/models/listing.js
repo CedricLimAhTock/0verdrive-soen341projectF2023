@@ -4,7 +4,7 @@ import User from "./user.js"
 import Property from "./property.js";
 
 const Listing = sequelize.define(
-    "Listing",
+    "listing",
     {
         id: {
             type: DataTypes.BIGINT,
@@ -13,7 +13,7 @@ const Listing = sequelize.define(
             allowNull: false,
         },
         active: {
-            type: DataTypes.BOOLEAN,
+            type: DataTypes.BOOLEAN
         },
         property_id: {
             type: DataTypes.BIGINT,
@@ -30,10 +30,10 @@ const Listing = sequelize.define(
             }
         },
         title: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING
         },
         description: {
-            type: DataTypes.TEXT,
+            type: DataTypes.TEXT
         }
     },
     {

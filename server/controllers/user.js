@@ -97,22 +97,28 @@ const listByRole = async (req, res) => {
     }
 }
 
+
 const create = async (req, res) => {
     try {
         const data = req.body;
         
-        let user = await User.findOne({
-            where: {username: req.body.username}
+        const [user, created] = await User.findOrCreate({
+            where: {
+                username: data.username,
+                password: data.password,
+                firstname: data.firstname,
+                lastname: data.lastname,
+                email: data.email,
+                phone: data.phone
+            },
+            defaults: {
+                active: 1
+            }
         });
-        if (user) {
-            res.status(400).json({ message: "Already exists" });
-        }
-
-        let nuser = await User.create(data);
-        if (!nuser) {
-            res.status(400).json();
+        if (!created) {
+            res.status(400).json({message: "Already exists."});
         } else {
-            res.status(200).send(nuser);
+            res.status(200).send(user);
         }
         
     } catch (error) {
@@ -160,8 +166,7 @@ const updateById = async (req, res) => {
             return res.status(400).json();
         }
 
-        await User.update(req.body, {where: {id: req.params.id}});
-
+        await User.update(req.body, {where: {id: req.body.id}});
         res.status(200).json();
 
     } catch (error) {
@@ -189,7 +194,7 @@ const destroy = async (req, res) => {
             where: {user_id: req.params.id}
         })
  
-        res.status(200).json(null);
+        res.status(200).json();
 
     } catch (error) {
         console.log(error);

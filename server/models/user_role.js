@@ -4,7 +4,7 @@ import User from "./user.js"
 import Role from "./role.js"
 
 const User_role = sequelize.define(
-    "User_role",
+    "user_role",
     {
         id: {
             type: DataTypes.BIGINT,

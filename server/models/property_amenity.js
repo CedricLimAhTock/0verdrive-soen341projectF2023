@@ -4,7 +4,7 @@ import Property from "./property.js";
 import Amenity from "./amenity.js";
 
 const Property_amenity = sequelize.define(
-    "Property_amenity",
+    "property_amenity",
     {
         id: {
             type: DataTypes.BIGINT,
@@ -31,6 +31,8 @@ const Property_amenity = sequelize.define(
         }
     },
     {
+        underscored: true,
+        freezeTableName: true,
         tableName: "property_amenity",
     }
 );

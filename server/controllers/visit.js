@@ -117,21 +117,24 @@ const listByBrokerId = async (req,res) => {
     }
 }
 
+
 const create = async (req, res) => {
     try {
         const data = req.body;
-
-        if(!data){
-           return res.status(400).json();
-        }
-
-        const visit = await Visit.create(data);
         
-        if (!visit) {
-            res.status(400).json();
+        const [visit, created] = await Visit.findOrCreate({
+            where: data,
+            defaults: {
+                status: 'other',
+                message: ""
+            }
+        });
+        if (!created) {
+            res.status(400).json({message: "Already exists."});
         } else {
             res.status(200).send(visit);
         }
+        
     } catch (error) {
         console.log(error);
         res.status(500).json({
@@ -141,12 +144,14 @@ const create = async (req, res) => {
 }
 
 
+
+
 const update = async (req, res) => {
     try {
         if(req.body.id == null){
             return res.status(400).json();
         }
-        const visit = await visit.findOne({where: {id: req.body.id}});
+        const visit = await Visit.findOne({where: {id: req.body.id}});
 
         if (!visit) {
             return res.status(400).json();
@@ -190,6 +195,9 @@ const updateById = async (req, res) => {
 
 const destroy = async (req, res) => {
     try{
+        if(!req.params.id) {
+            res.status(400).json({});
+        }
         const visit = await Visit.findOne({
             where:{
                 id: req.params.id

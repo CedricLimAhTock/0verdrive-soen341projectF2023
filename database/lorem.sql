@@ -83,7 +83,7 @@ CREATE TABLE `property` (
 	`listedDate` DATE NULL,
 	`propertyType` ENUM('single-family', 'duplex', 'triplex', 'quadruplex', 'townhouse', 'studio', 'condominium', 'other') NULL,
 	`createdAt` timestamp NULL DEFAULT NULL,
-  	`updatedAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
   CONSTRAINT `property_PK` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -134,6 +134,7 @@ CREATE TABLE `visit` (
 `broker_id` BIGINT NULL, 
 `time` timestamp NULL DEFAULT NULL,
 `status` ENUM ('requested', 'booked', 'completed', 'other') NULL DEFAULT NULL,
+`message` TEXT NULL,
 CONSTRAINT `visit_PK` PRIMARY KEY (`id`),
 UNIQUE KEY `visit_UN` (`client_id`,`property_id`,`broker_id`),
   KEY `visit_FK` (`property_id`),

@@ -59,19 +59,26 @@ const listByBrokerId = async (req, res) => {
     }
 }
 
-
 const create = async (req, res) => {
     try {
         const data = req.body;
-
-        const listing = await Listing.create(data);
-
-        if (!listing) {
-            res.status(400).json();
+        
+        const [listing, created] = await Listing.findOrCreate({
+            where: {
+                property_id: data.property_id,
+                user_id: data.user_id,
+                title: data.title,
+                description: data.description,
+            },
+            defaults: {
+                active: 1
+            }
+        });
+        if (!created) {
+            res.status(400).json({message: "Already exists."});
         } else {
             res.status(200).send(listing);
         }
-
         
     } catch (error) {
         console.log(error);
@@ -80,6 +87,7 @@ const create = async (req, res) => {
         });
     }
 }
+
 
 const update = async (req, res) => {
     try {

@@ -59,19 +59,24 @@ const listByUserId = async (req, res) => {
     }
 }
 
-
 const create = async (req, res) => {
     try {
         const data = req.body;
-
-        const user_role = await User_role.findOrCreate({where: {username: data.username}}, data);
-
-        if (!user_role) {
-            res.status(400).json();
+        
+        const [user_role, created] = await User_role.findOrCreate({
+            where: {
+                user_id: data.user_id,
+                role_id: data.role_id
+            },
+            defaults: {
+                active: 1
+            }
+        });
+        if (!created) {
+            res.status(400).json({message: "Already exists."});
         } else {
             res.status(200).send(user_role);
         }
-
         
     } catch (error) {
         console.log(error);
@@ -80,6 +85,7 @@ const create = async (req, res) => {
         });
     }
 }
+
 
 const update = async (req, res) => {
     try {

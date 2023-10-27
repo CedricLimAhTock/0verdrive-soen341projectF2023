@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize from "../database/database.js";
 
 const User = sequelize.define(
-    "User",
+    "user",
     {
         id: {
             type: DataTypes.BIGINT,
@@ -13,10 +13,10 @@ const User = sequelize.define(
         active: {
             type: DataTypes.BOOLEAN,
         },
-        firstName: {
+        firstname: {
             type: DataTypes.STRING
         },
-        lastName: {
+        lastname: {
             type: DataTypes.STRING
         },
         username: {

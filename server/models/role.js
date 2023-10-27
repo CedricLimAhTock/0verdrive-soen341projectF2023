@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize from "../database/database.js";
 
 const Role = sequelize.define(
-    "Role",
+    "role",
     {
         id: {
             type: DataTypes.BIGINT,
@@ -18,6 +18,7 @@ const Role = sequelize.define(
         }
     },
     {
+        underscored: true,
         freezeTableName: true,
         tableName: "role",
     }

@@ -4,7 +4,7 @@ import Property from "./property.js";
 import User from "./user.js";
 
 const Visit = sequelize.define(
-    "Visit",
+    "visit",
     {
         id: {
             type: DataTypes.BIGINT,
@@ -34,14 +34,19 @@ const Visit = sequelize.define(
             },
         },
         time: {
-            type: DataTypes.DATE,
+            type: DataTypes.DATE
         },
         status:{
-            type: DataTypes.ENUM('requested', 'booked', 'completed', 'other'),
+            type: DataTypes.ENUM('requested', 'booked', 'completed', 'other')
+        },
+        message:{
+            type: DataTypes.TEXT
         }
     },
     {   
         timestamps: false,
+        underscored: true,
+        freezeTableName: true,
         tableName: "visit",
     }
 );

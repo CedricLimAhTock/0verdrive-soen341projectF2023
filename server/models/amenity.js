@@ -2,7 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize from "../database/database.js";
 
 const Amenity = sequelize.define(
-    "Amenity",
+    "amenity",
     {
         id: {
             type: DataTypes.BIGINT,
@@ -18,6 +18,7 @@ const Amenity = sequelize.define(
         }
     },
     {
+        freezeTableName: true,
         tableName: "amenity",
     }
 );
