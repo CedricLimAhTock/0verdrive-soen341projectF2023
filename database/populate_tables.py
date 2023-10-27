@@ -128,15 +128,15 @@ def insert_listings(connection, cursor, filepath):
             if line_count == 0:
                 line_count += 1
             else:
-                query = f"""INSERT INTO `listing` (`id`, `active`, `property_id`, `user_id`, `title`, `description`) 
-                VALUES (0, {row[1]}, {row[2]}, {row[3]}, '{row[4]}', '{row[5]}')"""
+                query = f"""INSERT INTO `user_property` (`id`, `active`, `parent_id`, `property_id`, `user_id`, `title`, `description`) 
+                VALUES (0, {row[1]}, {row[2]}, {row[3]}, NULL, '{row[5]}', '{row[6]}')"""
                 #print(query)
                 cursor.execute(query)
         connection.commit()
     
-    cursor.execute("select COUNT(*) from listing")
+    cursor.execute("select COUNT(*) from user_property")
     records = cursor.fetchone()
-    print(f"Inserted {records} records into table listing.")
+    print(f"Inserted {records} records into table user_property.")
 
 
 if __name__ == "__main__":
@@ -170,7 +170,7 @@ if __name__ == "__main__":
             print("Populating table visit...")
             insert_visits(connection, cursor, "./visit.csv")
             print("Populating table listing...")
-            insert_listings(connection, cursor, "./listing.csv")
+            insert_listings(connection, cursor, "./user_property.csv")
     except Error as e:
         print("Error while connecting to MySQL", e)
     finally:

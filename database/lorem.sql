@@ -94,7 +94,7 @@ CREATE TABLE `amenity` (
 	`active` BOOL DEFAULT 0 NULL,
 	`name` ENUM('elevator', 'gym', 'pool', 'laundry room', 'internet', 'water', 'hydro', 'public transportation', 'park', 'accessibility') NULL,
 	`createdAt` timestamp NULL DEFAULT NULL,
-  	`updatedAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
   CONSTRAINT `amenity_PK` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -120,7 +120,7 @@ CREATE TABLE `property_amenity` (
 	`property_id` BIGINT NOT NULL,
 	`amenity_id` BIGINT NULL,
 	`createdAt` timestamp NULL DEFAULT NULL,
-  	`updatedAt` timestamp NULL DEFAULT NULL,
+  `updatedAt` timestamp NULL DEFAULT NULL,
 	CONSTRAINT `property_amenity_PK` PRIMARY KEY (`id`),
 	CONSTRAINT `property_amenity_FK` FOREIGN KEY (`property_id`) REFERENCES `property`(`id`) ON DELETE CASCADE,
 	CONSTRAINT `property_amenity_FK_1` FOREIGN KEY (`amenity_id`) REFERENCES `amenity`(`id`) ON DELETE SET NULL
@@ -146,19 +146,23 @@ UNIQUE KEY `visit_UN` (`client_id`,`property_id`,`broker_id`),
 
 
 -- lorem.listing definition
-DROP TABLE IF EXISTS `listing`;
-CREATE TABLE `listing` (
+DROP TABLE IF EXISTS `user_property`;
+CREATE TABLE `user_property` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `active` tinyint(1) DEFAULT NULL,
-  `property_id` bigint DEFAULT NULL,
+  `parent_id` bigint NOT NULL,
+  `property_id` bigint NOT NULL,
   `user_id` bigint DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
-  `description` text,
-  PRIMARY KEY (`id`),
+  `description` text DEFAULT NULL,
+  CONSTRAINT `user_property_PK` PRIMARY KEY (`id`),
+  UNIQUE KEY `listing_UN` (`parent_id`,`property_id`),
+  UNIQUE KEY `favortie_UN` (`user_id`,`property_id`),
   KEY `listing_FK` (`property_id`),
   KEY `listing_FK_1` (`user_id`),
   CONSTRAINT `listing_FK` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `listing_FK_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+  CONSTRAINT `listing_FK_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `listing_FK_2` FOREIGN KEY (`parent_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 DROP USER IF EXISTS 'lorem'@'%';

@@ -15,6 +15,13 @@ const Listing = sequelize.define(
         active: {
             type: DataTypes.BOOLEAN
         },
+        parent_id: {
+            type: DataTypes.BIGINT,
+            references: {
+                model: User,
+                key: 'id'
+            }
+        },
         property_id: {
             type: DataTypes.BIGINT,
             references: {
@@ -40,7 +47,7 @@ const Listing = sequelize.define(
         timestamps: false,
         underscored: true,
         freezeTableName: true,
-        tableName: "listing",
+        tableName: "user_property",
     }
 );
 
