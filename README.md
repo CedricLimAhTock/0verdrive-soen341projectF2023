@@ -182,28 +182,31 @@ MongoDB - NoSQL:
 
 1. Install Nodejs and NPM
    - For reference, please visit the official ***[NodeJS installation Guide][nodejs-install-url]***
+2. Install MySQL ***[MySQL Installation Guide][mysql-install-url]***
 
-### Installation
+### Setup
 
-##### create database
+#### Clone the repo
 ```sh
-# navigate to directory with the sql files
-cd /<your-path>/project/database
-
-# Create the database from your terminal
-mysql -u <user> -p < lorem.sql
-#
-# OR from inside your mysql
-mysql> source lorem.sql
+# clone repo into folder "project"
+git clone git@github.com:CedricLimAhTock/0verdrive-soen341projectF2023.git project
 ```
-##### import data into tables
+
+##### Create database
+```sh
+# navigate to directory with the SQL files and
+# create the database from your terminal
+
+cd /<your-path>/project/database
+mysql -u root -p < lorem.sql
+```
+##### Import data into tables
 
 ```sh
-# Add data to the database
-# install python3-pip
-pip install mysql-connector-python
+# TODO: install python3-pip if not installed
+pip3 install mysql-connector-python
 chmod +x populate_tables.py
-python3 populate_tables.py -u <user> -d <dbname> -p '<your DB password>'
+python3 populate_tables.py
 ```
 
 <br>
@@ -218,13 +221,7 @@ python3 populate_tables.py -u <user> -d <dbname> -p '<your DB password>'
     npm run dev
     ```
 
-3. In the server folder; configure api server database connection
-
-  ```sh
-  echo "DB_NAME=\"lorem\"\nDB_USER=\"lorem\"\nDB_PWD=\"lorem3#(xruN\"\nDB_HOST=\"127.0.0.1\"\nPORT=\"8080\"" > .env
-  ```
-
-1. In the ```server``` folder run
+3. In the ```server``` folder run
 
     ```sh
     npm install
@@ -252,6 +249,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [mysql-shield]: https://img.shields.io/badge/MySQL-20232A?style=for-the-badge&logo=mysql&logoColor=white
 
 [nodejs-install-url]: https://github.com/nodesource/distributions/blob/master/README.md
-
+[mysql-install-url]: https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/
 <!-- WIKI refs -->
 [wiki-tech-eval-url]: https://github.com/CedricLimAhTock/0verdrive-soen341projectF2023/wiki/Design#evaluation-of-tech-stack
