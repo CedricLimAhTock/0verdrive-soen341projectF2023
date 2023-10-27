@@ -1,6 +1,7 @@
 import Property from '../models/property.js';
 import User from '../models/user.js';
 import Listing from '../models/listing.js';
+import User_role from '../models/user_role.js';
 
 const list = async (req, res) => {
     try {
@@ -73,6 +74,48 @@ const listById = async (req, res) => {
             res.status(400).json();
         } else {
             res.status(200).send(property);
+        }
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Server error'
+        });
+    }
+}
+
+const listByBrokerId = async (req, res) => {
+    try {
+        const properties = await Property.findAll({
+            include: [
+                {
+                    model: Listing,
+                    attributes: [], // don't return any columns
+                    required: true, // generate INNER JOIN
+                    //right: true,  // does a right join
+                    include: {
+                        model: User,
+                        required: true, // generate INNER JOIN
+                        attributes: [], // don't return any columns
+                        //right: true,  // does a right join
+                        include:
+                        {
+                            model: User_role,
+                            attributes: [],
+                            where: {
+                                role_id: 2
+                            },
+                            //right: true
+                        }
+                    }
+                }
+            ]
+        });
+
+        if (!properties) {
+            res.status(400).json();
+        } else {
+            res.status(200).send(properties);
         }
         
     } catch (error) {
@@ -174,6 +217,5 @@ const destroy = async (req, res) => {
         });
     }
 }
-// TODO implement some query to search specific filters
 
-export default {list, listById, listByType, listByTypeId, create, update, updateById, destroy};
+export default {list, listById, listByType, listByTypeId, listByBrokerId, create, update, updateById, destroy};

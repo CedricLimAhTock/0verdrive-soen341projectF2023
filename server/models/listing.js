@@ -4,7 +4,7 @@ import User from "./user.js"
 import Property from "./property.js";
 
 const Listing = sequelize.define(
-    "Listing",
+    "listing",
     {
         id: {
             type: DataTypes.BIGINT,

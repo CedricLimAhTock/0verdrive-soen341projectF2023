@@ -2,7 +2,7 @@ import { DATEONLY, DataTypes, Sequelize } from "sequelize";
 import sequelize from "../database/database.js";
 
 const Property = sequelize.define(
-    "Property",
+    "property",
     {
         id: {
             type: DataTypes.BIGINT,
@@ -70,6 +70,7 @@ const Property = sequelize.define(
         }
     },
     {
+        freezeTableName: true,
         tableName: "property",
     }
 );

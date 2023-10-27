@@ -4,10 +4,11 @@ import propertyController from '../controllers/property.js';
 const router = express.Router();
 
 router.get('/', propertyController.list);
-router.get('/type/:type', propertyController.listByType);
-
 router.get('/:id', propertyController.listById);
-router.get('/:type/:id', propertyController.listByTypeId);
+router.get('/type/:type', propertyController.listByType);
+router.get('/type/:type/:id', propertyController.listByTypeId);
+
+router.get('/broker/:id', propertyController.listByBrokerId);
 
 router.post('/', propertyController.create);
 

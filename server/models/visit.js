@@ -4,7 +4,7 @@ import Property from "./property.js";
 import User from "./user.js";
 
 const Visit = sequelize.define(
-    "Visit",
+    "visit",
     {
         id: {
             type: DataTypes.BIGINT,
@@ -45,6 +45,8 @@ const Visit = sequelize.define(
     },
     {   
         timestamps: false,
+        underscored: true,
+        freezeTableName: true,
         tableName: "visit",
     }
 );
