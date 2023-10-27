@@ -98,6 +98,9 @@ const listByBrokerId = async (req, res) => {
                         required: true, // generate INNER JOIN
                         attributes: [], // don't return any columns
                         //right: true,  // does a right join
+                        where: {
+                            id: req.params.id
+                        },
                         include:
                         {
                             model: User_role,
