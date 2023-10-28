@@ -1,5 +1,6 @@
 import Listing from "../models/listing.js";
 
+
 const list = async (req, res) => {
     try {
         let listings = await Listing.findAll({attributes: ['id', 'active', 'parent_id', 'property_id', 'user_id', 'title', 'description']});
@@ -16,15 +17,7 @@ const list = async (req, res) => {
             message: 'Server error'
         });
     }
-
-    res.status(200).send(listings);
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      message: "Server error",
-    });
-  }
-};
+}
 
 const listById = async (req, res) => {
     try {
@@ -45,13 +38,7 @@ const listById = async (req, res) => {
             message: 'Server error'
         });
     }
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      message: "Server error",
-    });
-  }
-};
+}
 
 const listByBrokerId = async (req, res) => {
     try {
@@ -72,13 +59,7 @@ const listByBrokerId = async (req, res) => {
             message: 'Server error'
         });
     }
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      message: "Server error",
-    });
-  }
-};
+}
 
 const create = async (req, res) => {
     try {
@@ -108,87 +89,80 @@ const create = async (req, res) => {
             message: 'Server error'
         });
     }
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      message: "Server error",
-    });
-  }
-};
+}
+
 
 const update = async (req, res) => {
-  try {
-    if (req.body.id == null) {
-      return res.status(400).json();
+    try {
+        if(req.body.id == null){
+            return res.status(400).json();
+        }
+        const listing = await Listing.findOne({where: {id: req.body.id}});
+
+        if (!listing) {
+            return res.status(400).json();
+        }
+
+        await Listing.update(req.body, {where: {id: req.body.id}});
+
+        res.status(200).json();
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Server error'
+        });
     }
-    const listing = await Listing.findOne({ where: { id: req.body.id } });
+}
 
-    if (!listing) {
-      return res.status(400).json();
-    }
-
-    await Listing.update(req.body, { where: { id: req.body.id } });
-
-    res.status(200).json();
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      message: "Server error",
-    });
-  }
-};
 
 const updateById = async (req, res) => {
-  try {
-    if (req.body == null) {
-      return res.status(400).json();
+    try {
+        if(req.body == null){
+            return res.status(400).json();
+        }
+        const listing = await Listing.findOne({where: {id: req.params.id}});
+
+        if (!listing) {
+            return res.status(400).json();
+        }
+
+        await Listing.update(req.body, {where: {id: req.params.id}});
+
+        res.status(200).json();
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Server error'
+        });
     }
-    const listing = await Listing.findOne({ where: { id: req.params.id } });
-
-    if (!listing) {
-      return res.status(400).json();
-    }
-
-    await Listing.update(req.body, { where: { id: req.params.id } });
-
-    res.status(200).json();
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      message: "Server error",
-    });
-  }
-};
+}
 
 const destroy = async (req, res) => {
-  try {
-    const listing = await Listing.findOne({
-      where: {
-        id: req.params.id,
-      },
-    });
+    try {
+        const listing = await Listing.findOne({
+            where: {
+                id: req.params.id
+            }
+        });
 
-    if (!listing) {
-      return res.status(400).json();
+        if (!listing) {
+            return res.status(400).json();
+        }
+
+        listing.destroy();
+        
+        res.status(200).json();
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Server error'
+        });
     }
-
-    listing.destroy();
-
-    res.status(200).json();
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      message: "Server error",
-    });
-  }
-};
+}
 
 export default {
-  list,
-  listById,
-  listByBrokerId,
-  create,
-  update,
-  updateById,
-  destroy,
+    list, listById, listByBrokerId, create, update, updateById, destroy
 };
