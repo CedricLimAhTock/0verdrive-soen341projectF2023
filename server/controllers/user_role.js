@@ -3,7 +3,7 @@ import User_role from '../models/user_role.js';
 
 const list = async (req, res) => {
     try {
-        let user_roles = await User_role.findAll();
+        let user_roles = await User_role.findAll({ attributes: ['id', 'active', 'user_id', 'role_id']});
 
         if (!user_roles) {
             res.status(400).json({});
@@ -22,6 +22,7 @@ const list = async (req, res) => {
 const listById = async (req, res) => {
     try {
         let user_role = await User_role.findOne({
+            attributes: ['id', 'active', 'user_id', 'role_id'],
             where: {id: req.params.id}
         });
 
@@ -42,6 +43,7 @@ const listById = async (req, res) => {
 const listByUserId = async (req, res) => {
     try {
         const user_role = await User_role.findOne({
+            attributes: ['id', 'active', 'user_id', 'role_id'],
             where: {user_id: req.params.user_id}
         });
 

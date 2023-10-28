@@ -22,6 +22,7 @@ const list = async (req, res) => {
 const listById = async (req, res) => {
     try {
         let listing = await Listing.findOne({
+            attributes: ['id', 'active', 'parent_id', 'property_id', 'user_id', 'title', 'description'],
             where: {id: req.params.id}
         });
 
@@ -42,6 +43,7 @@ const listById = async (req, res) => {
 const listByBrokerId = async (req, res) => {
     try {
         const listing = await Listing.findAll({
+            attributes: ['id', 'active', 'parent_id', 'property_id', 'user_id', 'title', 'description'],
             where: {parent_id: req.params.id}
         });
 

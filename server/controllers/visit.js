@@ -2,7 +2,7 @@ import Visit from '../models/visit.js';
 
 const list = async (req,res) => {
     try {
-        let visit = await Visit.findAll();
+        let visit = await Visit.findAll({ attributes: ['id', 'property_id', 'client_id', 'broker_id', 'time', 'status', 'message'] });
 
         if (!visit){
             res.status(400).json({});
@@ -21,6 +21,7 @@ const list = async (req,res) => {
 const listById = async (req,res) => {
     try {
         let visit = await Visit.findOne({
+            attributes: ['id', 'property_id', 'client_id', 'broker_id', 'time', 'status', 'message'],
             where: {id: req.params.id}
         });
 
@@ -41,6 +42,7 @@ const listById = async (req,res) => {
 const listByStatus = async (req,res) => {
     try{
         let visit = await Visit.findAll({
+            attributes: ['id', 'property_id', 'client_id', 'broker_id', 'time', 'status', 'message'],
             where: {status: req.params.status}
         });
 
@@ -61,6 +63,7 @@ const listByStatus = async (req,res) => {
 const listByPropertyId = async (req,res) => {
     try{
         let visit = await Visit.findAll({
+            attributes: ['id', 'property_id', 'client_id', 'broker_id', 'time', 'status', 'message'],
             where: {property_id: req.params.property_id}
         });
 
@@ -80,6 +83,7 @@ const listByPropertyId = async (req,res) => {
 const listByClientId = async (req,res) => {
     try{
         let visit = await Visit.findAll({
+            attributes: ['id', 'property_id', 'client_id', 'broker_id', 'time', 'status', 'message'],
             where: {client_id: req.params.client_id}
         });
 
@@ -100,6 +104,7 @@ const listByClientId = async (req,res) => {
 const listByBrokerId = async (req,res) => {
     try{
         let visit = await Visit.findAll({
+            attributes: ['id', 'property_id', 'client_id', 'broker_id', 'time', 'status', 'message'],
             where: {broker_id: req.params.broker_id}
         });
 
