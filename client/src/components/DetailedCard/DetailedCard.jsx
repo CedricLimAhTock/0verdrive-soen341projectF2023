@@ -115,7 +115,7 @@ const DetailedCard = ({ property}) => {
                 {isVisitForm && (
                     <VisitForm
                         isFormOpen={isVisitForm}
-                        onClose={toggleVisitForm}
+                        closeForm={toggleVisitForm}
                         property={property}
                     />
                 )                
