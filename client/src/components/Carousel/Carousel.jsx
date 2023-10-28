@@ -9,6 +9,7 @@ const Carousel = ({ images, className }) => {
       infinite={true}
       showThumbnails={false}
       autoPlay={true}
+      showPlayButton={images.length > 1 ? true : false}
       showFullscreenButton={false}
     />
   );
