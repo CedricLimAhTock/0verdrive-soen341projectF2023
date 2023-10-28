@@ -49,7 +49,7 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
   return (
     <div className={isFormOpen ? "show" : "hide"}>
       <form className="popup-form" onSubmit={handleSubmit}>
-        <button onClick={closeForm}>Close</button>
+        <button onClick={closeForm} className='close-button'>Close</button>
         <h2>Visit Form</h2>
 
         <label htmlFor="email">Email</label>
