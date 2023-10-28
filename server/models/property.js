@@ -70,6 +70,7 @@ const Property = sequelize.define(
         }
     },
     {
+        timestamps: false,
         freezeTableName: true,
         tableName: "property",
     }
