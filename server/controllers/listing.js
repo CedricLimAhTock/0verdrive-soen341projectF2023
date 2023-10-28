@@ -1,21 +1,20 @@
 import Listing from "../models/listing.js";
 
 const list = async (req, res) => {
-  try {
-    let listings = await Listing.findAll({
-      attributes: [
-        "id",
-        "active",
-        "parent_id",
-        "property_id",
-        "user_id",
-        "title",
-        "description",
-      ],
-    });
+    try {
+        let listings = await Listing.findAll({attributes: ['id', 'active', 'parent_id', 'property_id', 'user_id', 'title', 'description']});
 
-    if (!listings) {
-      res.status(400).json({});
+        if (!listings) {
+            res.status(400).json({});
+        }
+        
+        res.status(200).send(listings);
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Server error'
+        });
     }
 
     res.status(200).send(listings);
@@ -28,15 +27,23 @@ const list = async (req, res) => {
 };
 
 const listById = async (req, res) => {
-  try {
-    let listing = await Listing.findOne({
-      where: { id: req.params.id },
-    });
+    try {
+        let listing = await Listing.findOne({
+            attributes: ['id', 'active', 'parent_id', 'property_id', 'user_id', 'title', 'description'],
+            where: {id: req.params.id}
+        });
 
-    if (!listing) {
-      res.status(400).json({});
-    } else {
-      res.status(200).send(listing);
+        if (!listing) {
+            res.status(400).json({});
+        } else {
+            res.status(200).send(listing);
+        }
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Server error'
+        });
     }
   } catch (error) {
     console.log(error);
@@ -47,24 +54,23 @@ const listById = async (req, res) => {
 };
 
 const listByBrokerId = async (req, res) => {
-  try {
-    const listing = await Listing.findAll({
-      attributes: [
-        "id",
-        "active",
-        "parent_id",
-        "property_id",
-        "user_id",
-        "title",
-        "description",
-      ],
-      where: { parent_id: req.params.id },
-    });
+    try {
+        const listing = await Listing.findAll({
+            attributes: ['id', 'active', 'parent_id', 'property_id', 'user_id', 'title', 'description'],
+            where: {parent_id: req.params.id}
+        });
 
-    if (!listing) {
-      res.status(400).json();
-    } else {
-      res.status(200).send(listing);
+        if (!listing) {
+            res.status(400).json();
+        } else {
+            res.status(200).send(listing);
+        }
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Server error'
+        });
     }
   } catch (error) {
     console.log(error);
@@ -75,25 +81,32 @@ const listByBrokerId = async (req, res) => {
 };
 
 const create = async (req, res) => {
-  try {
-    const data = req.body;
-
-    const [listing, created] = await Listing.findOrCreate({
-      where: {
-        parent_id: data.parent_id,
-        property_id: data.property_id,
-        user_id: data.user_id,
-        title: data.title,
-        description: data.description,
-      },
-      defaults: {
-        active: 1,
-      },
-    });
-    if (!created) {
-      res.status(400).json({ message: "Already exists." });
-    } else {
-      res.status(200).send(listing);
+    try {
+        const data = req.body;
+        
+        const [listing, created] = await Listing.findOrCreate({
+            where: {
+                parent_id: data.parent_id,
+                property_id: data.property_id,
+                user_id: data.user_id,
+                title: data.title,
+                description: data.description,
+            },
+            defaults: {
+                active: 1
+            }
+        });
+        if (!created) {
+            res.status(400).json({message: "Already exists."});
+        } else {
+            res.status(200).send(listing);
+        }
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Server error'
+        });
     }
   } catch (error) {
     console.log(error);

@@ -1,5 +1,5 @@
 import Property from '../models/property.js';
-import { FLOAT, Op } from 'sequelize';
+import { Op } from 'sequelize';
 
 
 const query = async (req, res) => {
@@ -61,14 +61,14 @@ const query = async (req, res) => {
         }
         if (fields.yearBuilt) {
             q.yearBuilt = {
-                [Op.gte]: (!fields.yearBuilt.min ? 0 : fields.yearBuilt.min),
-                [Op.lte]: (!fields.yearBuilt.max ? Number.MAX_SAFE_INTEGER : fields.yearBuilt.max)
+                [Op.gte]: (!fields.yearBuilt.min ? "1000-01-01" : fields.yearBuilt.min),
+                [Op.lte]: (!fields.yearBuilt.max ? "9999-12-31" : fields.yearBuilt.max)
             };
         }
         if (fields.listedDate) {
             q.listedDate = {
-                [Op.gte]: (!fields.listedDate.min ? 0 : fields.listedDate.min),
-                [Op.lte]: (!fields.listedDate.max ? Number.MAX_SAFE_INTEGER : fields.listedDate.max)
+                [Op.gte]: (!fields.listedDate.min ? "1000-01-01" : fields.listedDate.min),
+                [Op.lte]: (!fields.listedDate.max ? "9999-12-31" : fields.listedDate.max)
             };
         }
         if (fields.propertyType) {

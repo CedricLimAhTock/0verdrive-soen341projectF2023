@@ -5,7 +5,27 @@ import User_role from '../models/user_role.js';
 
 const list = async (req, res) => {
     try {
-        let properties = await Property.findAll();
+        let properties = await Property.findAll({
+            attributes: ['id',
+                'active',
+                'civicAddress',
+                'aptNumber',
+                'street',
+                'neighbourhood',
+                'city',
+                'province',
+                'postalCode',
+                'country',
+                'listingType',
+                'price',
+                'livingArea',
+                'propertyArea',
+                'numOfBedrooms',
+                'numOfBathrooms',
+                'numOfFloors',
+                'yearBuilt',
+                'listedDate']
+        });
 
         if (!properties) {
             return res.status(400).json({});
@@ -24,6 +44,26 @@ const list = async (req, res) => {
 const listByType = async (req, res) => {
     try {
         let properties = await Property.findAll({
+            attributes: ['id',
+                'active',
+                'civicAddress',
+                'aptNumber',
+                'street',
+                'neighbourhood',
+                'city',
+                'province',
+                'postalCode',
+                'country',
+                'listingType',
+                'price',
+                'livingArea',
+                'propertyArea',
+                'numOfBedrooms',
+                'numOfBathrooms',
+                'numOfFloors',
+                'yearBuilt',
+                'listedDate'
+            ],
             where: {listingtype: req.params.type}
         });
 
@@ -44,6 +84,26 @@ const listByType = async (req, res) => {
 const listByTypeId = async (req, res) => {
     try {
         let properties = await Property.findAll({
+            attributes: ['id',
+                'active',
+                'civicAddress',
+                'aptNumber',
+                'street',
+                'neighbourhood',
+                'city',
+                'province',
+                'postalCode',
+                'country',
+                'listingType',
+                'price',
+                'livingArea',
+                'propertyArea',
+                'numOfBedrooms',
+                'numOfBathrooms',
+                'numOfFloors',
+                'yearBuilt',
+                'listedDate'
+            ],
             where: {
                 id: req.params.id,
                 listingtype: req.params.type
@@ -67,6 +127,26 @@ const listByTypeId = async (req, res) => {
 const listById = async (req, res) => {
     try {
         let property = await Property.findOne({
+            attributes: ['id',
+                'active',
+                'civicAddress',
+                'aptNumber',
+                'street',
+                'neighbourhood',
+                'city',
+                'province',
+                'postalCode',
+                'country',
+                'listingType',
+                'price',
+                'livingArea',
+                'propertyArea',
+                'numOfBedrooms',
+                'numOfBathrooms',
+                'numOfFloors',
+                'yearBuilt',
+                'listedDate'
+            ],
             where: {id: req.params.id}
         });
 
@@ -87,6 +167,26 @@ const listById = async (req, res) => {
 const listByBrokerId = async (req, res) => {
     try {
         const properties = await Property.findAll({
+            attributes: ['id',
+                'active',
+                'civicAddress',
+                'aptNumber',
+                'street',
+                'neighbourhood',
+                'city',
+                'province',
+                'postalCode',
+                'country',
+                'listingType',
+                'price',
+                'livingArea',
+                'propertyArea',
+                'numOfBedrooms',
+                'numOfBathrooms',
+                'numOfFloors',
+                'yearBuilt',
+                'listedDate'
+            ],
             include: [
                 {
                     model: Listing,

@@ -18,6 +18,7 @@ const Amenity = sequelize.define(
         }
     },
     {
+        timestamps: false,
         freezeTableName: true,
         tableName: "amenity",
     }

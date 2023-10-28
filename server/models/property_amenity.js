@@ -31,6 +31,7 @@ const Property_amenity = sequelize.define(
         }
     },
     {
+        timestamps: false,
         underscored: true,
         freezeTableName: true,
         tableName: "property_amenity",

@@ -17,7 +17,8 @@ const Role = sequelize.define(
             type: DataTypes.ENUM('member', 'broker', 'admin')
         }
     },
-    {
+    {   
+        timestamps: false,
         underscored: true,
         freezeTableName: true,
         tableName: "role",
