@@ -52,6 +52,20 @@ const SignupCard = () => {
               />
             </div>
             <div className="form-element">
+              <select
+                name="userRole"
+                value={userRole}
+                onChange={(e) => setUserRole(e.target.value)}
+                required
+                className="select"
+              >
+                <option value="Home Buyer">Home Buyer</option>
+                <option value="Renter">Renter</option>
+                <option value="Broker">Broker</option>
+                <option value="Admin">Admin</option>
+              </select>
+            </div>
+            <div className="form-element">
               <input type="submit" value="Sign up" />
               <Link to="/signin">Have an account? Log in here</Link>
             </div>
