@@ -54,7 +54,7 @@ const SignupCard = () => {
                 required
               />
             </div>
-            <div className="form-element">
+            <div className="form-element-role">
               <select
                 name="userRole"
                 value={userRole}
