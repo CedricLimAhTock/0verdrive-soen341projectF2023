@@ -6,7 +6,7 @@ import bulb from "./assets/bulb.svg";
 import hamburgerMenu from "./assets/hamburgerMenu.svg";
 
 export default function Header({ decodedToken }) {
-  const displayUsername = decodedToken ? decodedToken.username : 'Guest!';
+  const displayUsername = decodedToken ? decodedToken.username : "Guest!";
 
   return (
     <div className="header">
@@ -29,6 +29,13 @@ export default function Header({ decodedToken }) {
         <img className="bulb" src={bulb} alt="Bulb" />
         <img className="hamburgerMenu" src={hamburgerMenu} alt="Hamburger Menu" /> */}
         <div className="username-display">Hello, {displayUsername}</div>
+        <div>
+          <img
+            className="hamburgerMenu"
+            src={hamburgerMenu}
+            alt="Hamburger Menu"
+          />
+        </div>
       </div>
     </div>
   );
