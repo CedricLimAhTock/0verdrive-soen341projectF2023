@@ -33,7 +33,7 @@ const SignupCard = () => {
         Lorem Ipsum
       </NavLink>
       <div className="login-container">
-        <h2>Sign up</h2>
+        <h2>Sign Up</h2>
         <div className="form-container">
           <form onSubmit={handleSubmit}>
             <div className="form-element">
@@ -69,7 +69,7 @@ const SignupCard = () => {
               </select>
             </div>
             <div className="form-element">
-              <input type="submit" value="Sign up" />
+              <input type="submit" value="Sign Up" />
               <Link to="/signin">Have an account? Log in here</Link>
             </div>
           </form>
