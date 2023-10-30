@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../SigninCard/SigninCard.css";
 import "@fontsource/inter";
-
+import { NavLink } from "react-router-dom";
 const SignupCard = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -29,7 +29,9 @@ const SignupCard = () => {
 
   return (
     <div className="signin-card-container">
-      <div className="logo">Lorem Ipsum</div>
+      <NavLink to="/" className="logo">
+        Lorem Ipsum
+      </NavLink>
       <div className="login-container">
         <h2>Sign up</h2>
         <div className="form-container">

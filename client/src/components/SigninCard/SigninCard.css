@@ -16,6 +16,7 @@
   top: 0;
   padding: 30px;
   color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
 }
 
 .login-container {
