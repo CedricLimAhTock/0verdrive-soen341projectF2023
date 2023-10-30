@@ -36,9 +36,15 @@ export default function Header({ decodedToken }) {
             alt="Hamburger Menu"
           />
           <div className="menuItems">
-            <NavLink to="/signin" className="menuItem">
-              SIGN IN
-            </NavLink>
+            {decodedToken ? (
+              <NavLink to="/signout" className="menuItem">
+                SIGN OUT
+              </NavLink>
+            ) : (
+              <NavLink to="/signin" className="menuItem">
+                SIGN IN
+              </NavLink>
+            )}
           </div>
         </div>
       </div>
