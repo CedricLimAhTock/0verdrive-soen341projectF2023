@@ -29,12 +29,17 @@ export default function Header({ decodedToken }) {
         <img className="bulb" src={bulb} alt="Bulb" />
         <img className="hamburgerMenu" src={hamburgerMenu} alt="Hamburger Menu" /> */}
         <div className="username-display">Hello, {displayUsername}</div>
-        <div>
+        <div className="headerMenu">
           <img
             className="hamburgerMenu"
             src={hamburgerMenu}
             alt="Hamburger Menu"
           />
+          <div className="menuItems">
+            <NavLink to="/signin" className="menuItem">
+              SIGN IN
+            </NavLink>
+          </div>
         </div>
       </div>
     </div>
