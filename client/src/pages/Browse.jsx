@@ -14,18 +14,20 @@ const Browse = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/property/');
+        const response = await axios.get("http://localhost:8080/property/");
         const dataWithImages = response.data.map((property) => {
           if (!property.images || property.images.length === 0) {
-            property.images = [{
-              original: "https://picsum.photos/id/1018/1000/600/",
-            }];
+            property.images = [
+              {
+                original: "https://picsum.photos/id/1018/1000/600/",
+              },
+            ];
           }
           return property;
         });
         setPropertyData(dataWithImages);
       } catch (error) {
-        console.error('Error in Browse.jsx', error);
+        console.error("Error in Browse.jsx", error);
       }
     };
 
@@ -38,11 +40,17 @@ const Browse = () => {
     startPage + maxVisiblePages - 1,
     Math.ceil(propertyData.length / propertiesPerPage)
   );
-  const pageNumbers = Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i);
+  const pageNumbers = Array.from(
+    { length: endPage - startPage + 1 },
+    (_, i) => startPage + i
+  );
 
   const indexOfLastProperty = currentPage * propertiesPerPage;
   const indexOfFirstProperty = indexOfLastProperty - propertiesPerPage;
-  const currentProperties = propertyData.slice(indexOfFirstProperty, indexOfLastProperty);
+  const currentProperties = propertyData.slice(
+    indexOfFirstProperty,
+    indexOfLastProperty
+  );
 
   const changePage = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -55,17 +63,20 @@ const Browse = () => {
   };
 
   const nextPage = () => {
-    if (currentPage < pageNumbers.length) {
+    if (currentPage < Math.ceil(propertyData.length / propertiesPerPage)) {
       setCurrentPage(currentPage + 1);
     }
   };
 
   const onEventClick = (propertyId) => {
-
-    console.log('propertyId', propertyId);
-    const selectedProperty = propertyData.find(property => property.id === propertyId);
+    console.log("propertyId", propertyId);
+    const selectedProperty = propertyData.find(
+      (property) => property.id === propertyId
+    );
     if (selectedProperty) {
-      navigate(`/property/${propertyId}`, { state: { property: selectedProperty } });
+      navigate(`/property/${propertyId}`, {
+        state: { property: selectedProperty },
+      });
     }
   };
 
@@ -74,12 +85,36 @@ const Browse = () => {
       <div className="filters-container">
         <div className="filters">
           <form className="search">
-            <input className="search-area" type="text" placeholder="City, Neighbourhood, Address..."></input>
-            <input className="search-select" type="select" placeholder="For Sale"></input>
-            <input className="search-select" type="select" placeholder="Min Price"></input>
-            <input className="search-select" type="select" placeholder="Max Price"></input>
-            <input className="search-select" type="select" placeholder="Beds"></input>
-            <input className="search-select-baths" type="select" placeholder="Baths"></input>
+            <input
+              className="search-area"
+              type="text"
+              placeholder="City, Neighbourhood, Address..."
+            ></input>
+            <input
+              className="search-select"
+              type="select"
+              placeholder="For Sale"
+            ></input>
+            <input
+              className="search-select"
+              type="select"
+              placeholder="Min Price"
+            ></input>
+            <input
+              className="search-select"
+              type="select"
+              placeholder="Max Price"
+            ></input>
+            <input
+              className="search-select"
+              type="select"
+              placeholder="Beds"
+            ></input>
+            <input
+              className="search-select-baths"
+              type="select"
+              placeholder="Baths"
+            ></input>
             <input type="image" src={Search}></input>
           </form>
         </div>
@@ -106,10 +141,16 @@ const Browse = () => {
             </li>
             {pageNumbers.map((number, index) => (
               <li
-                className={`page-item ${currentPage === number ? 'active-page' : ''}`}
+                className={`page-item ${
+                  currentPage === number ? "active-page" : ""
+                }`}
                 key={index}
               >
-                <a href="#" className="page-link" onClick={() => changePage(number)}>
+                <a
+                  href="#"
+                  className="page-link"
+                  onClick={() => changePage(number)}
+                >
                   {number}
                 </a>
               </li>
@@ -123,7 +164,6 @@ const Browse = () => {
         </nav>
       </div>
     </div>
-
   );
 };
 
