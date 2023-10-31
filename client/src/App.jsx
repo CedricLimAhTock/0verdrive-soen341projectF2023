@@ -10,10 +10,25 @@ import Detailed from "./pages/Detailed";
 import Dashboard from "./pages/Dashboard";
 import jwt_decode from "jwt-decode";
 import Page404 from "./pages/Page404";
+import { useNavigate } from "react-router-dom"; // Inside your component
 
 function App() {
   const [decodedToken, setDecodedToken] = React.useState(null);
+  function DashboardOrRedirect({ decodedToken }) {
+    const navigate = useNavigate();
 
+    useEffect(() => {
+      if (!decodedToken) {
+        navigate("/signin", { replace: true });
+      }
+    }, [decodedToken, navigate]);
+
+    return decodedToken ? (
+      <Layout decodedToken={decodedToken}>
+        <Dashboard token={decodedToken} />
+      </Layout>
+    ) : null;
+  }
   useEffect(() => {
     async function fetchData() {
       const token = await localStorage.getItem("jwtToken");
@@ -23,8 +38,6 @@ function App() {
 
     fetchData();
   }, []);
-
-
 
   return (
     <Router>
@@ -46,13 +59,10 @@ function App() {
               </Layout>
             }
           />
+
           <Route
             path="/dashboard"
-            element={
-              <Layout decodedToken={decodedToken}>
-                <Dashboard token={decodedToken} />
-              </Layout>
-            }
+            element={<DashboardOrRedirect decodedToken={decodedToken} />}
           />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
@@ -68,7 +78,7 @@ function App() {
             path="/property/:id"
             element={
               <Layout decodedToken={decodedToken}>
-                <Detailed decodedToken={decodedToken}/>
+                <Detailed decodedToken={decodedToken} />
               </Layout>
             }
           />
