@@ -20,15 +20,9 @@ export default function Header({ decodedToken }) {
         <NavLink to="/browse" className="nav-item">
           BROWSE
         </NavLink>
-        {decodedToken ? (
-          <NavLink to="/dashboard" className="nav-item">
-            DASHBOARD
-          </NavLink>
-        ) : (
-          <NavLink to="/signin" className="nav-item">
-            DASHBOARD
-          </NavLink>
-        )}
+        <NavLink to="/dashboard" className="nav-item">
+          DASHBOARD
+        </NavLink>
       </div>
       <div className="buttons">
         {/* <img className="darkToggle" src={darkToggle} alt="Dark Toggle" />
