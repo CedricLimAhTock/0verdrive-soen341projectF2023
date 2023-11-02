@@ -30,7 +30,7 @@ DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `active` tinyint NOT NULL DEFAULT '0',
-  `type` enum('member', 'broker', 'admin') DEFAULT NULL,
+  `type` enum('member', 'broker', 'admin', 'homebuyer', 'renter') DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT NULL,
   `updatedAt` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
