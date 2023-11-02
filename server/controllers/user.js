@@ -103,7 +103,10 @@ const listByRole = async (req, res) => {
 
 const create = async (req, res) => {
     try {
-        const data = req.body;
+        let data = req.body;
+
+        const hashedPassword = await bcrypt.hash(data.password, 10);
+        data.password = hashedPassword;
         
         const [user, created] = await User.findOrCreate({
             where: {
@@ -169,7 +172,7 @@ const updateById = async (req, res) => {
             return res.status(400).json();
         }
 
-        await User.update(req.body, {where: {id: req.body.id}});
+        await User.update(req.body, {where: {id: req.params.id}});
         res.status(200).json();
 
     } catch (error) {

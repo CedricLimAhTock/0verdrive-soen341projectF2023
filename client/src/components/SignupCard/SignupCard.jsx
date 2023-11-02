@@ -17,7 +17,7 @@ const SignupCard = () => {
       const res = await axios.post("http://127.0.0.1:8080/signup", {
         username,
         password,
-        userRole,
+        userRole
       });
 
       navigate("/signin");
@@ -62,10 +62,10 @@ const SignupCard = () => {
                 required
                 className="roleSelect"
               >
-                <option value="Home Buyer">Home Buyer</option>
-                <option value="Renter">Renter</option>
-                <option value="Broker">Broker</option>
-                <option value="Admin">Admin</option>
+                <option value="homebuyer">Home Buyer</option>
+                <option value="renter">Renter</option>
+                <option value="broker">Broker</option>
+                <option value="admin">Admin</option>
               </select>
             </div>
             <div className="form-element">
