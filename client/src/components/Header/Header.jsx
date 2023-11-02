@@ -10,7 +10,7 @@ import { HiMiniBars3 } from "react-icons/hi2";
 import { LiaTimesSolid } from "react-icons/lia";
   import jwt_decode from "jwt-decode";
 
-export default function Header({ decodedToken }) {
+export default function Header() {
   const userToken = localStorage.getItem("jwtToken");
   const decodedToken = userToken ? jwt_decode(userToken) : null;
   const displayUsername = decodedToken ? decodedToken.username : "Guest";
