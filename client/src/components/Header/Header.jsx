@@ -4,18 +4,28 @@ import "./Header.css";
 import darkToggle from "./assets/darkToggle.svg";
 import bulb from "./assets/bulb.svg";
 import hamburgerMenu from "./assets/hamburgerMenu.svg";
-import jwt_decode from "jwt-decode";
 
-export default function Header() {
+
+import { HiMiniBars3 } from "react-icons/hi2";
+import { LiaTimesSolid } from "react-icons/lia";
+  import jwt_decode from "jwt-decode";
+
+export default function Header({ decodedToken }) {
   const userToken = localStorage.getItem("jwtToken");
   const decodedToken = userToken ? jwt_decode(userToken) : null;
   const displayUsername = decodedToken ? decodedToken.username : "Guest";
-
-  const handleSignOut = () => {
-    localStorage.removeItem("jwtToken");
-    alert("You have been signed out");
-    window.location.reload();
+  
+  const [click, setClick] = useState(false);
+  const handleClick = () => {
+    setClick(!click);
   };
+  const closeMenu = () => setClick(false);
+  
+  const handleSign0ut = () => {
+    localStorage. removeItem("jwtToken");
+    alert ("You have been signed out"); window. location. reload();
+  );
+
 
   return (
     <div className="header">
@@ -38,20 +48,19 @@ export default function Header() {
         <img className="bulb" src={bulb} alt="Bulb" />
         <img className="hamburgerMenu" src={hamburgerMenu} alt="Hamburger Menu" /> */}
         <div className="username-display">Hello, {displayUsername}</div>
-        <div className="headerMenu">
-          <img
-            className="hamburgerMenu"
-            src={hamburgerMenu}
-            alt="Hamburger Menu"
-          />
-          <div className="menuItems">
+
+        <div className="menu-icon" onClick={handleClick}>
+          {click ? <LiaTimesSolid /> : <HiMiniBars3 />}
+          <div className={click ? "menu-items active" : "menu-items"}>
             {decodedToken ? (
-              <NavLink to="/" className="menuItem" onClick={() => handleSignOut()}>
-              SIGN OUT
-            </NavLink>
+
+              <NavLink to="/signout" className="menu-item" onClick={() => handleSignOut()}>
+                Sign Out
+              </NavLink>
+
             ) : (
-              <NavLink to="/signin" className="menuItem">
-                SIGN IN
+              <NavLink to="/signin" className="menu-item">
+                Sign In
               </NavLink>
             )}
           </div>
