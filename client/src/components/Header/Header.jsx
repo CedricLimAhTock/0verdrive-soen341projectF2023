@@ -24,7 +24,7 @@ export default function Header() {
   const handleSign0ut = () => {
     localStorage. removeItem("jwtToken");
     alert ("You have been signed out"); window. location. reload();
-  );
+  };
 
 
   return (
