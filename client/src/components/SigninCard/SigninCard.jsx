@@ -20,7 +20,7 @@ const SigninCard = () => {
       console.log(res.data);
       localStorage.setItem("jwtToken", res.data.token);
       console.log(res.data.token);
-      navigate("/");
+      window.location.href = '/';
       console.log(res.message);
     } catch (err) {
       if (err.response && err.response.status === 401) {

@@ -28,8 +28,8 @@ const DetailedCard = ({ property }) => {
 
   useEffect(() => {
     function fetchData() {
-      const token = localStorage.getItem("jwtToken");
-      const decoded = jwt_decode(token);
+      //const token = localStorage.getItem("jwtToken");
+      const decoded = null;
       setDecodedToken(decoded);
     }
 
