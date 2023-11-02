@@ -30,7 +30,7 @@ DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `active` tinyint NOT NULL DEFAULT '0',
-  `type` enum('member', 'broker', 'admin') DEFAULT NULL,
+  `type` enum('member', 'broker', 'admin', 'homebuyer', 'renter') DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT NULL,
   `updatedAt` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -39,7 +39,9 @@ CREATE TABLE `role` (
 INSERT INTO `role` (`id`, `active`, `type`) VALUES 
 (NULL, 1, 'member'),
 (NULL, 1, 'broker'),
-(NULL, 1, 'admin');
+(NULL, 1, 'admin'),
+(NULL, 1, 'homebuyer'),
+(NULL, 1, 'renter');
 
 
 DROP TABLE IF EXISTS `user_role`;

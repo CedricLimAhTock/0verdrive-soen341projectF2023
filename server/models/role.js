@@ -14,7 +14,7 @@ const Role = sequelize.define(
             type: DataTypes.BOOLEAN,
         },
         type: {
-            type: DataTypes.ENUM('member', 'broker', 'admin')
+            type: DataTypes.ENUM('member', 'broker', 'admin', 'homebuyer', 'renter')
         }
     },
     {   
