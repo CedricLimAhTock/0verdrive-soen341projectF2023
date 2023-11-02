@@ -2,20 +2,25 @@ import React, { useState, useRef, useEffect } from "react";
 import "./styles/Profile.css";
 import ProfilePicture from "../../assets/profile-picture.png";
 import axios from "axios";
+import jwt_decode from "jwt-decode";
 
 const Profile = ({ data, token }) => {
-  const [username, setUsername] = useState(token.username || "");
-  const [firstName, setFirstName] = useState(token.firstName || "");
-  const [lastName, setLastName] = useState(token.lastName || "");
-  const [email, setEmail] = useState(token.email || "");
-  const [phone, setPhoneNumber] = useState(token.phone || "");
+
+  const userToken = localStorage.getItem("jwtToken");
+  const decodedToken = userToken ? jwt_decode(userToken) : null;
+
+  const [username, setUsername] = useState(decodedToken.username || "");
+  const [firstName, setFirstName] = useState(decodedToken.firstName || "");
+  const [lastName, setLastName] = useState(decodedToken.lastName || "");
+  const [email, setEmail] = useState(decodedToken.email || "");
+  const [phone, setPhoneNumber] = useState(decodedToken.phone || "");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
       const userID = token.id;
-      const response = await axios.put(`http://127.0.0.1:8080/user/${userID}`, {
+      const response = await axios.put(`http://localhost:8080/user/${userID}`, {
         firstName: firstName.toString(),
         lastName: lastName.toString(),
         email: email.toString(),
@@ -33,9 +38,6 @@ const Profile = ({ data, token }) => {
       console.log('Error updating');
       console.error(err);
     }
-
-
-
   };
 
   const inputRef = useRef();

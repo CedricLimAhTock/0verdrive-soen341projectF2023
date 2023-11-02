@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Browse from "./pages/Browse";
 import Layout from "./components/Layout/Layout";
 import Home from "./pages/Home";
@@ -39,49 +39,20 @@ function App() {
     fetchData();
   }, []);
 
+
+  const user = localStorage.getItem("jwtToken");
+
   return (
     <Router>
       <div>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <Layout decodedToken={decodedToken}>
-                <Home />
-              </Layout>
-            }
-          />
-          <Route
-            path="/detailed"
-            element={
-              <Layout decodedToken={decodedToken}>
-                <Detailed />
-              </Layout>
-            }
-          />
-
-          <Route
-            path="/dashboard"
-            element={<DashboardOrRedirect decodedToken={decodedToken} />}
-          />
+          <Route path="/" element={<Layout decodedToken={decodedToken}><Home /></Layout>}/>
+          <Route path="/browse"element={<Layout decodedToken={decodedToken}><Browse /></Layout>}/>
+          <Route path="/property/:id" element={<Layout decodedToken={decodedToken}><Detailed decodedToken={decodedToken} /></Layout>}/>
+          <Route path="/detailed" element={<Layout decodedToken={decodedToken}><Detailed /></Layout>}/>
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
-          <Route
-            path="/browse"
-            element={
-              <Layout decodedToken={decodedToken}>
-                <Browse />
-              </Layout>
-            }
-          />
-          <Route
-            path="/property/:id"
-            element={
-              <Layout decodedToken={decodedToken}>
-                <Detailed decodedToken={decodedToken} />
-              </Layout>
-            }
-          />
+          <Route path="/dashboard" element={user ? <Layout><Dashboard token={decodedToken} /></Layout> : <Navigate to="/signin" />}/>
           <Route path="*" element={<Page404 />} />
         </Routes>
       </div>
