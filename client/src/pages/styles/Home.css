@@ -19,9 +19,9 @@
 }
 
 .search-container-img {
-  width: fit-content;
-  height: 110vh;
-  background-size: cover;
+  width: 100%; /* Set a fixed width to fill the container */
+  height: 100vh; /* Set a fixed height to fill the viewport height */
+  background-size: cover; /* Maintain aspect ratio and cover the container */
   position: absolute;
   z-index: -1;
 }

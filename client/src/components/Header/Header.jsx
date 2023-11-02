@@ -4,9 +4,18 @@ import "./Header.css";
 import darkToggle from "./assets/darkToggle.svg";
 import bulb from "./assets/bulb.svg";
 import hamburgerMenu from "./assets/hamburgerMenu.svg";
+import jwt_decode from "jwt-decode";
 
-export default function Header({ decodedToken }) {
-  const displayUsername = decodedToken ? decodedToken.username : "Guest!";
+export default function Header() {
+  const userToken = localStorage.getItem("jwtToken");
+  const decodedToken = userToken ? jwt_decode(userToken) : null;
+  const displayUsername = decodedToken ? decodedToken.username : "Guest";
+
+  const handleSignOut = () => {
+    localStorage.removeItem("jwtToken");
+    alert("You have been signed out");
+    window.location.reload();
+  };
 
   return (
     <div className="header">
@@ -37,9 +46,9 @@ export default function Header({ decodedToken }) {
           />
           <div className="menuItems">
             {decodedToken ? (
-              <NavLink to="/signout" className="menuItem">
-                SIGN OUT
-              </NavLink>
+              <NavLink to="/" className="menuItem" onClick={() => handleSignOut()}>
+              SIGN OUT
+            </NavLink>
             ) : (
               <NavLink to="/signin" className="menuItem">
                 SIGN IN
