@@ -39,8 +39,8 @@ CREATE TABLE `role` (
 INSERT INTO `role` (`id`, `active`, `type`) VALUES 
 (NULL, 1, 'member'),
 (NULL, 1, 'broker'),
-(NULL, 1, 'admin');
-(NULL, 1, 'homebuyer');
+(NULL, 1, 'admin'),
+(NULL, 1, 'homebuyer'),
 (NULL, 1, 'renter');
 
 
