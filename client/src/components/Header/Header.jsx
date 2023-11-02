@@ -5,27 +5,26 @@ import darkToggle from "./assets/darkToggle.svg";
 import bulb from "./assets/bulb.svg";
 import hamburgerMenu from "./assets/hamburgerMenu.svg";
 
-
 import { HiMiniBars3 } from "react-icons/hi2";
 import { LiaTimesSolid } from "react-icons/lia";
-  import jwt_decode from "jwt-decode";
+import jwt_decode from "jwt-decode";
 
 export default function Header() {
   const userToken = localStorage.getItem("jwtToken");
   const decodedToken = userToken ? jwt_decode(userToken) : null;
   const displayUsername = decodedToken ? decodedToken.username : "Guest";
-  
+
   const [click, setClick] = useState(false);
   const handleClick = () => {
     setClick(!click);
   };
   const closeMenu = () => setClick(false);
-  
-  const handleSign0ut = () => {
-    localStorage. removeItem("jwtToken");
-    alert ("You have been signed out"); window. location. reload();
-  };
 
+  const handleSignOut = () => {
+    localStorage.removeItem("jwtToken");
+    alert("You have been signed out");
+    window.location.reload();
+  };
 
   return (
     <div className="header">
@@ -53,11 +52,9 @@ export default function Header() {
           {click ? <LiaTimesSolid /> : <HiMiniBars3 />}
           <div className={click ? "menu-items active" : "menu-items"}>
             {decodedToken ? (
-
-              <NavLink to="/signout" className="menu-item" onClick={() => handleSignOut()}>
+              <a href="#" className="menu-item" onClick={() => handleSignOut()}>
                 Sign Out
-              </NavLink>
-
+              </a>
             ) : (
               <NavLink to="/signin" className="menu-item">
                 Sign In
