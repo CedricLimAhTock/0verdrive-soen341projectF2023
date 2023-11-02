@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 const SignupCard = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [userRole, setUserRole] = useState("Home Buyer");
+  const [userRole, setUserRole] = useState("homebuyer");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
