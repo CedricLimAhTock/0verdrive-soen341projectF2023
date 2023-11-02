@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../../models/user.js';
 import User_role from '../../models/user_role.js';
+import Role from '../../models/role.js';
 
 const router = express.Router();
 
@@ -25,10 +26,29 @@ router.post('/', async (req, res) => {
       });
     }
 
+    const user_role = await User_role.findOne({
+      attributes: ['id', 'active', 'user_id', 'role_id'],
+            include: [
+              {
+                  model: User,
+                  required: true,
+                  attributes: [], // don't return any columns
+                  //right: true,    //does a right join
+              },
+              {
+                model: Role,
+                required: true,
+                attributes: ['type'],
+                //right: true
+              }
+            ]
+    });
+
     const token = jwt.sign(
       {
         id: user.id,
         username: user.username,
+        role: user_role.role.type
       },
       process.env.JWT_SECRET
     );
