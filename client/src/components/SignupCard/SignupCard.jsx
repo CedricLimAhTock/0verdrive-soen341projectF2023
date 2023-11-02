@@ -53,7 +53,11 @@ const SignupCard = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+              <input type="text" placeholder="F I R S T  N A M E"></input>
+              <input type="text" placeholder="L A S T  N A M E"></input>
+              <input type="text" placeholder="E M A I L"></input>
             </div>
+
             <div className="form-element-role centered-select">
               <select
                 name="userRole"
