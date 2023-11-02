@@ -56,6 +56,14 @@ const Browse = () => {
     setCurrentPage(pageNumber);
   };
 
+  const firstPage = () => {
+    setCurrentPage(1);
+  };
+
+  const lastPage = () => {
+    setCurrentPage(Math.ceil(propertyData.length / propertiesPerPage));
+  };
+
   const prePage = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
@@ -135,6 +143,11 @@ const Browse = () => {
         <nav>
           <ul className="pagination-list">
             <li className="page-item">
+              <a href="#" className="page-link" onClick={firstPage}>
+                First
+              </a>
+            </li>
+            <li className="page-item">
               <a href="#" className="page-link" onClick={prePage}>
                 Prev
               </a>
@@ -158,6 +171,11 @@ const Browse = () => {
             <li className="page-item">
               <a href="#" className="page-link" onClick={nextPage}>
                 Next
+              </a>
+            </li>
+            <li className="page-item">
+              <a href="#" className="page-link" onClick={lastPage}>
+                Last
               </a>
             </li>
           </ul>
