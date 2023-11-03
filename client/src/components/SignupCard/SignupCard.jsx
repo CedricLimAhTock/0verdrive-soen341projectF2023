@@ -12,8 +12,25 @@ const SignupCard = () => {
   const [lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [formattedPhone, setFormattedPhone] = useState("");
   const navigate = useNavigate();
   const [alert, setAlert] = useState("");
+
+  const changePhone = (e) => {
+    let input = e.target.value.replace(/\D/g, "");
+    let formatted = "";
+    if (input.length > 0) {
+      formatted += "(" + input.substring(0, 3) + ")";
+    }
+    if (input.length > 3) {
+      formatted += " " + input.substring(3, 6);
+    }
+    if (input.length > 6) {
+      formatted += "-" + input.substring(6, 10);
+    }
+    setPhone(input);
+    setFormattedPhone(formatted);
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -92,8 +109,8 @@ const SignupCard = () => {
               <input
                 type="tel"
                 placeholder="P H O N E  N U M B E R"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
+                value={formattedPhone}
+                onChange={changePhone}
                 required
               ></input>
             </div>
