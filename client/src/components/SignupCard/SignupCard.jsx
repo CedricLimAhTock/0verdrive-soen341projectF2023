@@ -8,6 +8,10 @@ const SignupCard = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [userRole, setUserRole] = useState("homebuyer");
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const navigate = useNavigate();
   const [alert, setAlert] = useState("");
   const handleSubmit = async (e) => {
@@ -18,6 +22,10 @@ const SignupCard = () => {
         username,
         password,
         userRole,
+        firstname,
+        lastname,
+        email,
+        phone,
       });
 
       navigate("/signin");
@@ -56,14 +64,38 @@ const SignupCard = () => {
               />
             </div>
             <div className="fname-lname">
-              <input type="text" placeholder="F I R S T  N A M E"></input>
-              <input type="text" placeholder="L A S T  N A M E"></input>
+              <input
+                type="text"
+                placeholder="F I R S T  N A M E"
+                value={firstname}
+                onChange={(e) => setFirstName(e.target.value)}
+                required
+              ></input>
+              <input
+                type="text"
+                placeholder="L A S T  N A M E"
+                value={lastname}
+                onChange={(e) => setLastName(e.target.value)}
+                required
+              ></input>
             </div>
             <div className="form-element">
-              <input type="email" placeholder="E M A I L"></input>
+              <input
+                type="email"
+                placeholder="E M A I L"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              ></input>
             </div>
             <div className="form-element">
-              <input type="tel" placeholder="P H O N E  N U M B E R"></input>
+              <input
+                type="tel"
+                placeholder="P H O N E  N U M B E R"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                required
+              ></input>
             </div>
             <div className="form-element-role centered-select">
               <select
