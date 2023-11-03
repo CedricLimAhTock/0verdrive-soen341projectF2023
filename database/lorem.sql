@@ -203,6 +203,14 @@ CREATE TABLE `offer` (
 
 
 
+/*Make admin user*/
+INSERT INTO `user` (`id`, `active`, `firstname`,`lastname`,`address`,`username`,`password`,`email`, `phone`) VALUES 
+(NULL, 1, "root", "root", "root", "root", "$2b$10$Llc7YosmtaCtH6AxXhg1KuFjI1ikV77r/V7OVSGOTZ8DYFfCjlQzy", "root", "000-000-0000");
+
+INSERT INTO `user_role` (`id`, `active`, `user_id`, `role_id`) VALUES 
+(NULL, 1, 1, 3);
+
+
 
 DROP USER IF EXISTS 'lorem'@'%';
 FLUSH PRIVILEGES;
