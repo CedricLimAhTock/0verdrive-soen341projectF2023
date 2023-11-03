@@ -48,6 +48,12 @@ const Visit = sequelize.define(
         underscored: true,
         freezeTableName: true,
         tableName: "visit",
+        indexes: [
+            {
+                unique: true,
+                fields: ['client_id', 'property_id', 'broker_id']
+            }
+        ]
     }
 );
 
