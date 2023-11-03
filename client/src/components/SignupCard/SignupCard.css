@@ -173,7 +173,8 @@
 
 .signup-container {
   width: 400px;
-  height: 550px;
+  height: auto;
+  padding: 25px;
   border-radius: 10px;
   background: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
