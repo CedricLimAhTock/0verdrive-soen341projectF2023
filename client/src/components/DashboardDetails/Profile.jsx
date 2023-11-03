@@ -9,24 +9,25 @@ const Profile = ({ data, token }) => {
   const userToken = localStorage.getItem("jwtToken");
   const decodedToken = userToken ? jwt_decode(userToken) : null;
 
+  const [userID, setUserID] = useState(decodedToken.id || "");
   const [username, setUsername] = useState(decodedToken.username || "");
-  const [firstName, setFirstName] = useState(decodedToken.firstName || "");
-  const [lastName, setLastName] = useState(decodedToken.lastName || "");
-  const [email, setEmail] = useState(decodedToken.email || "");
-  const [phone, setPhoneNumber] = useState(decodedToken.phone || "");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhoneNumber] = useState("");
+  const [address, setAddress] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const userID = token.id;
       const response = await axios.put(`http://localhost:8080/user/${userID}`, {
-        firstName: firstName.toString(),
-        lastName: lastName.toString(),
+        firstname: firstName.toString(),
+        lastname: lastName.toString(),
         email: email.toString(),
         phone: phone.toString(),
+        address: address.toString(),
       });
-
       if (response.status === 200) {
         alert('Updated');
         console.log(response);
@@ -57,11 +58,12 @@ const Profile = ({ data, token }) => {
       axios
         .get(`http://localhost:8080/user/username/${username}`)
         .then((res) => {
-          setFirstName(res.data.firstName);
-          setLastName(res.data.lastName);
+          setFirstName(res.data.firstname);
+          setLastName(res.data.lastname);
           setUsername(res.data.username);
           setEmail(res.data.email);
           setPhoneNumber(res.data.phone);
+          setAddress(res.data.address);
         })
         .catch((error) => {
           console.log("Error in profile.jsx: ", error);
@@ -137,6 +139,19 @@ const Profile = ({ data, token }) => {
                 id="phone"
               />
             </div>
+          </div>
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="address">Address</label>
+              <input
+                type="text"
+                placeholder="Address"
+                value={address}
+                onChange={(event) => setAddress(event.target.value)}
+                id="address"
+              />
+            </div>
+            
           </div>
           <button className="profile-update" type="submit">
             Update
