@@ -11,10 +11,6 @@ const Browse = () => {
   const propertiesPerPage = 8;
   const navigate = useNavigate();
 
-
-
-  const []
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -38,8 +34,6 @@ const Browse = () => {
     fetchData();
   }, []);
 
-
-
   const searchData = async () => {
     try {
       const response = await axios.get("http://localhost:8080/property/");
@@ -58,8 +52,6 @@ const Browse = () => {
       console.error("Error in Browse.jsx", error);
     }
   };
-
-
 
   const maxVisiblePages = 5;
   const startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
