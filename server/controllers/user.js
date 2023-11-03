@@ -169,7 +169,7 @@ const updateById = async (req, res) => {
             return res.status(400).json();
         }
 
-        await User.update(req.body, {where: {id: req.body.id}});
+        await User.update(req.body, {where: {id: req.params.id}});
         res.status(200).json();
 
     } catch (error) {

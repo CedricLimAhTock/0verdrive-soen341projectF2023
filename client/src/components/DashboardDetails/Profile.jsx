@@ -9,24 +9,24 @@ const Profile = ({ data, token }) => {
   const userToken = localStorage.getItem("jwtToken");
   const decodedToken = userToken ? jwt_decode(userToken) : null;
 
+  const [userID, setUserID] = useState(decodedToken.id || "");
   const [username, setUsername] = useState(decodedToken.username || "");
-  const [firstName, setFirstName] = useState(decodedToken.firstName || "");
-  const [lastName, setLastName] = useState(decodedToken.lastName || "");
-  const [email, setEmail] = useState(decodedToken.email || "");
-  const [phone, setPhoneNumber] = useState(decodedToken.phone || "");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhoneNumber] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const userID = token.id;
       const response = await axios.put(`http://localhost:8080/user/${userID}`, {
-        firstName: firstName.toString(),
-        lastName: lastName.toString(),
+        firstname: firstName.toString(),
+        lastname: lastName.toString(),
         email: email.toString(),
         phone: phone.toString(),
       });
-
+        console.log(firstName.toString());
       if (response.status === 200) {
         alert('Updated');
         console.log(response);
@@ -57,8 +57,8 @@ const Profile = ({ data, token }) => {
       axios
         .get(`http://localhost:8080/user/username/${username}`)
         .then((res) => {
-          setFirstName(res.data.firstName);
-          setLastName(res.data.lastName);
+          setFirstName(res.data.firstname);
+          setLastName(res.data.lastname);
           setUsername(res.data.username);
           setEmail(res.data.email);
           setPhoneNumber(res.data.phone);
