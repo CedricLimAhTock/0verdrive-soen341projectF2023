@@ -3,7 +3,7 @@ import Listing from "../models/listing.js";
 
 const list = async (req, res) => {
     try {
-        let listings = await Listing.findAll({attributes: ['id', 'active', 'parent_id', 'property_id', 'user_id', 'title', 'description']});
+        let listings = await Listing.findAll({attributes: ['id', 'active', 'parent_id', 'property_id', 'title', 'description']});
 
         if (!listings) {
             res.status(400).json({});
@@ -22,7 +22,7 @@ const list = async (req, res) => {
 const listById = async (req, res) => {
     try {
         let listing = await Listing.findOne({
-            attributes: ['id', 'active', 'parent_id', 'property_id', 'user_id', 'title', 'description'],
+            attributes: ['id', 'active', 'parent_id', 'property_id', 'title', 'description'],
             where: {id: req.params.id}
         });
 
@@ -43,7 +43,7 @@ const listById = async (req, res) => {
 const listByBrokerId = async (req, res) => {
     try {
         const listing = await Listing.findAll({
-            attributes: ['id', 'active', 'parent_id', 'property_id', 'user_id', 'title', 'description'],
+            attributes: ['id', 'active', 'parent_id', 'property_id', 'title', 'description'],
             where: {parent_id: req.params.id}
         });
 

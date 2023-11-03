@@ -2,6 +2,7 @@ import Property from '../models/property.js';
 import User from '../models/user.js';
 import Listing from '../models/listing.js';
 import User_role from '../models/user_role.js';
+import Role from '../models/role.js';
 
 const list = async (req, res) => {
     try {
@@ -164,7 +165,7 @@ const listById = async (req, res) => {
     }
 }
 
-const listByBrokerId = async (req, res) => {
+const listByUserId = async (req, res) => {
     try {
         const properties = await Property.findAll({
             attributes: ['id',
@@ -188,28 +189,42 @@ const listByBrokerId = async (req, res) => {
                 'listedDate'
             ],
             include: [
+                // {
+                //     model: Listing,
+                //     attributes: [], // don't return any columns
+                //     required: true, // generate INNER JOIN
+                //     //right: true,  // does a right join
+                //     include: {
+                //         model: User,
+                //         required: true, // generate INNER JOIN
+                //         attributes: [], // don't return any columns
+                //         //right: true,  // does a right join
+                //         where: {
+                //             parent_id: req.params.id
+                //         }
+                //         // ,
+                //         // include:
+                //         // {
+                //         //     model: User_role,
+                //         //     attributes: [],
+                //         //     required: true,
+                //         //     where: {id: 2}
+                //         //     // include: {
+                //         //     //     model: Role,
+                //         //     //     required: true,
+                //         //     //     where: {type: 'broker'}
+                //         //     // }
+                //         //     //right: true
+                //         // }
+                //     }
+                // }
                 {
-                    model: Listing,
-                    attributes: [], // don't return any columns
-                    required: true, // generate INNER JOIN
-                    //right: true,  // does a right join
+                    model: User,
+                    through: Listing,
                     include: {
-                        model: User,
-                        required: true, // generate INNER JOIN
-                        attributes: [], // don't return any columns
-                        //right: true,  // does a right join
-                        where: {
-                            id: req.params.id
-                        },
-                        include:
-                        {
-                            model: User_role,
-                            attributes: [],
-                            where: {
-                                role_id: 2
-                            },
-                            //right: true
-                        }
+                        model: Role,
+                        through: User_role,
+                        where: {type: 'broker'}
                     }
                 }
             ]
@@ -321,4 +336,4 @@ const destroy = async (req, res) => {
     }
 }
 
-export default {list, listById, listByType, listByTypeId, listByBrokerId, create, update, updateById, destroy};
+export default {list, listById, listByType, listByTypeId, listByUserId, create, update, updateById, destroy};

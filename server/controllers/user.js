@@ -5,7 +5,7 @@ import Role from '../models/role.js';
 
 const list = async (req, res) => {
     try {
-        let users = await User.findAll({ attributes: ['id', 'active', 'firstname', 'lastname', 'username', 'password', 'email', 'phone'] });
+        let users = await User.findAll({ attributes: ['id', 'active', 'firstname', 'lastname', 'address', 'username', 'password', 'email', 'phone'] });
 
         if (!users) {
             return res.status(400).json();
@@ -24,7 +24,7 @@ const list = async (req, res) => {
 const listById = async (req, res) => {
     try {
         let user = await User.findOne({
-            attributes: ['id', 'active', 'firstname', 'lastname', 'username', 'password', 'email', 'phone'],
+            attributes: ['id', 'active', 'firstname', 'lastname', 'address', 'username', 'password', 'email', 'phone'],
             where: {id: req.params.id}
         });
 
@@ -45,7 +45,7 @@ const listById = async (req, res) => {
 const listByUsername = async (req, res) => {
     try {
         const user = await User.findOne({
-            attributes: ['id', 'active', 'firstname', 'lastname', 'username', 'password', 'email', 'phone'],
+            attributes: ['id', 'active', 'firstname', 'lastname', 'address', 'username', 'password', 'email', 'phone'],
             where: {username: req.params.username}
         });
 
@@ -66,7 +66,7 @@ const listByUsername = async (req, res) => {
 const listByRole = async (req, res) => {
     try {
         const users = await User.findAll({
-            attributes: ['id', 'active', 'firstname', 'lastname', 'username', 'password', 'email', 'phone'],
+            attributes: ['id', 'active', 'firstname', 'lastname', 'address', 'username', 'password', 'email', 'phone'],
             include: [
                 {
                     model: User_role,
@@ -114,6 +114,7 @@ const create = async (req, res) => {
                 password: data.password,
                 firstname: data.firstname,
                 lastname: data.lastname,
+                address: data.address,
                 email: data.email,
                 phone: data.phone
             },
@@ -137,16 +138,23 @@ const create = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        if(req.body.id == null){
+        let data = req.body;
+
+        if(data.id == null){
             return res.status(400).json();
         }
-        const user = await User.findOne({where: {id: req.body.id}});
+        const user = await User.findOne({where: {id: data.id}});
 
         if (!user) {
             return res.status(400).json();
         }
+        
+        if (data.password) {
+            const hashedPassword = await bcrypt.hash(data.password, 10);
+            data.password = hashedPassword;
+        }
 
-        await User.update(req.body, {where: {id: req.body.id}});
+        await User.update(data, {where: {id: data.id}});
 
         res.status(200).json();
 
@@ -159,11 +167,11 @@ const update = async (req, res) => {
 }
 
 
-//TODO hash password?
 const updateById = async (req, res) => {
     try {
+        let data = req.body;
 
-        if (req.params.id == null || req.body == null) {
+        if (req.params.id == null || data == null) {
             return res.status(400).json();
         }
         const user = await User.findOne({where: {id: req.params.id}});
@@ -172,7 +180,12 @@ const updateById = async (req, res) => {
             return res.status(400).json();
         }
 
-        await User.update(req.body, {where: {id: req.params.id}});
+        if (data.password) {
+            const hashedPassword = await bcrypt.hash(data.password, 10);
+            data.password = hashedPassword;
+        }
+
+        await User.update(data, {where: {id: req.params.id}});
         res.status(200).json();
 
     } catch (error) {
@@ -196,10 +209,6 @@ const destroy = async (req, res) => {
 
         user.destroy();
         
-        const result = await User_role.destroy({
-            where: {user_id: req.params.id}
-        })
- 
         res.status(200).json();
 
     } catch (error) {

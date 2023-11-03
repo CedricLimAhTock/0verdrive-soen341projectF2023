@@ -8,7 +8,7 @@ router.get('/:id', propertyController.listById);
 router.get('/type/:type', propertyController.listByType);
 router.get('/type/:type/:id', propertyController.listByTypeId);
 
-router.get('/broker/:id', propertyController.listByBrokerId);
+router.get('/user/:id', propertyController.listByUserId);
 
 router.post('/', propertyController.create);
 

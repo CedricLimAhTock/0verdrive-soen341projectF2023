@@ -10,20 +10,17 @@ CREATE TABLE `user` (
   `active` tinyint NOT NULL DEFAULT '0',
   `firstname` varchar(64) DEFAULT NULL,
   `lastname` varchar(64) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
-  `phone` varchar(100) DEFAULT NULL,
+  `phone` varchar(50) DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT NULL,
   `updatedAt` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_UN` (`username`,`active`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
-INSERT INTO `user` (`id`, `active`, `firstname`, `lastname`, `username`, `password`, `email`, `phone`, `createdAt`, `updatedAt`) VALUES
-(NULL, 1, 'root1', 'root1', 'root1', '$2a$10$Nzlx50xKN9bRfWt1L5Ln3eZKwVr3cEyOPBbE9QONh1PcZrFBZt8Mu', 'root1', '000-000-0000', '2000-01-01T00:00:00.379-04:00', '2000-01-01T00:00:00.379-04:00'),
-(NULL, 1, 'root2', 'root2', 'root2', '', 'root2', '000-000-0000', '2000-01-01T00:00:00.379-04:00', '2000-01-01T00:00:00.379-04:00'),
-(NULL, 1, 'root3', 'root3', 'root3', '', 'root3', '000-000-0000', '2000-01-01T00:00:00.379-04:00', '2000-01-01T00:00:00.379-04:00');
 
 DROP TABLE IF EXISTS `role`;
 
@@ -59,6 +56,25 @@ CREATE TABLE `user_role` (
   CONSTRAINT `user_role_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
   CONSTRAINT `user_role_FK_1` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
+
+DROP TABLE IF EXISTS `broker`;
+
+CREATE TABLE `broker` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `active` tinyint NOT NULL DEFAULT '0',
+  `user_id` bigint NOT NULL,
+  `license_number` varchar(50) NOT NULL,
+  `agency` varchar(50) NULL DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `phone` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `broker_UN` (`license_number`),
+  UNIQUE KEY `broker_UN_1` (`user_id`),
+  KEY `broker_FK` (`user_id`),
+  CONSTRAINT `broker_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
 
 
 DROP TABLE IF EXISTS `property`;
@@ -147,25 +163,47 @@ UNIQUE KEY `visit_UN` (`client_id`,`property_id`,`broker_id`),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
--- lorem.listing definition
-DROP TABLE IF EXISTS `user_property`;
-CREATE TABLE `user_property` (
+DROP TABLE IF EXISTS `listings`;
+CREATE TABLE `listings` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `active` tinyint(1) DEFAULT NULL,
   `parent_id` bigint NOT NULL,
   `property_id` bigint NOT NULL,
-  `user_id` bigint DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `description` text DEFAULT NULL,
-  CONSTRAINT `user_property_PK` PRIMARY KEY (`id`),
+  CONSTRAINT `listings_PK` PRIMARY KEY (`id`),
   UNIQUE KEY `listing_UN` (`parent_id`,`property_id`),
-  UNIQUE KEY `favortie_UN` (`user_id`,`property_id`),
   KEY `listing_FK` (`property_id`),
-  KEY `listing_FK_1` (`user_id`),
+  KEY `listing_FK_1` (`parent_id`),
   CONSTRAINT `listing_FK` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `listing_FK_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
   CONSTRAINT `listing_FK_2` FOREIGN KEY (`parent_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+DROP TABLE IF EXISTS `offer`;
+CREATE TABLE `offer` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `active` tinyint(1) DEFAULT NULL,
+  `parent_id` bigint NOT NULL,
+  `property_id` bigint NOT NULL,
+  `broker_id` bigint DEFAULT NULL,
+  `price` varchar(50) DEFAULT NULL,
+  `deed_of_sale_date` timestamp NULL DEFAULT NULL,
+  `occupancy_date` timestamp NULL DEFAULT NULL,
+  `status` ENUM ('wait', 'acknowledge', 'review', 'accept', 'deny', 'other') NULL DEFAULT NULL,
+  CONSTRAINT `offer_PK` PRIMARY KEY (`id`),
+  UNIQUE KEY `offer_UN` (`parent_id`,`property_id`, `broker_id`),
+  KEY `offer_FK` (`property_id`),
+  KEY `offer_FK_1` (`parent_id`),
+  KEY `offer_FK_2` (`broker_id`),
+  CONSTRAINT `offer_FK` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `offer_FK_1` FOREIGN KEY (`broker_id`) REFERENCES `user` (`id`) ON DELETE SET NULL,
+  CONSTRAINT `offer_FK_2` FOREIGN KEY (`parent_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
 
 DROP USER IF EXISTS 'lorem'@'%';
 FLUSH PRIVILEGES;

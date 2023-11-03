@@ -1,11 +1,10 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../database/database.js";
-import User from "./user.js"
+import User from "./user.js";
 import Property from "./property.js";
-import User_role from "./user_role.js";
 
-const Listing = sequelize.define(
-    "listings",
+const Offer = sequelize.define(
+    "offer",
     {
         id: {
             type: DataTypes.BIGINT,
@@ -14,7 +13,7 @@ const Listing = sequelize.define(
             allowNull: false,
         },
         active: {
-            type: DataTypes.BOOLEAN
+            type: DataTypes.BOOLEAN,
         },
         parent_id: {
             type: DataTypes.BIGINT,
@@ -23,32 +22,43 @@ const Listing = sequelize.define(
                 key: 'id'
             }
         },
-        property_id: {
+        license_number: {
             type: DataTypes.BIGINT,
             references: {
                 model: Property,
                 key: 'id'
             },
         },
-        title: {
+        agency: {
+            type: DataTypes.BIGINT,
+            references: {
+                model: User,
+                key: 'id'
+            }
+        },
+        price: {
             type: DataTypes.STRING
         },
-        description: {
-            type: DataTypes.TEXT
+        deed_of_sale_date: {
+            type: DataTypes.DATE
+        },
+        occupancy_date: {
+            type: DataTypes.DATE
+        },
+        status: {
+            type: DataTypes.ENUM('wait', 'acknowledge', 'review', 'accept', 'deny', 'other')
         }
     },
     {
         timestamps: false,
         underscored: true,
         freezeTableName: true,
-        tableName: "listings",
+        tableName: "offer",
     }
 );
 
-User.hasMany(Listing, { foreignKey: 'parent_id' });
-Property.hasOne(Listing, { foreignKey: 'property_id' });
-Listing.belongsTo(Property);
-Listing.belongsTo(User);
+User.hasMany(Offer);
+Offer.belongsTo(User, { foreignKey: 'parent_id' });
+Offer.belongsTo(User, { foreignKey: 'user_id' });
 
-//Property.belongsToMany(User, {through: Listing})
-export default Listing;
+export default Offer;
