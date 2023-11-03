@@ -17,7 +17,7 @@ const SignupCard = () => {
       const res = await axios.post("http://127.0.0.1:8080/signup", {
         username,
         password,
-        userRole
+        userRole,
       });
 
       navigate("/signin");
@@ -61,6 +61,9 @@ const SignupCard = () => {
             </div>
             <div className="form-element">
               <input type="email" placeholder="E M A I L"></input>
+            </div>
+            <div className="form-element">
+              <input type="tel" placeholder="P H O N E  N U M B E R"></input>
             </div>
             <div className="form-element-role centered-select">
               <select
