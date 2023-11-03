@@ -2,46 +2,52 @@ import express from 'express';
 import bcrypt from 'bcrypt';
 import User from "../../models/user.js";
 import User_role from "../../models/user_role.js"
+import Role from '../../models/role.js';
 
 const router = express.Router();
 
 
 router.post('/', async (req, res) => {
     try {
-        const { username, password } = req.body;
-
-        //const [row] = await pool.query('SELECT * FROM user WHERE username = ?', [username]);
-        const user = await User.findOne({ where: {username: username}});
-
-        if (user) {
-            return res.status(400).json({
-                message: 'Username already taken'
-            });
+        let data = req.body;
+        
+        const hashedPassword = await bcrypt.hash(data.password, 10);
+        data.password = hashedPassword;
+        const role = await Role.findOne({where: {type: data.userRole.toLowerCase().split(" ").join("")}});
+        console.log(role);
+        if(!role){
+            res.status(400).json({message: "Role does not exist."});
         }
 
-        const hashedPassword = await bcrypt.hash(password, 10);
-        //await pool.query('INSERT INTO user (id, active, username, password) VALUES (NULL, 1, ?, ?)', [username, hashedPassword]);
-        const newuser = await User.create({
-            active: 1,
-            username: username,
-            password: hashedPassword
-        });
-        console.log(newuser);
+        delete data.userRole;
 
-        // each new user must have a role associated
-        await User_role.create({
-            active: 1,
-            user_id: newuser.id,
-            role_id: 1
-        }).then(res => {
-            console.log(res)
-        }).catch((error) => {
-            console.error('Failed to create a new record : ', error);
+        const [user, created] = await User.findOrCreate({
+            where: data,
+            defaults: {
+                active: 1,
+                firstname: "",
+                lastname: "",
+                email: "",
+                phone: ""
+            }
         });
+        if (!created) {
+            res.status(400).json({message: "Username already taken."});
+        } else {
+            // each new user must have a role associated
+            const user_role = await User_role.create({
+                active: 1,
+                user_id: user.id,
+                role_id: role.id
+            });
 
-        res.status(201).json({
-            message: 'User created'
-        });
+            if(!user_role){
+                user.destroy();
+                res.status(400).json({message: "Failed to assign role."});
+            }
+
+            res.status(200).send(user);
+        }
     } catch (err) {
         console.log(err);
         res.status(500).json({
