@@ -20,7 +20,8 @@ const SignupCard = () => {
     let input = e.target.value.replace(/\D/g, "");
     let formatted = "";
     if (input.length > 0) {
-      formatted += "(" + input.substring(0, 3) + ")";
+      formatted += "(" + input.substring(0, 3);
+      if (input.length > 3) formatted += ")";
     }
     if (input.length > 3) {
       formatted += " " + input.substring(3, 6);
