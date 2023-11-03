@@ -3,7 +3,7 @@ import Listing from "../models/listing.js";
 
 const list = async (req, res) => {
     try {
-        let listings = await Listing.findAll({attributes: ['id', 'active', 'parent_id', 'property_id', 'title', 'description']});
+        let listings = await Listing.findAll({attributes: ['id', 'active', 'broker_id', 'property_id', 'title', 'description']});
 
         if (!listings) {
             res.status(400).json({});
@@ -22,7 +22,7 @@ const list = async (req, res) => {
 const listById = async (req, res) => {
     try {
         let listing = await Listing.findOne({
-            attributes: ['id', 'active', 'parent_id', 'property_id', 'title', 'description'],
+            attributes: ['id', 'active', 'broker_id', 'property_id', 'title', 'description'],
             where: {id: req.params.id}
         });
 
@@ -43,8 +43,8 @@ const listById = async (req, res) => {
 const listByBrokerId = async (req, res) => {
     try {
         const listing = await Listing.findAll({
-            attributes: ['id', 'active', 'parent_id', 'property_id', 'title', 'description'],
-            where: {parent_id: req.params.id}
+            attributes: ['id', 'active', 'broker_id', 'property_id', 'title', 'description'],
+            where: {broker_id: req.params.id}
         });
 
         if (!listing) {
@@ -63,13 +63,12 @@ const listByBrokerId = async (req, res) => {
 
 const create = async (req, res) => {
     try {
-        const data = req.body;
+        let data = req.body;
         
         const [listing, created] = await Listing.findOrCreate({
             where: {
-                parent_id: data.parent_id,
+                broker_id: data.broker_id,
                 property_id: data.property_id,
-                user_id: data.user_id,
                 title: data.title,
                 description: data.description,
             },
@@ -94,16 +93,17 @@ const create = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        if(req.body.id == null){
+        let data = req.body;
+        if(data.id == null){
             return res.status(400).json();
         }
-        const listing = await Listing.findOne({where: {id: req.body.id}});
+        const listing = await Listing.findOne({where: {id: data.id}});
 
         if (!listing) {
             return res.status(400).json();
         }
 
-        await Listing.update(req.body, {where: {id: req.body.id}});
+        await Listing.update(data, {where: {id: data.id}});
 
         res.status(200).json();
 
@@ -118,7 +118,9 @@ const update = async (req, res) => {
 
 const updateById = async (req, res) => {
     try {
-        if(req.body == null){
+        let data = req.body;
+
+        if(data == null){
             return res.status(400).json();
         }
         const listing = await Listing.findOne({where: {id: req.params.id}});
@@ -127,7 +129,7 @@ const updateById = async (req, res) => {
             return res.status(400).json();
         }
 
-        await Listing.update(req.body, {where: {id: req.params.id}});
+        await Listing.update(data, {where: {id: req.params.id}});
 
         res.status(200).json();
 

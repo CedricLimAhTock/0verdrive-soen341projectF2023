@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 import User from "../../models/user.js";
 import User_role from "../../models/user_role.js"
 import Role from '../../models/role.js';
+import Broker from '../../models/broker.js';
 
 const router = express.Router();
 
@@ -45,6 +46,23 @@ router.post('/', async (req, res) => {
             if(!user_role){
                 user.destroy();
                 res.status(400).json({message: "Failed to assign role."});
+            }
+
+            // if user is a broker, create an entry in broker table
+            if (role.type == 'broker') {
+                const broker = await Broker.create({
+                    active: 1,
+                    user_id: user.id,
+                    license_number: "",
+                    agency: "",
+                    email: "",
+                    phone: ""
+                });
+
+                if (!broker) {
+                    user.destroy();
+                    res.status(400).json({message: "Failed to add broker entry."});
+                }
             }
 
             res.status(200).send(user);

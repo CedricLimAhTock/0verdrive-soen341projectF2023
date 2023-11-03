@@ -117,7 +117,27 @@ def insert_visits(connection, cursor, filepath):
     cursor.execute("select COUNT(*) from visit")
     records = cursor.fetchone()
     print(f"Inserted {records} records into table visit.")
+
+def insert_brokers(connection, cursor, filepath):
     
+    path = pathlib.Path(filepath)
+    with open(path) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        line_count = 0
+        for row in csv_reader:
+            if line_count == 0:
+                line_count += 1
+            else:
+                query = f"""INSERT INTO `broker` (`id`, `active`, `user_id`, `license_number`, `email`, `phone`) 
+                VALUES (0, {row[1]}, {row[2]}, '{row[3]}', '{row[4]}', '{row[5]}')"""
+                #print(query)
+                cursor.execute(query)
+        connection.commit()
+    
+    cursor.execute("select COUNT(*) from broker")
+    records = cursor.fetchone()
+    print(f"Inserted {records} records into table broker.")
+      
 def insert_listings(connection, cursor, filepath):
     
     path = pathlib.Path(filepath)
@@ -128,8 +148,8 @@ def insert_listings(connection, cursor, filepath):
             if line_count == 0:
                 line_count += 1
             else:
-                query = f"""INSERT INTO `listings` (`id`, `active`, `parent_id`, `property_id`, `title`, `description`) 
-                VALUES (0, {row[1]}, {row[2]}, {row[3]}, '{row[5]}', '{row[6]}')"""
+                query = f"""INSERT INTO `listings` (`id`, `active`, `broker_id`, `property_id`, `title`, `description`) 
+                VALUES (0, {row[1]}, {row[2]}, {row[3]}, '{row[4]}', '{row[5]}')"""
                 #print(query)
                 cursor.execute(query)
         connection.commit()
@@ -169,6 +189,8 @@ if __name__ == "__main__":
             insert_property_amenity(connection, cursor, "./property_amenity.csv")
             print("Populating table visit...")
             insert_visits(connection, cursor, "./visit.csv")
+            print("Populating table broker...")
+            insert_brokers(connection, cursor, "./broker.csv")
             print("Populating table listing...")
             insert_listings(connection, cursor, "./listings.csv")
     except Error as e:

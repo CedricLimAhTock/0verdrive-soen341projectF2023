@@ -64,7 +64,7 @@ CREATE TABLE `broker` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `active` tinyint NOT NULL DEFAULT '0',
   `user_id` bigint NOT NULL,
-  `license_number` varchar(50) NOT NULL,
+  `license_number` varchar(50) NULL DEFAULT NULL,
   `agency` varchar(50) NULL DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `phone` varchar(50) DEFAULT NULL,
@@ -164,28 +164,27 @@ UNIQUE KEY `visit_UN` (`client_id`,`property_id`,`broker_id`),
 
 
 DROP TABLE IF EXISTS `listings`;
+
 CREATE TABLE `listings` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `active` tinyint(1) DEFAULT NULL,
-  `parent_id` bigint NOT NULL,
+  `broker_id` bigint NOT NULL,
   `property_id` bigint NOT NULL,
   `title` varchar(255) DEFAULT NULL,
-  `description` text DEFAULT NULL,
-  CONSTRAINT `listings_PK` PRIMARY KEY (`id`),
-  UNIQUE KEY `listing_UN` (`parent_id`,`property_id`),
-  KEY `listing_FK` (`property_id`),
-  KEY `listing_FK_1` (`parent_id`),
-  CONSTRAINT `listing_FK` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `listing_FK_2` FOREIGN KEY (`parent_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+  `description` text,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `listings_UN` (`broker_id`,`property_id`),
+  KEY `listings_FK_1` (`property_id`),
+  CONSTRAINT `listings_FK` FOREIGN KEY (`broker_id`) REFERENCES `broker` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `listings_FK_1` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
 
 
 DROP TABLE IF EXISTS `offer`;
 CREATE TABLE `offer` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `active` tinyint(1) DEFAULT NULL,
-  `parent_id` bigint NOT NULL,
+  `user_id` bigint NOT NULL,
   `property_id` bigint NOT NULL,
   `broker_id` bigint DEFAULT NULL,
   `price` varchar(50) DEFAULT NULL,
@@ -193,13 +192,13 @@ CREATE TABLE `offer` (
   `occupancy_date` timestamp NULL DEFAULT NULL,
   `status` ENUM ('wait', 'acknowledge', 'review', 'accept', 'deny', 'other') NULL DEFAULT NULL,
   CONSTRAINT `offer_PK` PRIMARY KEY (`id`),
-  UNIQUE KEY `offer_UN` (`parent_id`,`property_id`, `broker_id`),
+  UNIQUE KEY `offer_UN` (`user_id`,`property_id`, `broker_id`),
   KEY `offer_FK` (`property_id`),
-  KEY `offer_FK_1` (`parent_id`),
+  KEY `offer_FK_1` (`user_id`),
   KEY `offer_FK_2` (`broker_id`),
   CONSTRAINT `offer_FK` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `offer_FK_1` FOREIGN KEY (`broker_id`) REFERENCES `user` (`id`) ON DELETE SET NULL,
-  CONSTRAINT `offer_FK_2` FOREIGN KEY (`parent_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+  CONSTRAINT `offer_FK_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `offer_FK_2` FOREIGN KEY (`broker_id`) REFERENCES `broker` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 

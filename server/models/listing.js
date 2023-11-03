@@ -1,8 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../database/database.js";
-import User from "./user.js"
+import Broker from "./broker.js";
 import Property from "./property.js";
-import User_role from "./user_role.js";
 
 const Listing = sequelize.define(
     "listings",
@@ -16,10 +15,10 @@ const Listing = sequelize.define(
         active: {
             type: DataTypes.BOOLEAN
         },
-        parent_id: {
+        broker_id: {
             type: DataTypes.BIGINT,
             references: {
-                model: User,
+                model: Broker,
                 key: 'id'
             }
         },
@@ -45,10 +44,12 @@ const Listing = sequelize.define(
     }
 );
 
-User.hasMany(Listing, { foreignKey: 'parent_id' });
-Property.hasOne(Listing, { foreignKey: 'property_id' });
+Broker.hasMany(Listing, { foreignKey: 'broker_id' });
+Property.hasMany(Listing, { foreignKey: 'property_id' });
 Listing.belongsTo(Property);
-Listing.belongsTo(User);
+Listing.belongsTo(Broker);
 
-//Property.belongsToMany(User, {through: Listing})
+Broker.hasMany(Property);
+Property.belongsTo(Broker);
+
 export default Listing;

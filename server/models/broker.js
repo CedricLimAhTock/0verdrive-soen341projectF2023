@@ -47,7 +47,10 @@ const Broker = sequelize.define(
     }
 );
 
-User.hasMany(Broker, { foreignKey: 'user_id' });
+
+User.hasOne(Broker, { foreignKey: 'user_id' });
 Broker.belongsTo(User);
+
+
 
 export default Broker;

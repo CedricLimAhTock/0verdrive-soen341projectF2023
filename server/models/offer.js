@@ -2,6 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize from "../database/database.js";
 import User from "./user.js";
 import Property from "./property.js";
+import Broker from "./broker.js";
 
 const Offer = sequelize.define(
     "offer",
@@ -15,26 +16,26 @@ const Offer = sequelize.define(
         active: {
             type: DataTypes.BOOLEAN,
         },
-        parent_id: {
+        user_id: {
             type: DataTypes.BIGINT,
             references: {
                 model: User,
                 key: 'id'
             }
         },
-        license_number: {
+        broker_id: {
+            type: DataTypes.BIGINT,
+            references: {
+                model: Broker,
+                key: 'id'
+            }
+        },
+        property_id: {
             type: DataTypes.BIGINT,
             references: {
                 model: Property,
                 key: 'id'
             },
-        },
-        agency: {
-            type: DataTypes.BIGINT,
-            references: {
-                model: User,
-                key: 'id'
-            }
         },
         price: {
             type: DataTypes.STRING
@@ -57,8 +58,11 @@ const Offer = sequelize.define(
     }
 );
 
-User.hasMany(Offer);
-Offer.belongsTo(User, { foreignKey: 'parent_id' });
-Offer.belongsTo(User, { foreignKey: 'user_id' });
+User.hasMany(Offer, { foreignKey: 'user_id' });
+Broker.hasMany(Offer, { foreignKey: 'broker_id' });
+Property.hasMany(Offer, { foreignKey: 'property_id' });
+Offer.belongsTo(Property);
+Offer.belongsTo(Broker);
+Offer.belongsTo(User);
 
 export default Offer;

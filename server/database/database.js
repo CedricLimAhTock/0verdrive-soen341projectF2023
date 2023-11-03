@@ -13,6 +13,8 @@ const sequelize = new Sequelize(
   }
 );
 
+sequelize.sync();
+
 (async () => {
   try {
     console.log(process.env.DB_NAME);

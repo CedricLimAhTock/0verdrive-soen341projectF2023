@@ -54,7 +54,20 @@ const listByUserId = async (req, res) => {
             attributes: ['id', 'active', 'user_id', 'license_number', 'agency', 'email', 'phone'],
             include: {
                 model: User,
-                where: {id: req.params.id}
+                where: { id: req.params.id },
+                include: {
+                    model: User_role,
+                    required: true, // generate INNER JOIN
+                    attributes: [], // don't return any columns
+                    //right: true,  // does a right join
+                    include: {
+                        model: Role,
+                        required: true, // generate INNER JOIN
+                        attributes: [], // don't return any columns
+                        //right: true,  // does a right join
+                        where: {type: 'broker'}
+                    }
+                }
             }
         });
 
@@ -78,7 +91,20 @@ const listByUsername = async (req, res) => {
             attributes: ['id', 'active', 'user_id', 'license_number', 'agency', 'email', 'phone'],
             include: {
                 model: User,
-                where: {username: req.params.username}
+                where: { username: req.params.username },
+                include: {
+                    model: User_role,
+                    required: true, // generate INNER JOIN
+                    attributes: [], // don't return any columns
+                    //right: true,  // does a right join
+                    include: {
+                        model: Role,
+                        required: true, // generate INNER JOIN
+                        attributes: [], // don't return any columns
+                        //right: true,  // does a right join
+                        where: {type: 'broker'}
+                    }
+                }
             }
         });
 
@@ -102,17 +128,15 @@ const listByPropertyId = async (req, res) => {
             attributes: ['id', 'active', 'user_id', 'license_number', 'agency', 'email', 'phone'],
             include: [
                 {
-                    model: Listing,
-                    attributes: [],
-                    required: true,
-                    include: {
-                        model: Property,
-                        attributes: [],
-                        required: true,
-                        where: { id: req.params.id }
-                    }
-                }
-            ]
+                model: Listing,
+                required: true,
+                attributes: [],
+                where: { property_id: req.params.id }
+            },
+            {
+                model: User,
+                required: true
+            }]
         });
 
         if (!broker) {
@@ -148,9 +172,7 @@ const create = async (req, res) => {
                     model: Role,
                     required: true,
                     attributes: [],
-                    where: {
-                        type: 'broker'
-                    }
+                    where: {type: 'broker'}
                 }
             },
             where: {id: data.user_id }
@@ -195,7 +217,7 @@ const update = async (req, res) => {
         const broker = await Broker.findOne({where: {id: data.id}});
 
         if (!broker) {
-            return res.status(400).json();
+            return res.status(400).json({ message: "broker does nto exist." });
         }   
 
         await Broker.update(data, {where: {id: data.id}});
@@ -223,7 +245,7 @@ const updateById = async (req, res) => {
         const broker = await Broker.findOne({where: {id: req.params.id}});
 
         if (!broker) {
-            return res.status(400).json();
+            return res.status(400).json({ message: "broker does nto exist." });
         }
 
         
