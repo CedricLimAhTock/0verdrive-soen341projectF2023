@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import "../SigninCard/SigninCard.css";
+import "../SignupCard/SignupCard.css";
 import "@fontsource/inter";
 import { NavLink } from "react-router-dom";
 const SignupCard = () => {
@@ -28,11 +28,11 @@ const SignupCard = () => {
   };
 
   return (
-    <div className="signin-card-container">
+    <div className="signup-card-container">
       <NavLink to="/" className="logo">
         Lorem Ipsum
       </NavLink>
-      <div className="login-container">
+      <div className="signup-container">
         <h2>Sign Up</h2>
         <div className="form-container">
           <form onSubmit={handleSubmit}>
@@ -53,11 +53,14 @@ const SignupCard = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-              <input type="text" placeholder="F I R S T  N A M E"></input>
-              <input type="text" placeholder="L A S T  N A M E"></input>
-              <input type="text" placeholder="E M A I L"></input>
             </div>
-
+            <div className="fname-lname">
+                <input type="text" placeholder="F I R S T  N A M E"></input>
+                <input type="text" placeholder="L A S T  N A M E"></input>
+              </div>
+              <div className="form-element">
+                <input type="email" placeholder="E M A I L"></input>
+              </div>
             <div className="form-element-role centered-select">
               <select
                 name="userRole"
