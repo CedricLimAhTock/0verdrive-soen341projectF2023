@@ -146,15 +146,15 @@ CREATE TABLE `property_amenity` (
 
 DROP TABLE IF EXISTS `visit`;
 CREATE TABLE `visit` (
-`id` BIGINT auto_increment NOT NULL,
-`property_id` BIGINT NULL,
-`client_id` BIGINT NULL,
-`broker_id` BIGINT NULL, 
-`time` timestamp NULL DEFAULT NULL,
-`status` ENUM ('requested', 'booked', 'completed', 'other') NULL DEFAULT NULL,
-`message` TEXT NULL,
-CONSTRAINT `visit_PK` PRIMARY KEY (`id`),
-UNIQUE KEY `visit_UN` (`client_id`,`property_id`,`broker_id`),
+  `id` BIGINT auto_increment NOT NULL,
+  `property_id` BIGINT NULL,
+  `client_id` BIGINT NULL,
+  `broker_id` BIGINT NULL, 
+  `time` timestamp NULL DEFAULT NULL,
+  `status` ENUM ('requested', 'booked', 'completed', 'other') NULL DEFAULT NULL,
+  `message` TEXT NULL,
+  CONSTRAINT `visit_PK` PRIMARY KEY (`id`),
+  UNIQUE KEY `visit_UN` (`client_id`,`property_id`,`broker_id`),
   KEY `visit_FK` (`property_id`),
   KEY `visit_FK_2` (`broker_id`),
   CONSTRAINT `visit_FK` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`) ON DELETE CASCADE,
@@ -201,6 +201,15 @@ CREATE TABLE `offer` (
   CONSTRAINT `offer_FK_2` FOREIGN KEY (`broker_id`) REFERENCES `broker` (`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+DROP TABLE IF EXISTS `property_favourite`;
+CREATE TABLE `property_favourite` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `property_id` bigint NOT NULL,
+  `user_id` bigint NOT NULL,
+  CONSTRAINT `favourite_PK` PRIMARY KEY (`id`),
+  CONSTRAINT `favourite_FK` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `favourite_FK_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 /*Make admin user*/
@@ -209,7 +218,6 @@ INSERT INTO `user` (`id`, `active`, `firstname`,`lastname`,`address`,`username`,
 
 INSERT INTO `user_role` (`id`, `active`, `user_id`, `role_id`) VALUES 
 (NULL, 1, 1, 3);
-
 
 
 DROP USER IF EXISTS 'lorem'@'%';
