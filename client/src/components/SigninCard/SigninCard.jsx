@@ -11,7 +11,6 @@ const SigninCard = () => {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let alert = "";
     try {
       const res = await axios.post("http://127.0.0.1:8080/signin", {
         username,
@@ -20,7 +19,7 @@ const SigninCard = () => {
       console.log(res.data);
       localStorage.setItem("jwtToken", res.data.token);
       console.log(res.data.token);
-      window.location.href = '/';
+      window.location.href = "/";
       console.log(res.message);
     } catch (err) {
       if (err.response && err.response.status === 401) {

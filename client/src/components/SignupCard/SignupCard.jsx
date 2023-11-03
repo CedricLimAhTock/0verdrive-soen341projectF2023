@@ -9,7 +9,7 @@ const SignupCard = () => {
   const [password, setPassword] = useState("");
   const [userRole, setUserRole] = useState("Home Buyer");
   const navigate = useNavigate();
-
+  const [alert, setAlert] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -23,6 +23,7 @@ const SignupCard = () => {
       navigate("/signin");
       console.log(res.message);
     } catch (err) {
+      setAlert(err.response.data.message);
       console.log(err);
     }
   };
@@ -55,12 +56,12 @@ const SignupCard = () => {
               />
             </div>
             <div className="fname-lname">
-                <input type="text" placeholder="F I R S T  N A M E"></input>
-                <input type="text" placeholder="L A S T  N A M E"></input>
-              </div>
-              <div className="form-element">
-                <input type="email" placeholder="E M A I L"></input>
-              </div>
+              <input type="text" placeholder="F I R S T  N A M E"></input>
+              <input type="text" placeholder="L A S T  N A M E"></input>
+            </div>
+            <div className="form-element">
+              <input type="email" placeholder="E M A I L"></input>
+            </div>
             <div className="form-element-role centered-select">
               <select
                 name="userRole"
@@ -76,6 +77,7 @@ const SignupCard = () => {
               </select>
             </div>
             <div className="form-element">
+              {alert && <div className="alertMessage">{alert}</div>}
               <input type="submit" value="Sign Up" />
               <Link to="/signin">Have an account? Log in here</Link>
             </div>
