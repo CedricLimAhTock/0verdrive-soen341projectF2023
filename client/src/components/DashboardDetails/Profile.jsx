@@ -15,6 +15,7 @@ const Profile = ({ data, token }) => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhoneNumber] = useState("");
+  const [address, setAddress] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -25,8 +26,8 @@ const Profile = ({ data, token }) => {
         lastname: lastName.toString(),
         email: email.toString(),
         phone: phone.toString(),
+        address: address.toString(),
       });
-        console.log(firstName.toString());
       if (response.status === 200) {
         alert('Updated');
         console.log(response);
@@ -62,6 +63,7 @@ const Profile = ({ data, token }) => {
           setUsername(res.data.username);
           setEmail(res.data.email);
           setPhoneNumber(res.data.phone);
+          setAddress(res.data.address);
         })
         .catch((error) => {
           console.log("Error in profile.jsx: ", error);
@@ -137,6 +139,19 @@ const Profile = ({ data, token }) => {
                 id="phone"
               />
             </div>
+          </div>
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="address">Address</label>
+              <input
+                type="text"
+                placeholder="Address"
+                value={address}
+                onChange={(event) => setAddress(event.target.value)}
+                id="address"
+              />
+            </div>
+            
           </div>
           <button className="profile-update" type="submit">
             Update
