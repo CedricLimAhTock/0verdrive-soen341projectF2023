@@ -130,15 +130,15 @@ CREATE TABLE `property_amenity` (
 
 DROP TABLE IF EXISTS `visit`;
 CREATE TABLE `visit` (
-`id` BIGINT auto_increment NOT NULL,
-`property_id` BIGINT NULL,
-`client_id` BIGINT NULL,
-`broker_id` BIGINT NULL, 
-`time` timestamp NULL DEFAULT NULL,
-`status` ENUM ('requested', 'booked', 'completed', 'other') NULL DEFAULT NULL,
-`message` TEXT NULL,
-CONSTRAINT `visit_PK` PRIMARY KEY (`id`),
-UNIQUE KEY `visit_UN` (`client_id`,`property_id`,`broker_id`),
+  `id` BIGINT auto_increment NOT NULL,
+  `property_id` BIGINT NULL,
+  `client_id` BIGINT NULL,
+  `broker_id` BIGINT NULL, 
+  `time` timestamp NULL DEFAULT NULL,
+  `status` ENUM ('requested', 'booked', 'completed', 'other') NULL DEFAULT NULL,
+  `message` TEXT NULL,
+  CONSTRAINT `visit_PK` PRIMARY KEY (`id`),
+  UNIQUE KEY `visit_UN` (`client_id`,`property_id`,`broker_id`),
   KEY `visit_FK` (`property_id`),
   KEY `visit_FK_2` (`broker_id`),
   CONSTRAINT `visit_FK` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`) ON DELETE CASCADE,
@@ -165,6 +165,17 @@ CREATE TABLE `user_property` (
   CONSTRAINT `listing_FK` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`) ON DELETE CASCADE,
   CONSTRAINT `listing_FK_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
   CONSTRAINT `listing_FK_2` FOREIGN KEY (`parent_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+DROP TABLE IF EXISTS `property_favourite`;
+CREATE TABLE `property_favourite` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `property_id` bigint NOT NULL,
+  `user_id` bigint NOT NULL,
+  CONSTRAINT `favourite_PK` PRIMARY KEY (`id`),
+  CONSTRAINT `favourite_FK` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `favourite_FK_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 DROP USER IF EXISTS 'lorem'@'%';
