@@ -50,9 +50,10 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
 
   return (
     <div className={isFormOpen ? "show" : "hide"}>
-      <form className="popup-form" onSubmit={handleSubmit}>
+      <form className="visit-form popup-form" onSubmit={handleSubmit}>
         <button onClick={closeForm} className='close-button'>Close</button>
         <h2>Visit Form</h2>
+        <div className="left-right-visit">
         <div className="left-visit">
           <Carousel images={images} className="carousel-visit" />
           <div className="property-info-visit">
@@ -96,6 +97,7 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
               Submit
             </button>
           </div>
+        </div>
         </div>
       </form>
     </div>
