@@ -55,7 +55,7 @@
 }
 
 .searchbar:focus {
-  outline: none;
+  outline: #1666D9;
   caret-color: #1666D9;
 }
 
