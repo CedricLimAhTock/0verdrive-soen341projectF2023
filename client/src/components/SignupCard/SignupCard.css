@@ -205,3 +205,10 @@
   caret-color: #157dff;
   margin: 16px;
 }
+.form-element a {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
