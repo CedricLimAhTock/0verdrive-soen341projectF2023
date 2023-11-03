@@ -12,6 +12,7 @@ import propertyRoutes from './routes/property.js';
 import propertySearchRoutes from './routes/propertySearch.js';
 import visitRoutes from './routes/visit.js';
 import listingRoutes from './routes/listing.js';
+import sendEmailRoutes from './routes/send-email.js';
 
 
 
@@ -40,5 +41,6 @@ app.use('/property', propertyRoutes);
 app.use('/property/search', propertySearchRoutes);
 app.use('/visit', visitRoutes);
 app.use('/listing', listingRoutes);
+app.use('/send-email', sendEmailRoutes);
 
 export default app;

@@ -126,7 +126,7 @@ const listByBrokerId = async (req,res) => {
 const create = async (req, res) => {
     try {
         const data = req.body;
-        
+        alert(data);
         const [visit, created] = await Visit.findOrCreate({
             where: data,
             defaults: {
