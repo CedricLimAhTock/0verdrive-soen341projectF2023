@@ -15,19 +15,19 @@ test("Search API should return expected results", async (t) => {
       country: "Canada",
       listingType: "sale",
       price: {},
-      livingArea: { min: 0, max: 9999 },
-      propertyArea: { min: 0, max: 99999 },
-      numOfBedrooms: { min: 0, max: 1000 },
-      numOfBathrooms: { min: 0, max: 1000 },
-      numOfFloors: { min: 0, max: 1000 },
-      yearBuilt: { min: "1970-01-01" },
+      livingArea: { "min": 0, "max": 9999 },
+      propertyArea: { "min": 0, "max": 99999 },
+      numOfBedrooms: { "min": 0, "max": 1000 },
+      numOfBathrooms: { "min": 0, "max": 1000 },
+      numOfFloors: { "min": 0, "max": 1000 },
+      yearBuilt: { "min": "1970-01-01" },
       listedDate: {},
-      propertyType: "",
+      propertyType: ""
     },
     sort: {
       parameter: "price",
-      order: "asc",
-    },
+      order: "desc"
+    }
   };
 
   // Make a request to the search API

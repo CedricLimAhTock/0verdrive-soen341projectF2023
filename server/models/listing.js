@@ -1,10 +1,10 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../database/database.js";
-import User from "./user.js"
+import Broker from "./broker.js";
 import Property from "./property.js";
 
 const Listing = sequelize.define(
-    "listing",
+    "listings",
     {
         id: {
             type: DataTypes.BIGINT,
@@ -15,10 +15,10 @@ const Listing = sequelize.define(
         active: {
             type: DataTypes.BOOLEAN
         },
-        parent_id: {
+        broker_id: {
             type: DataTypes.BIGINT,
             references: {
-                model: User,
+                model: Broker,
                 key: 'id'
             }
         },
@@ -28,13 +28,6 @@ const Listing = sequelize.define(
                 model: Property,
                 key: 'id'
             },
-        },
-        user_id: {
-            type: DataTypes.BIGINT,
-            references: {
-                model: User,
-                key: 'id'
-            }
         },
         title: {
             type: DataTypes.STRING
@@ -47,15 +40,16 @@ const Listing = sequelize.define(
         timestamps: false,
         underscored: true,
         freezeTableName: true,
-        tableName: "user_property",
+        tableName: "listings",
     }
 );
 
-User.hasMany(Listing, { foreignKey: 'user_id' });
+Broker.hasMany(Listing, { foreignKey: 'broker_id' });
 Property.hasMany(Listing, { foreignKey: 'property_id' });
-Property.belongsToMany(User, { through: Listing });
 Listing.belongsTo(Property);
-Listing.belongsTo(User);
+Listing.belongsTo(Broker);
 
+Broker.hasMany(Property);
+Property.belongsTo(Broker);
 
 export default Listing;

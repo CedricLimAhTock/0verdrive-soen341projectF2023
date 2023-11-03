@@ -1,4 +1,7 @@
 import Visit from '../models/visit.js';
+import Property from '../models/property.js';
+import Listing from '../models/listing.js';
+import Broker from '../models/broker.js';
 
 const list = async (req,res) => {
     try {
@@ -127,18 +130,77 @@ const create = async (req, res) => {
     try {
         const data = req.body;
         alert(data);
-        const [visit, created] = await Visit.findOrCreate({
-            where: data,
-            defaults: {
-                status: 'other',
-                message: ""
+        
+        if (!data.property_id || !data.client_id || !data.broker_id) {
+            return res.status(400).json({message: "Missing id for client, broker, or property."});
+        }
+
+        // check property belongs to broker
+        const property = await Property.findOne({
+            attributes: ['id',
+                'active',
+                'civicAddress',
+                'aptNumber',
+                'street',
+                'neighbourhood',
+                'city',
+                'province',
+                'postalCode',
+                'country',
+                'listingType',
+                'price',
+                'livingArea',
+                'propertyArea',
+                'numOfBedrooms',
+                'numOfBathrooms',
+                'numOfFloors',
+                'yearBuilt',
+                'listedDate'
+            ],
+            where: {id: data.property_id},
+            include: [
+                {
+                    model: Listing,
+                    attributes: [], 
+                    required: true, 
+                    include: {
+                        model: Broker,
+                        required: true,
+                        attributes: [],
+                        where: {
+                            id: data.broker_id
+                        }
+                    }
+                }
+            ]
+        });
+
+        if (!property) {
+            return res.status(400).json({message: "Property does not belong to broker."});
+        }
+
+        const created = await Visit.findOne({
+            where: {
+                client_id: data.client_id,
+                property_id: data.property_id,
+                broker_id: data.broker_id
             }
         });
-        if (!created) {
-            res.status(400).json({message: "Already exists."});
-        } else {
-            res.status(200).send(visit);
+
+        if (created) {
+            return res.status(400).json({message: "Already exists."});
         }
+        
+        const visit = await Visit.create({
+                client_id: data.client_id,
+                property_id: data.property_id,
+                broker_id: data.broker_id,
+                time: data.time,
+                message: data.message,
+                status: data.status
+        });
+
+        res.status(200).send(visit);
         
     } catch (error) {
         console.log(error);
@@ -149,20 +211,25 @@ const create = async (req, res) => {
 }
 
 
-
-
 const update = async (req, res) => {
     try {
-        if(req.body.id == null){
+        let data = req.body;
+
+        if(data.id == null){
             return res.status(400).json();
         }
-        const visit = await Visit.findOne({where: {id: req.body.id}});
+
+        const visit = await Visit.findOne({where: {id: data.id}});
 
         if (!visit) {
             return res.status(400).json();
         }
 
-        await Visit.update(req.body, {where: {id: req.body.id}});
+        delete data.property_id;
+        delete data.broker_id;
+        delete data.client_id;
+
+        await Visit.update(data, {where: {id: data.id}});
 
         res.status(200).json();
 
@@ -176,8 +243,9 @@ const update = async (req, res) => {
 
 const updateById = async (req, res) => {
     try {
+        let data = req.body;
 
-        if (req.params.id == null || req.body == null) {
+        if (req.params.id == null || data == null) {
             return res.status(400).json();
         }
         const visit = await Visit.findOne({where: {id: req.params.id}});
@@ -186,7 +254,11 @@ const updateById = async (req, res) => {
             return res.status(400).json();
         }
 
-        await Visit.update(req.body, {where: {id: req.params.id}});
+        delete data.property_id;
+        delete data.broker_id;
+        delete data.client_id;
+
+        await Visit.update(data, {where: {id: req.params.id}});
 
         res.status(200).json();
 

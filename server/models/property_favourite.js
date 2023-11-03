@@ -3,8 +3,8 @@ import sequelize from "../database/database.js";
 import Property from "./property.js";
 import User from "./user.js";
 
-const Visit = sequelize.define(
-    "visit",
+const Property_favourite = sequelize.define(
+    "property_favourite",
     {
         id: {
             type: DataTypes.BIGINT,
@@ -19,42 +19,21 @@ const Visit = sequelize.define(
                 key: 'id',
             },
         },
-        client_id:{
+        user_id:{
             type: DataTypes.BIGINT,
             references: {
                 model: User,
                 key: 'id',
             },
-        },
-        broker_id: {
-            type: DataTypes.BIGINT,
-            references: {
-                model: User,
-                key: 'id',
-            },
-        },
-        time: {
-            type: DataTypes.DATE
-        },
-        status:{
-            type: DataTypes.ENUM('requested', 'booked', 'completed', 'other')
-        },
-        message:{
-            type: DataTypes.TEXT
         }
     },
-    {   
+    {
         timestamps: false,
         underscored: true,
         freezeTableName: true,
-        tableName: "visit",
-        indexes: [
-            {
-                unique: true,
-                fields: ['client_id', 'property_id', 'broker_id']
-            }
-        ]
+        tableName: "property_favourite",
     }
 );
 
-export default Visit;
+
+export default Property_favourite;

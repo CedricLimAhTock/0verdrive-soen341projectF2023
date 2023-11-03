@@ -8,7 +8,8 @@
   align-items: center;
   padding: 0;
   margin: 0;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 20rem;
   z-index: 1000;
 }
 .name {
@@ -23,10 +24,11 @@
 }
 
 .nav {
-  display: flex;
-  gap: 43px;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-gap: 1.8rem;
+  list-style: none;
+  text-align: center;
 }
 
 .nav button {
@@ -62,7 +64,7 @@
   bottom: -5px;
 }
 
-.nav-item:before {
+.nav-item:before{
   right: 0;
   top: -5px;
 }
@@ -75,6 +77,11 @@
 .nav-item.active:after,
 .nav-item.active:before {
   width: 100%;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #000;
 }
 
 .buttons {
@@ -94,47 +101,41 @@
   height: 20px;
 }
 
-.menu-icon {
-  margin-top: .6rem;
-  cursor: pointer;
-}
-
-.menu-items {
+.signin-signout-button {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  padding-left: 1rem;
-  width: 10rem;
-  height: 3rem;
-  position: absolute;
-  right: -100%;
-  opacity: 0;
-  transition: 0.5s ease;
-  border-radius: 0.5rem 0 0 0.5rem;
+  align-items: center;
+  width: 4rem;
+  height: 2rem;
+  padding: .2rem;
+  border: none;
+  border-radius: .3rem;
+  margin-top: 3px;
   background-color: #1666D9;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.menu-items.active {
-  right: 0;
-  z-index: 1;
-  opacity: 1;
-  transition: 0.6s ease;
+.signin-signout-button:hover {
+  border: 2px solid ;
+  transition: all 0.3s ease-out;
+  background-color: transparent;
+  color:#1666D9;
 }
 
-.menu-item {
+.signin-signout-button:hover .signin-signout {
+  color: #1666D9;
+}
+
+.signin-signout {
   text-decoration: none;
-  font-weight: 450;
-  color: #fff;
-  transition: 1s ease;
-  transition-delay: 0.3s;
-  transform: translateY(10px);
+  color: white;
+  font-weight: 500;
+  font-size: 13px;
 }
 
-.menu-items.active .menu-item {
-  transform: translateY(2px); /* Transition the position */
+.signin-signout:hover {
+  color: #1666D9;
 }
-
 
 .username-display {
   margin-top: .5rem;

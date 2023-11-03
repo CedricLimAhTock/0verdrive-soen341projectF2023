@@ -44,5 +44,7 @@ Role.belongsToMany(User, { through: User_role });
 User_role.belongsTo(Role);
 User_role.belongsTo(User);
 
+User.hasOne(Role);
+Role.belongsTo(User);
 
 export default User_role;

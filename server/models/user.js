@@ -13,6 +13,9 @@ const User = sequelize.define(
         active: {
             type: DataTypes.BOOLEAN,
         },
+        address: {
+            type: DataTypes.STRING
+        },
         firstname: {
             type: DataTypes.STRING
         },
