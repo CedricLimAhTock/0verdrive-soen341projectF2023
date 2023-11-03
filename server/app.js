@@ -12,7 +12,7 @@ import propertyRoutes from './routes/property.js';
 import propertySearchRoutes from './routes/propertySearch.js';
 import visitRoutes from './routes/visit.js';
 import listingRoutes from './routes/listing.js';
-
+import propertyFavouriteRoute from './routes/property_favourite.js';
 
 
 
@@ -40,5 +40,6 @@ app.use('/property', propertyRoutes);
 app.use('/property/search', propertySearchRoutes);
 app.use('/visit', visitRoutes);
 app.use('/listing', listingRoutes);
+app.use('/favourite', propertyFavouriteRoute);
 
 export default app;
