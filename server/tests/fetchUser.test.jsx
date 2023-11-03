@@ -3,7 +3,7 @@ import axios from "axios";
 
 test("Search API should return expected results", async (t) => {
   // Define the search query
-  const query = "root1";
+  const query = "root";
 
   // Make a request to the search API
   const response = await axios.get(
@@ -34,7 +34,7 @@ test("Search API should return expected results", async (t) => {
   expect(result.username).toBe(query);
   expect(result.email).toBe(query);
   expect(result.password).toBe(
-    "$2a$10$Nzlx50xKN9bRfWt1L5Ln3eZKwVr3cEyOPBbE9QONh1PcZrFBZt8Mu"
+    "$2b$10$Llc7YosmtaCtH6AxXhg1KuFjI1ikV77r/V7OVSGOTZ8DYFfCjlQzy"
   );
   expect(result.phone).toBe("000-000-0000");
   // expect(result.createdAt).toBe("2000-01-01T04:00:00.000Z");

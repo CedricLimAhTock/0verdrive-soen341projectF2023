@@ -77,6 +77,26 @@ const query = async (req, res) => {
         
 
         let properties = await Property.findAll({
+            attributes: ['id',
+            'active',
+            'civicAddress',
+            'aptNumber',
+            'street',
+            'neighbourhood',
+            'city',
+            'province',
+            'postalCode',
+            'country',
+            'listingType',
+            'price',
+            'livingArea',
+            'propertyArea',
+            'numOfBedrooms',
+            'numOfBathrooms',
+            'numOfFloors',
+            'yearBuilt',
+            'listedDate'
+            ],
             where:  q,
             order: [
                 [sort.parameter, sort.order]

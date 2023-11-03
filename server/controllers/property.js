@@ -1,7 +1,6 @@
 import Property from '../models/property.js';
-import User from '../models/user.js';
 import Listing from '../models/listing.js';
-import User_role from '../models/user_role.js';
+import Broker from '../models/broker.js';
 
 const list = async (req, res) => {
     try {
@@ -194,21 +193,12 @@ const listByBrokerId = async (req, res) => {
                     required: true, // generate INNER JOIN
                     //right: true,  // does a right join
                     include: {
-                        model: User,
+                        model: Broker,
                         required: true, // generate INNER JOIN
                         attributes: [], // don't return any columns
                         //right: true,  // does a right join
                         where: {
                             id: req.params.id
-                        },
-                        include:
-                        {
-                            model: User_role,
-                            attributes: [],
-                            where: {
-                                role_id: 2
-                            },
-                            //right: true
                         }
                     }
                 }
