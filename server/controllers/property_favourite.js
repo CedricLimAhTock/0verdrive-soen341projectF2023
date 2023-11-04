@@ -39,6 +39,27 @@ const listById = async (req,res) => {
     }
 }
 
+const listByUserId = async (req,res) => {
+    try {
+        let favourite = await Property_favourite.findAll({
+            attributes: ['id', 'property_id', 'user_id'],
+            where: {user_id: req.params.id}
+        });
+
+        if (!favourite){
+            return res.status(400).json({});
+        } else {
+            res.status(200).send(favourite);
+        }
+
+    } catch (error){
+        console.log(error);
+        res.status(500).json({
+            message: 'Server Error'
+        });
+    }
+}
+
 const listByPropertyId = async (req,res) => {
     try{
         let favourite = await Property_favourite.findAll({
@@ -117,4 +138,4 @@ const destroy = async (req, res) => {
     }
 }
 
-export default {list, listById, listByPropertyId, create, destroy};
+export default {list, listById, listByUserId, listByPropertyId, create, destroy};
