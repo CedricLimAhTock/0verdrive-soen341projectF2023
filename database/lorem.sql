@@ -174,19 +174,22 @@ CREATE TABLE `offer` (
   `active` tinyint(1) NULL DEFAULT '0',
   `parent_id` bigint NOT NULL,
   `property_id` bigint NOT NULL,
-  `broker_id` bigint DEFAULT NULL,
+  `broker_id` bigint NOT NULL,
+  `user_id` bigint NOT NULL,
   `price` varchar(50) DEFAULT NULL,
   `deed_of_sale_date` timestamp NULL DEFAULT NULL,
   `occupancy_date` timestamp NULL DEFAULT NULL,
   `status` ENUM ('wait', 'acknowledge', 'review', 'accept', 'deny', 'other') NULL DEFAULT NULL,
   CONSTRAINT `offer_PK` PRIMARY KEY (`id`),
-  UNIQUE KEY `offer_UN` (`parent_id`,`property_id`, `broker_id`),
+  UNIQUE KEY `offer_UN` (`parent_id`,`property_id`, `broker_id`, `user_id`),
   KEY `offer_FK` (`property_id`),
   KEY `offer_FK_1` (`parent_id`),
   KEY `offer_FK_2` (`broker_id`),
+  KEY `offer_FK_3` (`user_id`),
   CONSTRAINT `offer_FK` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`) ON DELETE CASCADE,
   CONSTRAINT `offer_FK_1` FOREIGN KEY (`parent_id`) REFERENCES `broker` (`id`) ON DELETE CASCADE,
-  CONSTRAINT `offer_FK_2` FOREIGN KEY (`broker_id`) REFERENCES `broker` (`id`) ON DELETE CASCADE
+  CONSTRAINT `offer_FK_2` FOREIGN KEY (`broker_id`) REFERENCES `broker` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `offer_FK_3` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 DROP TABLE IF EXISTS `property_favourite`;

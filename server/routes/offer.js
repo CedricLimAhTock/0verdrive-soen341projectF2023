@@ -14,7 +14,7 @@ router.post('/', offerController.create);
 
 router.put('/', offerController.update);
 
-router.put('/', offerController.updateById);
+router.put('/:id', offerController.updateById);
 
 router.delete('/:id', offerController.destroy);
 
