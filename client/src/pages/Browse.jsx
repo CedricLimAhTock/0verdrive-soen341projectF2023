@@ -48,9 +48,24 @@ const Browse = () => {
 
   }, []);
 
-  const searchData = async () => {
+  const searchData = async (event) => {
+    event.preventDefault();
     try {
-      const response = await axios.get("http://localhost:8080/property/");
+      const response = await axios.post(
+        "http://localhost:8080/property/search",
+        {
+          fields: {
+            numOfBedrooms: { min: minBeds },
+            price: { min: minPrice, max: maxPrice },
+            numOfBathrooms: { min: minBaths },
+            manyTerms: manyTerms,
+          },
+          sort: {
+            parameter: "price",
+            order: "asc",
+          },
+        }
+      );
       const dataWithImages = response.data.map((property) => {
         if (!property.images || property.images.length === 0) {
           property.images = [
@@ -66,6 +81,16 @@ const Browse = () => {
       console.error("Error in Browse.jsx", error);
     }
   };
+
+  // const [city, setCity] = useState("");
+  // const [neighbourhood, setNeighbourhood] = useState("");
+  // const [province, setProvince] = useState("");
+  // const [country, setCountry] = useState("");
+  const [minBeds, setMinBeds] = useState("");
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
+  const [minBaths, setMinBaths] = useState("");
+  const [manyTerms, setManyTerms] = useState("");
 
   const maxVisiblePages = 5;
   const startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
@@ -130,6 +155,8 @@ const Browse = () => {
               className="search-area"
               type="text"
               placeholder="City, Neighbourhood, Address..."
+              value={manyTerms}
+              onChange={(e) => setManyTerms(e.target.value)}
             ></input>
             <input
               className="search-select"
@@ -140,23 +167,31 @@ const Browse = () => {
               className="search-select"
               type="select"
               placeholder="Min Price"
+              value={minPrice}
+              onChange={(e) => setMinPrice(e.target.value)}
             ></input>
             <input
               className="search-select"
               type="select"
               placeholder="Max Price"
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(e.target.value)}
             ></input>
             <input
               className="search-select"
               type="select"
               placeholder="Beds"
+              value={minBeds}
+              onChange={(e) => setMinBeds(e.target.value)}
             ></input>
             <input
               className="search-select-baths"
               type="select"
               placeholder="Baths"
+              value={minBaths}
+              onChange={(e) => setMinBaths(e.target.value)}
             ></input>
-            <input type="image" src={Search}></input>
+            <input type="image" src={Search} onClick={searchData}></input>
           </form>
         </div>
       </div>
