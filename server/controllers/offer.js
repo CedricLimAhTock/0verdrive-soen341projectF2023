@@ -6,7 +6,7 @@ import Property from '../models/property.js';
 const list = async (req, res) => {
     try {
         let offers = await Offer.findAll({
-            attributes: ['id', 'active', 'user_id', 'property_id', 'broker_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
+            attributes: ['id', 'active', 'broker_id', 'property_id', 'parent_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
             include: [
                 {
                     model: User,
@@ -20,7 +20,7 @@ const list = async (req, res) => {
                 },
                 {
                     model: Property,
-                    attributes: ['civicAddress', 'aptNumber', 'street', 'neighbourhood', 'city', 'province', 'postalCode', 'country'],
+                    attributes: ['civic_address', 'apt_number', 'street', 'neighbourhood', 'city', 'province', 'postal_code', 'country'],
                     required: true
                 }
             ]
@@ -43,7 +43,7 @@ const list = async (req, res) => {
 const listById = async (req, res) => {
     try {
         let offer = await Offer.findOne({
-            attributes: ['id', 'active', 'user_id', 'property_id', 'broker_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
+            attributes: ['id', 'active', 'broker_id', 'property_id', 'parent_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
             include: [
                 {
                     model: User,
@@ -57,7 +57,7 @@ const listById = async (req, res) => {
                 },
                 {
                     model: Property,
-                    attributes: ['civicAddress', 'aptNumber', 'street', 'neighbourhood', 'city', 'province', 'postalCode', 'country'],
+                    attributes: ['civic_address', 'apt_number', 'street', 'neighbourhood', 'city', 'province', 'postal_code', 'country'],
                     required: true
                 }
             ],
@@ -65,7 +65,7 @@ const listById = async (req, res) => {
         });
 
         if (!offer) {
-            res.status(400).json();
+            return res.status(400).json();
         } else {
             res.status(200).send(offer);
         }
@@ -81,7 +81,7 @@ const listById = async (req, res) => {
 const listByUserId = async (req, res) => {
     try {
         let offer = await Offer.findOne({
-            attributes: ['id', 'active', 'user_id', 'property_id', 'broker_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
+            attributes: ['id', 'active', 'broker_id', 'property_id', 'parent_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
             include: [
                 {
                     model: User,
@@ -96,15 +96,14 @@ const listByUserId = async (req, res) => {
                 },
                 {
                     model: Property,
-                    attributes: ['civicAddress', 'aptNumber', 'street', 'neighbourhood', 'city', 'province', 'postalCode', 'country'],
+                    attributes: ['civic_address', 'apt_number', 'street', 'neighbourhood', 'city', 'province', 'postal_code', 'country'],
                     required: true
                 }
-            ],
-            where: { id: req.params.id }
+            ]
         });
 
         if (!offer) {
-            res.status(400).json();
+            return res.status(400).json();
         } else {
             res.status(200).send(offer);
         }
@@ -120,7 +119,7 @@ const listByUserId = async (req, res) => {
 const listByBrokerId = async (req, res) => {
     try {
         let offer = await Offer.findOne({
-            attributes: ['id', 'active', 'user_id', 'property_id', 'broker_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
+            attributes: ['id', 'active', 'broker_id', 'property_id', 'parent_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
             include: [
                 {
                     model: User,
@@ -135,15 +134,14 @@ const listByBrokerId = async (req, res) => {
                 },
                 {
                     model: Property,
-                    attributes: ['civicAddress', 'aptNumber', 'street', 'neighbourhood', 'city', 'province', 'postalCode', 'country'],
+                    attributes: ['civic_address', 'apt_number', 'street', 'neighbourhood', 'city', 'province', 'postal_code', 'country'],
                     required: true
                 }
-            ],
-            where: { id: req.params.id }
+            ]
         });
 
         if (!offer) {
-            res.status(400).json();
+            return res.status(400).json();
         } else {
             res.status(200).send(offer);
         }
@@ -159,7 +157,7 @@ const listByBrokerId = async (req, res) => {
 const listByPropertyId = async (req, res) => {
     try {
         let offer = await Offer.findOne({
-            attributes: ['id', 'active', 'user_id', 'property_id', 'broker_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
+            attributes: ['id', 'active', 'broker_id', 'property_id', 'parent_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
             include: [
                 {
                     model: User,
@@ -173,16 +171,15 @@ const listByPropertyId = async (req, res) => {
                 },
                 {
                     model: Property,
-                    attributes: ['civicAddress', 'aptNumber', 'street', 'neighbourhood', 'city', 'province', 'postalCode', 'country'],
+                    attributes: ['civic_address', 'apt_number', 'street', 'neighbourhood', 'city', 'province', 'postal_code', 'country'],
                     required: true,
                     where: {id: req.params.id}
                 }
-            ],
-            where: { id: req.params.id }
+            ]
         });
 
         if (!offer) {
-            res.status(400).json();
+            return res.status(400).json();
         } else {
             res.status(200).send(offer);
         }
@@ -199,59 +196,47 @@ const create = async (req, res) => {
     try {
         let data = req.body;
 
-        if (!data.user_id || !data.broker_id || !data.property_id) {
-            return res.status(400).json({message: "Missing id for user, property, or broker."});
+        if (!data.broker_id || !data.parent_id || !data.property_id) {
+            return res.status(400).json({message: "Missing id for property or broker."});
         }
 
-        // check user
-        const user = await User.findOne({ where: { id: data.user_id } });
-        console.log(user);
-        // check broker
-        const broker = await Broker.findOne({ where: { id: data.broker_id } });
-        console.log(broker);
-
+        // check target broker
+        const broker = await Broker.findOne({ attributes: ['id'], where: { id: data.broker_id } });
+        // check owner broker
+        const parent = await Broker.findOne({ attributes: ['id'], where: { id: data.parent_id } });
         // check property
-        const property = await Property.findOne({
-            attributes: [
-            'id',
-            'active',
-            'civic_address',
-            'apt_number',
-            'street',
-            'neighbourhood',
-            'city',
-            'province',
-            'postal_code',
-            'country',
-            'listing_type',
-            'price',
-            'living_area',
-            'property_area',
-            'num_bedrooms',
-            'num_bathrooms',
-            'num_floors',
-            'year_built',
-            'listed_date',
-            'property_type'
-            ],
-            where: { id: data.property_id }
-        });
-        console.log(property);
+        const property = await Property.findOne({ attributes: ['id'], where: { id: data.property_id }});
 
-
-        if (!user || !broker || !property) {
-            return res.status(400).json({message: "Invalid id for user, property, or broker."});
+        if (!broker || !parent || !property) {
+            return res.status(400).json({message: "Invalid id for broker or property."});
         }
 
-        const [offer, created] = await Offer.findOrCreate({
-            where: data,
-            defaults: {
-                active: 1
+        let offer = await Offer.findOne({
+            where: {
+                [Op.and]: [
+                    { parent_id: data.parent_id },
+                    { broker_id: data.broker_id },
+                    { property_id: data.property_id }
+                ]
             }
         });
-        if (!created) {
+
+        if (offer) {
             return res.status(400).json({message: "Already exists."});
         } else {
+            
+            offer = await Offer.create({
+                active: data.active,
+                parent_id: data.parent_id,
+                broker_id: data.broker_id,
+                property_id: data.property_id,
+                price: data.price,
+                deed_of_sale_date: data.deed_of_sale_date,
+                occupancy_date: data.occupancy_date,
+                status: data.status
+            });
+
+
             res.status(200).send(offer);
         }
         
@@ -262,6 +247,69 @@ const create = async (req, res) => {
         });
     }
 }
+
+const update = async (req, res) => {
+    try {
+        let data = req.body;
+        let offer_id = req.body.id;
+
+        if (!offer_id ) {
+            return res.status(400).json({message: "Missing id."});
+        }
+
+        // not changing the association
+        delete data.parent_id;
+        delete data.broker_id;
+        delete data.property_id;
+        delete data.id;
+
+        let offer = await Offer.findOne({where: {id: offer_id}});
+
+        if (!offer) {
+            return res.status(400).json();
+        }
+
+        const updated = await Offer.update(data, {where: {id: offer_id}});
+
+        res.status(200).send(updated);
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Server error'
+        });
+    }
+}
+
+const updateById = async (req, res) => {
+    try {
+        let data = req.body;
+        let offer_id = req.params.id;
+
+        // not changing the association
+        delete data.parent_id;
+        delete data.broker_id;
+        delete data.property_id;
+        delete data.id;
+
+        let offer = await Offer.findOne({where: {id: offer_id}});
+
+        if (!offer) {
+            return res.status(400).json();
+        }
+
+        const updated = await Offer.update(data, {where: {id: offer_id}});
+
+        res.status(200).send(updated);
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Server error'
+        });
+    }
+}
+
 
 const destroy = async (req, res) => {
     try {
@@ -285,4 +333,4 @@ const destroy = async (req, res) => {
     }
 }
 
-export default { list, listById, listByUserId, listByBrokerId, listByPropertyId, create, destroy};
+export default { list, listById, listByUserId, listByBrokerId, listByPropertyId, update, updateById, create, destroy};

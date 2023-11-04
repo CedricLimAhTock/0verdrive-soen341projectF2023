@@ -12,6 +12,10 @@ router.get('/property/:id', offerController.listByPropertyId);
 
 router.post('/', offerController.create);
 
+router.put('/', offerController.update);
+
+router.put('/', offerController.updateById);
+
 router.delete('/:id', offerController.destroy);
 
 export default router;

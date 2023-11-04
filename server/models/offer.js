@@ -16,10 +16,10 @@ const Offer = sequelize.define(
         active: {
             type: DataTypes.BOOLEAN,
         },
-        user_id: {
+        parent_id: {
             type: DataTypes.BIGINT,
             references: {
-                model: User,
+                model: Broker,
                 key: 'id'
             }
         },
@@ -55,14 +55,19 @@ const Offer = sequelize.define(
         underscored: true,
         freezeTableName: true,
         tableName: "offer",
+        indexes: [
+            {
+                unique: true,
+                fields: ['parent_id', 'property_id', 'broker_id']
+            }
+        ]
     }
 );
 
-User.hasMany(Offer, { foreignKey: 'user_id' });
 Broker.hasMany(Offer, { foreignKey: 'broker_id' });
+Broker.hasMany(Offer, { foreignKey: 'parent_id' });
 Property.hasMany(Offer, { foreignKey: 'property_id' });
 Offer.belongsTo(Property);
 Offer.belongsTo(Broker);
-Offer.belongsTo(User);
 
 export default Offer;
