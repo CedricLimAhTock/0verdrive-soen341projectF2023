@@ -6,16 +6,22 @@ const query = async (req, res) => {
     try {
         let fields = req.body.fields;
         let sort = req.body.sort;
+
+        if (!["price", "listedDate", "yearBuilt", "numOfBedrooms", "numOfBathrooms"].includes(sort.parameter)) {
+            sort.parameter = "price";
+        }
+        
+        sort.order = (sort.order == "asc") ? "asc" : "desc";
         
         let q = {};
         if (fields.civicAddress) {
             q.civicAddress = fields.civicAddress;
         }
         if (fields.street) {
-            q.street = fields.street;
+            q.street = {[Op.substring]: fields.street};
         }
         if (fields.neighbourhood) {
-            q.neighbourhood = fields.neighbourhood;
+            q.neighbourhood = {[Op.substring]: fields.neighbourhood};
         }
         if (fields.city) {
             q.city = fields.city;
@@ -53,6 +59,12 @@ const query = async (req, res) => {
                 [Op.lte]: (!fields.numOfBedrooms.max ? Number.MAX_SAFE_INTEGER : fields.numOfBedrooms.max)
             };
         }
+        if (fields.numOfBathrooms) {
+            q.numOfBathrooms = {
+                [Op.gte]: (!fields.numOfBathrooms.min ? 0 : fields.numOfBathrooms.min),
+                [Op.lte]: (!fields.numOfBathrooms.max ? Number.MAX_SAFE_INTEGER : fields.numOfBathrooms.max)
+            };
+        }
         if (fields.numOfFloors) {
             q.numOfFloors = {
                 [Op.gte]: (!fields.numOfFloors.min ? 0 : fields.numOfFloors.min),
@@ -77,30 +89,31 @@ const query = async (req, res) => {
         
 
         let properties = await Property.findAll({
-            attributes: ['id',
-            'active',
-            'civicAddress',
-            'aptNumber',
-            'street',
-            'neighbourhood',
-            'city',
-            'province',
-            'postalCode',
-            'country',
-            'listingType',
-            'price',
-            'livingArea',
-            'propertyArea',
-            'numOfBedrooms',
-            'numOfBathrooms',
-            'numOfFloors',
-            'yearBuilt',
-            'listedDate'
+            attributes: [
+                'id',
+                'active',
+                'civicAddress',
+                'aptNumber',
+                'street',
+                'neighbourhood',
+                'city',
+                'province',
+                'postalCode',
+                'country',
+                'listingType',
+                'price',
+                'livingArea',
+                'propertyArea',
+                'numOfBedrooms',
+                'numOfBathrooms',
+                'numOfFloors',
+                'yearBuilt',
+                'listedDate'
             ],
             where:  q,
             order: [
                 [sort.parameter, sort.order]
-            ],
+            ]
         })
 
         if (!properties) {
