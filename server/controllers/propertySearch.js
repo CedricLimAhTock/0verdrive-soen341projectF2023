@@ -38,8 +38,8 @@ const query = async (req, res) => {
     // if (fields.province) {
     //   q.province = { [Op.substring]: fields.province };
     // }
-    // if (fields.postalCode) {
-    //   q.postalCode = fields.postalCode;
+    // if (fields.postal_code) {
+    //   q.postal_code = fields.postal_code;
     // }
     // if (fields.country) {
     //   q.country = { [Op.substring]: fields.country };
@@ -177,8 +177,8 @@ const query = async (req, res) => {
       });
     }
 
-    if (fields.postalCode) {
-      q.push({ postalCode: fields.postalCode }); //fields.postalCode;
+    if (fields.postal_code) {
+      q.push({ postal_code: fields.postal_code }); //fields.postal_code;
     }
 
     console.log(q);
