@@ -14,14 +14,15 @@ const Role = sequelize.define(
             type: DataTypes.BOOLEAN,
         },
         type: {
-            type: DataTypes.ENUM('member', 'broker', 'admin', 'homebuyer', 'renter')
+            type: DataTypes.ENUM('member', 'broker', 'admin', 'homebuyer', 'renter'),
+            allowNull: false
         }
     },
     {   
         timestamps: false,
         underscored: true,
         freezeTableName: true,
-        tableName: "role",
+        tableName: "role"
     }
 );
 

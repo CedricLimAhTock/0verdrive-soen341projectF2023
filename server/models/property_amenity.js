@@ -10,31 +10,31 @@ const Property_amenity = sequelize.define(
             type: DataTypes.BIGINT,
             primaryKey: true,
             autoIncrement: true,
-            allowNull: false,
+            allowNull: false
         },
         active: {
-            type: DataTypes.BOOLEAN,
+            type: DataTypes.BOOLEAN
         },
         property_id: {
             type: DataTypes.BIGINT,
             references: {
                 model: Property,
                 key: 'id',
-            },
+            }
         },
         amenity_id: {
             type: DataTypes.BIGINT,
             references: {
                 model: Amenity,
                 key: 'id',
-            },
+            }
         }
     },
     {
         timestamps: false,
         underscored: true,
         freezeTableName: true,
-        tableName: "property_amenity",
+        tableName: "property_amenity"
     }
 );
 

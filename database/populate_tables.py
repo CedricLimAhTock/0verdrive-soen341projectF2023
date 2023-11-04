@@ -23,8 +23,8 @@ def insert_user(connection, cursor, filepath):
                 #print(f'Column names are {", ".join(row)}')
                 line_count += 1
             else:
-                query = f"""INSERT INTO `user` (`id`, `active`, `firstname`, `lastname`, `username`, `password`, `email`, `phone`, `createdAt`, `updatedAt`) 
-                VALUES (0, {row[1]}, '{row[2]}', '{row[3]}', '{row[4]}', '{row[5]}', '{row[6]}', '{row[7]}', '{row[8]}','{row[9]}')"""
+                query = f"""INSERT INTO `user` (`id`, `active`, `firstname`, `lastname`, `username`, `password`, `email`, `phone`) 
+                VALUES (0, {row[1]}, '{row[2]}', '{row[3]}', '{row[4]}', '{row[5]}', '{row[6]}', '{row[7]}')"""
                 #print(query)
                 cursor.execute(query)
         connection.commit()
@@ -66,7 +66,7 @@ def insert_property(connection, cursor, filepath):
                 #print(f'Column names are {", ".join(row)}')
                 line_count += 1
             else:
-                query = f"""INSERT INTO `property` (`id`, `active`, `civicAddress`, `aptNumber`, `street`, `city`, `neighbourhood`, `province`, `postalCode`, `country`, `listingType`, `price`, `livingArea`, `propertyArea`, `numOfBedrooms`, `numOfBathrooms`, `numOfFloors`, `yearBuilt`, `listedDate`, `propertyType`) 
+                query = f"""INSERT INTO `property` (`id`, `active`, `civic_address`, `apt_number`, `street`, `city`, `neighbourhood`, `province`, `postal_code`, `country`, `listing_type`, `price`, `living_area`, `property_area`, `num_bedrooms`, `num_bathrooms`, `num_floors`, `year_built`, `listed_date`, `property_type`) 
                 VALUES (0, {row[1]}, '{row[2]}', '{row[3]}', '{row[4]}', '{row[5]}', '{row[6]}', '{row[7]}', '{row[8]}','{row[9]}', '{row[10]}', {row[11]}, {row[12]}, {row[13]}, {row[14]}, {row[15]}, {row[16]}, '{row[17]}', '{row[18]}', '{row[19]}')"""
                 #print(query)
                 cursor.execute(query)
@@ -158,7 +158,27 @@ def insert_listings(connection, cursor, filepath):
     records = cursor.fetchone()
     print(f"Inserted {records} records into table listings.")
 
-
+def insert_favourites(connection, cursor, filepath):
+    
+    path = pathlib.Path(filepath)
+    with open(path) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        line_count = 0
+        for row in csv_reader:
+            if line_count == 0:
+                line_count += 1
+            else:
+                query = f"""INSERT INTO `property_favourite` (`id`, `property_id`, `user_id`) 
+                VALUES (0, {row[1]}, {row[2]})"""
+                #print(query)
+                cursor.execute(query)
+        connection.commit()
+    
+    cursor.execute("select COUNT(*) from property_favourite")
+    records = cursor.fetchone()
+    print(f"Inserted {records} records into table favourite.")
+    
+    
 if __name__ == "__main__":
     
     parser = argparse.ArgumentParser(description="Database table populator", add_help=False)
@@ -187,12 +207,15 @@ if __name__ == "__main__":
             insert_property(connection, cursor, "./property.csv")
             print("Populating table property_amenity...")
             insert_property_amenity(connection, cursor, "./property_amenity.csv")
-            print("Populating table visit...")
-            insert_visits(connection, cursor, "./visit.csv")
             print("Populating table broker...")
             insert_brokers(connection, cursor, "./broker.csv")
             print("Populating table listing...")
             insert_listings(connection, cursor, "./listings.csv")
+            print("Populating table visit...")
+            insert_visits(connection, cursor, "./visits.csv")
+            print("Populating table favourite...")
+            insert_favourites(connection, cursor, "./favourites.csv")
+            
     except Error as e:
         print("Error while connecting to MySQL", e)
     finally:
