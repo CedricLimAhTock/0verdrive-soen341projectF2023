@@ -29,7 +29,7 @@ const VisitForm = ({ isFormOpen, closeForm, property, address }) => {
 
     fetchData();
 
-    axios.get(`http://127.0.0.1:8080/property/${id}`)
+    axios.get(`http://127.0.0.1:8080/broker/property/${id}`)
       .then((response) => {
         setBrokerInfo(response.data);
       })
@@ -44,11 +44,11 @@ const VisitForm = ({ isFormOpen, closeForm, property, address }) => {
     try {
       const response = await axios.post('http://127.0.0.1:8080/offer/', {
         user_id: decodedToken.id.toString(),
-        broker_id: brokerInfo.id.toString(),
         property_id: id.toString(),
         price_offered: priceOffered.toString(),
         deed: deed.toString(),
         occupancy: occupancy.toString(),
+        status: 'requested',
       });
 
       if (response.status === 200) {
@@ -76,7 +76,7 @@ const VisitForm = ({ isFormOpen, closeForm, property, address }) => {
             <div className="property-info-offer">
               <h3>Price: ${price}</h3>
               <h4>Address: {address}</h4>
-              <p>Broker: {broker}</p>
+              <p>BrokerID: {brokerInfo.id}</p>
               <p>ID: {id}</p>
             </div>
           </div>

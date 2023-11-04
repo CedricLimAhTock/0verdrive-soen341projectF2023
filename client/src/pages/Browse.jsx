@@ -149,12 +149,14 @@ const Browse = () => {
       <div className="items">
         <div className="browse-cards">
           {currentProperties.map((property, index) => (
-            <PropertyCard
-              property={property}
-              key={index}
-              className="property-card"
-              onEventClick={onEventClick}
-            />
+            <div key={index}>
+              <PropertyCard
+                property={property}
+                className="property-card"
+                onEventClick={onEventClick}
+              />
+              <p>{property.id}</p>
+            </div>
           ))}
         </div>
       </div>
