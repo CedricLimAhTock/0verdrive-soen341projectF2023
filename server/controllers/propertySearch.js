@@ -54,7 +54,7 @@ const query = async (req, res) => {
       };
       q.city = { [Op.or]: terms.map((term) => ({ [Op.substring]: term })) };
       q.province = { [Op.or]: terms.map((term) => ({ [Op.substring]: term })) };
-      q.postalCode = fields.postalCode;
+
       q.country = { [Op.or]: terms.map((term) => ({ [Op.substring]: term })) };
     }
 
@@ -121,7 +121,13 @@ const query = async (req, res) => {
     if (fields.propertyType) {
       q.propertyType = fields.propertyType;
     }
-    console.log(q.jsonToString());
+
+    if (fields.postalCode) {
+      q.postalCode = fields.postalCode;
+    }
+
+    console.log(q);
+    console.log(q.civicAddress);
 
     let properties = await Property.findAll({
       attributes: [
