@@ -16,7 +16,7 @@ CREATE TABLE `user` (
   `email` varchar(100) DEFAULT NULL,
   `phone` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `user_UN` (`username`,`active`)
+  UNIQUE KEY `user_UN` (`username`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
 

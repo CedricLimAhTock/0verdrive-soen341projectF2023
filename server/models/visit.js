@@ -10,28 +10,28 @@ const Visit = sequelize.define(
             type: DataTypes.BIGINT,
             primaryKey: true,
             autoIncrement: true,
-            allowNull: false,
+            allowNull: false
         },
         property_id: {
             type: DataTypes.BIGINT,
             references: {
                 model: Property,
                 key: 'id',
-            },
+            }
         },
         client_id:{
             type: DataTypes.BIGINT,
             references: {
                 model: User,
                 key: 'id',
-            },
+            }
         },
         broker_id: {
             type: DataTypes.BIGINT,
             references: {
                 model: User,
                 key: 'id',
-            },
+            }
         },
         time: {
             type: DataTypes.DATE
