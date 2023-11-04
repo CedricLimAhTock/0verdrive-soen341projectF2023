@@ -129,23 +129,3 @@
   content: "›";
   margin-left: 5px;
 }
-
-.search > select {
-  height: 3rem;
-  font-size: 1.1rem;
-  border: none;
-  outline: none;
-  caret-color: #1666d9;
-  width: 13rem;
-  background-color: white;
-}
-.sale-text {
-  color: rgba(0, 0, 0, 0.36);
-  font-family: Inter;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: 0.1rem;
-  padding: 0.5rem;
-}
