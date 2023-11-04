@@ -3,8 +3,8 @@ import sequelize from "../database/database.js";
 import Property from "./property.js";
 import User from "./user.js";
 
-const Visit = sequelize.define(
-    "visit",
+const Property_favourite = sequelize.define(
+    "property_favourite",
     {
         id: {
             type: DataTypes.BIGINT,
@@ -19,42 +19,31 @@ const Visit = sequelize.define(
                 key: 'id',
             },
         },
-        client_id:{
+        user_id:{
             type: DataTypes.BIGINT,
             references: {
                 model: User,
                 key: 'id',
-            },
-        },
-        broker_id: {
-            type: DataTypes.BIGINT,
-            references: {
-                model: User,
-                key: 'id',
-            },
-        },
-        time: {
-            type: DataTypes.DATE
-        },
-        status:{
-            type: DataTypes.ENUM('requested', 'booked', 'completed', 'other')
-        },
-        message:{
-            type: DataTypes.TEXT
+            }
         }
     },
-    {   
+    {
         timestamps: false,
         underscored: true,
         freezeTableName: true,
-        tableName: "visit",
+        tableName: "property_favourite",
         indexes: [
             {
                 unique: true,
-                fields: ['client_id', 'property_id', 'broker_id']
+                fields: ['user_id', 'property_id']
             }
         ]
     }
 );
 
-export default Visit;
+User.hasMany(Property_favourite, { foreignKey: 'user_id' });
+Property.hasOne(Property_favourite, { foreignKey: 'property_id' });
+Property_favourite.belongsTo(Property);
+Property_favourite.belongsTo(User);
+
+export default Property_favourite;

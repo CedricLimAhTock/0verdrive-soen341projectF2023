@@ -10,10 +10,12 @@ import roleRoutes from './routes/role.js';
 import userRoleRoutes from './routes/user_role.js';
 import propertyRoutes from './routes/property.js';
 import propertySearchRoutes from './routes/propertySearch.js';
+import brokerSearchRoutes from './routes/brokerSearch.js';
 import visitRoutes from './routes/visit.js';
 import listingRoutes from './routes/listing.js';
-
-
+import brokerRoutes from './routes/broker.js';
+import offerRoutes from './routes/offer.js';
+import propertyFavouriteRoute from './routes/property_favourite.js';
 
 
 console.log(config());
@@ -38,7 +40,11 @@ app.use('/user_role', userRoleRoutes);
 app.use('/role', roleRoutes);
 app.use('/property', propertyRoutes);
 app.use('/property/search', propertySearchRoutes);
+app.use('/broker/search', brokerSearchRoutes);
 app.use('/visit', visitRoutes);
 app.use('/listing', listingRoutes);
+app.use('/broker', brokerRoutes);
+app.use('/offer', offerRoutes);
+app.use('/favourite', propertyFavouriteRoute);
 
 export default app;
