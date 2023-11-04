@@ -143,7 +143,6 @@ const query = async (req, res) => {
         "numOfFloors",
         "yearBuilt",
         "listedDate",
-        "manyTerms",
       ],
       where: q,
       order: [[sort.parameter, sort.order]],
