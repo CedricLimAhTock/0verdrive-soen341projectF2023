@@ -184,6 +184,7 @@ const create = async (req, res) => {
         }
 
         const [broker, created] = await Broker.findOrCreate({
+            attributes: ['id'],
             where: {
                 [Op.or]: {
                     user_id: data.user_id,

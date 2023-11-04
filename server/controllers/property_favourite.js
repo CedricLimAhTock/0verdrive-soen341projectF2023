@@ -84,6 +84,7 @@ const create = async (req, res) => {
         }
 
         const [favourite, created] = await Property_favourite.findOrCreate({
+            attributes: ['id'],
             where: {
                 user_id: data.user_id,
                 property_id: data.property_id

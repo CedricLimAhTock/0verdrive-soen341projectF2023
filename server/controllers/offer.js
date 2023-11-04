@@ -222,6 +222,7 @@ const create = async (req, res) => {
         }
 
         const [offer, created] = await Offer.findOrCreate({
+            attributes: ['id'],
             where: {
                 [Op.and]: [
                     { user_id: data.user_id },

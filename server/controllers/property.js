@@ -232,14 +232,29 @@ const create = async (req, res) => {
     try {
         const data = req.body;
 
-        const [property, created] = await Property.findOrCreate({
-            where: data,
-            defaults: {
-                active: 1
-            }
+        const property = await Property.create({
+            active: 1,
+            civic_address: data.civic_address,
+            apt_number: data.apt_number,
+            street: data.street,
+            neighbourhood: data.neighbourhood,
+            city: data.city,
+            province: data.province,
+            postal_code: data.postal_code,
+            country: data.country,
+            listing_type: data.listing_type,
+            price: data.price,
+            living_area: data.living_area,
+            property_area: data.property_area,
+            num_bedrooms: data.num_bedrooms,
+            num_bathrooms: data.num_bathrooms,
+            num_floors: data.num_floors,
+            year_built: data.year_built,
+            listed_date: data.listed_date,
+            property_type: data.property_type
         });
-        if (!created) {
-            res.status(400).json({message: "Already exists."});
+        if (!property) {
+            return res.status(400).json({message: "Failed to create."});
         } else {
             res.status(200).send(property);
         }
@@ -255,7 +270,7 @@ const create = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        if(req.body.id == null){
+        if (req.body.id == null) {
             return res.status(400).json({message: "id is null."});
         }
         const property = await Property.findOne({where: {id: req.body.id}});
@@ -288,7 +303,9 @@ const updateById = async (req, res) => {
             return res.status(400).json({message: "Does not exist."});
         }
 
-        Property.update(req.body, {where: {id: req.params.id}});
+        await Property.update(req.body, { where: { id: req.params.id } });
+
+        res.status(200).json();
 
     } catch (error) {
         console.log(error);

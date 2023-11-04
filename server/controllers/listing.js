@@ -84,6 +84,7 @@ const create = async (req, res) => {
         }
 
         const [listing, created] = await Listing.findOrCreate({
+            attributes: ['id'],
             where: {
                 broker_id: data.broker_id,
                 property_id: data.property_id
