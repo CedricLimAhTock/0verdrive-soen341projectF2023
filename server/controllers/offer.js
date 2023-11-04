@@ -328,6 +328,7 @@ const updateById = async (req, res) => {
 const destroy = async (req, res) => {
     try {
         const offer = await Offer.findOne({
+            attributes: ['id'],
             where: {id: req.params.id}
         });
 

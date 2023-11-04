@@ -109,6 +109,7 @@ const create = async (req, res) => {
 const destroy = async (req, res) => {
     try {
         const favourite = await Property_favourite.findOne({
+            attributes: ['id'],
             where: {
                 id: req.params.id
             }

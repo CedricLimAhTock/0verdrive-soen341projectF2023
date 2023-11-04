@@ -313,6 +313,7 @@ const updateById = async (req, res) => {
 const destroy = async (req, res) => {
     try {
         const broker = await Broker.findOne({
+            attributes: ['id'],
             where: {id: req.params.id}
         });
 

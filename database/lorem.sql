@@ -25,8 +25,9 @@ DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `active` tinyint NULL DEFAULT '0',
-  `type` enum('member', 'broker', 'admin', 'homebuyer', 'renter') DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  `type` enum('member', 'broker', 'admin', 'homebuyer', 'renter') NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `role_UN` (`type`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
 INSERT INTO `role` (`id`, `active`, `type`) VALUES 
@@ -45,6 +46,7 @@ CREATE TABLE `user_role` (
   `user_id` bigint NOT NULL,
   `role_id` bigint NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `user_role_UN` (`user_id`, `role_id`),
   KEY `user_role_FK` (`user_id`),
   KEY `user_role_FK_1` (`role_id`),
   CONSTRAINT `user_role_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
@@ -128,6 +130,7 @@ CREATE TABLE `property_amenity` (
 	`property_id` BIGINT NOT NULL,
 	`amenity_id` BIGINT NULL,
 	CONSTRAINT `property_amenity_PK` PRIMARY KEY (`id`),
+  UNIQUE KEY `property_amenity_UN` (`property_id`,`amenity_id`),
 	CONSTRAINT `property_amenity_FK` FOREIGN KEY (`property_id`) REFERENCES `property`(`id`) ON DELETE CASCADE,
 	CONSTRAINT `property_amenity_FK_1` FOREIGN KEY (`amenity_id`) REFERENCES `amenity`(`id`) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

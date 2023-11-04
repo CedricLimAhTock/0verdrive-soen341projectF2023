@@ -318,6 +318,7 @@ const updateById = async (req, res) => {
 const destroy = async (req, res) => {
     try {
         const property = await Property.findOne({
+            attributes: ['id'],
             where: {id: req.params.id}
         });
 

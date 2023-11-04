@@ -6,11 +6,10 @@ const list = async (req, res) => {
         let user_roles = await User_role.findAll({ attributes: ['id', 'active', 'user_id', 'role_id']});
 
         if (!user_roles) {
-            res.status(400).json({});
+            return res.status(400).json({});
+        } else {
+            res.status(200).send(user_roles);
         }
-        
-        res.status(200).send(user_roles);
-
     } catch (error) {
         console.log(error);
         res.status(500).json({
@@ -27,7 +26,7 @@ const listById = async (req, res) => {
         });
 
         if (!user_role) {
-            res.status(400).json({});
+            return res.status(400).json({});
         } else {
             res.status(200).send(user_role);
         }
@@ -48,7 +47,7 @@ const listByUserId = async (req, res) => {
         });
 
         if (!user_role) {
-            res.status(400).json();
+            return res.status(400).json();
         } else {
             res.status(200).send(user_role);
         }
@@ -66,6 +65,7 @@ const create = async (req, res) => {
         const data = req.body;
         
         const [user_role, created] = await User_role.findOrCreate({
+            attributes: ['id'],
             where: {
                 user_id: data.user_id,
                 role_id: data.role_id
@@ -75,7 +75,7 @@ const create = async (req, res) => {
             }
         });
         if (!created) {
-            res.status(400).json({message: "Already exists."});
+            return res.status(400).json({message: "Already exists."});
         } else {
             res.status(200).send(user_role);
         }
@@ -100,8 +100,8 @@ const update = async (req, res) => {
             return res.status(400).json();
         }
 
+        delete data.user_id;
         await User_role.update(req.body, {where: {id: req.body.id}});
-
         res.status(200).json();
 
     } catch (error) {
@@ -124,6 +124,7 @@ const updateById = async (req, res) => {
             return res.status(400).json();
         }
 
+        delete data.user_id;
         await User_role.update(req.body, {where: {id: req.params.id}});
 
         res.status(200).json();
@@ -139,6 +140,7 @@ const updateById = async (req, res) => {
 const destroy = async (req, res) => {
     try {
         const user_role = await User_role.findOne({
+            attributes: ['id'],
             where: {
                 id: req.params.id
             }
