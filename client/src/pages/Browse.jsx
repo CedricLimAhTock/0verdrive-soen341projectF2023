@@ -37,7 +37,7 @@ const Browse = () => {
   const searchData = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.get(
+      const response = await axios.post(
         "http://localhost:8080/property/search",
         {
           fields: {
