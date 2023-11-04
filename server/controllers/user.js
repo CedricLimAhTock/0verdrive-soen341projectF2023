@@ -177,6 +177,7 @@ const update = async (req, res) => {
             data.password = hashedPassword;
         }
 
+        delete data.id;
         const nu = await User.update(data, {where: {id: user_id}});
 
         res.status(200).send(nu);
@@ -222,6 +223,7 @@ const updateById = async (req, res) => {
             data.password = hashedPassword;
         }
 
+        delete data.id;
         const nu = await User.update(data, {where: {id: user_id}});
 
         res.status(200).send(nu);

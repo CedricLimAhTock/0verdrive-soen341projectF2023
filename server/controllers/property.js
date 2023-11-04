@@ -270,16 +270,20 @@ const create = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        if (req.body.id == null) {
+        let data = req.body;
+        let property_id = req.body.id;
+
+        if (property_id == null) {
             return res.status(400).json({message: "id is null."});
         }
-        const property = await Property.findOne({where: {id: req.body.id}});
+        const property = await Property.findOne({where: {id: property_id}});
 
         if (!property) {
             return res.status(400).json({message: "Does not exist."});
         }
 
-        await Property.update(req.body, {where: {id: req.body.id}});
+        delete data.id;
+        await Property.update(req.body, {where: {id: property_id}});
 
         res.status(200).json();
 
@@ -294,16 +298,21 @@ const update = async (req, res) => {
 
 const updateById = async (req, res) => {
     try {
-        if (req.params.id == null || req.body == null) {
+
+        let data = req.body;
+        let property_id = req.params.id;
+
+        if (property_id == null || req.body == null) {
             return res.status(400).json({message: "id or body is null."});
         }
-        const property = await Property.findOne({where: {id: req.params.id}});
+        const property = await Property.findOne({where: {id: property_id}});
 
         if (!property) {
             return res.status(400).json({message: "Does not exist."});
         }
 
-        await Property.update(req.body, { where: { id: req.params.id } });
+        delete data.id;
+        await Property.update(req.body, { where: { id: property_id } });
 
         res.status(200).json();
 

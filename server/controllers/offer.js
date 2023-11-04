@@ -281,7 +281,6 @@ const update = async (req, res) => {
         if (!offer) {
             return res.status(400).json();
         }
-
         const updated = await Offer.update(data, {where: {id: offer_id}});
 
         res.status(200).send(updated);
@@ -311,7 +310,6 @@ const updateById = async (req, res) => {
         if (!offer) {
             return res.status(400).json();
         }
-
         const updated = await Offer.update(data, {where: {id: offer_id}});
 
         res.status(200).send(updated);

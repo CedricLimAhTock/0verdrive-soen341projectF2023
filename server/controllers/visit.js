@@ -1,14 +1,15 @@
 import Visit from '../models/visit.js';
-import Property from '../models/property.js';
 import Listing from '../models/listing.js';
 import Broker from '../models/broker.js';
 
 const list = async (req,res) => {
     try {
-        let visit = await Visit.findAll({ attributes: ['id', 'property_id', 'client_id', 'broker_id', 'time', 'status', 'message'] });
+        let visit = await Visit.findAll({
+            ttributes: ['id', 'property_id', 'client_id', 'broker_id', 'time', 'status', 'message']
+        });
 
         if (!visit){
-            res.status(400).json({});
+            return res.status(404).json({});
         }
 
         res.status(200).send(visit);
@@ -29,7 +30,7 @@ const listById = async (req,res) => {
         });
 
         if (!visit){
-            res.status(400).json({});
+            return res.status(404).json({});
         } else {
             res.status(200).send(visit);
         }
@@ -50,7 +51,7 @@ const listByStatus = async (req,res) => {
         });
 
         if(!visit){
-            res.status(400).json({});
+            return res.status(404).json({});
         } else {
             res.status(200).send(visit);
         }
@@ -71,7 +72,7 @@ const listByPropertyId = async (req,res) => {
         });
 
         if(!visit){
-            res.status(400).json({});
+            return res.status(404).json({});
         } else {
             res.status(200).send(visit);
         }
@@ -91,7 +92,7 @@ const listByClientId = async (req,res) => {
         });
 
         if(!visit){
-            res.status(400).json({});
+            return res.status(404).json({});
         } else {
             res.status(200).send(visit);
         }
@@ -112,7 +113,7 @@ const listByBrokerId = async (req,res) => {
         });
 
         if(!visit){
-            res.status(400).json({});
+            return res.status(404).json({});
         } else {
             res.status(200).send(visit);
         }
@@ -135,40 +136,18 @@ const create = async (req, res) => {
         }
 
         // check property belongs to broker
-        const property = await Property.findOne({
-            attributes: ['id',
-                'active',
-                'civicAddress',
-                'aptNumber',
-                'street',
-                'neighbourhood',
-                'city',
-                'province',
-                'postalCode',
-                'country',
-                'listingType',
-                'price',
-                'livingArea',
-                'propertyArea',
-                'numOfBedrooms',
-                'numOfBathrooms',
-                'numOfFloors',
-                'yearBuilt',
-                'listedDate'
-            ],
-            where: {id: data.property_id},
+        const property = await Listing.findOne({
+            attributes: ['id'],
+            where: {
+                property_id: data.property_id
+            },
             include: [
                 {
-                    model: Listing,
-                    attributes: [], 
-                    required: true, 
-                    include: {
-                        model: Broker,
-                        required: true,
-                        attributes: [],
-                        where: {
-                            id: data.broker_id
-                        }
+                    model: Broker,
+                    required: true,
+                    attributes: [],
+                    where: {
+                        id: data.broker_id
                     }
                 }
             ]
@@ -178,26 +157,26 @@ const create = async (req, res) => {
             return res.status(400).json({message: "Property does not belong to broker."});
         }
 
-        const created = await Visit.findOne({
+        // does not allow different entries for times
+        const [visit, created] = await Visit.findOrCreate({
             where: {
                 client_id: data.client_id,
                 property_id: data.property_id,
                 broker_id: data.broker_id
-            }
-        });
-
-        if (created) {
-            return res.status(400).json({message: "Already exists."});
-        }
-        
-        const visit = await Visit.create({
+            },
+            defaults: {
                 client_id: data.client_id,
                 property_id: data.property_id,
                 broker_id: data.broker_id,
                 time: data.time,
                 message: data.message,
                 status: data.status
+            }
         });
+
+        if (!created) {
+            return res.status(400).json({message: "Already exists."});
+        }
 
         res.status(200).send(visit);
         
@@ -213,24 +192,27 @@ const create = async (req, res) => {
 const update = async (req, res) => {
     try {
         let data = req.body;
+        let visit_id = req.body.id;
 
-        if(data.id == null){
+        if(visit_id == null){
             return res.status(400).json();
         }
 
-        const visit = await Visit.findOne({where: {id: data.id}});
+        let visit = await Visit.findOne({where: {id: visit_id}});
 
         if (!visit) {
             return res.status(400).json();
         }
 
+        //  not allowed to change association
         delete data.property_id;
         delete data.broker_id;
         delete data.client_id;
+        delete data.id;
 
-        await Visit.update(data, {where: {id: data.id}});
+        visit = await Visit.update(data, {where: {id: visit_id}});
 
-        res.status(200).json();
+        res.status(200).send(visit);
 
     } catch (error) {
         console.log(error);
@@ -243,23 +225,26 @@ const update = async (req, res) => {
 const updateById = async (req, res) => {
     try {
         let data = req.body;
+        let visit_id = req.params.id;
 
-        if (req.params.id == null || data == null) {
+        if (visit_id == null || data == null) {
             return res.status(400).json();
         }
-        const visit = await Visit.findOne({where: {id: req.params.id}});
+        let visit = await Visit.findOne({where: {id: visit_id}});
 
         if (!visit) {
             return res.status(400).json();
         }
 
+        //  not allowed to change association
         delete data.property_id;
         delete data.broker_id;
         delete data.client_id;
+        delete data.id;
 
-        await Visit.update(data, {where: {id: req.params.id}});
+        visit = await Visit.update(data, {where: {id: visit_id}});
 
-        res.status(200).json();
+        res.status(200).send(visit);
 
     } catch (error) {
         console.log(error);
@@ -275,13 +260,14 @@ const destroy = async (req, res) => {
             res.status(400).json({});
         }
         const visit = await Visit.findOne({
-            where:{
+            where: {
+                attributes: ['id'],
                 id: req.params.id
             }
         });
 
         if(!visit){
-            res.status(400).json({});
+            return res.status(400).json({});
         }
 
         visit.destroy();

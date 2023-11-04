@@ -109,18 +109,21 @@ const update = async (req, res) => {
     try {
 
         let data = req.body;
+        let ur_id = req.body.id;
 
-        if(data.id == null){
+        if(ur_id == null){
             return res.status(400).json({message: "missing id."});
         }
-        let user_role = await User_role.findOne({where: {id: data.id}});
+        let user_role = await User_role.findOne({where: {id: ur_id}});
 
         if (!user_role) {
             return res.status(400).json({message: "invalid role id."});
         }
 
         delete data.user_id;
-        user_role = await User_role.update(data, {where: {id: data.id}});
+        delete data.id;
+
+        user_role = await User_role.update(data, {where: {id: ur_id}});
         res.status(200).send(user_role);
 
     } catch (error) {
@@ -136,18 +139,21 @@ const updateById = async (req, res) => {
     try {
 
         let data = req.body;
+        let ur_id = req.params.id;
 
-        if(req.params.id == null){
+        if(ur_id == null){
             return res.status(400).json({message: "missing id."});
         }
-        let user_role = await User_role.findOne({where: {id: req.params.id}});
+        let user_role = await User_role.findOne({where: {id: ur_id}});
 
         if (!user_role) {
             return res.status(400).json({message: "invalid role id."});
         }
 
         delete data.user_id;
-        user_role = await User_role.update(data, {where: {id: data.id}});
+        delete data.id;
+
+        user_role = await User_role.update(data, {where: {id: ur_id}});
         res.status(200).send(user_role);
 
     } catch (error) {
