@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `active` tinyint NOT NULL DEFAULT '0',
+  `active` tinyint NULL DEFAULT '0',
   `firstname` varchar(64) DEFAULT NULL,
   `lastname` varchar(64) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL,
@@ -15,8 +15,6 @@ CREATE TABLE `user` (
   `password` varchar(255) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
   `phone` varchar(50) DEFAULT NULL,
-  `createdAt` timestamp NULL DEFAULT NULL,
-  `updatedAt` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_UN` (`username`,`active`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
@@ -26,10 +24,8 @@ DROP TABLE IF EXISTS `role`;
 
 CREATE TABLE `role` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `active` tinyint NOT NULL DEFAULT '0',
+  `active` tinyint NULL DEFAULT '0',
   `type` enum('member', 'broker', 'admin', 'homebuyer', 'renter') DEFAULT NULL,
-  `createdAt` timestamp NULL DEFAULT NULL,
-  `updatedAt` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -45,11 +41,9 @@ DROP TABLE IF EXISTS `user_role`;
 
 CREATE TABLE `user_role` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `active` tinyint NOT NULL DEFAULT '0',
+  `active` tinyint NULL DEFAULT '0',
   `user_id` bigint NOT NULL,
   `role_id` bigint NOT NULL,
-  `createdAt` timestamp NULL DEFAULT NULL,
-  `updatedAt` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_role_FK` (`user_id`),
   KEY `user_role_FK_1` (`role_id`),
@@ -62,15 +56,15 @@ DROP TABLE IF EXISTS `broker`;
 
 CREATE TABLE `broker` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `active` tinyint NOT NULL DEFAULT '0',
+  `active` tinyint NULL DEFAULT '0',
   `user_id` bigint NOT NULL,
   `license_number` varchar(50) NULL DEFAULT NULL,
   `agency` varchar(50) NULL DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `phone` varchar(50) DEFAULT NULL,
+  `email` varchar(100) NULL DEFAULT NULL,
+  `phone` varchar(50) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `broker_UN` (`license_number`),
-  UNIQUE KEY `broker_UN_1` (`user_id`),
+  UNIQUE KEY `broker_UN` (`user_id`),
+  UNIQUE KEY `broker_UN_1` (`license_number`),
   KEY `broker_FK` (`user_id`),
   CONSTRAINT `broker_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
@@ -81,27 +75,25 @@ DROP TABLE IF EXISTS `property`;
 
 CREATE TABLE `property` (
 	`id` BIGINT NOT NULL AUTO_INCREMENT,
-	`active` BOOL DEFAULT 0 NOT NULL,
-	`civicAddress` varchar(50) NULL,
-	`aptNumber` varchar(50) NULL,
+	`active` BOOL NULL DEFAULT '0',
+	`civic_address` varchar(50) NULL,
+	`apt_number` varchar(50) NULL,
 	`street` varchar(50) NULL,
 	`neighbourhood` varchar(50) NULL,
 	`city` varchar(50) NULL,
 	`province` varchar(50) NULL,
-	`postalCode` varchar(10) NULL,
+	`postal_code` varchar(10) NULL,
 	`country` varchar(50) NULL,
-	`listingType` ENUM('sale','rent') NOT NULL,
+	`listing_type` ENUM('sale','rent') NOT NULL,
 	`price` FLOAT NULL,
-	`livingArea` FLOAT NULL,
-	`propertyArea` FLOAT NULL,
-	`numOfBedrooms` TINYINT UNSIGNED NULL,
-	`numOfBathrooms` TINYINT UNSIGNED NULL,
-	`numOfFloors` TINYINT UNSIGNED NULL,
-	`yearBuilt` DATE NULL,
-	`listedDate` DATE NULL,
-	`propertyType` ENUM('single-family', 'duplex', 'triplex', 'quadruplex', 'townhouse', 'studio', 'condominium', 'other') NULL,
-	`createdAt` timestamp NULL DEFAULT NULL,
-  `updatedAt` timestamp NULL DEFAULT NULL,
+	`living_area` FLOAT NULL,
+	`property_area` FLOAT NULL,
+	`num_bedrooms` TINYINT UNSIGNED NULL,
+	`num_bathrooms` TINYINT UNSIGNED NULL,
+	`num_floors` TINYINT UNSIGNED NULL,
+	`year_built` DATE NULL,
+	`listed_date` DATE NULL,
+	`property_type` ENUM('single-family', 'duplex', 'triplex', 'quadruplex', 'townhouse', 'studio', 'condominium', 'other') NULL,
   CONSTRAINT `property_PK` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -109,10 +101,8 @@ CREATE TABLE `property` (
 DROP TABLE IF EXISTS `amenity`;
 CREATE TABLE `amenity` (
 	`id` BIGINT auto_increment NOT NULL,
-	`active` BOOL DEFAULT 0 NULL,
+	`active` BOOL NULL DEFAULT '0',
 	`name` ENUM('elevator', 'gym', 'pool', 'laundry room', 'internet', 'water', 'hydro', 'public transportation', 'park', 'accessibility') NULL,
-	`createdAt` timestamp NULL DEFAULT NULL,
-  `updatedAt` timestamp NULL DEFAULT NULL,
   CONSTRAINT `amenity_PK` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -134,11 +124,9 @@ DROP TABLE IF EXISTS `property_amenity`;
 
 CREATE TABLE `property_amenity` (
 	`id` BIGINT auto_increment NOT NULL,
-	`active` BOOL DEFAULT 0 NULL,
+	`active` BOOL NULL DEFAULT '0',
 	`property_id` BIGINT NOT NULL,
 	`amenity_id` BIGINT NULL,
-	`createdAt` timestamp NULL DEFAULT NULL,
-  `updatedAt` timestamp NULL DEFAULT NULL,
 	CONSTRAINT `property_amenity_PK` PRIMARY KEY (`id`),
 	CONSTRAINT `property_amenity_FK` FOREIGN KEY (`property_id`) REFERENCES `property`(`id`) ON DELETE CASCADE,
 	CONSTRAINT `property_amenity_FK_1` FOREIGN KEY (`amenity_id`) REFERENCES `amenity`(`id`) ON DELETE SET NULL
@@ -151,7 +139,7 @@ CREATE TABLE `visit` (
   `client_id` BIGINT NULL,
   `broker_id` BIGINT NULL, 
   `time` timestamp NULL DEFAULT NULL,
-  `status` ENUM ('requested', 'booked', 'completed', 'other') NULL DEFAULT NULL,
+  `status` ENUM ('requested', 'booked', 'denied', 'completed', 'other') NULL DEFAULT NULL,
   `message` TEXT NULL,
   CONSTRAINT `visit_PK` PRIMARY KEY (`id`),
   UNIQUE KEY `visit_UN` (`client_id`,`property_id`,`broker_id`),
@@ -167,7 +155,7 @@ DROP TABLE IF EXISTS `listings`;
 
 CREATE TABLE `listings` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `active` tinyint(1) DEFAULT NULL,
+  `active` tinyint(1) NULL DEFAULT '0',
   `broker_id` bigint NOT NULL,
   `property_id` bigint NOT NULL,
   `title` varchar(255) DEFAULT NULL,
@@ -183,7 +171,7 @@ CREATE TABLE `listings` (
 DROP TABLE IF EXISTS `offer`;
 CREATE TABLE `offer` (
   `id` bigint NOT NULL AUTO_INCREMENT,
-  `active` tinyint(1) DEFAULT NULL,
+  `active` tinyint(1) NULL DEFAULT '0',
   `user_id` bigint NOT NULL,
   `property_id` bigint NOT NULL,
   `broker_id` bigint DEFAULT NULL,

@@ -8,8 +8,8 @@ const query = async (req, res) => {
         let sort = req.body.sort;
         
         let q = {};
-        if (fields.civicAddress) {
-            q.civicAddress = fields.civicAddress;
+        if (fields.civic_address) {
+            q.civic_address = fields.civic_address;
         }
         if (fields.street) {
             q.street = fields.street;
@@ -23,8 +23,8 @@ const query = async (req, res) => {
         if (fields.province) {
             q.province = fields.province;
         }
-        if (fields.postalCode) {
-            q.postalCode = fields.postalCode;
+        if (fields.postal_code) {
+            q.postal_code = fields.postal_code;
         }
         if (fields.country) {
             q.country = fields.country;
@@ -35,67 +35,69 @@ const query = async (req, res) => {
                 [Op.lte]: (!fields.price.max ? Number.MAX_SAFE_INTEGER : fields.price.max)
             };
         }
-        if (fields.livingArea) {
-            q.livingArea = {
-                [Op.gte]: (!fields.livingArea.min ? 0 : fields.livingArea.min),
-                [Op.lte]: (!fields.livingArea.max ? Number.MAX_SAFE_INTEGER : fields.livingArea.max)
+        if (fields.living_area) {
+            q.living_area = {
+                [Op.gte]: (!fields.living_area.min ? 0 : fields.living_area.min),
+                [Op.lte]: (!fields.living_area.max ? Number.MAX_SAFE_INTEGER : fields.living_area.max)
             };
         }
-        if (fields.propertyArea) {
-            q.propertyArea = {
-                [Op.gte]: (!fields.propertyArea.min ? 0 : fields.propertyArea.min),
-                [Op.lte]: (!fields.propertyArea.max ? Number.MAX_SAFE_INTEGER : fields.propertyArea.max)
+        if (fields.property_area) {
+            q.property_area = {
+                [Op.gte]: (!fields.property_area.min ? 0 : fields.property_area.min),
+                [Op.lte]: (!fields.property_area.max ? Number.MAX_SAFE_INTEGER : fields.property_area.max)
             };
         }
-        if (fields.numOfBedrooms) {
-            q.numOfBedrooms = {
-                [Op.gte]: (!fields.numOfBedrooms.min ? 0 : fields.numOfBedrooms.min),
-                [Op.lte]: (!fields.numOfBedrooms.max ? Number.MAX_SAFE_INTEGER : fields.numOfBedrooms.max)
+        if (fields.num_bedrooms) {
+            q.num_bedrooms = {
+                [Op.gte]: (!fields.num_bedrooms.min ? 0 : fields.num_bedrooms.min),
+                [Op.lte]: (!fields.num_bedrooms.max ? Number.MAX_SAFE_INTEGER : fields.num_bedrooms.max)
             };
         }
-        if (fields.numOfFloors) {
-            q.numOfFloors = {
-                [Op.gte]: (!fields.numOfFloors.min ? 0 : fields.numOfFloors.min),
-                [Op.lte]: (!fields.numOfFloors.max ? Number.MAX_SAFE_INTEGER : fields.numOfFloors.max)
+        if (fields.num_floors) {
+            q.num_floors = {
+                [Op.gte]: (!fields.num_floors.min ? 0 : fields.num_floors.min),
+                [Op.lte]: (!fields.num_floors.max ? Number.MAX_SAFE_INTEGER : fields.num_floors.max)
             };
         }
-        if (fields.yearBuilt) {
-            q.yearBuilt = {
-                [Op.gte]: (!fields.yearBuilt.min ? "1000-01-01" : fields.yearBuilt.min),
-                [Op.lte]: (!fields.yearBuilt.max ? "9999-12-31" : fields.yearBuilt.max)
+        if (fields.year_built) {
+            q.year_built = {
+                [Op.gte]: (!fields.year_built.min ? "1000-01-01" : fields.year_built.min),
+                [Op.lte]: (!fields.year_built.max ? "9999-12-31" : fields.year_built.max)
             };
         }
-        if (fields.listedDate) {
-            q.listedDate = {
-                [Op.gte]: (!fields.listedDate.min ? "1000-01-01" : fields.listedDate.min),
-                [Op.lte]: (!fields.listedDate.max ? "9999-12-31" : fields.listedDate.max)
+        if (fields.listed_date) {
+            q.listed_date = {
+                [Op.gte]: (!fields.listed_date.min ? "1000-01-01" : fields.listed_date.min),
+                [Op.lte]: (!fields.listed_date.max ? "9999-12-31" : fields.listed_date.max)
             };
         }
-        if (fields.propertyType) {
-            q.propertyType = fields.propertyType;
+        if (fields.property_type) {
+            q.property_type = fields.property_type;
         }
         
 
         let properties = await Property.findAll({
-            attributes: ['id',
-            'active',
-            'civicAddress',
-            'aptNumber',
-            'street',
-            'neighbourhood',
-            'city',
-            'province',
-            'postalCode',
-            'country',
-            'listingType',
-            'price',
-            'livingArea',
-            'propertyArea',
-            'numOfBedrooms',
-            'numOfBathrooms',
-            'numOfFloors',
-            'yearBuilt',
-            'listedDate'
+            attributes: [
+                'id',
+                'active',
+                'civic_address',
+                'apt_number',
+                'street',
+                'neighbourhood',
+                'city',
+                'province',
+                'postal_code',
+                'country',
+                'listing_type',
+                'price',
+                'living_area',
+                'property_area',
+                'num_bedrooms',
+                'num_bathrooms',
+                'num_floors',
+                'year_built',
+                'listed_date',
+                'property_type'
             ],
             where:  q,
             order: [

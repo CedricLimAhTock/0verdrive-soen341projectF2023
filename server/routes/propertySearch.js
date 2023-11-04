@@ -4,29 +4,29 @@ import propertySearchController from '../controllers/propertySearch.js';
 const router = express.Router();
 
 // search for properties
-//example payload
+// example payload
 // parameters can be omitted
 // strings are matched exactly
 // {
 //     "fields": {
-        // "civicAddress": "4366",
-        // "aptNumber": "681",
-        // "street": "Mcguire",
-        // "neighbourhood": "Manning",
-        // "city": "Montreal",
-        // "province": "Quebec",
-        // "postalCode": "I4S 8J8",
-        // "country": "Canada",
-//         "listingType": "sale",
+//         "civic_address": "4366",
+//         "apt_number": "681",
+//         "street": "Mcguire",
+//         "neighbourhood": "Manning",
+//         "city": "Montreal",
+//         "province": "Quebec",
+//         "postal_code": "I4S 8J8",
+//         "country": "Canada",
+//         "listing_type": "sale",
 //         "price": {"min": 99900000},
-//         "livingArea": {"min": 0, "max": 9999}
-        // "propertyArea": {"min": 0, "max":1000},
-        // "numOfBedrooms": {"min": 0, "max":1000},
-        // "numOfBathrooms": {"min": 0, "max":1000},
-        // "numOfFloors": {"min": 0, "max":1000},
-        // "yearBuilt": {"min": "1970-01-01", "max":},
-        // "listedDate": {"min": 0, "max":1000},
-        // "propertyType": "other"
+//         "living_area": {"min": 0, "max": 9999}
+//         "property_area": {"min": 0, "max":1000},
+//         "num_bedrooms": {"min": 0, "max":1000},
+//         "num_bathrooms": {"min": 0, "max":1000},
+//         "num_floors": {"min": 0, "max":1000},
+//         "year_built": {"min": "1970-01-01", "max":},
+//         "listed_date": {"min": 0, "max":1000},
+//         "property_type": "other"
 //     },
 //     "sort": {
 //         "parameter": "price",

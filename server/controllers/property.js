@@ -5,25 +5,28 @@ import Broker from '../models/broker.js';
 const list = async (req, res) => {
     try {
         let properties = await Property.findAll({
-            attributes: ['id',
+            attributes: [
+                'id',
                 'active',
-                'civicAddress',
-                'aptNumber',
+                'civic_address',
+                'apt_number',
                 'street',
                 'neighbourhood',
                 'city',
                 'province',
-                'postalCode',
+                'postal_code',
                 'country',
-                'listingType',
+                'listing_type',
                 'price',
-                'livingArea',
-                'propertyArea',
-                'numOfBedrooms',
-                'numOfBathrooms',
-                'numOfFloors',
-                'yearBuilt',
-                'listedDate']
+                'living_area',
+                'property_area',
+                'num_bedrooms',
+                'num_bathrooms',
+                'num_floors',
+                'year_built',
+                'listed_date',
+                'property_type'
+            ]
         });
 
         if (!properties) {
@@ -43,25 +46,27 @@ const list = async (req, res) => {
 const listByType = async (req, res) => {
     try {
         let properties = await Property.findAll({
-            attributes: ['id',
+            attributes: [
+                'id',
                 'active',
-                'civicAddress',
-                'aptNumber',
+                'civic_address',
+                'apt_number',
                 'street',
                 'neighbourhood',
                 'city',
                 'province',
-                'postalCode',
+                'postal_code',
                 'country',
-                'listingType',
+                'listing_type',
                 'price',
-                'livingArea',
-                'propertyArea',
-                'numOfBedrooms',
-                'numOfBathrooms',
-                'numOfFloors',
-                'yearBuilt',
-                'listedDate'
+                'living_area',
+                'property_area',
+                'num_bedrooms',
+                'num_bathrooms',
+                'num_floors',
+                'year_built',
+                'listed_date',
+                'property_type'
             ],
             where: {listingtype: req.params.type}
         });
@@ -83,25 +88,27 @@ const listByType = async (req, res) => {
 const listByTypeId = async (req, res) => {
     try {
         let properties = await Property.findAll({
-            attributes: ['id',
+            attributes: [
+                'id',
                 'active',
-                'civicAddress',
-                'aptNumber',
+                'civic_address',
+                'apt_number',
                 'street',
                 'neighbourhood',
                 'city',
                 'province',
-                'postalCode',
+                'postal_code',
                 'country',
-                'listingType',
+                'listing_type',
                 'price',
-                'livingArea',
-                'propertyArea',
-                'numOfBedrooms',
-                'numOfBathrooms',
-                'numOfFloors',
-                'yearBuilt',
-                'listedDate'
+                'living_area',
+                'property_area',
+                'num_bedrooms',
+                'num_bathrooms',
+                'num_floors',
+                'year_built',
+                'listed_date',
+                'property_type'
             ],
             where: {
                 id: req.params.id,
@@ -126,25 +133,27 @@ const listByTypeId = async (req, res) => {
 const listById = async (req, res) => {
     try {
         let property = await Property.findOne({
-            attributes: ['id',
+            attributes: [
+                'id',
                 'active',
-                'civicAddress',
-                'aptNumber',
+                'civic_address',
+                'apt_number',
                 'street',
                 'neighbourhood',
                 'city',
                 'province',
-                'postalCode',
+                'postal_code',
                 'country',
-                'listingType',
+                'listing_type',
                 'price',
-                'livingArea',
-                'propertyArea',
-                'numOfBedrooms',
-                'numOfBathrooms',
-                'numOfFloors',
-                'yearBuilt',
-                'listedDate'
+                'living_area',
+                'property_area',
+                'num_bedrooms',
+                'num_bathrooms',
+                'num_floors',
+                'year_built',
+                'listed_date',
+                'property_type'
             ],
             where: {id: req.params.id}
         });
@@ -166,25 +175,27 @@ const listById = async (req, res) => {
 const listByBrokerId = async (req, res) => {
     try {
         const properties = await Property.findAll({
-            attributes: ['id',
+            attributes: [
+                'id',
                 'active',
-                'civicAddress',
-                'aptNumber',
+                'civic_address',
+                'apt_number',
                 'street',
                 'neighbourhood',
                 'city',
                 'province',
-                'postalCode',
+                'postal_code',
                 'country',
-                'listingType',
+                'listing_type',
                 'price',
-                'livingArea',
-                'propertyArea',
-                'numOfBedrooms',
-                'numOfBathrooms',
-                'numOfFloors',
-                'yearBuilt',
-                'listedDate'
+                'living_area',
+                'property_area',
+                'num_bedrooms',
+                'num_bathrooms',
+                'num_floors',
+                'year_built',
+                'listed_date',
+                'property_type'
             ],
             include: [
                 {

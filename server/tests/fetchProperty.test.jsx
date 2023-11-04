@@ -5,24 +5,24 @@ test("Search API should return expected results", async (t) => {
   // Define the search query
   const query = {
     fields: {
-      civicAddress: "",
-      aptNumber: "",
+      civic_address: "",
+      apt_number: "",
       street: "Mcguire",
       neighbourhood: "",
       city: "Montreal",
       province: "Quebec",
-      postalCode: "",
+      postal_code: "",
       country: "Canada",
-      listingType: "sale",
+      listing_type: "sale",
       price: {},
-      livingArea: { "min": 0, "max": 9999 },
-      propertyArea: { "min": 0, "max": 99999 },
-      numOfBedrooms: { "min": 0, "max": 1000 },
-      numOfBathrooms: { "min": 0, "max": 1000 },
-      numOfFloors: { "min": 0, "max": 1000 },
-      yearBuilt: { "min": "1970-01-01" },
-      listedDate: {},
-      propertyType: ""
+      living_area: { "min": 0, "max": 9999 },
+      property_area: { "min": 0, "max": 99999 },
+      num_bedrooms: { "min": 0, "max": 1000 },
+      num_bathrooms: { "min": 0, "max": 1000 },
+      num_floors: { "min": 0, "max": 1000 },
+      year_built: { "min": "1970-01-01" },
+      listed_date: {},
+      property_type: ""
     },
     sort: {
       parameter: "price",

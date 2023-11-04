@@ -12,8 +12,7 @@ const Broker = sequelize.define(
             allowNull: false
         },
         active: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
+            type: DataTypes.BOOLEAN
         },
         user_id: {
             type: DataTypes.BIGINT,
@@ -26,7 +25,6 @@ const Broker = sequelize.define(
         },
         license_number: {
             type: DataTypes.STRING,
-            allowNull: false,
             unique: true
         },
         agency: {
@@ -37,7 +35,7 @@ const Broker = sequelize.define(
         },
         phone: {
             type: DataTypes.STRING
-        },
+        }
     },
     {
         timestamps: false,
@@ -50,7 +48,5 @@ const Broker = sequelize.define(
 
 User.hasOne(Broker, { foreignKey: 'user_id' });
 Broker.belongsTo(User);
-
-
 
 export default Broker;

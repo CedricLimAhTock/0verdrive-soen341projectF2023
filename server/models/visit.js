@@ -37,7 +37,7 @@ const Visit = sequelize.define(
             type: DataTypes.DATE
         },
         status:{
-            type: DataTypes.ENUM('requested', 'booked', 'completed', 'other')
+            type: DataTypes.ENUM('requested', 'booked', 'denied', 'completed', 'other')
         },
         message:{
             type: DataTypes.TEXT

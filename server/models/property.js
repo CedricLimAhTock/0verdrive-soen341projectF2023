@@ -13,10 +13,10 @@ const Property = sequelize.define(
         active: {
             type: DataTypes.BOOLEAN,
         },
-        civicAddress: {
+        civic_address: {
             type: DataTypes.STRING
         },
-        aptNumber: {
+        apt_number: {
             type: DataTypes.STRING,
             default: null
         },
@@ -32,45 +32,46 @@ const Property = sequelize.define(
         province: {
             type: DataTypes.STRING,
         },
-        postalCode: {
+        postal_code: {
             type: DataTypes.STRING,
         },
         country: {
             type: DataTypes.STRING,
         },
-        listingType: {
+        listing_type: {
             type: DataTypes.ENUM('sale', 'rent'),
         },
         price: {
             type: DataTypes.FLOAT
         },
-        livingArea: {
+        living_area: {
             type: DataTypes.FLOAT
         },
-        propertyArea: {
+        property_area: {
             type: DataTypes.FLOAT,
         },
-        numOfBedrooms: {
+        num_bedrooms: {
             type: DataTypes.TINYINT,
         },
-        numOfBathrooms: {
+        num_bathrooms: {
             type: DataTypes.TINYINT,
         },
-        numOfFloors: {
+        num_floors: {
             type: DataTypes.TINYINT,
         },
-        yearBuilt: {
+        year_built: {
             type: DataTypes.DATEONLY,
         },
-        listedDate: {
+        listed_date: {
             type: DataTypes.DATEONLY,
         },
-        propertyType: {
+        property_type: {
             type: DataTypes.ENUM('single-family', 'duplex', 'triplex', 'quadruplex', 'townhouse', 'studio', 'condominium', 'other'),
         }
     },
     {
         timestamps: false,
+        underscored: true,
         freezeTableName: true,
         tableName: "property",
     }

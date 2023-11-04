@@ -34,7 +34,7 @@ const User_role = sequelize.define(
         timestamps: false,
         underscored: true,
         freezeTableName: true,
-        tableName: "user_role",
+        tableName: "user_role"
     }
 );
 
