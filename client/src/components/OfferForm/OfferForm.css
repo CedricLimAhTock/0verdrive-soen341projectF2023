@@ -1,0 +1,21 @@
+.left-right-visit {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .right-visit {
+    border-radius: 20px;
+    background-color: #f5f5f5;
+    padding: 10px;
+  }
+  
+  .left-visit {
+    color: rgb(0, 0, 0, 0.6);
+    margin-right: 10px;
+  }
+  
+  .visit-form {
+    width: 75% !important;
+  }

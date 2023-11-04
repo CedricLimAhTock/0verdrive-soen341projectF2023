@@ -205,10 +205,38 @@ const create = async (req, res) => {
 
         // check user
         const user = await User.findOne({ where: { id: data.user_id } });
+        console.log(user);
         // check broker
         const broker = await Broker.findOne({ where: { id: data.broker_id } });
+        console.log(broker);
+
         // check property
-        const property = await Property.findOne({ where: { id: data.property_id } });
+        const property = await Property.findOne({
+            attributes: [
+                'id',
+                'active',
+                'civicAddress',
+                'aptNumber',
+                'street',
+                'neighbourhood',
+                'city',
+                'province',
+                'postalCode',
+                'country',
+                'listingType',
+                'price',
+                'livingArea',
+                'propertyArea',
+                'numOfBedrooms',
+                'numOfBathrooms',
+                'numOfFloors',
+                'yearBuilt',
+                'listedDate'
+            ],
+            where: { id: data.property_id }
+        });
+        console.log(property);
+
 
         if (!user || !broker || !property) {
             return res.status(400).json({message: "Invalid id for user, property, or broker."});
@@ -225,7 +253,7 @@ const create = async (req, res) => {
         } else {
             res.status(200).send(offer);
         }
-        
+
     } catch (error) {
         console.log(error);
         res.status(500).json({

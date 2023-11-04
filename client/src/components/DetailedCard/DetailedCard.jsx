@@ -146,6 +146,7 @@ const DetailedCard = ({ property }) => {
             isFormOpen={isOfferForm}
             closeForm={toggleOfferForm}
             property={property}
+            address={address}
           />
         )}
       </div>
