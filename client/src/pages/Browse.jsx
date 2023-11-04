@@ -4,11 +4,13 @@ import "./styles/Browse.css";
 import PropertyCard from "../components/PropertyCard/PropertyCard";
 import Search from "../assets/searchIcon-browse.svg";
 import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 const Browse = () => {
   const [propertyData, setPropertyData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const propertiesPerPage = 8;
+  const [decodedToken, setDecodedToken] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,7 +34,63 @@ const Browse = () => {
     };
 
     fetchData();
+
+    // fetch token from local storage & decode
+    const token = localStorage.getItem("jwtToken");
+    if (!token) {
+      console.log("No token found"); 
+      null;
+    } else {
+      const decodedToken = jwt_decode(token);
+      setDecodedToken(decodedToken);
+    }
+
+
   }, []);
+
+  const searchData = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/property/search",
+        {
+          fields: {
+            numOfBedrooms: { min: minBeds },
+            price: { min: minPrice, max: maxPrice },
+            numOfBathrooms: { min: minBaths },
+            manyTerms: manyTerms,
+          },
+          sort: {
+            parameter: "price",
+            order: "asc",
+          },
+        }
+      );
+      const dataWithImages = response.data.map((property) => {
+        if (!property.images || property.images.length === 0) {
+          property.images = [
+            {
+              original: "https://picsum.photos/id/1018/1000/600/",
+            },
+          ];
+        }
+        return property;
+      });
+      setPropertyData(dataWithImages);
+    } catch (error) {
+      console.error("Error in Browse.jsx", error);
+    }
+  };
+
+  // const [city, setCity] = useState("");
+  // const [neighbourhood, setNeighbourhood] = useState("");
+  // const [province, setProvince] = useState("");
+  // const [country, setCountry] = useState("");
+  const [minBeds, setMinBeds] = useState("");
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
+  const [minBaths, setMinBaths] = useState("");
+  const [manyTerms, setManyTerms] = useState("");
 
   const maxVisiblePages = 5;
   const startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
@@ -97,6 +155,8 @@ const Browse = () => {
               className="search-area"
               type="text"
               placeholder="City, Neighbourhood, Address..."
+              value={manyTerms}
+              onChange={(e) => setManyTerms(e.target.value)}
             ></input>
             <input
               className="search-select"
@@ -107,23 +167,31 @@ const Browse = () => {
               className="search-select"
               type="select"
               placeholder="Min Price"
+              value={minPrice}
+              onChange={(e) => setMinPrice(e.target.value)}
             ></input>
             <input
               className="search-select"
               type="select"
               placeholder="Max Price"
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(e.target.value)}
             ></input>
             <input
               className="search-select"
               type="select"
               placeholder="Beds"
+              value={minBeds}
+              onChange={(e) => setMinBeds(e.target.value)}
             ></input>
             <input
               className="search-select-baths"
               type="select"
               placeholder="Baths"
+              value={minBaths}
+              onChange={(e) => setMinBaths(e.target.value)}
             ></input>
-            <input type="image" src={Search}></input>
+            <input type="image" src={Search} onClick={searchData}></input>
           </form>
         </div>
       </div>
@@ -135,6 +203,7 @@ const Browse = () => {
               key={index}
               className="property-card"
               onEventClick={onEventClick}
+              decodedToken={decodedToken}
             />
           ))}
         </div>
