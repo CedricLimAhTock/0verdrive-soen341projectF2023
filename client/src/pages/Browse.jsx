@@ -40,11 +40,15 @@ const Browse = () => {
       const response = await axios.get(
         "http://localhost:8080/property/search",
         {
-          params: {
+          fields: {
             numOfBedrooms: { min: minBeds },
             price: { min: minPrice, max: maxPrice },
             numOfBathrooms: { min: minBaths },
             manyTerms: manyTerms,
+          },
+          sort: {
+            parameter: "price",
+            order: "asc",
           },
         }
       );
