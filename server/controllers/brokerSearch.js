@@ -6,6 +6,7 @@ import { Op } from 'sequelize';
 const query = async (req, res) => {
     try {
         let fields = req.body.fields;
+        let sort = req.body.sort;
         
         let q = {};
         let u = {};
