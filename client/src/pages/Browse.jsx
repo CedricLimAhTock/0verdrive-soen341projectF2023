@@ -34,9 +34,20 @@ const Browse = () => {
     fetchData();
   }, []);
 
-  const searchData = async () => {
+  const searchData = async (event) => {
+    event.preventDefault();
     try {
-      const response = await axios.get("http://localhost:8080/property/");
+      const response = await axios.get(
+        "http://localhost:8080/property/search",
+        {
+          params: {
+            numOfBedrooms: { min: minBeds },
+            price: { min: minPrice, max: maxPrice },
+            numOfBathrooms: { min: minBaths },
+            manyTerms: manyTerms,
+          },
+        }
+      );
       const dataWithImages = response.data.map((property) => {
         if (!property.images || property.images.length === 0) {
           property.images = [
@@ -53,10 +64,10 @@ const Browse = () => {
     }
   };
 
-  const [city, setCity] = useState("");
-  const [neighbourhood, setNeighbourhood] = useState("");
-  const [province, setProvince] = useState("");
-  const [country, setCountry] = useState("");
+  // const [city, setCity] = useState("");
+  // const [neighbourhood, setNeighbourhood] = useState("");
+  // const [province, setProvince] = useState("");
+  // const [country, setCountry] = useState("");
   const [minBeds, setMinBeds] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");

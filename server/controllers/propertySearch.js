@@ -21,27 +21,43 @@ const query = async (req, res) => {
     sort.order = sort.order == "asc" ? "asc" : "desc";
 
     let q = {};
-    if (fields.civicAddress) {
-      q.civicAddress = { [Op.substring]: fields.civicAddress };
-    }
-    if (fields.street) {
-      q.street = { [Op.substring]: fields.street };
-    }
-    if (fields.neighbourhood) {
-      q.neighbourhood = { [Op.substring]: fields.neighbourhood };
-    }
-    if (fields.city) {
-      q.city = { [Op.substring]: fields.city };
-    }
-    if (fields.province) {
-      q.province = { [Op.substring]: fields.province };
-    }
-    if (fields.postalCode) {
+    // if (fields.civicAddress) {
+    //   q.civicAddress = { [Op.substring]: fields.civicAddress };
+    // }
+    // if (fields.street) {
+    //   q.street = { [Op.substring]: fields.street };
+    // }
+    // if (fields.neighbourhood) {
+    //   q.neighbourhood = { [Op.substring]: fields.neighbourhood };
+    // }
+    // if (fields.city) {
+    //   q.city = { [Op.substring]: fields.city };
+    // }
+    // if (fields.province) {
+    //   q.province = { [Op.substring]: fields.province };
+    // }
+    // if (fields.postalCode) {
+    //   q.postalCode = fields.postalCode;
+    // }
+    // if (fields.country) {
+    //   q.country = { [Op.substring]: fields.country };
+    // }
+    if (fields.manyTerms) {
+      let terms = fields.manyTerms.split(" ");
+
+      q.civicAddress = {
+        [Op.or]: terms.map((term) => ({ [Op.substring]: term })),
+      };
+      q.street = { [Op.or]: terms.map((term) => ({ [Op.substring]: term })) };
+      q.neighbourhood = {
+        [Op.or]: terms.map((term) => ({ [Op.substring]: term })),
+      };
+      q.city = { [Op.or]: terms.map((term) => ({ [Op.substring]: term })) };
+      q.province = { [Op.or]: terms.map((term) => ({ [Op.substring]: term })) };
       q.postalCode = fields.postalCode;
+      q.country = { [Op.or]: terms.map((term) => ({ [Op.substring]: term })) };
     }
-    if (fields.country) {
-      q.country = { [Op.substring]: fields.country };
-    }
+
     if (fields.price) {
       q.price = {
         [Op.gte]: !fields.price.min ? 0 : fields.price.min,
@@ -127,6 +143,7 @@ const query = async (req, res) => {
         "numOfFloors",
         "yearBuilt",
         "listedDate",
+        "manyTerms",
       ],
       where: q,
       order: [[sort.parameter, sort.order]],
