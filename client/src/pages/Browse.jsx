@@ -55,9 +55,9 @@ const Browse = () => {
         "http://localhost:8080/property/search",
         {
           fields: {
-            numOfBedrooms: { min: minBeds },
             price: { min: minPrice, max: maxPrice },
-            numOfBathrooms: { min: minBaths },
+            num_bedrooms: { min: minBeds },
+            num_bathrooms: { min: minBaths },
             manyTerms: manyTerms,
           },
           sort: {

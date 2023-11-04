@@ -1,4 +1,6 @@
 import Property_favourite from "../models/property_favourite.js";
+import User from "../models/user.js";
+import Property from "../models/property.js";
 
 const list = async (req,res) => {
     try {
@@ -26,7 +28,7 @@ const listById = async (req,res) => {
         });
 
         if (!favourite){
-            return res.status(400).json();
+            return res.status(400).json({});
         } else {
             res.status(200).send(favourite);
         }
@@ -38,6 +40,7 @@ const listById = async (req,res) => {
         });
     }
 }
+
 
 const listByUserId = async (req,res) => {
     try {
@@ -83,26 +86,38 @@ const listByPropertyId = async (req,res) => {
 
 const create = async (req, res) => {
     try {
-        let data = req.body;
+        const data = req.body;
 
-        let listing = await Property_favourite.findOne({
+        if (!data.user_id || !data.property_id) {
+            return res.status(400).json({ message: "user or property id cannot be null." });
+        }        
+
+        let temp = await User.findOne({attributes: ['id'], where: {id: data.user_id }});
+
+        if (!temp) {
+            return res.status(400).json({ message: "invalid user." });
+        }
+
+        temp = await Property.findOne({attributes: ['id'], where: {id: data.property_id }});
+
+        if (!temp) {
+            return res.status(400).json({ message: "invalid property." });
+        }
+
+        const [favourite, created] = await Property_favourite.findOrCreate({
+            attributes: ['id'],
             where: {
                 user_id: data.user_id,
                 property_id: data.property_id
             }
         });
 
-        if (listing) {
+        if (!created) {
             return res.status(400).json({message: "Already exists."});
         } else {
-            listing = await Property_favourite.create({
-                user_id: data.user_id,
-                property_id: data.property_id
-            });
-            
-            res.status(200).send(listing);
+            res.status(200).send(favourite);
         }
-
+        
     } catch (error) {
         console.log(error);
         res.status(500).json({
@@ -111,12 +126,11 @@ const create = async (req, res) => {
     }
 }
 
-//update not needed
-
 
 const destroy = async (req, res) => {
     try {
         const favourite = await Property_favourite.findOne({
+            attributes: ['id'],
             where: {
                 id: req.params.id
             }

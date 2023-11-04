@@ -1,8 +1,8 @@
+import { Op } from "sequelize";
 import User from '../models/user.js';
 import User_role from '../models/user_role.js';
 import Role from '../models/role.js';
 import Broker from '../models/broker.js'; 
-import Property from '../models/property.js';
 import Listing from '../models/listing.js';
 
 const list = async (req, res) => {
@@ -35,7 +35,7 @@ const listById = async (req, res) => {
         });
 
         if (!broker) {
-            res.status(400).json();
+            return res.status(400).json();
         } else {
             res.status(200).send(broker);
         }
@@ -62,9 +62,9 @@ const listByUserId = async (req, res) => {
                     //right: true,  // does a right join
                     include: {
                         model: Role,
-                        required: true, // generate INNER JOIN
-                        attributes: [], // don't return any columns
-                        //right: true,  // does a right join
+                        required: true,
+                        attributes: [], 
+                        //right: true,
                         where: {type: 'broker'}
                     }
                 }
@@ -72,7 +72,7 @@ const listByUserId = async (req, res) => {
         });
 
         if (!broker) {
-            res.status(400).json();
+            return res.status(400).json();
         } else {
             res.status(200).send(broker);
         }
@@ -99,9 +99,9 @@ const listByUsername = async (req, res) => {
                     //right: true,  // does a right join
                     include: {
                         model: Role,
-                        required: true, // generate INNER JOIN
-                        attributes: [], // don't return any columns
-                        //right: true,  // does a right join
+                        required: true,
+                        attributes: [],
+                        //right: true,
                         where: {type: 'broker'}
                     }
                 }
@@ -109,7 +109,7 @@ const listByUsername = async (req, res) => {
         });
 
         if (!broker) {
-            res.status(400).json();
+            return res.status(400).json();
         } else {
             res.status(200).send(broker);
         }
@@ -128,19 +128,20 @@ const listByPropertyId = async (req, res) => {
             attributes: ['id', 'active', 'user_id', 'license_number', 'agency', 'email', 'phone'],
             include: [
                 {
-                model: Listing,
-                required: true,
-                attributes: [],
-                where: { property_id: req.params.id }
-            },
-            {
-                model: User,
-                required: true
-            }]
+                    model: Listing,
+                    required: true,
+                    attributes: [],
+                    where: { property_id: req.params.id }
+                },
+                {
+                    model: User,
+                    required: true
+                }
+            ]
         });
 
         if (!broker) {
-            res.status(400).json();
+            return res.status(400).json();
         } else {
             res.status(200).send(broker);
         }
@@ -155,18 +156,18 @@ const listByPropertyId = async (req, res) => {
 
 const create = async (req, res) => {
     try {
-        let data = req.body;
+        const data = req.body;
 
-        if (!data.user_id) {
-            return res.status(400).json({ message: "user_id cannot be null." });
+        if (!data.user_id || !data.license_number) {
+            return res.status(400).json({ message: "user_id or license cannot be null." });
         }        
 
+        // check if user id has role broker
         const temp = await User.findOne({
             include: {
                 model: User_role,
-                required: true, // do INNER JOIN
-                attributes: [], // don't return any columns
-                //right: true,    //does a right join
+                required: true,
+                attributes: [],
                 include:
                 {
                     model: Role,
@@ -183,15 +184,25 @@ const create = async (req, res) => {
         }
 
         const [broker, created] = await Broker.findOrCreate({
-            attributes: ['id', 'active', 'user_id', 'license_number', 'agency', 'email', 'phone'],
-            where: data,
+            attributes: ['id'],
+            where: {
+                [Op.or]: {
+                    user_id: data.user_id,
+                    license_number: data.license_number
+                }
+            },
             defaults: {
-                active: 1
+                active: data.active,
+                user_id: data.user_id,
+                license_number: data.license_number,
+                agency: data.agency,
+                email: data.email,
+                phone: data.phone 
             }
         });
 
         if (!created) {
-            return res.status(400).json({message: "Already exists."});
+            return res.status(400).json({ message: "Already exists." });
         } else {
             res.status(200).send(broker);
         }
@@ -207,22 +218,40 @@ const create = async (req, res) => {
 const update = async (req, res) => {
     try {
         let data = req.body;
+        let broker_id = req.body.id;
 
         if(data.id == null){
             return res.status(400).json();
         }
 
+        // don't allow updating user id
         delete data.user_id;
+        delete data.id;
 
-        const broker = await Broker.findOne({where: {id: data.id}});
+        let broker = await Broker.findOne({where: {id: broker_id}});
 
         if (!broker) {
-            return res.status(400).json({ message: "broker does nto exist." });
-        }   
+            return res.status(400).json({ message: "broker does not exist." });
+        }
 
-        await Broker.update(data, {where: {id: data.id}});
+        broker = await Broker.findOne({
+            where: {
+                [Op.or]: [
+                    { license_number: data.license_number },
+                    { email: data.email },
+                    { phone: data.phone }
+                ],
+                [Op.not]: {id: broker_id }
+            }
+        });
 
-        res.status(200).json();
+        if (broker) {
+            return res.status(400).json({ message: "data not unique." });
+        }
+
+        broker = await Broker.update(data, {where: { id: broker_id }});
+
+        res.status(200).send(broker);
 
     } catch (error) {
         console.log(error);
@@ -236,21 +265,41 @@ const update = async (req, res) => {
 const updateById = async (req, res) => {
     try {
         let data = req.body;
+        let broker_id = req.params.id;
 
-        if (req.params.id == null || data == null) {
+        if (broker_id == null || data == null) {
             return res.status(400).json();
         }
-        delete data.user_id; 
 
-        const broker = await Broker.findOne({where: {id: req.params.id}});
+        // don't allow updating user id
+        delete data.user_id;
+        delete data.id;
+
+        let broker = await Broker.findOne({where: {id: broker_id}});
 
         if (!broker) {
-            return res.status(400).json({ message: "broker does nto exist." });
+            return res.status(400).json({ message: "broker does not exist." });
         }
 
-        
-        await Broker.update(data, {where: {id: req.params.id}});
-        res.status(200).json();
+        broker = await Broker.findOne({
+            where: {
+                [Op.or]: [
+                    { license_number: data.license_number },
+                    { email: data.email },
+                    { phone: data.phone }
+                ],
+                [Op.not]: {id: broker_id }
+            }
+        });
+
+        if (broker) {
+            return res.status(400).json({ message: "data not unique." });
+        }
+
+        broker = await Broker.update(data, {where: { id: broker_id }});
+
+        res.status(200).send(broker);
+
 
     } catch (error) {
         console.log(error);
@@ -264,6 +313,7 @@ const updateById = async (req, res) => {
 const destroy = async (req, res) => {
     try {
         const broker = await Broker.findOne({
+            attributes: ['id'],
             where: {id: req.params.id}
         });
 

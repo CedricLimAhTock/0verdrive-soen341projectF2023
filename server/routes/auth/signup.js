@@ -10,19 +10,29 @@ const router = express.Router();
 router.post('/', async (req, res) => {
   try {
     let data = req.body;
-      
+
+    if (!data.username || !data.password) {
+      return res.status(400).json({ message: "username and password cannot be null." });
+    }
+
     const hashedPassword = await bcrypt.hash(data.password, 10);
     data.password = hashedPassword;
 
-    const role = await Role.findOne({ where: { type: data.userRole.toLowerCase().split(" ").join("") } });
-        
+    const role = await Role.findOne({
+      attributes: ['id', 'active', 'type'],
+      where: {
+        type: data.userRole.toLowerCase().split(" ").join("")
+      }
+    });
+    
     if (!role) {
-      res.status(400).json({ message: "Role does not exist." });
+      res.status(404).json({ message: "Role does not exist." });
     }
 
     delete data.userRole;
 
     const [user, created] = await User.findOrCreate({
+      attributes: ['id'],
       where: data,
       defaults: {
         active: 1,
@@ -34,7 +44,7 @@ router.post('/', async (req, res) => {
     });
     
     if (!created) {
-      res.status(400).json({ message: "Username already taken." });
+      return res.status(400).json({ message: "Username already taken." });
     } else {
       // each new user must have a role associated
       const user_role = await User_role.create({
@@ -45,7 +55,7 @@ router.post('/', async (req, res) => {
 
       if (!user_role) {
         user.destroy();
-        res.status(400).json({ message: "Failed to assign role." });
+        return res.status(400).json({ message: "Failed to assign role." });
       }
 
       // if user is a broker, create an entry in broker table
@@ -61,7 +71,7 @@ router.post('/', async (req, res) => {
 
         if (!broker) {
           user.destroy();
-          res.status(400).json({ message: "Failed to add broker entry." });
+          return res.status(400).json({ message: "Failed to add broker entry." });
         }
       }
 

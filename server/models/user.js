@@ -36,12 +36,12 @@ const User = sequelize.define(
         },
         phone: {
             type: DataTypes.STRING,
-        },
+        }
     },
     {
         timestamps: false,
         freezeTableName: true,
-        tableName: "user",
+        tableName: "user"
     }
 );
 

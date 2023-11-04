@@ -10,20 +10,22 @@ const User_role = sequelize.define(
             type: DataTypes.BIGINT,
             primaryKey: true,
             autoIncrement: true,
-            allowNull: false,
+            allowNull: false
         },
         active: {
             type: DataTypes.BOOLEAN,
         },
         user_id: {
             type: DataTypes.BIGINT,
+            allowNull: false,
             references: {
                 model: User,
                 key: 'id',
-            },
+            }
         },
         role_id: {
             type: DataTypes.BIGINT,
+            allowNull: false,
             references: {
                 model: Role,
                 key: 'id',
@@ -34,7 +36,7 @@ const User_role = sequelize.define(
         timestamps: false,
         underscored: true,
         freezeTableName: true,
-        tableName: "user_role",
+        tableName: "user_role"
     }
 );
 
