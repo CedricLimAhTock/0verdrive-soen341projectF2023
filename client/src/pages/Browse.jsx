@@ -34,6 +34,25 @@ const Browse = () => {
     fetchData();
   }, []);
 
+  const searchData = async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/property/");
+      const dataWithImages = response.data.map((property) => {
+        if (!property.images || property.images.length === 0) {
+          property.images = [
+            {
+              original: "https://picsum.photos/id/1018/1000/600/",
+            },
+          ];
+        }
+        return property;
+      });
+      setPropertyData(dataWithImages);
+    } catch (error) {
+      console.error("Error in Browse.jsx", error);
+    }
+  };
+
   const maxVisiblePages = 5;
   const startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
   const endPage = Math.min(
