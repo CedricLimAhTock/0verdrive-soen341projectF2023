@@ -25,8 +25,8 @@ const router = express.Router();
 //         "num_bathrooms": {"min": 0, "max":1000},
 //         "num_floors": {"min": 0, "max":1000},
 //         "year_built": {"min": "1970-01-01", "max":},
-//         "listed_date": {"min": 0, "max":1000},
-//         "property_type": "other"
+//         "listed_date": {"min": "1970-01-01", "max":"9999-01-01"},
+//         "propertyType": "other"
 //     },
 //     "sort": {
 //         "parameter": "price",

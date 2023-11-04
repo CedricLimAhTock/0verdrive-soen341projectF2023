@@ -43,9 +43,8 @@ const Property_favourite = sequelize.define(
     }
 );
 
-
 User.hasMany(Property_favourite, { foreignKey: 'user_id' });
-Property.hasMany(Property_favourite, { foreignKey: 'property_id' });
+Property.hasOne(Property_favourite, { foreignKey: 'property_id' });
 Property_favourite.belongsTo(Property);
 Property_favourite.belongsTo(User);
 

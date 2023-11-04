@@ -84,7 +84,6 @@ const listByPropertyId = async (req,res) => {
 }
 
 
-
 const create = async (req, res) => {
     try {
         const data = req.body;
