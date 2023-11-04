@@ -4,11 +4,13 @@ import "./styles/Browse.css";
 import PropertyCard from "../components/PropertyCard/PropertyCard";
 import Search from "../assets/searchIcon-browse.svg";
 import { useNavigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 const Browse = () => {
   const [propertyData, setPropertyData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const propertiesPerPage = 8;
+  const [decodedToken, setDecodedToken] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,6 +34,18 @@ const Browse = () => {
     };
 
     fetchData();
+
+    // fetch token from local storage & decode
+    const token = localStorage.getItem("jwtToken");
+    if (!token) {
+      console.log("No token found"); 
+      null;
+    } else {
+      const decodedToken = jwt_decode(token);
+      setDecodedToken(decodedToken);
+    }
+
+
   }, []);
 
   const searchData = async () => {
@@ -154,6 +168,7 @@ const Browse = () => {
               key={index}
               className="property-card"
               onEventClick={onEventClick}
+              decodedToken={decodedToken}
             />
           ))}
         </div>
