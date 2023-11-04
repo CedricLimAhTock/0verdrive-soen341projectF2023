@@ -158,7 +158,27 @@ def insert_listings(connection, cursor, filepath):
     records = cursor.fetchone()
     print(f"Inserted {records} records into table listings.")
 
-
+def insert_favourites(connection, cursor, filepath):
+    
+    path = pathlib.Path(filepath)
+    with open(path) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        line_count = 0
+        for row in csv_reader:
+            if line_count == 0:
+                line_count += 1
+            else:
+                query = f"""INSERT INTO `property_favourite` (`id`, `property_id`, `user_id`) 
+                VALUES (0, {row[1]}, {row[2]})"""
+                #print(query)
+                cursor.execute(query)
+        connection.commit()
+    
+    cursor.execute("select COUNT(*) from property_favourite")
+    records = cursor.fetchone()
+    print(f"Inserted {records} records into table favourite.")
+    
+    
 if __name__ == "__main__":
     
     parser = argparse.ArgumentParser(description="Database table populator", add_help=False)
@@ -187,12 +207,15 @@ if __name__ == "__main__":
             insert_property(connection, cursor, "./property.csv")
             print("Populating table property_amenity...")
             insert_property_amenity(connection, cursor, "./property_amenity.csv")
-            print("Populating table visit...")
-            insert_visits(connection, cursor, "./visit.csv")
             print("Populating table broker...")
             insert_brokers(connection, cursor, "./broker.csv")
             print("Populating table listing...")
             insert_listings(connection, cursor, "./listings.csv")
+            print("Populating table visit...")
+            insert_visits(connection, cursor, "./visits.csv")
+            print("Populating table favourite...")
+            insert_favourites(connection, cursor, "./favourites.csv")
+            
     except Error as e:
         print("Error while connecting to MySQL", e)
     finally:
