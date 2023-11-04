@@ -10,7 +10,7 @@ const Listing = sequelize.define(
             type: DataTypes.BIGINT,
             primaryKey: true,
             autoIncrement: true,
-            allowNull: false,
+            allowNull: false
         },
         active: {
             type: DataTypes.BOOLEAN
@@ -29,7 +29,7 @@ const Listing = sequelize.define(
             references: {
                 model: Property,
                 key: 'id'
-            },
+            }
         },
         title: {
             type: DataTypes.STRING
@@ -42,7 +42,7 @@ const Listing = sequelize.define(
         timestamps: false,
         underscored: true,
         freezeTableName: true,
-        tableName: "listings",
+        tableName: "listings"
     }
 );
 

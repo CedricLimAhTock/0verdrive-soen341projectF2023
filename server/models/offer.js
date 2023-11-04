@@ -14,7 +14,7 @@ const Offer = sequelize.define(
             allowNull: false
         },
         active: {
-            type: DataTypes.BOOLEAN,
+            type: DataTypes.BOOLEAN
         },
         parent_id: {
             type: DataTypes.BIGINT,
@@ -46,7 +46,7 @@ const Offer = sequelize.define(
             references: {
                 model: Property,
                 key: 'id'
-            },
+            }
         },
         price: {
             type: DataTypes.STRING

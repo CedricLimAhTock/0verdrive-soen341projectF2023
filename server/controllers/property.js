@@ -31,9 +31,9 @@ const list = async (req, res) => {
 
         if (!properties) {
             return res.status(400).json({});
+        } else {
+            res.status(200).send(properties);
         }
-        
-        res.status(200).send(properties);
 
     } catch (error) {
         console.log(error);
@@ -68,11 +68,11 @@ const listByType = async (req, res) => {
                 'listed_date',
                 'property_type'
             ],
-            where: {listingtype: req.params.type}
+            where: {listing_type: req.params.type}
         });
 
         if (!properties) {
-            res.status(400).json();
+            return res.status(400).json();
         } else {
             res.status(200).send(properties);
         }
@@ -112,12 +112,12 @@ const listByTypeId = async (req, res) => {
             ],
             where: {
                 id: req.params.id,
-                listingtype: req.params.type
+                listing_type: req.params.type
             }
         });
 
         if (!properties) {
-            res.status(400).json();
+            return res.status(400).json();
         } else {
             res.status(200).send(properties);
         }
@@ -159,7 +159,7 @@ const listById = async (req, res) => {
         });
 
         if (!property) {
-            res.status(400).json();
+            return res.status(400).json();
         } else {
             res.status(200).send(property);
         }
@@ -202,12 +202,10 @@ const listByBrokerId = async (req, res) => {
                     model: Listing,
                     attributes: [], // don't return any columns
                     required: true, // generate INNER JOIN
-                    //right: true,  // does a right join
                     include: {
                         model: Broker,
-                        required: true, // generate INNER JOIN
-                        attributes: [], // don't return any columns
-                        //right: true,  // does a right join
+                        required: true,
+                        attributes: [],
                         where: {
                             id: req.params.id
                         }
@@ -217,7 +215,7 @@ const listByBrokerId = async (req, res) => {
         });
 
         if (!properties) {
-            res.status(400).json();
+            return res.status(400).json();
         } else {
             res.status(200).send(properties);
         }
@@ -258,12 +256,12 @@ const create = async (req, res) => {
 const update = async (req, res) => {
     try {
         if(req.body.id == null){
-            return res.status(400).json();
+            return res.status(400).json({message: "id is null."});
         }
         const property = await Property.findOne({where: {id: req.body.id}});
 
         if (!property) {
-            return res.status(400).json();
+            return res.status(400).json({message: "Does not exist."});
         }
 
         await Property.update(req.body, {where: {id: req.body.id}});
@@ -282,12 +280,12 @@ const update = async (req, res) => {
 const updateById = async (req, res) => {
     try {
         if (req.params.id == null || req.body == null) {
-            return res.status(400).json();
+            return res.status(400).json({message: "id or body is null."});
         }
         const property = await Property.findOne({where: {id: req.params.id}});
 
         if (!property) {
-            return res.status(400).json();
+            return res.status(400).json({message: "Does not exist."});
         }
 
         Property.update(req.body, {where: {id: req.params.id}});

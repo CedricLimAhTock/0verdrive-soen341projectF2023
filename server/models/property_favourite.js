@@ -18,7 +18,7 @@ const Property_favourite = sequelize.define(
             references: {
                 model: Property,
                 key: 'id',
-            },
+            }
         },
         user_id:{
             type: DataTypes.BIGINT,
@@ -26,7 +26,7 @@ const Property_favourite = sequelize.define(
             references: {
                 model: User,
                 key: 'id',
-            },
+            }
         }
     },
     {
