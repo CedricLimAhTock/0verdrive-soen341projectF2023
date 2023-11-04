@@ -1,3 +1,5 @@
+import Broker from "../models/broker.js";
+import Property from "../models/property.js";
 import Listing from "../models/listing.js";
 
 
@@ -6,7 +8,7 @@ const list = async (req, res) => {
         let listings = await Listing.findAll({attributes: ['id', 'active', 'broker_id', 'property_id', 'title', 'description']});
 
         if (!listings) {
-            res.status(400).json({});
+            return res.status(400).json({});
         }
         
         res.status(200).send(listings);
@@ -27,7 +29,7 @@ const listById = async (req, res) => {
         });
 
         if (!listing) {
-            res.status(400).json({});
+            return res.status(400).json({});
         } else {
             res.status(200).send(listing);
         }
@@ -48,7 +50,7 @@ const listByBrokerId = async (req, res) => {
         });
 
         if (!listing) {
-            res.status(400).json();
+            return res.status(400).json();
         } else {
             res.status(200).send(listing);
         }
@@ -63,21 +65,46 @@ const listByBrokerId = async (req, res) => {
 
 const create = async (req, res) => {
     try {
-        let data = req.body;
+        const data = req.body;
+
+        if (!data.broker_id || !data.property_id) {
+            return res.status(400).json({ message: "broker or property id cannot be null." });
+        }        
+
+        let temp = await Broker.findOne({attributes: ['id'], where: {id: data.broker_id }});
+
+        if (!temp) {
+            return res.status(400).json({ message: "broker does not exist." });
+        }
+
+        temp = await Property.findOne({attributes: ['id'], where: {id: data.property_id }});
+
+        if (!temp) {
+            return res.status(400).json({ message: "property does not exist." });
+        }
         
-        const [listing, created] = await Listing.findOrCreate({
+        let listing = await Listing.findOne({
+            attributes: ['id'],
             where: {
                 broker_id: data.broker_id,
-                property_id: data.property_id,
-                title: data.title,
-                description: data.description,
-            },
-            defaults: {
-                active: 1
+                property_id: data.property_id
             }
         });
-        if (!created) {
-            res.status(400).json({message: "Already exists."});
+
+        if (listing) {
+            return res.status(400).json({ message: "listing already exists." });
+        }
+
+        listing = await Listing.create({
+            active: data.active,
+            broker_id: data.broker_id,
+            property_id: data.property_id,
+            title: data.title,
+            description: data.description
+        });
+
+        if (!listing) {
+            return res.status(400).json({message: "Failed to create."});
         } else {
             res.status(200).send(listing);
         }
@@ -94,19 +121,26 @@ const create = async (req, res) => {
 const update = async (req, res) => {
     try {
         let data = req.body;
-        if(data.id == null){
+        let listing_id = req.body.id;
+
+        if(listing_id == null){
             return res.status(400).json();
         }
-        const listing = await Listing.findOne({where: {id: data.id}});
+
+        const listing = await Listing.findOne({attributes: ['id'], where: {id: listing_id}});
 
         if (!listing) {
             return res.status(400).json();
         }
 
-        await Listing.update(data, {where: {id: data.id}});
+        // don't allow updating broker-property
+        delete data.broker_id;
+        delete data.property_id;
+        delete data.id;
 
-        res.status(200).json();
+        const updated = await Listing.update(data, {where: {id: listing_id}});
 
+        res.status(200).send(updated);
     } catch (error) {
         console.log(error);
         res.status(500).json({
@@ -119,20 +153,26 @@ const update = async (req, res) => {
 const updateById = async (req, res) => {
     try {
         let data = req.body;
+        let listing_id = req.params.id;
 
-        if(data == null){
+        if(listing_id == null){
             return res.status(400).json();
         }
-        const listing = await Listing.findOne({where: {id: req.params.id}});
+
+        const listing = await Listing.findOne({attributes: ['id'], where: {id: listing_id}});
 
         if (!listing) {
             return res.status(400).json();
         }
 
-        await Listing.update(data, {where: {id: req.params.id}});
+        // don't allow updating broker-property
+        delete data.broker_id;
+        delete data.property_id;
+        delete data.id;
 
-        res.status(200).json();
+        const updated = await Listing.update(data, {where: {id: listing_id}});
 
+        res.status(200).send(updated);
     } catch (error) {
         console.log(error);
         res.status(500).json({

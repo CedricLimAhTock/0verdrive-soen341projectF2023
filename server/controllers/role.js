@@ -3,7 +3,9 @@ import Role from '../models/role.js';
 
 const list = async (req, res) => {
     try {
-        let roles = await Role.findAll();
+        let roles = await Role.findAll(
+            {attributes: ['id', 'active', 'type']}
+        );
 
         if (!roles) {
             res.status(400).json({});
@@ -22,6 +24,7 @@ const list = async (req, res) => {
 const listById = async (req, res) => {
     try {
         let role = await Role.findOne({
+            attributes: ['id', 'active', 'type'],
             where: {id: req.params.id}
         });
 

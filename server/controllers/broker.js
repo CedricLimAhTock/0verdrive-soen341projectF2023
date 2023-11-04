@@ -183,10 +183,7 @@ const create = async (req, res) => {
             return res.status(400).json({ message: "user_id does not belong to any broker." });
         }
 
-        let broker = await Broker.findOne({
-            attributes: ['id', 'active', 'user_id', 'license_number', 'agency', 'email', 'phone'],
-            where: { user_id: data.user_id }
-        });
+        let broker = await Broker.findOne({where: { user_id: data.user_id }});
 
         if (broker) {
             return res.status(400).json({ message: "Already exists." });

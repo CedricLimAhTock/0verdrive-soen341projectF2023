@@ -14,8 +14,11 @@ router.post('/', async (req, res) => {
     const hashedPassword = await bcrypt.hash(data.password, 10);
     data.password = hashedPassword;
 
-    const role = await Role.findOne({ where: { type: data.userRole.toLowerCase().split(" ").join("") } });
-        
+    const role = await Role.findOne({
+      attributes: ['id', 'active', 'type'],
+      where: { type: data.userRole.toLowerCase().split(" ").join("") }
+    });
+    
     if (!role) {
       res.status(400).json({ message: "Role does not exist." });
     }

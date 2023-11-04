@@ -17,6 +17,7 @@ const Listing = sequelize.define(
         },
         broker_id: {
             type: DataTypes.BIGINT,
+            allowNull: false,
             references: {
                 model: Broker,
                 key: 'id'
@@ -24,6 +25,7 @@ const Listing = sequelize.define(
         },
         property_id: {
             type: DataTypes.BIGINT,
+            allowNull: false,
             references: {
                 model: Property,
                 key: 'id'

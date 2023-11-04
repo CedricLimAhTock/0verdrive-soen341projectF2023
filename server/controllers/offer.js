@@ -205,10 +205,39 @@ const create = async (req, res) => {
 
         // check user
         const user = await User.findOne({ where: { id: data.user_id } });
+        console.log(user);
         // check broker
         const broker = await Broker.findOne({ where: { id: data.broker_id } });
+        console.log(broker);
+
         // check property
-        const property = await Property.findOne({ where: { id: data.property_id } });
+        const property = await Property.findOne({
+            attributes: [
+            'id',
+            'active',
+            'civic_address',
+            'apt_number',
+            'street',
+            'neighbourhood',
+            'city',
+            'province',
+            'postal_code',
+            'country',
+            'listing_type',
+            'price',
+            'living_area',
+            'property_area',
+            'num_bedrooms',
+            'num_bathrooms',
+            'num_floors',
+            'year_built',
+            'listed_date',
+            'property_type'
+            ],
+            where: { id: data.property_id }
+        });
+        console.log(property);
+
 
         if (!user || !broker || !property) {
             return res.status(400).json({message: "Invalid id for user, property, or broker."});
