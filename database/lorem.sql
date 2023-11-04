@@ -207,6 +207,7 @@ CREATE TABLE `property_favourite` (
   `property_id` bigint NOT NULL,
   `user_id` bigint NOT NULL,
   CONSTRAINT `favourite_PK` PRIMARY KEY (`id`),
+  UNIQUE KEY `favourite_UN` (`user_id`,`property_id`),
   CONSTRAINT `favourite_FK` FOREIGN KEY (`property_id`) REFERENCES `property` (`id`) ON DELETE CASCADE,
   CONSTRAINT `favourite_FK_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
