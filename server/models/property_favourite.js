@@ -24,7 +24,7 @@ const Property_favourite = sequelize.define(
             references: {
                 model: User,
                 key: 'id',
-            },
+            }
         }
     },
     {
@@ -32,8 +32,18 @@ const Property_favourite = sequelize.define(
         underscored: true,
         freezeTableName: true,
         tableName: "property_favourite",
+        indexes: [
+            {
+                unique: true,
+                fields: ['user_id', 'property_id']
+            }
+        ]
     }
 );
 
+User.hasMany(Property_favourite, { foreignKey: 'user_id' });
+Property.hasOne(Property_favourite, { foreignKey: 'property_id' });
+Property_favourite.belongsTo(Property);
+Property_favourite.belongsTo(User);
 
 export default Property_favourite;

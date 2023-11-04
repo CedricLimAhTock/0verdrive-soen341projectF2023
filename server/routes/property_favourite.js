@@ -7,7 +7,11 @@ router.get('/', property_favouriteController.list);
 
 router.get('/:id', property_favouriteController.listById);
 
-router.get('/property/:property_id', property_favouriteController.listByPropertyId);
+router.get('/property/:id', property_favouriteController.listByPropertyId);
+
+router.post('/', property_favouriteController.create);
+router.delete('/', property_favouriteController.destroy);
+
 
 //create and delete need to be added
 
