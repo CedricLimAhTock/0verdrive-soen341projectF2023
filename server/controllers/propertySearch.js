@@ -121,7 +121,7 @@ const query = async (req, res) => {
     if (fields.propertyType) {
       q.propertyType = fields.propertyType;
     }
-    console.log(q);
+    console.log(q.jsonToString());
 
     let properties = await Property.findAll({
       attributes: [
