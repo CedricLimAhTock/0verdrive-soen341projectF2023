@@ -1,5 +1,7 @@
+import sequelize from 'sequelize';
 import User_role from '../models/user_role.js';
-
+import User from '../models/user.js';
+import Role from '../models/role.js';
 
 const list = async (req, res) => {
     try {
@@ -64,14 +66,28 @@ const create = async (req, res) => {
     try {
         const data = req.body;
         
+        // prevent foreign key error for out of bound ids
+        const user = await User.findOne({ attributes: [[sequelize.fn('max', sequelize.col('id')), 'id']] });
+
+        if (data.user_id > user.id) {
+            return res.status(400).json({message: "invalid user_id."});
+        }
+
+        const role = await Role.findOne({ attributes: [[sequelize.fn('max', sequelize.col('id')), 'id']]});
+
+        if (data.role_id > role.id) {
+            return res.status(400).json({message: "invalid role_id."});
+        }
+
+        // create only if user doesn't exist
         const [user_role, created] = await User_role.findOrCreate({
             attributes: ['id'],
             where: {
-                user_id: data.user_id,
-                role_id: data.role_id
+                user_id: data.user_id
             },
             defaults: {
-                active: 1
+                active: 1,
+                role_id: data.role_id
             }
         });
         if (!created) {
@@ -100,7 +116,7 @@ const update = async (req, res) => {
         let user_role = await User_role.findOne({where: {id: data.id}});
 
         if (!user_role) {
-            return res.status(400).json();
+            return res.status(400).json({message: "invalid role id."});
         }
 
         delete data.user_id;
@@ -127,7 +143,7 @@ const updateById = async (req, res) => {
         let user_role = await User_role.findOne({where: {id: req.params.id}});
 
         if (!user_role) {
-            return res.status(400).json();
+            return res.status(400).json({message: "invalid role id."});
         }
 
         delete data.user_id;
