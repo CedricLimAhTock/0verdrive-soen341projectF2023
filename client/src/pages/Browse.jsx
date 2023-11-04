@@ -11,6 +11,16 @@ const Browse = () => {
   const propertiesPerPage = 8;
   const navigate = useNavigate();
 
+  const [street, setStreet] = useState("");
+  const [city, setCity] = useState("");
+  const [province, setProvince] = useState("");
+  const [country, setCountry] = useState("");
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
+  const [minBedrooms, setMinBedrooms] = useState("");
+  const [maxBedrooms, setMaxBedrooms] = useState("");
+  const [minBathrooms, setMinBathrooms] = useState("");
+  const [maxBathrooms, setMaxBathrooms] = useState("");
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -36,7 +46,22 @@ const Browse = () => {
 
   const searchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/property/");
+      const searchTerms = {
+        street,
+        city,
+        province,
+        country,
+        minPrice,
+        maxPrice,
+        minBedrooms,
+        maxBedrooms,
+        minBathrooms,
+        maxBathrooms,
+      };
+      const response = await axios.get(
+        "http://localhost:8080/propert/search/",
+        { searchTerms }
+      );
       const dataWithImages = response.data.map((property) => {
         if (!property.images || property.images.length === 0) {
           property.images = [
@@ -116,33 +141,47 @@ const Browse = () => {
               className="search-area"
               type="text"
               placeholder="City, Neighbourhood, Address..."
+              value={street}
+              onChange={(e) => setStreet(e.target.value)}
             ></input>
-            <input
-              className="search-select"
-              type="select"
-              placeholder="For Sale"
-            ></input>
+            <select className="search-select">
+              <option className="sale-text" value="Sale">
+                Sale
+              </option>
+              <option className="sale-text" value="Rent">
+                Rent
+              </option>
+            </select>
             <input
               className="search-select"
               type="select"
               placeholder="Min Price"
+              value={minPrice}
+              onChange={(e) => setMinPrice(e.target.value)}
             ></input>
             <input
               className="search-select"
               type="select"
               placeholder="Max Price"
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(e.target.value)}
             ></input>
             <input
               className="search-select"
               type="select"
               placeholder="Beds"
+              value={minBedrooms}
+              onChange={(e) => setMinBedrooms(e.target.value)}
             ></input>
             <input
               className="search-select-baths"
               type="select"
               placeholder="Baths"
+              value={minBathrooms}
+              onChange={(e) => setMinBathrooms(e.target.value)}
             ></input>
             <input type="image" src={Search}></input>
+            onClick{searchData()}
           </form>
         </div>
       </div>
