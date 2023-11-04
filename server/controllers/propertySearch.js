@@ -6,6 +6,13 @@ const query = async (req, res) => {
     try {
         let fields = req.body.fields;
         let sort = req.body.sort;
+
+        if (!sort.parameter) {
+            sort.parameter = "price";
+        }
+        if (!sort.order) {
+            sort.order = "desc";
+        }
         
         let q = {};
         if (fields.civicAddress) {
