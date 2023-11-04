@@ -82,32 +82,25 @@ const create = async (req, res) => {
         if (!temp) {
             return res.status(400).json({ message: "property does not exist." });
         }
-        
-        let listing = await Listing.findOne({
-            attributes: ['id'],
+
+        const [listing, created] = await Listing.findOrCreate({
             where: {
                 broker_id: data.broker_id,
                 property_id: data.property_id
+            },
+            defaults: {
+                active: data.active,
+                broker_id: data.broker_id,
+                property_id: data.property_id,
+                title: data.title,
+                description: data.description
             }
         });
-
-        if (listing) {
-            return res.status(400).json({ message: "listing already exists." });
+        if (!created) {
+            return res.status(400).json({ message: "Already exists." });
         }
 
-        listing = await Listing.create({
-            active: data.active,
-            broker_id: data.broker_id,
-            property_id: data.property_id,
-            title: data.title,
-            description: data.description
-        });
-
-        if (!listing) {
-            return res.status(400).json({message: "Failed to create."});
-        } else {
-            res.status(200).send(listing);
-        }
+        res.status(200).send(listing);
         
     } catch (error) {
         console.log(error);

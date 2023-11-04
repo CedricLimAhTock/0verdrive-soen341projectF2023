@@ -202,18 +202,26 @@ const create = async (req, res) => {
             return res.status(400).json({message: "Missing id for user, property or broker."});
         }
         const user = await User.findOne({ where: { id: data.user_id } });
+        if (!user) {
+            return res.status(400).json({message: "Invalid id for user"});
+        }
         // check target broker
         const broker = await Broker.findOne({ attributes: ['id'], where: { id: data.broker_id } });
+        if (!broker) {
+            return res.status(400).json({message: "Invalid id for broker"});
+        }
         // check owner broker
         const parent = await Broker.findOne({ attributes: ['id'], where: { id: data.parent_id } });
+        if (!parent) {
+            return res.status(400).json({message: "Invalid id for parent broker"});
+        }
         // check property
-        const listing = await Listing.findOne({ attributes: ['id'], where: { broker_id: data.broker_id, property_id: data.property_id }});
-
-        if (!user || !broker || !parent || !listing) {
-            return res.status(400).json({message: "Invalid id for user, broker or property."});
+        const listing = await Listing.findOne({ attributes: ['id'], where: { broker_id: data.broker_id, property_id: data.property_id } });
+        if (!listing) {
+            return res.status(400).json({message: "Property does not belong to broker."});
         }
 
-        let offer = await Offer.findOne({
+        const [offer, created] = await Offer.findOrCreate({
             where: {
                 [Op.and]: [
                     { user_id: data.user_id },
@@ -221,14 +229,8 @@ const create = async (req, res) => {
                     { broker_id: data.broker_id },
                     { property_id: data.property_id }
                 ]
-            }
-        });
-
-        if (offer) {
-            return res.status(400).json({message: "Already exists."});
-        } else {
-            
-            offer = await Offer.create({
+            },
+            defaults: {
                 active: data.active,
                 user_id: data.user_id,
                 parent_id: data.parent_id,
@@ -238,9 +240,14 @@ const create = async (req, res) => {
                 deed_of_sale_date: data.deed_of_sale_date,
                 occupancy_date: data.occupancy_date,
                 status: data.status
-            });
+            }
+        });
 
+        
 
+        if (!created) {
+            return res.status(400).json({message: "Already exists."});
+        } else {
             res.status(200).send(offer);
         }
         

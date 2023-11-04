@@ -158,8 +158,8 @@ const create = async (req, res) => {
     try {
         const data = req.body;
 
-        if (!data.user_id) {
-            return res.status(400).json({ message: "user_id cannot be null." });
+        if (!data.user_id || !data.license_number) {
+            return res.status(400).json({ message: "user_id or license cannot be null." });
         }        
 
         // check if user id has role broker
@@ -183,21 +183,26 @@ const create = async (req, res) => {
             return res.status(400).json({ message: "user_id does not belong to any broker." });
         }
 
-        let broker = await Broker.findOne({where: { user_id: data.user_id }});
-
-        if (broker) {
-            return res.status(400).json({ message: "Already exists." });
-        } else {
-            console.log(data);
-            broker = await Broker.create({
+        const [broker, created] = await Broker.findOrCreate({
+            where: {
+                [Op.or]: {
+                    user_id: data.user_id,
+                    license_number: data.license_number
+                }
+            },
+            defaults: {
                 active: data.active,
                 user_id: data.user_id,
                 license_number: data.license_number,
                 agency: data.agency,
                 email: data.email,
                 phone: data.phone 
-            });
-            
+            }
+        });
+
+        if (!created) {
+            return res.status(400).json({ message: "Already exists." });
+        } else {
             res.status(200).send(broker);
         }
         

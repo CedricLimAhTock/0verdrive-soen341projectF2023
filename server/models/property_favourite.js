@@ -10,10 +10,11 @@ const Property_favourite = sequelize.define(
             type: DataTypes.BIGINT,
             primaryKey: true,
             autoIncrement: true,
-            allowNull: false,
+            allowNull: false
         },
         property_id: {
             type: DataTypes.BIGINT,
+            allowNull: false,
             references: {
                 model: Property,
                 key: 'id',
@@ -21,6 +22,7 @@ const Property_favourite = sequelize.define(
         },
         user_id:{
             type: DataTypes.BIGINT,
+            allowNull: false,
             references: {
                 model: User,
                 key: 'id',
@@ -32,8 +34,19 @@ const Property_favourite = sequelize.define(
         underscored: true,
         freezeTableName: true,
         tableName: "property_favourite",
+        indexes: [
+            {
+                unique: true,
+                fields: ['property_id', 'user_id']
+            }
+        ]
     }
 );
 
+
+User.hasMany(Property_favourite, { foreignKey: 'user_id' });
+Property.hasMany(Property_favourite, { foreignKey: 'property_id' });
+Property_favourite.belongsTo(Property);
+Property_favourite.belongsTo(User);
 
 export default Property_favourite;
