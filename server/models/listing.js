@@ -10,13 +10,14 @@ const Listing = sequelize.define(
             type: DataTypes.BIGINT,
             primaryKey: true,
             autoIncrement: true,
-            allowNull: false,
+            allowNull: false
         },
         active: {
             type: DataTypes.BOOLEAN
         },
         broker_id: {
             type: DataTypes.BIGINT,
+            allowNull: false,
             references: {
                 model: Broker,
                 key: 'id'
@@ -24,10 +25,11 @@ const Listing = sequelize.define(
         },
         property_id: {
             type: DataTypes.BIGINT,
+            allowNull: false,
             references: {
                 model: Property,
                 key: 'id'
-            },
+            }
         },
         title: {
             type: DataTypes.STRING
@@ -40,7 +42,7 @@ const Listing = sequelize.define(
         timestamps: false,
         underscored: true,
         freezeTableName: true,
-        tableName: "listings",
+        tableName: "listings"
     }
 );
 

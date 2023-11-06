@@ -1,0 +1,30 @@
+.brokerCard {
+  width: 50rem;
+  height: 10rem;
+  display: flex;
+  padding: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: red;
+  border-radius: 1.5rem;
+}
+.profilepic {
+  width: 6rem;
+  height: auto;
+  border-radius: 50%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-broker {
+  background-color: blue;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.items {
+  min-height: 60rem;
+}

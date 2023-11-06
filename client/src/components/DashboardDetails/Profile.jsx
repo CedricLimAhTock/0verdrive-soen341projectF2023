@@ -5,17 +5,16 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 
 const Profile = ({ data, token }) => {
-
   const userToken = localStorage.getItem("jwtToken");
   const decodedToken = userToken ? jwt_decode(userToken) : null;
 
   const [userID, setUserID] = useState(decodedToken.id || "");
   const [username, setUsername] = useState(decodedToken.username || "");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhoneNumber] = useState("");
-  const [address, setAddress] = useState("");
+  const [firstName, setFirstName] = useState(decodedToken.firstname || "");
+  const [lastName, setLastName] = useState(decodedToken.lastname || "");
+  const [email, setEmail] = useState(decodedToken.email || "");
+  const [phone, setPhoneNumber] = useState(decodedToken.phone || "");
+  const [address, setAddress] = useState(decodedToken.address || "");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -29,14 +28,14 @@ const Profile = ({ data, token }) => {
         address: address.toString(),
       });
       if (response.status === 200) {
-        alert('Updated');
+        alert("Updated");
         console.log(response);
       } else {
         console.log(response);
-        console.log('Failed to update');
+        console.log("Failed to update");
       }
     } catch (err) {
-      console.log('Error updating');
+      console.log("Error updating");
       console.error(err);
     }
   };
@@ -151,7 +150,6 @@ const Profile = ({ data, token }) => {
                 id="address"
               />
             </div>
-            
           </div>
           <button className="profile-update" type="submit">
             Update
