@@ -68,7 +68,10 @@ const Property = sequelize.define(
         },
         property_type: {
             type: DataTypes.ENUM('single-family', 'duplex', 'triplex', 'quadruplex', 'townhouse', 'studio', 'condominium', 'other')
-        }
+        },
+        address: {
+            type: DataTypes.STRING
+        },
     },
     {
         timestamps: false,
