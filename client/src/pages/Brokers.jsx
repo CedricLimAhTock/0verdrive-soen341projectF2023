@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./styles/Brokers.css";
-import PropertyCard from "../components/PropertyCard/PropertyCard";
+import BrokerCard from "../components/BrokerCard/BrokerCard";
 import Search from "../assets/searchIcon-browse.svg";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
 const Brokers = () => {
-  const [brokerData, setBrokersData] = useState([]);
+  const [brokerData, setBrokerData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const brokersPerPage = 8;
   const [decodedToken, setDecodedToken] = useState(null);
@@ -16,20 +16,9 @@ const Brokers = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:8080/properties/search"
-        );
-        const dataWithImages = response.data.map((broker) => {
-          if (!broker.images || broker.images.length === 0) {
-            broker.images = [
-              {
-                original: "https://picsum.photos/id/1018/1000/600/",
-              },
-            ];
-          }
-          return broker;
-        });
-        setBrokersData(dataWithImages);
+        const response = await axios.get("http://localhost:8080/broker");
+
+        setBrokerData(response.data);
       } catch (error) {
         console.error("Error in Browse.jsx", error);
       }
@@ -58,7 +47,7 @@ const Brokers = () => {
         },
       });
 
-      setBrokersData(response.data);
+      setBrokerData(response.data);
     } catch (error) {
       console.error("Error in Browse.jsx", error);
     }
@@ -149,11 +138,10 @@ const Brokers = () => {
       <div className="items">
         <div className="browse-cards">
           {currentBrokers.map((broker, index) => (
-            <BrokersCard
+            <BrokerCard
               broker={broker}
               key={index}
               className="broker-card"
-              onEventClick={onEventClick}
               decodedToken={decodedToken}
             />
           ))}
