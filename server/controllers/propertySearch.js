@@ -182,7 +182,6 @@ const query = async (req, res) => {
     }
 
     console.log(q);
-    console.log(q.civicAddress);
 
     let properties = await Property.findAll({
       attributes: [
