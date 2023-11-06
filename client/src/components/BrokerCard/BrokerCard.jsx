@@ -21,13 +21,13 @@ const BrokerCard = ({ broker, onEventClick, decodedToken }) => {
     <div className="brokerCard">
       <div className="profile">
         <img src={profileIcon} className="profilepic" />
-      </div>
-      <div className="info">
-        <div className="name">
-          {user.firstname} {user.lastname}
+        <div className="info">
+          <div className="name">
+            {user.firstname} {user.lastname}
+          </div>
+          <div className="agency">{agency}</div>
+          <div className="email">{email}</div>
         </div>
-        <div className="agency">{agency}</div>
-        <div className="email">{email}</div>
       </div>
     </div>
   );
