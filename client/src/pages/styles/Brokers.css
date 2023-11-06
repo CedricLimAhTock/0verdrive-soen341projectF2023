@@ -23,7 +23,9 @@
 .search {
   display: flex;
 }
-
+.search-select {
+  width: 13rem;
+}
 .search > input {
   height: 3rem;
   font-size: 1.1rem;
@@ -39,7 +41,7 @@
   padding-left: 1rem;
 }
 
-.search-lname {
+.search-phone {
   width: 10rem;
   border-radius: 0 1rem 1rem 0;
 }

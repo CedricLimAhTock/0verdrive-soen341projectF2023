@@ -44,6 +44,9 @@ const Brokers = () => {
         fields: {
           firstname,
           lastname,
+          email,
+          phone,
+          agency,
         },
       });
 
@@ -59,6 +62,10 @@ const Brokers = () => {
   // const [country, setCountry] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [agency, setAgency] = useState("");
+
   const maxVisiblePages = 5;
   const startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
   const endPage = Math.min(
@@ -124,11 +131,32 @@ const Brokers = () => {
               onChange={(e) => setFirstname(e.target.value)}
             ></input>
             <input
-              className="search-lname"
-              type="select"
+              className="search-select"
+              type="text"
               placeholder="Last Name"
               value={lastname}
               onChange={(e) => setLastname(e.target.value)}
+            ></input>
+            <input
+              className="search-select"
+              type="text"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            ></input>
+            <input
+              className="search-select"
+              type="text"
+              placeholder="Agency"
+              value={agency}
+              onChange={(e) => setAgency(e.target.value)}
+            ></input>
+            <input
+              className="search-phone"
+              type="tel"
+              placeholder="Phone Number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
             ></input>
 
             <input type="image" src={Search} onClick={searchData}></input>

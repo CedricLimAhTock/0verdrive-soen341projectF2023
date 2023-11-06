@@ -3,15 +3,23 @@
   height: 10rem;
   display: flex;
   padding: 2rem;
+  align-items: center;
   justify-content: space-between;
   background-color: red;
+  border-radius: 1.5rem;
 }
-.profile {
-  width: 2rem;
+.profilepic {
+  width: 6rem;
   height: auto;
+  border-radius: 50%;
 }
 
 .info {
   display: flex;
   flex-direction: column;
+}
+
+.profile {
+  background-color: blue;
+  height: 100%;
 }

@@ -19,8 +19,8 @@ const BrokerCard = ({ broker, onEventClick, decodedToken }) => {
 
   return (
     <div className="brokerCard">
-      <div className="profilepic">
-        <img src={profileIcon} className="profile" />
+      <div className="profile">
+        <img src={profileIcon} className="profilepic" />
       </div>
       <div className="info">
         <div className="name">
