@@ -164,22 +164,16 @@ const Brokers = () => {
         </div>
       </div>
       <div className="items">
-        {brokerData.length > 0 ? (
-          <div className="browse-cards">
-            {currentBrokers.map((broker, index) => (
-              <BrokerCard
-                broker={broker}
-                key={index}
-                className="broker-card"
-                decodedToken={decodedToken}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="no-brokers">
-            <p className="no-brokers-text">No brokers found.</p>
-          </div>
-        )}
+        <div className="browse-cards">
+          {currentBrokers.map((broker, index) => (
+            <BrokerCard
+              broker={broker}
+              key={index}
+              className="broker-card"
+              decodedToken={decodedToken}
+            />
+          ))}
+        </div>
       </div>
       <div className="pagination">
         <nav>
