@@ -78,8 +78,8 @@ DROP TABLE IF EXISTS `property`;
 CREATE TABLE `property` (
 	`id` BIGINT NOT NULL AUTO_INCREMENT,
 	`active` BOOL NULL DEFAULT '0',
-	`civic_address` varchar(50) NULL,
-	`apt_number` varchar(50) NULL,
+	`civic_address` varchar(20) NULL,
+	`apt_number` varchar(20) NULL,
 	`street` varchar(50) NULL,
 	`neighbourhood` varchar(50) NULL,
 	`city` varchar(50) NULL,
@@ -96,6 +96,7 @@ CREATE TABLE `property` (
 	`year_built` DATE NULL,
 	`listed_date` DATE NULL,
 	`property_type` ENUM('single-family', 'duplex', 'triplex', 'quadruplex', 'townhouse', 'studio', 'condominium', 'other') NULL,
+  `address` varchar(255) NULL,
   CONSTRAINT `property_PK` PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
