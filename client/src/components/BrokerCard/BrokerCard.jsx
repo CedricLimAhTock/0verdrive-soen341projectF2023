@@ -14,6 +14,7 @@ const BrokerCard = ({ broker, onEventClick, decodedToken }) => {
     first_name,
     last_name,
     id,
+    user,
   } = broker;
 
   return (
@@ -23,7 +24,7 @@ const BrokerCard = ({ broker, onEventClick, decodedToken }) => {
       </div>
       <div className="info">
         <div className="name">
-          {first_name} {last_name}
+          {user.firstname} {user.lastname}
         </div>
         <div className="agency">{agency}</div>
         <div className="email">{email}</div>
