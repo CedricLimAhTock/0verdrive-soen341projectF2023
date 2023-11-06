@@ -10,7 +10,9 @@
   margin: 0.5rem;
   border-radius: 1rem;
 }
-
+.browse-container {
+  min-height: 65rem;
+}
 .filters-container {
   width: 100%;
   height: 4rem;
@@ -126,4 +128,14 @@
 .page-item:nth-last-child(2) .page-link::after {
   content: "›";
   margin-left: 5px;
+}
+
+.no-brokers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-brokers-text {
+  text-align: center;
 }
