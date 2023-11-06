@@ -1,4 +1,17 @@
 .brokerCard {
-  width: 25rem;
+  width: 50rem;
+  height: 10rem;
+  display: flex;
+  padding: 2rem;
+  justify-content: space-between;
+  background-color: red;
+}
+.profile {
+  width: 2rem;
   height: auto;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
 }
