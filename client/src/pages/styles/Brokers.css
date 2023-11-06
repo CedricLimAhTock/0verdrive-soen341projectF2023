@@ -134,3 +134,7 @@
   margin-left: 50%;
   font-size: larger;
 }
+
+.items {
+  min-height: 60rem;
+}
