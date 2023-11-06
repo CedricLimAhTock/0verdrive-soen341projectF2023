@@ -1,33 +1,35 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./styles/Browse.css";
+import "./styles/Brokers.css";
 import PropertyCard from "../components/PropertyCard/PropertyCard";
 import Search from "../assets/searchIcon-browse.svg";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
 const Brokers = () => {
-  const [propertyData, setPropertyData] = useState([]);
+  const [brokerData, setBrokersData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const propertiesPerPage = 8;
+  const brokersPerPage = 8;
   const [decodedToken, setDecodedToken] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/property/");
-        const dataWithImages = response.data.map((property) => {
-          if (!property.images || property.images.length === 0) {
-            property.images = [
+        const response = await axios.get(
+          "http://localhost:8080/properties/search"
+        );
+        const dataWithImages = response.data.map((broker) => {
+          if (!broker.images || broker.images.length === 0) {
+            broker.images = [
               {
                 original: "https://picsum.photos/id/1018/1000/600/",
               },
             ];
           }
-          return property;
+          return broker;
         });
-        setPropertyData(dataWithImages);
+        setBrokersData(dataWithImages);
       } catch (error) {
         console.error("Error in Browse.jsx", error);
       }
@@ -49,32 +51,14 @@ const Brokers = () => {
   const searchData = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:8080/property/search",
-        {
-          fields: {
-            price: { min: minPrice, max: maxPrice },
-            num_bedrooms: { min: minBeds },
-            num_bathrooms: { min: minBaths },
-            manyTerms: manyTerms,
-          },
-          sort: {
-            parameter: "price",
-            order: "asc",
-          },
-        }
-      );
-      const dataWithImages = response.data.map((property) => {
-        if (!property.images || property.images.length === 0) {
-          property.images = [
-            {
-              original: "https://picsum.photos/id/1018/1000/600/",
-            },
-          ];
-        }
-        return property;
+      const response = await axios.post("http://localhost:8080/broker/search", {
+        fields: {
+          firstname,
+          lastname,
+        },
       });
-      setPropertyData(dataWithImages);
+
+      setBrokersData(response.data);
     } catch (error) {
       console.error("Error in Browse.jsx", error);
     }
@@ -84,28 +68,24 @@ const Brokers = () => {
   // const [neighbourhood, setNeighbourhood] = useState("");
   // const [province, setProvince] = useState("");
   // const [country, setCountry] = useState("");
-  const [minBeds, setMinBeds] = useState("");
-  const [minPrice, setMinPrice] = useState("");
-  const [maxPrice, setMaxPrice] = useState("");
-  const [minBaths, setMinBaths] = useState("");
-  const [manyTerms, setManyTerms] = useState("");
-
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
   const maxVisiblePages = 5;
   const startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
   const endPage = Math.min(
     startPage + maxVisiblePages - 1,
-    Math.ceil(propertyData.length / propertiesPerPage)
+    Math.ceil(brokerData.length / brokersPerPage)
   );
   const pageNumbers = Array.from(
     { length: endPage - startPage + 1 },
     (_, i) => startPage + i
   );
 
-  const indexOfLastProperty = currentPage * propertiesPerPage;
-  const indexOfFirstProperty = indexOfLastProperty - propertiesPerPage;
-  const currentProperties = propertyData.slice(
-    indexOfFirstProperty,
-    indexOfLastProperty
+  const indexOfLastBrokers = currentPage * brokersPerPage;
+  const indexOfFirstBrokers = indexOfLastBrokers - brokersPerPage;
+  const currentBrokers = brokerData.slice(
+    indexOfFirstBrokers,
+    indexOfLastBrokers
   );
 
   const changePage = (pageNumber) => {
@@ -117,7 +97,7 @@ const Brokers = () => {
   };
 
   const lastPage = () => {
-    setCurrentPage(Math.ceil(propertyData.length / propertiesPerPage));
+    setCurrentPage(Math.ceil(brokerData.length / brokersPerPage));
   };
 
   const prePage = () => {
@@ -127,19 +107,17 @@ const Brokers = () => {
   };
 
   const nextPage = () => {
-    if (currentPage < Math.ceil(propertyData.length / propertiesPerPage)) {
+    if (currentPage < Math.ceil(brokerData.length / brokersPerPage)) {
       setCurrentPage(currentPage + 1);
     }
   };
 
-  const onEventClick = (propertyId) => {
-    console.log("propertyId", propertyId);
-    const selectedProperty = propertyData.find(
-      (property) => property.id === propertyId
-    );
-    if (selectedProperty) {
-      navigate(`/property/${propertyId}`, {
-        state: { property: selectedProperty },
+  const onEventClick = (brokerId) => {
+    console.log("brokerId", brokerId);
+    const selectedBrokers = brokerData.find((broker) => broker.id === brokerId);
+    if (selectedBrokers) {
+      navigate(`/broker/${brokerId}`, {
+        state: { broker: selectedBrokers },
       });
     }
   };
@@ -150,56 +128,31 @@ const Brokers = () => {
         <div className="filters">
           <form className="search">
             <input
-              className="search-area"
+              className="search-fname"
               type="text"
-              placeholder="City, Neighbourhood, Address..."
-              value={manyTerms}
-              onChange={(e) => setManyTerms(e.target.value)}
+              placeholder="First Name"
+              value={firstname}
+              onChange={(e) => setFirstname(e.target.value)}
             ></input>
             <input
-              className="search-select"
+              className="search-lname"
               type="select"
-              placeholder="For Sale"
+              placeholder="Last Name"
+              value={lastname}
+              onChange={(e) => setLastname(e.target.value)}
             ></input>
-            <input
-              className="search-select"
-              type="select"
-              placeholder="Min Price"
-              value={minPrice}
-              onChange={(e) => setMinPrice(e.target.value)}
-            ></input>
-            <input
-              className="search-select"
-              type="select"
-              placeholder="Max Price"
-              value={maxPrice}
-              onChange={(e) => setMaxPrice(e.target.value)}
-            ></input>
-            <input
-              className="search-select"
-              type="select"
-              placeholder="Beds"
-              value={minBeds}
-              onChange={(e) => setMinBeds(e.target.value)}
-            ></input>
-            <input
-              className="search-select-baths"
-              type="select"
-              placeholder="Baths"
-              value={minBaths}
-              onChange={(e) => setMinBaths(e.target.value)}
-            ></input>
+
             <input type="image" src={Search} onClick={searchData}></input>
           </form>
         </div>
       </div>
       <div className="items">
         <div className="browse-cards">
-          {currentProperties.map((property, index) => (
-            <PropertyCard
-              property={property}
+          {currentBrokers.map((broker, index) => (
+            <BrokersCard
+              broker={broker}
               key={index}
-              className="property-card"
+              className="broker-card"
               onEventClick={onEventClick}
               decodedToken={decodedToken}
             />
