@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./styles/Browse.css";
+import "./styles/BrowseBrokCommon.css";
 import PropertyCard from "../components/PropertyCard/PropertyCard";
 import Search from "../assets/searchIcon-browse.svg";
 import { useNavigate } from "react-router-dom";
@@ -38,14 +39,12 @@ const Browse = () => {
     // fetch token from local storage & decode
     const token = localStorage.getItem("jwtToken");
     if (!token) {
-      console.log("No token found"); 
+      console.log("No token found");
       null;
     } else {
       const decodedToken = jwt_decode(token);
       setDecodedToken(decodedToken);
     }
-
-
   }, []);
 
   const searchData = async (event) => {
@@ -196,17 +195,21 @@ const Browse = () => {
         </div>
       </div>
       <div className="items">
-        <div className="browse-cards">
-          {currentProperties.map((property, index) => (
-            <PropertyCard
-              property={property}
-              key={index}
-              className="property-card"
-              onEventClick={onEventClick}
-              decodedToken={decodedToken}
-            />
-          ))}
-        </div>
+        {propertyData.length > 0 ? (
+          <div className="browse-cards">
+            {currentProperties.map((property, index) => (
+              <PropertyCard
+                property={property}
+                key={index}
+                className="property-card"
+                onEventClick={onEventClick}
+                decodedToken={decodedToken}
+              />
+            ))}
+          </div>
+        ) : (
+          <p className="search-failed">No Properties Found</p>
+        )}
       </div>
       <div className="pagination">
         <nav>

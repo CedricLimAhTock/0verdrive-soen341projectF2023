@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./styles/Brokers.css";
+import "./styles/BrowseBrokCommon.css";
 import BrokerCard from "../components/BrokerCard/BrokerCard";
 import Search from "../assets/searchIcon-browse.svg";
 import { useNavigate } from "react-router-dom";
@@ -176,7 +177,7 @@ const Brokers = () => {
             ))}
           </div>
         ) : (
-          <p className="no-brokers">No Brokers Found</p>
+          <p className="search-failed">No Brokers Found</p>
         )}
       </div>
       <div className="pagination">
