@@ -127,3 +127,10 @@
   content: "›";
   margin-left: 5px;
 }
+
+.no-brokers {
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 50%;
+  font-size: larger;
+}
