@@ -13,7 +13,6 @@ const query = async (req, res) => {
         sort.order = sort.order == "asc" ? "asc" : "desc";
 
         let q = {};
-        let filters = {};
 
         if (fields.civicAddress) {
             q.civicAddress = { [Op.substring]: fields.civicAddress };
