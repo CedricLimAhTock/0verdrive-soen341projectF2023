@@ -12,6 +12,7 @@ import Home from "./pages/Home";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import Detailed from "./pages/Detailed";
+import BrokerDetailed from "./pages/BrokerDetailed";
 import Dashboard from "./pages/Dashboard";
 import jwt_decode from "jwt-decode";
 import Page404 from "./pages/Page404";
@@ -88,6 +89,14 @@ function App() {
             element={
               <Layout decodedToken={decodedToken}>
                 <Detailed />
+              </Layout>
+            }
+          />
+          <Route
+            path="/brokerdetailed"
+            element={
+              <Layout decodedToken={decodedToken}>
+                <BrokerDetailed />
               </Layout>
             }
           />
