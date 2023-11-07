@@ -126,3 +126,7 @@
   cursor: pointer;
 }
 
+.no-offers {
+  margin-top: 50px;
+  text-align: center;
+}

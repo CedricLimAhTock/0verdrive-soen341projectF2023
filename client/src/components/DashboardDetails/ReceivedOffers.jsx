@@ -9,55 +9,21 @@ const ReceivedOffers = () => {
   const [expandedCard, setExpandedCard] = useState(null);
 
   useEffect(() => {
-    // Mock data for testing
-    const mockData = [
-      {
-        type: "Type 1",
-        status: "Confirmed",
-        address: "123 Main St",
-        price: "$500,000",
-        broker: "Broker 1",
-      },
-      {
-        type: "Type 2",
-        status: "Hold",
-        address: "456 Elm St",
-        price: "$600,000",
-        broker: "Broker 2",
-      },
-      {
-        type: "Type 3",
-        status: "Declined",
-        address: "789 Oak St",
-        price: "$700,000",
-        broker: "Broker 3",
-      },
-    ];
-
-    setOfferData(mockData);
 
 
-        const token = localStorage.getItem("jwtToken");
+
+    const token = localStorage.getItem("jwtToken");
     const decodedToken = jwt_decode(token);
     const userId = decodedToken.id;
 
     axios
-      .get(`http://localhost:8080/offer/user/${userId}/made`)
+      .get(`http://localhost:8080/offer/user/${userId}`)
       .then((response) => {
         setOfferData(response.data);
       })
       .catch((error) => {
         console.error("Error fetching offers:", error);
       });
-
-    // axios
-    //   .get(`http://localhost:8080/offer/user/${userId}`)
-    //   .then((response) => {
-    //     setOfferData(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error fetching offers:", error);
-    //   });
   }, []);
 
   const toggleExpand = (index) => {
@@ -79,14 +45,18 @@ const ReceivedOffers = () => {
       </div>
 
       <div className="offer-cards">
-        {offerData.map((offer, index) => (
+        {offerData.length > 0 ? (
+          offerData.map((offer, index) => (
           <OfferCard
             key={index}
             data={offer}
             expanded={index === expandedCard}
             toggleExpand={() => toggleExpand(index)}
           />
-        ))}
+        ))
+      ) : (
+        <p className="no-offers">No offers received</p>
+      )}
       </div>
     </div>
   );
