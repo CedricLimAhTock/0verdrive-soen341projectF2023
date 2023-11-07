@@ -8,69 +8,74 @@ const Property = sequelize.define(
             type: DataTypes.BIGINT,
             primaryKey: true,
             autoIncrement: true,
-            allowNull: false,
+            allowNull: false
         },
         active: {
-            type: DataTypes.BOOLEAN,
+            type: DataTypes.BOOLEAN
         },
-        civicAddress: {
+        civic_address: {
             type: DataTypes.STRING
         },
-        aptNumber: {
+        apt_number: {
             type: DataTypes.STRING,
             default: null
         },
         street: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING
         },
         neighbourhood: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING
         },
         city: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING
         },
         province: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING
         },
-        postalCode: {
-            type: DataTypes.STRING,
+        postal_code: {
+            type: DataTypes.STRING
         },
         country: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING
         },
-        listingType: {
+        listing_type: {
             type: DataTypes.ENUM('sale', 'rent'),
+            allowNull: false
         },
         price: {
             type: DataTypes.FLOAT
         },
-        livingArea: {
+        living_area: {
             type: DataTypes.FLOAT
         },
-        propertyArea: {
-            type: DataTypes.FLOAT,
+        property_area: {
+            type: DataTypes.FLOAT
         },
-        numOfBedrooms: {
-            type: DataTypes.TINYINT,
+        num_bedrooms: {
+            type: DataTypes.TINYINT
         },
-        numOfBathrooms: {
-            type: DataTypes.TINYINT,
+        num_bathrooms: {
+            type: DataTypes.TINYINT
         },
-        numOfFloors: {
-            type: DataTypes.TINYINT,
+        num_floors: {
+            type: DataTypes.TINYINT
         },
-        yearBuilt: {
-            type: DataTypes.DATEONLY,
+        year_built: {
+            type: DataTypes.DATEONLY
         },
-        listedDate: {
-            type: DataTypes.DATEONLY,
+        listed_date: {
+            type: DataTypes.DATEONLY
         },
-        propertyType: {
-            type: DataTypes.ENUM('single-family', 'duplex', 'triplex', 'quadruplex', 'townhouse', 'studio', 'condominium', 'other'),
-        }
+        property_type: {
+            type: DataTypes.ENUM('single-family', 'duplex', 'triplex', 'quadruplex', 'townhouse', 'studio', 'condominium', 'other')
+        },
+        address: {
+            type: DataTypes.STRING
+        },
     },
     {
         timestamps: false,
+        underscored: true,
         freezeTableName: true,
         tableName: "property",
     }

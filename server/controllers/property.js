@@ -5,32 +5,35 @@ import Broker from '../models/broker.js';
 const list = async (req, res) => {
     try {
         let properties = await Property.findAll({
-            attributes: ['id',
+            attributes: [
+                'id',
                 'active',
-                'civicAddress',
-                'aptNumber',
+                'civic_address',
+                'apt_number',
                 'street',
                 'neighbourhood',
                 'city',
                 'province',
-                'postalCode',
+                'postal_code',
                 'country',
-                'listingType',
+                'listing_type',
                 'price',
-                'livingArea',
-                'propertyArea',
-                'numOfBedrooms',
-                'numOfBathrooms',
-                'numOfFloors',
-                'yearBuilt',
-                'listedDate']
+                'living_area',
+                'property_area',
+                'num_bedrooms',
+                'num_bathrooms',
+                'num_floors',
+                'year_built',
+                'listed_date',
+                'property_type'
+            ]
         });
 
         if (!properties) {
             return res.status(400).json({});
+        } else {
+            res.status(200).send(properties);
         }
-        
-        res.status(200).send(properties);
 
     } catch (error) {
         console.log(error);
@@ -43,31 +46,33 @@ const list = async (req, res) => {
 const listByType = async (req, res) => {
     try {
         let properties = await Property.findAll({
-            attributes: ['id',
+            attributes: [
+                'id',
                 'active',
-                'civicAddress',
-                'aptNumber',
+                'civic_address',
+                'apt_number',
                 'street',
                 'neighbourhood',
                 'city',
                 'province',
-                'postalCode',
+                'postal_code',
                 'country',
-                'listingType',
+                'listing_type',
                 'price',
-                'livingArea',
-                'propertyArea',
-                'numOfBedrooms',
-                'numOfBathrooms',
-                'numOfFloors',
-                'yearBuilt',
-                'listedDate'
+                'living_area',
+                'property_area',
+                'num_bedrooms',
+                'num_bathrooms',
+                'num_floors',
+                'year_built',
+                'listed_date',
+                'property_type'
             ],
-            where: {listingtype: req.params.type}
+            where: {listing_type: req.params.type}
         });
 
         if (!properties) {
-            res.status(400).json();
+            return res.status(400).json();
         } else {
             res.status(200).send(properties);
         }
@@ -83,34 +88,36 @@ const listByType = async (req, res) => {
 const listByTypeId = async (req, res) => {
     try {
         let properties = await Property.findAll({
-            attributes: ['id',
+            attributes: [
+                'id',
                 'active',
-                'civicAddress',
-                'aptNumber',
+                'civic_address',
+                'apt_number',
                 'street',
                 'neighbourhood',
                 'city',
                 'province',
-                'postalCode',
+                'postal_code',
                 'country',
-                'listingType',
+                'listing_type',
                 'price',
-                'livingArea',
-                'propertyArea',
-                'numOfBedrooms',
-                'numOfBathrooms',
-                'numOfFloors',
-                'yearBuilt',
-                'listedDate'
+                'living_area',
+                'property_area',
+                'num_bedrooms',
+                'num_bathrooms',
+                'num_floors',
+                'year_built',
+                'listed_date',
+                'property_type'
             ],
             where: {
                 id: req.params.id,
-                listingtype: req.params.type
+                listing_type: req.params.type
             }
         });
 
         if (!properties) {
-            res.status(400).json();
+            return res.status(400).json();
         } else {
             res.status(200).send(properties);
         }
@@ -126,31 +133,33 @@ const listByTypeId = async (req, res) => {
 const listById = async (req, res) => {
     try {
         let property = await Property.findOne({
-            attributes: ['id',
+            attributes: [
+                'id',
                 'active',
-                'civicAddress',
-                'aptNumber',
+                'civic_address',
+                'apt_number',
                 'street',
                 'neighbourhood',
                 'city',
                 'province',
-                'postalCode',
+                'postal_code',
                 'country',
-                'listingType',
+                'listing_type',
                 'price',
-                'livingArea',
-                'propertyArea',
-                'numOfBedrooms',
-                'numOfBathrooms',
-                'numOfFloors',
-                'yearBuilt',
-                'listedDate'
+                'living_area',
+                'property_area',
+                'num_bedrooms',
+                'num_bathrooms',
+                'num_floors',
+                'year_built',
+                'listed_date',
+                'property_type'
             ],
             where: {id: req.params.id}
         });
 
         if (!property) {
-            res.status(400).json();
+            return res.status(400).json();
         } else {
             res.status(200).send(property);
         }
@@ -166,37 +175,37 @@ const listById = async (req, res) => {
 const listByBrokerId = async (req, res) => {
     try {
         const properties = await Property.findAll({
-            attributes: ['id',
+            attributes: [
+                'id',
                 'active',
-                'civicAddress',
-                'aptNumber',
+                'civic_address',
+                'apt_number',
                 'street',
                 'neighbourhood',
                 'city',
                 'province',
-                'postalCode',
+                'postal_code',
                 'country',
-                'listingType',
+                'listing_type',
                 'price',
-                'livingArea',
-                'propertyArea',
-                'numOfBedrooms',
-                'numOfBathrooms',
-                'numOfFloors',
-                'yearBuilt',
-                'listedDate'
+                'living_area',
+                'property_area',
+                'num_bedrooms',
+                'num_bathrooms',
+                'num_floors',
+                'year_built',
+                'listed_date',
+                'property_type'
             ],
             include: [
                 {
                     model: Listing,
                     attributes: [], // don't return any columns
                     required: true, // generate INNER JOIN
-                    //right: true,  // does a right join
                     include: {
                         model: Broker,
-                        required: true, // generate INNER JOIN
-                        attributes: [], // don't return any columns
-                        //right: true,  // does a right join
+                        required: true,
+                        attributes: [],
                         where: {
                             id: req.params.id
                         }
@@ -206,7 +215,7 @@ const listByBrokerId = async (req, res) => {
         });
 
         if (!properties) {
-            res.status(400).json();
+            return res.status(400).json();
         } else {
             res.status(200).send(properties);
         }
@@ -223,14 +232,40 @@ const create = async (req, res) => {
     try {
         const data = req.body;
 
-        const [property, created] = await Property.findOrCreate({
-            where: data,
-            defaults: {
-                active: 1
-            }
+        let property_address = [
+            data.apt_number,
+            data.civic_address,
+            data.street,
+            data.neighbourhood,
+            data.city,
+            data.province,
+            data.country,
+            data.postal_code].join(" ");
+
+        const property = await Property.create({
+            active: 1,
+            civic_address: data.civic_address,
+            apt_number: data.apt_number,
+            street: data.street,
+            neighbourhood: data.neighbourhood,
+            city: data.city,
+            province: data.province,
+            postal_code: data.postal_code,
+            country: data.country,
+            listing_type: data.listing_type,
+            price: data.price,
+            living_area: data.living_area,
+            property_area: data.property_area,
+            num_bedrooms: data.num_bedrooms,
+            num_bathrooms: data.num_bathrooms,
+            num_floors: data.num_floors,
+            year_built: data.year_built,
+            listed_date: data.listed_date,
+            property_type: data.property_type,
+            address: property_address
         });
-        if (!created) {
-            res.status(400).json({message: "Already exists."});
+        if (!property) {
+            return res.status(400).json({message: "Failed to create."});
         } else {
             res.status(200).send(property);
         }
@@ -246,16 +281,33 @@ const create = async (req, res) => {
 
 const update = async (req, res) => {
     try {
-        if(req.body.id == null){
-            return res.status(400).json();
+        let data = req.body;
+        let property_id = req.body.id;
+
+        if (property_id == null) {
+            return res.status(400).json({message: "id is null."});
         }
-        const property = await Property.findOne({where: {id: req.body.id}});
+        const property = await Property.findOne({where: {id: property_id}});
 
         if (!property) {
-            return res.status(400).json();
+            return res.status(400).json({message: "Does not exist."});
         }
 
-        await Property.update(req.body, {where: {id: req.body.id}});
+        let property_address = [
+            data.apt_number,
+            data.civic_address,
+            data.street,
+            data.neighbourhood,
+            data.city,
+            data.province,
+            data.country,
+            data.postal_code].join(" ");
+        if (property_address) {
+            data.address = property_address;
+        }
+
+        delete data.id;
+        await Property.update(data, {where: {id: property_id}});
 
         res.status(200).json();
 
@@ -270,16 +322,36 @@ const update = async (req, res) => {
 
 const updateById = async (req, res) => {
     try {
-        if (req.params.id == null || req.body == null) {
-            return res.status(400).json();
+
+        let data = req.body;
+        let property_id = req.params.id;
+
+        if (property_id == null || req.body == null) {
+            return res.status(400).json({message: "id or body is null."});
         }
-        const property = await Property.findOne({where: {id: req.params.id}});
+        const property = await Property.findOne({where: {id: property_id}});
 
         if (!property) {
-            return res.status(400).json();
+            return res.status(400).json({message: "Does not exist."});
         }
 
-        Property.update(req.body, {where: {id: req.params.id}});
+        let property_address = [
+            data.apt_number,
+            data.civic_address,
+            data.street,
+            data.neighbourhood,
+            data.city,
+            data.province,
+            data.country,
+            data.postal_code].join(" ");
+        if (property_address) {
+            data.address = property_address;
+        }
+
+        delete data.id;
+        await Property.update(data, { where: { id: property_id } });
+
+        res.status(200).json();
 
     } catch (error) {
         console.log(error);
@@ -292,6 +364,7 @@ const updateById = async (req, res) => {
 const destroy = async (req, res) => {
     try {
         const property = await Property.findOne({
+            attributes: ['id'],
             where: {id: req.params.id}
         });
 

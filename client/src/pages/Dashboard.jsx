@@ -10,7 +10,7 @@ import Users from '../components/DashboardDetails/Users'
 
 const Dashboard = ({ token }) => {
 
-    const [activeTab, setActiveTab] = useState('profile');
+    const [activeTab, setActiveTab] = useState('favorites');
 
     const logout = () => {
         localStorage.removeItem('jwtToken');

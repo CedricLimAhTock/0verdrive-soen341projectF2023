@@ -105,7 +105,13 @@ const DetailedCard = ({ property }) => {
             </button>
           </div>
           <div className="property-details">
-            {activeTab === "description" && <p>{description}</p>}
+            {activeTab === "description" && (
+              <>
+                <p>{description}</p>
+                <br />
+                <p>Neighbourhood: {neighbourhood}</p>
+              </>
+            )}
             {activeTab === "broker" && <p>{broker}</p>}
             {activeTab === "map" && <p>{address}</p>}
           </div>

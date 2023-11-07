@@ -9,13 +9,30 @@ import rulerIcon from "../../../public/assets/ruler.svg";
 // import saveIcon from "../../assets/saveIcon.svg";
 import SaveIcon from "../SaveIcon/SaveIcon";
 import Carousel from "../Carousel/Carousel";
+import axios from "axios";
 
-const PropertyCard = ({ property, onEventClick }) => {
+
+const PropertyCard = ({ property, onEventClick, decodedToken }) => {
   const { images, price, street, city, province, country, numOfBedrooms, numOfBathrooms, propertyArea, id} = property;
   const address = `${street}, ${city}, ${province}, ${country}`;
   let [isSaved, setIsSaved] = useState(false);
 
-  const handleIsSaved = () => {
+  const handleIsSaved = async (e) => {
+    e.stopPropagation();
+    console.log("clicked");
+
+    if (!decodedToken) {
+      return;
+    }
+    try {
+      await axios.post("http://localhost:8080/favourite", {
+        property_id: id,
+        user_id: decodedToken.id,
+      })
+    } catch (error) {
+      console.error("Error in PropertyCard.jsx", error);
+    }
+
     setIsSaved(!isSaved);
   };
   const toggleProperty = () => {

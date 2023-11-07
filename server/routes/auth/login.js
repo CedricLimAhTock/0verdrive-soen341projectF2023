@@ -10,10 +10,13 @@ const router = express.Router();
 router.post('/', async (req, res) => {
   try {
     const { username, password } = req.body;
-    const user = await User.findOne({ where: { username: username } });
+    const user = await User.findOne({
+      attributes: ['id', 'username', 'password'],
+      where: { username: username }
+    });
 
     if (!user) {
-      return res.status(401).json({
+      return res.status(404).json({
         message: 'User not found',
       });
     }
@@ -32,14 +35,12 @@ router.post('/', async (req, res) => {
               {
                   model: User,
                   required: true,
-                  attributes: [], // don't return any columns
-                  //right: true,    //does a right join
+                  attributes: []
               },
               {
                 model: Role,
                 required: true,
-                attributes: ['type'],
-                //right: true
+                attributes: ['type']
               }
             ]
     });
