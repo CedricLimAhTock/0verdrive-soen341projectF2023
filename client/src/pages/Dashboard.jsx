@@ -31,7 +31,7 @@ const Dashboard = ({token}) => {
 
     };
 
-    const userRole = 'renter';
+    const userRole = 'broker';
 
     return (
         <div className='dashboard'>

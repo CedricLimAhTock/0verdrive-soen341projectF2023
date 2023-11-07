@@ -1,7 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import PropertyListingCard from './PropertyListingCard'
 import PropertyForm from './PropertyForm'
 import './styles/Listings.css'
+import jwt_decode from "jwt-decode";
+import axios from "axios";
 
 const Listings = ({token}) => {
   const data = [
@@ -29,6 +31,7 @@ const Listings = ({token}) => {
 
   const [isFormOpen, setFormOpen] = useState(false);
   const [selectedPropertyData, setSelectedPropertyData] = useState(null);
+  const [listings, setListings] = useState([]);
 
   const toggleExpand = (index) => {
     console.log("expand1");
@@ -36,12 +39,36 @@ const Listings = ({token}) => {
     setFormOpen(true);
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem("jwtToken");
+    const decoded = jwt_decode(token);
+    const userId = decoded.id;
+      axios
+        .get(`http://localhost:8080/listing/broker${userId}`)
+        .then((res) => {
+          setListings(res.data);
+        })
+        .catch((error) => {
+          console.log("Error in profile.jsx: ", error);
+        });
+    
+  }, []);
+
   const closeForm = () => {
     setFormOpen(false);
   };
 
   return (
     <div className='listings'>
+      <div className="property-intro">
+        <h1>ALl properties</h1>
+        <div className="property-intro-right">
+          Total: {data.length}
+          <button className="add-property-button" onClick={() => setFormOpen(true)}>
+            Add
+          </button>
+        </div>
+      </div>
       <div className="properties-header">
         <div className="header-property-type">Type</div>
         <div className="header-property-name">Name</div>
