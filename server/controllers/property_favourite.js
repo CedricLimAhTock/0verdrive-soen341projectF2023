@@ -7,7 +7,7 @@ const list = async (req,res) => {
         let favourite = await Property_favourite.findAll({ attributes: ['id', 'property_id', 'user_id'] });
 
         if (!favourite){
-            return res.status(400).json({});
+            return res.status(404).json({});
         }
 
         res.status(200).send(favourite);
@@ -28,7 +28,7 @@ const listById = async (req,res) => {
         });
 
         if (!favourite){
-            return res.status(400).json({});
+            return res.status(404).json({});
         } else {
             res.status(200).send(favourite);
         }
@@ -50,7 +50,7 @@ const listByUserId = async (req,res) => {
         });
 
         if (!favourite){
-            return res.status(400).json({});
+            return res.status(404).json({});
         } else {
             res.status(200).send(favourite);
         }
@@ -71,7 +71,7 @@ const listByPropertyId = async (req,res) => {
         });
 
         if(!favourite){
-            return res.status(400).json({});
+            return res.status(404).json({});
         } else {
             res.status(200).send(favourite);
         }
@@ -137,7 +137,7 @@ const destroy = async (req, res) => {
         });
 
         if (!favourite) {
-            return res.status(400).json();
+            return res.status(404).json();
         }
 
         favourite.destroy();

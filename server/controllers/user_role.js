@@ -8,7 +8,7 @@ const list = async (req, res) => {
         let user_roles = await User_role.findAll({ attributes: ['id', 'active', 'user_id', 'role_id']});
 
         if (!user_roles) {
-            return res.status(400).json({});
+            return res.status(404).json({});
         } else {
             res.status(200).send(user_roles);
         }
@@ -28,7 +28,7 @@ const listById = async (req, res) => {
         });
 
         if (!user_role) {
-            return res.status(400).json({});
+            return res.status(404).json({});
         } else {
             res.status(200).send(user_role);
         }
@@ -49,7 +49,7 @@ const listByUserId = async (req, res) => {
         });
 
         if (!user_role) {
-            return res.status(400).json();
+            return res.status(404).json();
         } else {
             res.status(200).send(user_role);
         }
@@ -174,7 +174,7 @@ const destroy = async (req, res) => {
         });
 
         if (!user_role) {
-            return res.status(400).json();
+            return res.status(404).json();
         }
 
         user_role.destroy();

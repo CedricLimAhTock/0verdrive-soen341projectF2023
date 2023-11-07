@@ -201,7 +201,7 @@ const update = async (req, res) => {
         let visit = await Visit.findOne({where: {id: visit_id}});
 
         if (!visit) {
-            return res.status(400).json();
+            return res.status(404).json();
         }
 
         //  not allowed to change association
@@ -233,7 +233,7 @@ const updateById = async (req, res) => {
         let visit = await Visit.findOne({where: {id: visit_id}});
 
         if (!visit) {
-            return res.status(400).json();
+            return res.status(404).json();
         }
 
         //  not allowed to change association
@@ -267,7 +267,7 @@ const destroy = async (req, res) => {
         });
 
         if(!visit){
-            return res.status(400).json({});
+            return res.status(404).json({});
         }
 
         visit.destroy();

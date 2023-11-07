@@ -8,7 +8,7 @@ const list = async (req, res) => {
         );
 
         if (!roles) {
-            res.status(400).json({});
+            res.status(404).json({});
         }
         
         res.status(200).send(roles);
@@ -29,7 +29,7 @@ const listById = async (req, res) => {
         });
 
         if (!role) {
-            res.status(400).json({});
+            res.status(404).json({});
         } else {
             res.status(200).send(role);
         }
