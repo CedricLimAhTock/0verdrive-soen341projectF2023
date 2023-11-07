@@ -17,8 +17,12 @@ const BrokerCard = ({ broker, onEventClick, decodedToken }) => {
     user,
   } = broker;
 
+  const toggleBroker = () => {
+    onEventClick(broker.id);
+  };
+
   return (
-    <div className="brokerCard">
+    <div className="brokerCard" onClick={() => toggleBroker(broker)}>
       <div className="profile-broker">
         <img src={profileIcon} className="profilepic" />
         <div className="info">
