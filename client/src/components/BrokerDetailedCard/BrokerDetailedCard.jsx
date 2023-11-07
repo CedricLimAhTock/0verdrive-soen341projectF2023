@@ -30,6 +30,7 @@ const BrokerDetailedCard = ({ broker }) => {
         <div className="broker-info">
           <p className="broker-agency">{name}</p>
           <p className="broker-email">{email}</p>
+          <p className="broker-desc">{description}</p>
         </div>
       </div>
     </div>
