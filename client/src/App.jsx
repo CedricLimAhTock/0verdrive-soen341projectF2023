@@ -93,6 +93,14 @@ function App() {
             }
           />
           <Route
+            path="/broker/:id"
+            element={
+              <Layout decodedToken={decodedToken}>
+                <BrokerDetailed decodedToken={decodedToken} />
+              </Layout>
+            }
+          />
+          <Route
             path="/brokerdetailed"
             element={
               <Layout decodedToken={decodedToken}>
