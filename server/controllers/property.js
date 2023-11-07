@@ -30,7 +30,7 @@ const list = async (req, res) => {
         });
 
         if (!properties) {
-            return res.status(400).json({});
+            return res.status(404).json({});
         } else {
             res.status(200).send(properties);
         }
@@ -72,7 +72,7 @@ const listByType = async (req, res) => {
         });
 
         if (!properties) {
-            return res.status(400).json();
+            return res.status(404).json();
         } else {
             res.status(200).send(properties);
         }
@@ -117,7 +117,7 @@ const listByTypeId = async (req, res) => {
         });
 
         if (!properties) {
-            return res.status(400).json();
+            return res.status(404).json();
         } else {
             res.status(200).send(properties);
         }
@@ -159,7 +159,7 @@ const listById = async (req, res) => {
         });
 
         if (!property) {
-            return res.status(400).json();
+            return res.status(404).json();
         } else {
             res.status(200).send(property);
         }
@@ -215,7 +215,7 @@ const listByBrokerId = async (req, res) => {
         });
 
         if (!properties) {
-            return res.status(400).json();
+            return res.status(404).json();
         } else {
             res.status(200).send(properties);
         }
@@ -290,7 +290,7 @@ const update = async (req, res) => {
         const property = await Property.findOne({where: {id: property_id}});
 
         if (!property) {
-            return res.status(400).json({message: "Does not exist."});
+            return res.status(404).json({message: "Does not exist."});
         }
 
         let property_address = [
@@ -332,7 +332,7 @@ const updateById = async (req, res) => {
         const property = await Property.findOne({where: {id: property_id}});
 
         if (!property) {
-            return res.status(400).json({message: "Does not exist."});
+            return res.status(404).json({message: "Does not exist."});
         }
 
         let property_address = [
@@ -369,7 +369,7 @@ const destroy = async (req, res) => {
         });
 
         if (!property) {
-            return res.status(400).json();
+            return res.status(404).json();
         }
 
         property.destroy();
