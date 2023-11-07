@@ -135,7 +135,7 @@ const query = async (req, res) => {
         });
 
         if (!properties) {
-            return res.status(400).json({});
+            return res.status(404).json({});
         }
 
         res.status(200).send(properties);
