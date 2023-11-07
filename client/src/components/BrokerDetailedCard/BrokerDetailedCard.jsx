@@ -5,10 +5,11 @@ import "./BrokerDetailedCard.css";
 import jwt_decode from "jwt-decode";
 
 const BrokerDetailedCard = ({ broker }) => {
-  const { firstname, lastname, email, phone, agency, id } = broker;
+  const { user, email, phone, agency, id } = broker;
+
+  const { firstname, lastname } = user;
 
   const [decodedToken, setDecodedToken] = React.useState(null);
-
   useEffect(() => {
     function fetchData() {
       //const token = localStorage.getItem("jwtToken");
@@ -21,48 +22,16 @@ const BrokerDetailedCard = ({ broker }) => {
 
   const description =
     "A hard working broker that strives to give the best and nothing less.";
-  const name = { firstname } + { lastname };
-
-  const [activeTab, setActiveTab] = useState("description");
+  const name = firstname + " " + lastname;
 
   return (
-    <div className="details">
-      <div className="left-side">
-        <div className="info">
-          <h2 className="title">{agency}</h2>
-          <p className="address">{email}</p>
-        </div>
-
-        <div className="tabs">
-          <div className="property-tabs">
-            <button
-              className={activeTab === "description" ? "active-tab" : ""}
-              onClick={() => setActiveTab("description")}
-            >
-              Description
-            </button>
-            <button
-              className={activeTab === "broker" ? "active-tab" : ""}
-              onClick={() => setActiveTab("broker")}
-            >
-              Broker
-            </button>
-            <button
-              className={activeTab === "map" ? "active-tab" : ""}
-              onClick={() => setActiveTab("map")}
-            >
-              Map
-            </button>
-          </div>
-          <div className="property-details">
-            {activeTab === "description" && <p>{description}</p>}
-            {activeTab === "broker" && <p>{broker}</p>}
-            {activeTab === "map" && <p>{description}</p>}
-          </div>
+    <div className="broker-details">
+      <div className="broker-left-side">
+        <div className="broker-info">
+          <p className="broker-agency">{name}</p>
+          <p className="broker-email">{email}</p>
         </div>
       </div>
-
-      <div className="right-side"></div>
     </div>
   );
 };
