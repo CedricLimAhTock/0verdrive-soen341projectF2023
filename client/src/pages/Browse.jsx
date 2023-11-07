@@ -150,47 +150,51 @@ const Browse = () => {
       <div className="filters-container">
         <div className="filters">
           <form className="search">
-            <input
+              <input
               className="search-area"
               type="text"
               placeholder="City, Neighbourhood, Address..."
               value={manyTerms}
               onChange={(e) => setManyTerms(e.target.value)}
-            ></input>
-            <input
-              className="search-select"
+              >
+              </input>
+              <select
+              className="search-select search-dropdown"
               type="select"
-              placeholder="For Sale"
-            ></input>
-            <input
-              className="search-select"
-              type="select"
-              placeholder="Min Price"
-              value={minPrice}
-              onChange={(e) => setMinPrice(e.target.value)}
-            ></input>
-            <input
-              className="search-select"
-              type="select"
-              placeholder="Max Price"
-              value={maxPrice}
-              onChange={(e) => setMaxPrice(e.target.value)}
-            ></input>
-            <input
-              className="search-select"
-              type="select"
-              placeholder="Beds"
-              value={minBeds}
-              onChange={(e) => setMinBeds(e.target.value)}
-            ></input>
-            <input
-              className="search-select-baths"
-              type="select"
-              placeholder="Baths"
-              value={minBaths}
-              onChange={(e) => setMinBaths(e.target.value)}
-            ></input>
-            <input type="image" src={Search} onClick={searchData}></input>
+              >
+              <option value="sale">For sale ▾</option>
+              <option value="rent">For rent ▾</option>
+            </select>
+              <input
+                className="search-select"
+                type="select"
+                placeholder="Min Price"
+                value={minPrice}
+                onChange={(e) => setMinPrice(e.target.value)}
+                ></input>
+              <input
+                className="search-select"
+                type="select"
+                placeholder="Max Price"
+                value={maxPrice}
+                onChange={(e) => setMaxPrice(e.target.value)}
+              ></input>
+              <input
+                className="search-select"
+                type="select"
+                placeholder="Beds"
+                value={minBeds}
+                onChange={(e) => setMinBeds(e.target.value)}
+              ></input>
+              <input
+                className="search-select-baths"
+                type="select"
+                placeholder="Baths"
+                value={minBaths}
+                onChange={(e) => setMinBaths(e.target.value)}
+              ></input>
+            
+              <input type="image" src={Search} onClick={searchData}></input>
           </form>
         </div>
       </div>
