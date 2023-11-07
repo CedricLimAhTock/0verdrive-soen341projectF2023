@@ -3,11 +3,12 @@ import './styles/Dashboard.css'
 import Profile from '../components/DashboardDetails/Profile'
 import Favorites from '../components/DashboardDetails/Favorites'
 import Bookings from '../components/DashboardDetails/Bookings'
-import Offers from '../components/DashboardDetails/Offers'
+import OffersMade from '../components/DashboardDetails/OffersMade'
+import ReceivedOffers from '../components/DashboardDetails/ReceivedOffers'
 import Listings from '../components/DashboardDetails/Listings'
 import Users from '../components/DashboardDetails/Users'
 
-const Dashboard = ({token}) => {
+const Dashboard = ({ token }) => {
 
     const [activeTab, setActiveTab] = useState('profile');
 
@@ -31,7 +32,7 @@ const Dashboard = ({token}) => {
 
     };
 
-    const userRole = 'renter';
+    const userRole = 'broker';
 
     return (
         <div className='dashboard'>
@@ -54,7 +55,7 @@ const Dashboard = ({token}) => {
                     </>
                 )}
 
-                {userRole === 'renter' || userRole === 'broker' ? (
+                {userRole === 'renter' ? (
                     <>
                         <button
                             className={activeTab === 'bookings' ? 'active-tab' : ''}
@@ -74,6 +75,20 @@ const Dashboard = ({token}) => {
 
                 {userRole == 'broker' && (
                     <>
+                        <button
+                            className={activeTab === 'offersMade' ? 'active-tab' : ''}
+                            onClick={() => setActiveTab('offersMade')}
+                        >
+                            Offers Made
+                        </button>
+
+                        <button
+                            className={activeTab === 'receivedOffers' ? 'active-tab' : ''}
+                            onClick={() => setActiveTab('receivedOffers')}
+                        >
+                            Received Offers
+                        </button>
+
                         <button
                             className={activeTab === 'listings' ? 'active-tab' : ''}
                             onClick={() => setActiveTab('listings')}
@@ -106,11 +121,12 @@ const Dashboard = ({token}) => {
 
                 <div className="dashboard-data">
                     {activeTab === 'profile' && <Profile data={data} token={token} />}
-                    {activeTab === 'favorites' && <Favorites token={token}/>}
-                    {activeTab === 'bookings' && <Bookings data={data} token={token}/>}
-                    {activeTab === 'offers' && <Offers token={token}/>}
-                    {activeTab === 'listings' && <Listings token={token}/>}
-                    {activeTab === 'users' && <Users token={token}/>}
+                    {activeTab === 'favorites' && <Favorites token={token} />}
+                    {activeTab === 'bookings' && <Bookings data={data} token={token} />}
+                    {activeTab === 'offersMade' && <OffersMade token={token} />}
+                    {activeTab === 'receivedOffers' && <ReceivedOffers token={token} />}
+                    {activeTab === 'listings' && <Listings token={token} />}
+                    {activeTab === 'users' && <Users token={token} />}
                 </div>
 
             </div>
