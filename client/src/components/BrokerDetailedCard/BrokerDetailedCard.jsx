@@ -47,30 +47,32 @@ const BrokerDetailedCard = ({ broker }) => {
   const name = firstname + " " + lastname;
 
   return (
-    <div className="broker-details">
-      <div className="broker-left-side">
-        <div className="profile-broker">
-          <img src={profileIcon} className="profilepic" />
+    <>
+      <div className="broker-details">
+        <div className="broker-left-side">
+          <div className="profile-broker">
+            <img src={profileIcon} className="profilepic" />
+          </div>
+          <div className="broker-info">
+            <p className="broker-agency">{name}</p>
+            <p className="broker-email">{email}</p>
+            <p className="broker-desc">{description}</p>
+          </div>
         </div>
-        <div className="broker-info">
-          <p className="broker-agency">{name}</p>
-          <p className="broker-email">{email}</p>
-          <p className="broker-desc">{description}</p>
-        </div>
-      </div>
 
-      <div className="broker-right-side">
-        <form>
-          <h3>Contact for More Info</h3>
-          <input type="text" placeholder="Name" />
-          <input type="email" placeholder="Email" />
-          <textarea placeholder="Message" />
-        </form>
+        <div className="broker-right-side">
+          <form className="contact-form">
+            <h3>Contact for More Info</h3>
+            <input type="text" placeholder="Name" />
+            <input type="email" placeholder="Email" />
+            <textarea placeholder="Message" />
+          </form>
+        </div>
       </div>
       <div className="carousel-properties">
         <PropertyCardCarousel properties={properties} />
       </div>
-    </div>
+    </>
   );
 };
 
