@@ -12,7 +12,6 @@ const Brokers = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const brokersPerPage = 8;
   const [decodedToken, setDecodedToken] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
