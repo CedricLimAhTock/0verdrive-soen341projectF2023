@@ -12,18 +12,22 @@ const PropertyCardCarousel = ({ properties }) => {
     speed: 2000,
     autoplaySpeed: 2000,
     cssEase: "linear",
-    slide: false,
+    swipe: false,
   };
 
   return (
     <div>
-      <Slider {...settings}>
-        {properties.map((property) => (
-          <div key={property.id}>
-            <PropertyCard property={property} />
-          </div>
-        ))}
-      </Slider>
+      {properties.length > 0 ? (
+        <Slider {...settings}>
+          {properties.map((property) => (
+            <div key={property.id}>
+              <PropertyCard property={property} />
+            </div>
+          ))}
+        </Slider>
+      ) : (
+        <h1>No properties</h1>
+      )}
     </div>
   );
 };
