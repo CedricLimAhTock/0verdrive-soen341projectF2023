@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./PropertyCard.css";
 import bedIcon from "../../../public/assets/bed.svg";
 import bathIcon from "../../../public/assets/bath.svg";
@@ -18,9 +21,9 @@ const PropertyCard = ({ property, decodedToken }) => {
     city,
     province,
     country,
-    num_bedrooms,
-    num_bathrooms,
-    property_area,
+    numOfBedrooms,
+    numOfBathrooms,
+    propertyArea,
     id,
   } = property;
   const address = `${street}, ${city}, ${province}, ${country}`;
@@ -91,16 +94,16 @@ const PropertyCard = ({ property, decodedToken }) => {
         <div className="card-icons">
           <div className="icon-with-number">
             <img className="card-icon" src={bedIcon} alt="Bed Icon" />
-            <span className="icon-number">{num_bedrooms}</span>
+            <span className="icon-number">{numOfBedrooms}</span>
           </div>
           <div className="icon-with-number">
             <img className="card-icon" src={bathIcon} alt="Bath Icon" />
-            <span className="icon-number">{num_bathrooms}</span>
+            <span className="icon-number">{numOfBathrooms}</span>
           </div>
           <div className="icon-with-number">
             <img className="card-icon" src={rulerIcon} alt="Ruler Icon" />
             <span className="icon-number">
-              {property_area} ft<sup>2</sup>
+              {propertyArea} ft<sup>2</sup>
             </span>
           </div>
         </div>
