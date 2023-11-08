@@ -5,6 +5,7 @@ import jwt_decode from 'jwt-decode';
 import Carousel from '../Carousel/Carousel';
 import './OfferForm.css';
 import profileIcon from '../../assets/profile-picture.png';
+import xIcon from "../../assets/xIcon.svg"
 
 const VisitForm = ({ isFormOpen, closeForm, property, brokerInfo }) => {
   const [name, setName] = useState('');
@@ -58,14 +59,15 @@ const VisitForm = ({ isFormOpen, closeForm, property, brokerInfo }) => {
 
   return (
     <div className={isFormOpen ? "show" : "hide"}>
-      <form className="offer-form popup-form" onSubmit={handleSubmit}>
-        <button onClick={closeForm} className='close-button'>Close</button>
-        <h2>Make an offer</h2>
+      <form className="popup-form" onSubmit={handleSubmit}>
+        <button onClick={closeForm} className="close-button">
+          <img src = {xIcon} alt = "close" className="close-button-x" />
+        </button>
         <div className="offer-container">
-          <div className="offer-left">
+          <div className="offer-left"> <h2>Make an Offer</h2>
             <Carousel images={images} className="offer-carousel" />
             <div className="property-info">
-              <h3>Price: ${price}</h3>
+              <h4>Price: ${price}</h4>
               <p>Address: {address}</p>
             </div>
             <div className="broker-info">
@@ -79,8 +81,6 @@ const VisitForm = ({ isFormOpen, closeForm, property, brokerInfo }) => {
           </div>
           <div className="offer-right">
             <h4>Fill in the following information</h4>
-
-            <label htmlFor="phone">Name</label>
             <input
               id="name"
               type="text"
@@ -89,8 +89,6 @@ const VisitForm = ({ isFormOpen, closeForm, property, brokerInfo }) => {
               onChange={(e) => setName(e.target.value)}
               required
             />
-
-            <label htmlFor="address">Address</label>
             <input
               id="address"
               type="text"
@@ -99,8 +97,6 @@ const VisitForm = ({ isFormOpen, closeForm, property, brokerInfo }) => {
               onChange={(e) => setAddressUser(e.target.value)}
               required
             />
-
-            <label htmlFor="email">Email</label>
             <input
               id="email"
               type="email"
@@ -109,10 +105,6 @@ const VisitForm = ({ isFormOpen, closeForm, property, brokerInfo }) => {
               onChange={(e) => setUserEmail(e.target.value)}
               required
             />
-
-            <br />
-
-            <label htmlFor="propertyAddress">Property address</label>
             <input
               id="propertyAddress"
               type="text"
@@ -120,8 +112,6 @@ const VisitForm = ({ isFormOpen, closeForm, property, brokerInfo }) => {
               placeholder="Address"
               readOnly
             />
-
-            <label htmlFor="priceOffered">Price Offered</label>
             <input
               id="priceOffered"
               type="number"
