@@ -33,13 +33,13 @@ const Home = () => {
     country: "Canada",
     listingType: "rent",
     price: 9256,
-    livingArea: 3122,
+    property_area: 3122,
     propertyArea: 8996,
-    numOfBedrooms: 3,
-    numOfBathrooms: 8,
-    numOfFloors: 4,
-    yearBuilt: "1923-01-01",
-    listedDate: "2022-12-15",
+    num_bedrooms: 3,
+    num_bathrooms: 8,
+    num_floors: 4,
+    year_built: "1923-01-01",
+    listed_date: "2022-12-15",
   };
 
   return (
