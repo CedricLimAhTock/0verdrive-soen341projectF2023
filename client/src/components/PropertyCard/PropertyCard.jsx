@@ -47,9 +47,6 @@ const PropertyCard = ({ property, decodedToken }) => {
 
     setIsSaved(!isSaved);
   };
-  const toggleProperty = () => {
-    onEventClick(property.id);
-  };
 
   const onEventClick = async (propertyId) => {
     console.log("propertyId", propertyId);
@@ -75,7 +72,7 @@ const PropertyCard = ({ property, decodedToken }) => {
   };
 
   return (
-    <div className="card" onClick={() => toggleProperty(property)}>
+    <div className="card" onClick={() => onEventClick(property.id)}>
       <div className="listing-container-card">
         <div className="card-img">
           <Carousel images={images} className={"card-carousel"} />
