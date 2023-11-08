@@ -37,21 +37,23 @@ const DetailedCard = ({ property }) => {
     }
 
     const fetchBroker = async () => {
-      const response = await axios.get(`http://localhost:8080/broker/property/${id}`);
-      const broker = response.data;
+      const response = await axios.get(
+        `http://localhost:8080/broker/property/${id}`
+      );
+      const { user } = response.data;
+      const { firstname, lastname } = user;
+      const broker = firstname + " " + lastname;
       setBrokerInfo(broker);
       console.log(broker);
-    }
+    };
 
     fetchData();
     fetchBroker();
-
   }, []);
 
   const address = `${street}, ${city}, ${province}, ${country}`;
   const description =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui.";
-
 
   const [activeTab, setActiveTab] = useState("description");
 
@@ -112,7 +114,7 @@ const DetailedCard = ({ property }) => {
                 <p>Neighbourhood: {neighbourhood}</p>
               </>
             )}
-            {activeTab === "broker" && <p>{broker}</p>}
+            {activeTab === "broker" && <p>{brokerInfo}</p>}
             {activeTab === "map" && <p>{address}</p>}
           </div>
         </div>

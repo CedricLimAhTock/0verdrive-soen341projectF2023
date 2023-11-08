@@ -65,6 +65,7 @@ const PropertyCard = ({ property, decodedToken }) => {
     };
     const propertyData = await selectedProperty();
     if (propertyData) {
+      window.scrollTo(0, 0);
       navigate(`/property/${propertyId}`, {
         state: { property: propertyData },
       });

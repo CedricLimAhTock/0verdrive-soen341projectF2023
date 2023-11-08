@@ -12,7 +12,6 @@ const Browse = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const propertiesPerPage = 8;
   const [decodedToken, setDecodedToken] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
