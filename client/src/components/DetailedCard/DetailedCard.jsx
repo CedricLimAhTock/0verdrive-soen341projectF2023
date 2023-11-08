@@ -9,6 +9,7 @@ import Carousel from "../Carousel/Carousel";
 import VisitForm from "../VisitForm/VisitForm";
 import OfferForm from "../OfferForm/OfferForm";
 import jwt_decode from "jwt-decode";
+import axios from "axios";
 
 const DetailedCard = ({ property }) => {
   const {
@@ -26,6 +27,7 @@ const DetailedCard = ({ property }) => {
   } = property;
 
   const [decodedToken, setDecodedToken] = React.useState(null);
+  const [brokerInfo, setBrokerInfo] = useState(null);
 
   useEffect(() => {
     function fetchData() {
@@ -34,13 +36,22 @@ const DetailedCard = ({ property }) => {
       setDecodedToken(decoded);
     }
 
+    const fetchBroker = async () => {
+      const response = await axios.get(`http://localhost:8080/broker/property/${id}`);
+      const broker = response.data;
+      setBrokerInfo(broker);
+      console.log(broker);
+    }
+
     fetchData();
+    fetchBroker();
+
   }, []);
 
   const address = `${street}, ${city}, ${province}, ${country}`;
   const description =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui.";
-  const broker = "John Doe";
+
 
   const [activeTab, setActiveTab] = useState("description");
 
@@ -68,7 +79,7 @@ const DetailedCard = ({ property }) => {
         </div>
 
         <div className="info">
-          <h2 className="title">{price}</h2>
+          <h2 className="title">${price}</h2>
           <p className="address">{address}</p>
         </div>
 
@@ -124,14 +135,14 @@ const DetailedCard = ({ property }) => {
       </div>
 
       <div className="right-side">
-        <h2 className="price">{price}</h2>
+        <h2 className="price">${price}</h2>
         <button className="offer" onClick={() => toggleOfferForm(true)}>
           Make an offer
         </button>
         <button className="visit" onClick={() => toggleVisitForm(true)}>
           Request a visit
         </button>
-        <button className="calc" onClick={setIsFormOpen}>
+        <button className="calc" onClick={() => setIsFormOpen}>
           Mortgage Calculator
         </button>
         <MortgageCalculator
@@ -153,6 +164,8 @@ const DetailedCard = ({ property }) => {
             isFormOpen={isOfferForm}
             closeForm={toggleOfferForm}
             property={property}
+            address={address}
+            brokerInfo={brokerInfo}
           />
         )}
       </div>
