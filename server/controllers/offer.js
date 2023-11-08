@@ -29,7 +29,7 @@ const list = async (req, res) => {
         });
 
         if (!offers) {
-            return res.status(400).json();
+            return res.status(404).json();
         }
         
         res.status(200).send(offers);
@@ -67,7 +67,7 @@ const listById = async (req, res) => {
         });
 
         if (!offer) {
-            return res.status(400).json();
+            return res.status(404).json();
         } else {
             res.status(200).send(offer);
         }
@@ -105,7 +105,7 @@ const listByUserId = async (req, res) => {
         });
 
         if (!offer) {
-            return res.status(400).json();
+            return res.status(404).json();
         } else {
             res.status(200).send(offer);
         }
@@ -219,7 +219,7 @@ const listByPropertyId = async (req, res) => {
         });
 
         if (!offer) {
-            return res.status(400).json();
+            return res.status(404).json();
         } else {
             res.status(200).send(offer);
         }
@@ -369,7 +369,7 @@ const destroy = async (req, res) => {
         });
 
         if (!offer) {
-            return res.status(400).json();
+            return res.status(404).json();
         }
 
         offer.destroy();

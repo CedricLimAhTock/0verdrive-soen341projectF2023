@@ -8,7 +8,7 @@ const list = async (req, res) => {
         let listings = await Listing.findAll({attributes: ['id', 'active', 'broker_id', 'property_id', 'title', 'description']});
 
         if (!listings) {
-            return res.status(400).json({});
+            return res.status(404).json({});
         }
         
         res.status(200).send(listings);
@@ -29,7 +29,7 @@ const listById = async (req, res) => {
         });
 
         if (!listing) {
-            return res.status(400).json({});
+            return res.status(404).json({});
         } else {
             res.status(200).send(listing);
         }
@@ -50,7 +50,28 @@ const listByBrokerId = async (req, res) => {
         });
 
         if (!listing) {
-            return res.status(400).json();
+            return res.status(404).json();
+        } else {
+            res.status(200).send(listing);
+        }
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Server error'
+        });
+    }
+}
+
+const listByPropertyId = async (req, res) => {
+    try {
+        const listing = await Listing.findAll({
+            attributes: ['id', 'active', 'broker_id', 'property_id', 'title', 'description'],
+            where: {property_id: req.params.id}
+        });
+
+        if (!listing) {
+            return res.status(404).json();
         } else {
             res.status(200).send(listing);
         }
@@ -185,7 +206,7 @@ const destroy = async (req, res) => {
         });
 
         if (!listing) {
-            return res.status(400).json();
+            return res.status(404).json();
         }
 
         listing.destroy();
@@ -201,5 +222,5 @@ const destroy = async (req, res) => {
 }
 
 export default {
-    list, listById, listByBrokerId, create, update, updateById, destroy
+    list, listById, listByBrokerId, listByPropertyId, create, update, updateById, destroy
 };
