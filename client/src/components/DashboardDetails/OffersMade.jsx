@@ -12,9 +12,10 @@ const OffersMade = () => {
     const fetchData = async () => {
       const token = localStorage.getItem('jwtToken');
       const decodedToken = jwt_decode(token);
+      const brokerID = decodedToken.broker_id;
 
       try {
-        const response = await axios.get(`http://localhost:8080/offer/broker/1`);
+        const response = await axios.get(`http://localhost:8080/offer/maker/${brokerID}`);
         setOfferData(response.data);
         console.log(offerData);
       } catch (error) {

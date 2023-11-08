@@ -14,10 +14,10 @@ const ReceivedOffers = () => {
 
     const token = localStorage.getItem("jwtToken");
     const decodedToken = jwt_decode(token);
-    const userId = decodedToken.id;
+    const brokerID = decodedToken.broker_id;
 
     axios
-      .get(`http://localhost:8080/offer/user/${userId}`)
+      .get(`http://localhost:8080/offer/broker/${brokerID}`)
       .then((response) => {
         setOfferData(response.data);
       })
