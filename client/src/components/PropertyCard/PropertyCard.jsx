@@ -21,9 +21,9 @@ const PropertyCard = ({ property, decodedToken }) => {
     city,
     province,
     country,
-    numOfBedrooms,
-    numOfBathrooms,
-    propertyArea,
+    num_bedrooms,
+    num_bathrooms,
+    property_area,
     id,
   } = property;
   const address = `${street}, ${city}, ${province}, ${country}`;
@@ -94,16 +94,16 @@ const PropertyCard = ({ property, decodedToken }) => {
         <div className="card-icons">
           <div className="icon-with-number">
             <img className="card-icon" src={bedIcon} alt="Bed Icon" />
-            <span className="icon-number">{numOfBedrooms}</span>
+            <span className="icon-number">{num_bedrooms}</span>
           </div>
           <div className="icon-with-number">
             <img className="card-icon" src={bathIcon} alt="Bath Icon" />
-            <span className="icon-number">{numOfBathrooms}</span>
+            <span className="icon-number">{num_bathrooms}</span>
           </div>
           <div className="icon-with-number">
             <img className="card-icon" src={rulerIcon} alt="Ruler Icon" />
             <span className="icon-number">
-              {propertyArea} ft<sup>2</sup>
+              {property_area} ft<sup>2</sup>
             </span>
           </div>
         </div>
