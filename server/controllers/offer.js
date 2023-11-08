@@ -82,7 +82,7 @@ const listById = async (req, res) => {
 
 const listByUserId = async (req, res) => {
     try {
-        let offer = await Offer.findOne({
+        let offer = await Offer.findAll({
             attributes: ['id', 'active', 'broker_id', 'property_id', 'parent_id', 'user_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
             include: [
                 {
@@ -120,7 +120,7 @@ const listByUserId = async (req, res) => {
 
 const listByBrokerId = async (req, res) => {
     try {
-        let offer = await Offer.findOne({
+        let offer = await Offer.findAll({
             attributes: ['id', 'active', 'broker_id', 'property_id', 'parent_id', 'user_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
             include: [
                 {
@@ -158,7 +158,7 @@ const listByBrokerId = async (req, res) => {
 
 const listByMakerId = async (req, res) => {
     try {
-        let offer = await Offer.findOne({
+        let offer = await Offer.findAll({
             attributes: ['id', 'active', 'broker_id', 'property_id', 'parent_id', 'user_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
             where: {parent_id: req.params.id},
             include: [
@@ -196,7 +196,7 @@ const listByMakerId = async (req, res) => {
 
 const listByPropertyId = async (req, res) => {
     try {
-        let offer = await Offer.findOne({
+        let offer = await Offer.findAll({
             attributes: ['id', 'active', 'broker_id', 'property_id', 'parent_id', 'user_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
             include: [
                 {

@@ -17,7 +17,9 @@ const OffersMade = () => {
       try {
         const response = await axios.get(`http://localhost:8080/offer/maker/${brokerID}`);
         setOfferData(response.data);
-        console.log(offerData);
+        for (const [key, value] of Object.entries(offerData)) {
+          console.log(`${key}: ${value}`);
+        }
       } catch (error) {
         console.error('Error fetching offers:', error);
       }
@@ -44,14 +46,13 @@ const OffersMade = () => {
         {offerData.length > 0 ? (
           offerData.map((offer, index) => (
             <div key={index} className="hehe">
-            <OfferCard
-              key={index}
-              offer={offer}
-              expanded={index === expandedCard}
-              toggleExpand={() => toggleExpand(index)}
-            />
-          </div>
-
+              <OfferCard
+                key={index}
+                offer={offer}
+                expanded={index === expandedCard}
+                toggleExpand={() => toggleExpand(index)}
+              />
+            </div>
           ))
         ) : (
           <p className="no-offers">No offers</p>

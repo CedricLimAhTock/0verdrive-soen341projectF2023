@@ -3,7 +3,7 @@ import "./styles/DashboardOffers.css";
 
 const OfferCard = ({ offer, expanded, toggleExpand }) => {
 
-  data = offer;
+  let data = offer;
   const statusMap = {
     wait: "status-wait",
     acknowledge: "status-acknowledge",
@@ -26,7 +26,7 @@ const OfferCard = ({ offer, expanded, toggleExpand }) => {
         <div className="property-type">Test</div>
         <div className={`property-status ${statusName}`}>{data.status}</div>
         <div className="property-address">{data.property.city}</div>
-        <div className="property-price">${price}</div>
+        <div className="property-price">${data.price}</div>
         <div className="property-broker">{data.user.firstname} {data.user.lastname}</div>
         {/* Additional details can be added here, such as date, deed, etc. */}
       </div>
