@@ -31,10 +31,11 @@ const VisitForm = ({ isFormOpen, closeForm, property, brokerInfo }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    console.log(property.id.toString());
     try {
       const response = await axios.post('http://127.0.0.1:8080/offer/', {
         parent_id: decodedToken.id.toString(),
-        broker_id: brokerInfo.user.id.toString(),
+        broker_id: property.id.toString(),
         user_id: decodedToken.id.toString(),
         property_id: property.id.toString(),
         price: priceOffered.toString(),
@@ -45,7 +46,7 @@ const VisitForm = ({ isFormOpen, closeForm, property, brokerInfo }) => {
         alert('Form submitted');
         console.log(response);
       } else {
-        console.log(response);
+        alert(response);
         console.log('Failed to submit form');
       }
     } catch (err) {

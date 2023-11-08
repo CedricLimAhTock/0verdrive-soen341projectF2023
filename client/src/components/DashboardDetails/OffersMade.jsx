@@ -1,35 +1,32 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import OfferCard from "./OfferCard";
-import "./styles/DashboardOffers.css";
-import jwt_decode from "jwt-decode";
+import React, { useState, useEffect } from 'react';
+import OfferCard from './OfferCard';
+import './styles/DashboardOffers.css';
+import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 
 const OffersMade = () => {
   const [offerData, setOfferData] = useState([]);
   const [expandedCard, setExpandedCard] = useState(null);
 
   useEffect(() => {
+    const fetchData = async () => {
+      const token = localStorage.getItem('jwtToken');
+      const decodedToken = jwt_decode(token);
 
-    const token = localStorage.getItem("jwtToken");
-    const decodedToken = jwt_decode(token);
-    const userId = decodedToken.id;
-
-    axios
-      .get(`http://localhost:8080/offer/broker/${userId}`)
-      .then((response) => {
+      try {
+        const response = await axios.get(`http://localhost:8080/offer/broker/1`);
         setOfferData(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching offers:", error);
-      });
+        console.log(offerData);
+      } catch (error) {
+        console.error('Error fetching offers:', error);
+      }
+    };
+
+    fetchData();
   }, []);
 
   const toggleExpand = (index) => {
-    if (index === expandedCard) {
-      setExpandedCard(null);
-    } else {
-      setExpandedCard(index);
-    }
+    setExpandedCard(index === expandedCard ? null : index);
   };
 
   return (
@@ -43,18 +40,21 @@ const OffersMade = () => {
       </div>
 
       <div className="offer-cards">
-        {offerData.lenght > 0 ? (
+        {offerData.length > 0 ? (
           offerData.map((offer, index) => (
-          <OfferCard
-            key={index}
-            data={offer}
-            expanded={index === expandedCard}
-            toggleExpand={() => toggleExpand(index)}
-          />
-        ))
-      ) : (
-        <p className="no-offers">No offers made</p>
-      )}
+            <div key={index} className="hehe">
+            <OfferCard
+              key={index}
+              offer={offer}
+              expanded={index === expandedCard}
+              toggleExpand={() => toggleExpand(index)}
+            />
+          </div>
+
+          ))
+        ) : (
+          <p className="no-offers">No offers</p>
+        )}
       </div>
     </div>
   );
