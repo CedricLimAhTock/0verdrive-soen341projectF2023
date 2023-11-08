@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import PropertyListingCard from './PropertyListingCard'
-import PropertyForm from './PropertyForm'
-import './styles/Listings.css'
+import PropertyForm from './PropertyForm';
+import PropertyAddForm from './PropertyAddForm';
+import './styles/Listings.css';
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 
@@ -32,6 +33,7 @@ const Listings = ({token}) => {
   const [isFormOpen, setFormOpen] = useState(false);
   const [selectedPropertyData, setSelectedPropertyData] = useState(null);
   const [listings, setListings] = useState([]);
+  const [addingProperty, setAddingProperty] = useState(false);
 
   const toggleExpand = (index) => {
     console.log("expand1");
@@ -39,6 +41,20 @@ const Listings = ({token}) => {
     setFormOpen(true);
   };
 
+  const addProperty = () => {
+    setAddingProperty(true);
+    setFormOpen(false);
+  };
+
+
+  const handleAddProperty = (newProperty) => {
+    //Add to send new property data server
+    console.log('New Property Data:', newProperty);
+    // API call to add new property
+    
+    setAddingProperty(false);
+  };
+  
   useEffect(() => {
     const token = localStorage.getItem("jwtToken");
     const decoded = jwt_decode(token);
@@ -61,10 +77,10 @@ const Listings = ({token}) => {
   return (
     <div className='listings'>
       <div className="property-intro">
-        <h1>ALl properties</h1>
+        <h2>All properties</h2>
         <div className="property-intro-right">
           Total: {data.length}
-          <button className="add-property-button" onClick={() => setFormOpen(true)}>
+          <button className="add-property-button" onClick={addProperty}>
             Add
           </button>
         </div>
@@ -92,6 +108,14 @@ const Listings = ({token}) => {
           closeForm={closeForm}
           data={selectedPropertyData}
         />
+        )}
+
+        {addingProperty && (
+          <PropertyAddForm
+            isFormOpen={addingProperty}
+            closeForm={() => setAddingProperty(false)}
+            onAddProperty={handleAddProperty}
+          />
       )}
     </div>
   );
