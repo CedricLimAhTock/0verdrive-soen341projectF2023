@@ -174,7 +174,6 @@ const Brokers = () => {
                 key={index}
                 className="broker-card"
                 decodedToken={decodedToken}
-                onEventClick={onEventClick}
               />
             ))}
           </div>

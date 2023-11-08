@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./BrokerCard.css";
 import profileIcon from "../../assets/profile-picture.png";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-const BrokerCard = ({ broker, onEventClick, decodedToken }) => {
+const BrokerCard = ({ broker, decodedToken }) => {
   const {
     active,
     user_id,
@@ -16,13 +17,26 @@ const BrokerCard = ({ broker, onEventClick, decodedToken }) => {
     id,
     user,
   } = broker;
+  const navigate = useNavigate();
+  const onEventClick = async (brokerId) => {
+    console.log("brokerId", brokerId);
+    const selectedBroker = async () => {
+      const response = await axios.get(
+        `http://localhost:8080/broker/${brokerId}`
+      );
 
-  const toggleBroker = () => {
-    onEventClick(broker.id);
+      return response.data;
+    };
+    const brokerData = await selectedBroker();
+    if (brokerData) {
+      navigate(`/broker/${brokerId}`, {
+        state: { broker: brokerData },
+      });
+    }
   };
 
   return (
-    <div className="brokerCard" onClick={() => toggleBroker(broker)}>
+    <div className="brokerCard" onClick={() => onEventClick(broker.id)}>
       <div className="profile-broker">
         <img src={profileIcon} className="profilepic" />
         <div className="info">
