@@ -113,6 +113,7 @@ const Brokers = () => {
     console.log("brokerId", brokerId);
     const selectedBrokers = brokerData.find((broker) => broker.id === brokerId);
     if (selectedBrokers) {
+      window.scrollTo(0, 0);
       navigate(`/broker/${brokerId}`, {
         state: { broker: selectedBrokers },
       });
