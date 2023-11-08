@@ -1,0 +1,25 @@
+.broker-details {
+  height: 100%;
+}
+
+.broker-left-side .broker-right-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.carousel-properties {
+  bottom: 0;
+}
+
+.brooker-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}

@@ -19,9 +19,9 @@ const DetailedCard = ({ property }) => {
     city,
     province,
     country,
-    numOfBedrooms,
-    numOfBathrooms,
-    propertyArea,
+    num_bedrooms,
+    num_bathrooms,
+    property_area,
     neighbourhood,
     id,
   } = property;
@@ -121,15 +121,15 @@ const DetailedCard = ({ property }) => {
         <div className="property-features">
           <div className="features">
             <img className="c-icons" src={bedIcon} alt="Bed Icon" />
-            <span className="icon-numbers">{numOfBedrooms}</span>
+            <span className="icon-numbers">{num_bedrooms}</span>
           </div>
           <div className="features">
             <img className="c-icons" src={bathIcon} alt="Bath Icon" />
-            <span className="icon-numbers">{numOfBathrooms}</span>
+            <span className="icon-numbers">{num_bathrooms}</span>
           </div>
           <div className="features">
             <img className="c-icons" src={rulerIcon} alt="Ruler Icon" />
-            <span className="icon-numbers">{propertyArea} sq ft</span>
+            <span className="icon-numbers">{property_area} sq ft</span>
           </div>
         </div>
       </div>

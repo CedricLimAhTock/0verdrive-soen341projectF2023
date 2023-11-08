@@ -109,16 +109,6 @@ const Brokers = () => {
     }
   };
 
-  const onEventClick = (brokerId) => {
-    console.log("brokerId", brokerId);
-    const selectedBrokers = brokerData.find((broker) => broker.id === brokerId);
-    if (selectedBrokers) {
-      navigate(`/broker/${brokerId}`, {
-        state: { broker: selectedBrokers },
-      });
-    }
-  };
-
   return (
     <div className="browse-container">
       <div className="filters-container">
