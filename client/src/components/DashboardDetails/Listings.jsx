@@ -60,14 +60,6 @@ const Listings = ({ token }) => {
     setFormOpen(false);
   };
 
-  const handleAddProperty = (newProperty) => {
-    //Add to send new property data server
-    console.log("New Property Data:", newProperty);
-    // API call to add new property
-
-    setAddingProperty(false);
-  };
-
   useEffect(() => {
     const token = localStorage.getItem("jwtToken");
     const decoded = jwtDecode(token);
@@ -123,7 +115,6 @@ const Listings = ({ token }) => {
         <PropertyAddForm
           isFormOpen={addingProperty}
           closeForm={() => setAddingProperty(false)}
-          onAddProperty={handleAddProperty}
         />
       )}
     </div>
