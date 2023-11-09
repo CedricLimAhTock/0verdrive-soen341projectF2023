@@ -48,7 +48,7 @@ const PropertyAddForm = ({ isFormOpen, closeForm }) => {
 
   return (
     <div className={isFormOpen ? "show" : "hide"}>
-      <form className="popup-form">
+      <form className="popup-form add-property-form">
         <button onClick={closeForm}>Close</button>
         <h2>Add Property</h2>
 

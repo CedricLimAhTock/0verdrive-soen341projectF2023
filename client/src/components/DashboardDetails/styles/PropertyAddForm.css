@@ -1,5 +1,9 @@
 .popup-form {
   overflow: scroll;
-  height: 45rem;
+  max-height: 45rem;
+  /* padding-top: 15rem; */
+}
+
+.add-property-form {
   padding-top: 15rem;
 }
