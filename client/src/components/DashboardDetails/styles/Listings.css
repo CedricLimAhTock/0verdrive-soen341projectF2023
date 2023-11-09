@@ -1,5 +1,6 @@
 .listings {
   height: auto;
+  min-height: 35rem;
 }
 
 .properties-header {
