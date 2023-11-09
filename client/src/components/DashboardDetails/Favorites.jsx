@@ -62,7 +62,7 @@ const Favorites = ({ token }) => {
       {propertyData.length > 0 ? (
         propertyData.map((property, index) => (
           <div key={index} className="card-fav">
-            <PropertyCard property={property} />
+            <PropertyCard property={property} decodedToken={token} />
           </div>
         ))
       ) : (

@@ -64,12 +64,12 @@ const PropertyCard = ({ property, decodedToken }) => {
           property_id: id,
           user_id: decodedToken.id,
         });
-        setIsSaved(!isSaved);
       } else {
         await axios.delete(
           `http://localhost:8080/favourite/user/${decodedToken.id}/property/${property.id}`
         );
       }
+      setIsSaved(!isSaved);
     } catch (error) {
       console.error("Error in PropertyCard.jsx", error);
     }
