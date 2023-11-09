@@ -173,3 +173,39 @@ label {
 .submit.delete {
   margin-left: 10px;
 }
+
+.listing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: aliceblue;
+  padding: 0 0 15px 0;
+}
+
+.listing-header h1 {
+  margin: 0;
+  font-weight: 300;
+}
+
+.property-intro-right {
+  display: flex;
+  align-items: center;
+}
+.property-intro-right p {
+  color: rgba(0, 0, 0, 0.5);
+  padding: 0 30px;
+}
+
+.add-property-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  background-color: #1666d9;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  width: 5rem;
+  height: 2rem;
+}
