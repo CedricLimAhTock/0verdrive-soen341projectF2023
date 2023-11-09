@@ -14,8 +14,8 @@ const UserListingCard = ({ data, expanded, toggleExpand }) => {
     return (
         <div className="whole-card" onClick={() => expand(event)}>
             <div className="broker-detail-card">
-                <div className="broker-name">{firstName}</div>
-                <div className="broker-join">{createdAt}</div>
+                <div className="broker-name">{data.user.firstname} {data.user.lastname}</div>
+                <div className="broker-join">{data.user.username}</div>
                 <div className="broker-email">{email}</div>
 
             </div>
