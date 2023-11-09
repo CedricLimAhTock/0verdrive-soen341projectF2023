@@ -7,11 +7,11 @@ const PropertyCardCarousel = ({ properties }) => {
     dots: false,
     infinite: true,
     slidesToShow: 4,
-    slidesToScroll: 1,
+    slidesToScroll: 4,
     autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 1000,
-    cssEase: "linear",
+    speed: 4000,
+    autoplaySpeed: 8000,
+    cssEase: "ease",
     swipe: false,
   };
 
