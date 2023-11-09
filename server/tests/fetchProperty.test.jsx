@@ -41,6 +41,5 @@ test("Search API should return expected results", async (t) => {
 
   // Assert that the response data matches the expected format
   const result = response.data;
-  console.log(result.length);
   expect(result.length).toBe(3);
 });

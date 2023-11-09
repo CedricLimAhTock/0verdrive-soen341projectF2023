@@ -5,34 +5,14 @@ test("Search API should return expected results", async (t) => {
   // Define the search query
   const query = {
     fields: {
-      civicAddress: "",
-      aptNumber: "",
-      street: "Mcguire",
-      neighbourhood: "",
-      city: "Montreal",
-      province: "Quebec",
-      postalCode: "",
-      country: "Canada",
-      listingType: "sale",
-      //   "price": {},
-      //   "livingArea": { "min": 0, "max": 9999 },
-      propertyArea: { min: 0, max: 99999 },
-      numOfBedrooms: { min: 0, max: 1000 },
-      //   "numOfBathrooms": { "min": 0, "max": 1000 },
-      //   "numOfFloors": { "min": 0, "max": 1000 },
-      //   "yearBuilt": { "min": "2023-01-01" },
-      listedDate: {},
-      propertyType: "",
-    },
-    sort: {
-      parameter: "listedDate",
-      order: "desc",
+      firstname: "Courtney",
+      lastname: "Ramirez",
     },
   };
 
   // Make a request to the search API
   const response = await axios.post(
-    "http://localhost:8080/property/search",
+    "http://localhost:8080/broker/search",
     query
   );
 
@@ -40,7 +20,14 @@ test("Search API should return expected results", async (t) => {
   expect(response.status).toBe(200);
 
   // Assert that the response data matches the expected format
-  const result = response.data;
-  console.log(result.length);
-  expect(result.length).toBe(3);
+  const result = response.data[0];
+  const { user } = result;
+
+  expect(result.id).toBe(5);
+  expect(result.user_id).toBe(11);
+  expect(result.active).toBe(true);
+  expect(user.firstname).toBe(query.fields.firstname);
+  expect(result.license_number).toBe("b5d1ada5-92d3-4dd7-a0e5-925ad0453b6d");
+  expect(result.email).toBe("gormes4@addthis.com");
+  expect(user.lastname).toBe(query.fields.lastname);
 });
