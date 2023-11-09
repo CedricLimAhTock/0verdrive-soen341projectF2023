@@ -29,7 +29,7 @@ const list = async (req, res) => {
         });
 
         if (!offers) {
-            return res.status(400).json();
+            return res.status(404).json();
         }
         
         res.status(200).send(offers);
@@ -67,7 +67,7 @@ const listById = async (req, res) => {
         });
 
         if (!offer) {
-            return res.status(400).json();
+            return res.status(404).json();
         } else {
             res.status(200).send(offer);
         }
@@ -82,7 +82,7 @@ const listById = async (req, res) => {
 
 const listByUserId = async (req, res) => {
     try {
-        let offer = await Offer.findOne({
+        let offer = await Offer.findAll({
             attributes: ['id', 'active', 'broker_id', 'property_id', 'parent_id', 'user_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
             include: [
                 {
@@ -105,7 +105,7 @@ const listByUserId = async (req, res) => {
         });
 
         if (!offer) {
-            return res.status(400).json();
+            return res.status(404).json();
         } else {
             res.status(200).send(offer);
         }
@@ -120,7 +120,7 @@ const listByUserId = async (req, res) => {
 
 const listByBrokerId = async (req, res) => {
     try {
-        let offer = await Offer.findOne({
+        let offer = await Offer.findAll({
             attributes: ['id', 'active', 'broker_id', 'property_id', 'parent_id', 'user_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
             include: [
                 {
@@ -143,7 +143,45 @@ const listByBrokerId = async (req, res) => {
         });
 
         if (!offer) {
-            return res.status(400).json();
+            return res.status(404).json();
+        } else {
+            res.status(200).send(offer);
+        }
+        
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: 'Server error'
+        });
+    }
+}
+
+const listByMakerId = async (req, res) => {
+    try {
+        let offer = await Offer.findAll({
+            attributes: ['id', 'active', 'broker_id', 'property_id', 'parent_id', 'user_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
+            where: {parent_id: req.params.id},
+            include: [
+                {
+                    model: User,
+                    attributes: ['id', 'firstname', 'lastname', 'address', 'email', 'phone'],
+                    required: true
+                },
+                {
+                    model: Broker,
+                    attributes: ['id', 'license_number', 'agency', 'email', 'phone'],
+                    required: true
+                },
+                {
+                    model: Property,
+                    attributes: ['id', 'civic_address', 'apt_number', 'street', 'neighbourhood', 'city', 'province', 'postal_code', 'country'],
+                    required: true
+                }
+            ]
+        });
+
+        if (!offer) {
+            return res.status(404).json();
         } else {
             res.status(200).send(offer);
         }
@@ -158,7 +196,7 @@ const listByBrokerId = async (req, res) => {
 
 const listByPropertyId = async (req, res) => {
     try {
-        let offer = await Offer.findOne({
+        let offer = await Offer.findAll({
             attributes: ['id', 'active', 'broker_id', 'property_id', 'parent_id', 'user_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
             include: [
                 {
@@ -181,7 +219,7 @@ const listByPropertyId = async (req, res) => {
         });
 
         if (!offer) {
-            return res.status(400).json();
+            return res.status(404).json();
         } else {
             res.status(200).send(offer);
         }
@@ -251,7 +289,7 @@ const create = async (req, res) => {
         } else {
             res.status(200).send(offer);
         }
-        
+
     } catch (error) {
         console.log(error);
         res.status(500).json({
@@ -331,7 +369,7 @@ const destroy = async (req, res) => {
         });
 
         if (!offer) {
-            return res.status(400).json();
+            return res.status(404).json();
         }
 
         offer.destroy();
@@ -346,4 +384,4 @@ const destroy = async (req, res) => {
     }
 }
 
-export default { list, listById, listByUserId, listByBrokerId, listByPropertyId, update, updateById, create, destroy};
+export default { list, listById, listByUserId, listByBrokerId, listByMakerId, listByPropertyId, update, updateById, create, destroy};

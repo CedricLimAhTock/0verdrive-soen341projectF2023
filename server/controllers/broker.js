@@ -13,7 +13,7 @@ const list = async (req, res) => {
         });
 
         if (!brokers) {
-            return res.status(400).json();
+            return res.status(404).json();
         }
         
         res.status(200).send(brokers);
@@ -35,7 +35,7 @@ const listById = async (req, res) => {
         });
 
         if (!broker) {
-            return res.status(400).json();
+            return res.status(404).json();
         } else {
             res.status(200).send(broker);
         }
@@ -72,7 +72,7 @@ const listByUserId = async (req, res) => {
         });
 
         if (!broker) {
-            return res.status(400).json();
+            return res.status(404).json();
         } else {
             res.status(200).send(broker);
         }
@@ -109,7 +109,7 @@ const listByUsername = async (req, res) => {
         });
 
         if (!broker) {
-            return res.status(400).json();
+            return res.status(404).json();
         } else {
             res.status(200).send(broker);
         }
@@ -141,7 +141,7 @@ const listByPropertyId = async (req, res) => {
         });
 
         if (!broker) {
-            return res.status(400).json();
+            return res.status(404).json();
         } else {
             res.status(200).send(broker);
         }
@@ -318,7 +318,7 @@ const destroy = async (req, res) => {
         });
 
         if (!broker) {
-            return res.status(400).json();
+            return res.status(404).json();
         }
 
         broker.destroy();

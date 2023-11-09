@@ -9,6 +9,7 @@ import Carousel from "../Carousel/Carousel";
 import VisitForm from "../VisitForm/VisitForm";
 import OfferForm from "../OfferForm/OfferForm";
 import jwt_decode from "jwt-decode";
+import axios from "axios";
 
 const DetailedCard = ({ property }) => {
   const {
@@ -18,14 +19,15 @@ const DetailedCard = ({ property }) => {
     city,
     province,
     country,
-    numOfBedrooms,
-    numOfBathrooms,
-    propertyArea,
+    num_bedrooms,
+    num_bathrooms,
+    property_area,
     neighbourhood,
     id,
   } = property;
 
   const [decodedToken, setDecodedToken] = React.useState(null);
+  const [brokerInfo, setBrokerInfo] = useState(null);
 
   useEffect(() => {
     function fetchData() {
@@ -34,13 +36,24 @@ const DetailedCard = ({ property }) => {
       setDecodedToken(decoded);
     }
 
+    const fetchBroker = async () => {
+      const response = await axios.get(
+        `http://localhost:8080/broker/property/${id}`
+      );
+      const { user } = response.data;
+      const { firstname, lastname } = user;
+      const broker = firstname + " " + lastname;
+      setBrokerInfo(broker);
+      console.log(broker);
+    };
+
     fetchData();
+    fetchBroker();
   }, []);
 
   const address = `${street}, ${city}, ${province}, ${country}`;
   const description =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui.";
-  const broker = "John Doe";
 
   const [activeTab, setActiveTab] = useState("description");
 
@@ -68,7 +81,7 @@ const DetailedCard = ({ property }) => {
         </div>
 
         <div className="info">
-          <h2 className="title">{price}</h2>
+          <h2 className="title">${price}</h2>
           <p className="address">{address}</p>
         </div>
 
@@ -101,7 +114,7 @@ const DetailedCard = ({ property }) => {
                 <p>Neighbourhood: {neighbourhood}</p>
               </>
             )}
-            {activeTab === "broker" && <p>{broker}</p>}
+            {activeTab === "broker" && <p>{brokerInfo}</p>}
             {activeTab === "map" && <p>{address}</p>}
           </div>
         </div>
@@ -110,28 +123,28 @@ const DetailedCard = ({ property }) => {
         <div className="property-features">
           <div className="features">
             <img className="c-icons" src={bedIcon} alt="Bed Icon" />
-            <span className="icon-numbers">{numOfBedrooms}</span>
+            <span className="icon-numbers">{num_bedrooms}</span>
           </div>
           <div className="features">
             <img className="c-icons" src={bathIcon} alt="Bath Icon" />
-            <span className="icon-numbers">{numOfBathrooms}</span>
+            <span className="icon-numbers">{num_bathrooms}</span>
           </div>
           <div className="features">
             <img className="c-icons" src={rulerIcon} alt="Ruler Icon" />
-            <span className="icon-numbers">{propertyArea} sq ft</span>
+            <span className="icon-numbers">{property_area} sq ft</span>
           </div>
         </div>
       </div>
 
       <div className="right-side">
-        <h2 className="price">{price}</h2>
+        <h2 className="price">${price}</h2>
         <button className="offer" onClick={() => toggleOfferForm(true)}>
           Make an offer
         </button>
         <button className="visit" onClick={() => toggleVisitForm(true)}>
           Request a visit
         </button>
-        <button className="calc" onClick={setIsFormOpen}>
+        <button className="calc" onClick={() => setIsFormOpen}>
           Mortgage Calculator
         </button>
         <MortgageCalculator
@@ -153,6 +166,8 @@ const DetailedCard = ({ property }) => {
             isFormOpen={isOfferForm}
             closeForm={toggleOfferForm}
             property={property}
+            address={address}
+            brokerInfo={brokerInfo}
           />
         )}
       </div>

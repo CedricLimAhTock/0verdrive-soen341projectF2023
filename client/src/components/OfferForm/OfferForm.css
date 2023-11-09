@@ -1,0 +1,190 @@
+* {
+  font-family: Inter;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  top: 0;
+  left: 0;
+}
+
+.show .popup-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(6%);
+
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.offer-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+.offer-left {
+  flex: 1;
+  border-radius: 1rem;
+}
+
+.property-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #f5f5f5;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  gap: 0.5rem;
+  margin: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.offer-right {
+  flex: 1;
+  border-radius: 0.5rem;
+  background-color: #f5f5f5;
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.offer-right input[type="text"],
+.offer-right input[type="email"],
+.offer-right input[type="number"] {
+  width: 16rem;
+  border: none;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+  background: rgba(244, 244, 244, 0.465);
+  color: rgba(0, 0, 0, 0.25);
+  font-family: Inter;
+  font-weight: 300;
+  font-size: 15px;
+  outline: none;
+  caret-color: #157dff;
+  margin: 10px;
+}
+
+.offer-right input[type="text"]::placeholder,
+.offer-right input[type="email"]::placeholder,
+.offer-right input[type="number"]::placeholder {
+  letter-spacing: 1px;
+}
+
+.offer-right input[type="text"]:focus,
+.offer-right input[type="number"]:focus,
+.offer-right input[type="email"]:focus {
+  color: #000;
+  font-weight: 400;
+  font-size: 15px;
+  border-color: #157dff;
+  transition: border-color 0.5s ease-in-out;
+}
+
+.offer-right input[type="text"]:hover,
+.offer-right input[type="number"]:hover,
+.offer-right input[type="email"]:hover {
+  border-color: #157dff;
+  transition: border-color 0.5s ease-in-out;
+}
+
+
+
+.button-container .submit {
+  appearance: none;
+  background-color: #1666D9;
+  border-radius: 0.5rem;
+  border: 2px solid #1666D9;
+  font-size: 12px;
+  width: 10rem;
+  font-weight: 500;
+}
+
+.button-container .submit:hover {
+  background-color: white;
+  color: #1666D9;
+  transition: all 0.3s ease;
+}
+
+.left-visit {
+  color: rgba(0, 0, 0, 0.6);
+  margin-right: 10px;
+}
+
+.visit-form {
+  width: 75% !important;
+}
+
+.offer-carousel {
+  margin: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.broker-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  row-gap: 0.5rem;
+  margin: 0.5rem;
+  background-color: #f5f5f581;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.offer-profilepic {
+  width: 6rem;
+  height: auto;
+  border-radius: 1rem;
+  margin: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.broker-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  margin-left: 0.5rem; 
+  margin-right: 1rem;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.close-button {
+  border-radius: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1rem;
+  height: 2rem;
+  background-color: transparent;
+  margin-left: 43rem;
+}
+
+.close-button:hover {
+  background-color: #1666D9;
+  transition: all 0.2s ease;
+}
+
+.close-button-x {
+  width: 1rem;
+  height: 1rem;
+}

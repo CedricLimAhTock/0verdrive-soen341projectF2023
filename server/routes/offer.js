@@ -8,6 +8,7 @@ router.get('/', offerController.list);
 router.get('/:id', offerController.listById);
 router.get('/user/:id', offerController.listByUserId);
 router.get('/broker/:id', offerController.listByBrokerId);
+router.get('/maker/:id', offerController.listByMakerId);
 router.get('/property/:id', offerController.listByPropertyId);
 
 router.post('/', offerController.create);

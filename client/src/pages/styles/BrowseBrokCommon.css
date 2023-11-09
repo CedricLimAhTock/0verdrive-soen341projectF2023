@@ -47,9 +47,33 @@
   margin-left: 0.5rem;
 }
 
+.search-dropdown {
+  appearance: none;
+  height: 3rem;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  background-color: #fff;
+}
+
+.search-dropdown::after {
+  content: '\25BC'; /* Downward-pointing triangle (Unicode for a small triangle) */
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search-dropdown option {
+  /* Add your option styles here */
+  background-color: #fff;
+  color: #333;
+  padding: 10px;
+}
+
 .items {
   display: flex;
-  justify-content: space between;
+  justify-content: space-between;
 }
 
 /* CSS for Pagination Component */
@@ -58,8 +82,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  font-family: Arial, sans-serif;
-  margin-bottom: 50px;
+  margin-bottom: 2rem;
 }
 
 .pagination-list {
@@ -75,6 +98,7 @@
 }
 
 .active-page {
+  border-radius: 0.5rem;
   background-color: #007bff;
   color: #fff !important;
 }
@@ -85,9 +109,13 @@
   text-decoration: none;
   border: 1px solid #ddd;
   transition: background-color 0.3s, color 0.3s;
+  color: black;
+  border-radius: .5rem;
+  font-weight: 500;
 }
 
 .page-link:hover {
+  border-radius: 0.5rem;
   background-color: #1666d9;
   color: #fff;
 }

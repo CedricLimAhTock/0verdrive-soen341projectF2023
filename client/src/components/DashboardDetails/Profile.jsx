@@ -25,7 +25,6 @@ const Profile = ({ data, token }) => {
         lastname: lastName.toString(),
         email: email.toString(),
         phone: phone.toString(),
-        address: address.toString(),
       });
       if (response.status === 200) {
         alert("Updated");
