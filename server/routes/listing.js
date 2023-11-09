@@ -9,7 +9,11 @@ router.get('/:id', listingController.listById);
 
 router.get('/broker/:id', listingController.listByBrokerId);
 
+router.get('/property/:id', listingController.listByPropertyId);
+
 router.post('/', listingController.create);
+router.post('/property', listingController.createWithProperty);
+
 
 router.put('/', listingController.update);
 

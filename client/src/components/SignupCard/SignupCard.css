@@ -139,7 +139,14 @@
   background-image: url("../../assets/mail-icon.svg");
   background-position: right 41px center;
   background-repeat: no-repeat;
-  background-size: 20px;
+  background-size: 18px;
+}
+
+.form-element input[type="tel"]::placeholder {
+  background-image: url("../../assets/phone-icon.svg");
+  background-position: right 41px center;
+  background-repeat: no-repeat;
+  background-size: 18px;
 }
 
 .alertMessage {

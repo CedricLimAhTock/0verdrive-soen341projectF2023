@@ -1,0 +1,43 @@
+.brokerCard {
+  width: 30rem;
+  height: 10rem;
+  display: flex;
+  padding: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.brokerCard:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  
+}
+
+.profilepic {
+  width: 6rem;
+  height: auto;
+  border-radius: .5rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-broker {
+  background-color: transparent;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.items {
+  min-height: 60rem;
+}
+
+.email {
+  margin-left: 2rem;
+}

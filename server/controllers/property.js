@@ -30,7 +30,7 @@ const list = async (req, res) => {
         });
 
         if (!properties) {
-            return res.status(400).json({});
+            return res.status(404).json({});
         } else {
             res.status(200).send(properties);
         }
@@ -72,7 +72,7 @@ const listByType = async (req, res) => {
         });
 
         if (!properties) {
-            return res.status(400).json();
+            return res.status(404).json();
         } else {
             res.status(200).send(properties);
         }
@@ -117,7 +117,7 @@ const listByTypeId = async (req, res) => {
         });
 
         if (!properties) {
-            return res.status(400).json();
+            return res.status(404).json();
         } else {
             res.status(200).send(properties);
         }
@@ -159,7 +159,7 @@ const listById = async (req, res) => {
         });
 
         if (!property) {
-            return res.status(400).json();
+            return res.status(404).json();
         } else {
             res.status(200).send(property);
         }
@@ -215,7 +215,7 @@ const listByBrokerId = async (req, res) => {
         });
 
         if (!properties) {
-            return res.status(400).json();
+            return res.status(404).json();
         } else {
             res.status(200).send(properties);
         }
@@ -231,6 +231,16 @@ const listByBrokerId = async (req, res) => {
 const create = async (req, res) => {
     try {
         const data = req.body;
+
+        let property_address = [
+            data.apt_number,
+            data.civic_address,
+            data.street,
+            data.neighbourhood,
+            data.city,
+            data.province,
+            data.country,
+            data.postal_code].join(" ");
 
         const property = await Property.create({
             active: 1,
@@ -251,7 +261,8 @@ const create = async (req, res) => {
             num_floors: data.num_floors,
             year_built: data.year_built,
             listed_date: data.listed_date,
-            property_type: data.property_type
+            property_type: data.property_type,
+            address: property_address
         });
         if (!property) {
             return res.status(400).json({message: "Failed to create."});
@@ -279,11 +290,24 @@ const update = async (req, res) => {
         const property = await Property.findOne({where: {id: property_id}});
 
         if (!property) {
-            return res.status(400).json({message: "Does not exist."});
+            return res.status(404).json({message: "Does not exist."});
+        }
+
+        let property_address = [
+            data.apt_number,
+            data.civic_address,
+            data.street,
+            data.neighbourhood,
+            data.city,
+            data.province,
+            data.country,
+            data.postal_code].join(" ");
+        if (property_address) {
+            data.address = property_address;
         }
 
         delete data.id;
-        await Property.update(req.body, {where: {id: property_id}});
+        await Property.update(data, {where: {id: property_id}});
 
         res.status(200).json();
 
@@ -308,11 +332,24 @@ const updateById = async (req, res) => {
         const property = await Property.findOne({where: {id: property_id}});
 
         if (!property) {
-            return res.status(400).json({message: "Does not exist."});
+            return res.status(404).json({message: "Does not exist."});
+        }
+
+        let property_address = [
+            data.apt_number,
+            data.civic_address,
+            data.street,
+            data.neighbourhood,
+            data.city,
+            data.province,
+            data.country,
+            data.postal_code].join(" ");
+        if (property_address) {
+            data.address = property_address;
         }
 
         delete data.id;
-        await Property.update(req.body, { where: { id: property_id } });
+        await Property.update(data, { where: { id: property_id } });
 
         res.status(200).json();
 
@@ -332,7 +369,7 @@ const destroy = async (req, res) => {
         });
 
         if (!property) {
-            return res.status(400).json();
+            return res.status(404).json();
         }
 
         property.destroy();

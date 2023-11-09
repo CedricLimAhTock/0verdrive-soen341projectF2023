@@ -1,0 +1,153 @@
+.browse-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 50px;
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #cdcdcd27;
+  margin: 0.5rem;
+  border-radius: 1rem;
+}
+
+.filters-container {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #cdcdcd27;
+}
+
+.search {
+  display: flex;
+}
+
+.search > input {
+  height: 3rem;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  caret-color: #1666d9;
+}
+
+.search > input::placeholder {
+  color: rgba(0, 0, 0, 0.36);
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.1rem;
+  padding: 0.5rem;
+}
+
+.search > input[type="image"] {
+  margin-left: 0.5rem;
+}
+
+.search-dropdown {
+  appearance: none;
+  height: 3rem;
+  font-size: 1.1rem;
+  border: none;
+  outline: none;
+  background-color: #fff;
+}
+
+.search-dropdown::after {
+  content: '\25BC'; /* Downward-pointing triangle (Unicode for a small triangle) */
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.search-dropdown option {
+  /* Add your option styles here */
+  background-color: #fff;
+  color: #333;
+  padding: 10px;
+}
+
+.items {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* CSS for Pagination Component */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 2rem;
+}
+
+.pagination-list {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.page-item {
+  margin: 0 5px;
+  transition: background-color 0.3s;
+}
+
+.active-page {
+  border-radius: 0.5rem;
+  background-color: #007bff;
+  color: #fff !important;
+}
+
+.page-link {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  transition: background-color 0.3s, color 0.3s;
+  color: black;
+  border-radius: .5rem;
+  font-weight: 500;
+}
+
+.page-link:hover {
+  border-radius: 0.5rem;
+  background-color: #1666d9;
+  color: #fff;
+}
+
+/* Previous and Next buttons */
+.page-item:first-child .page-link::before {
+  content: "«";
+  margin-right: 5px;
+}
+
+.page-item:last-child .page-link::after {
+  content: "»";
+  margin-left: 5px;
+}
+
+.page-item:nth-child(2) .page-link::before {
+  content: "‹";
+  margin-right: 5px;
+}
+
+.page-item:nth-last-child(2) .page-link::after {
+  content: "›";
+  margin-left: 5px;
+}
+
+.items {
+  min-height: 60rem;
+}
+
+.search-failed {
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 50%;
+  font-size: larger;
+}

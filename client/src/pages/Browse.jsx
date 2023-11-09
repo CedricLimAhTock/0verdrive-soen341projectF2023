@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./styles/Browse.css";
+import "./styles/BrowseBrokCommon.css";
 import PropertyCard from "../components/PropertyCard/PropertyCard";
 import Search from "../assets/searchIcon-browse.svg";
 import { useNavigate } from "react-router-dom";
@@ -11,7 +12,6 @@ const Browse = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const propertiesPerPage = 8;
   const [decodedToken, setDecodedToken] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,14 +38,12 @@ const Browse = () => {
     // fetch token from local storage & decode
     const token = localStorage.getItem("jwtToken");
     if (!token) {
-      console.log("No token found"); 
+      console.log("No token found");
       null;
     } else {
       const decodedToken = jwt_decode(token);
       setDecodedToken(decodedToken);
     }
-
-
   }, []);
 
   const searchData = async (event) => {
@@ -134,18 +132,6 @@ const Browse = () => {
     }
   };
 
-  const onEventClick = (propertyId) => {
-    console.log("propertyId", propertyId);
-    const selectedProperty = propertyData.find(
-      (property) => property.id === propertyId
-    );
-    if (selectedProperty) {
-      navigate(`/property/${propertyId}`, {
-        state: { property: selectedProperty },
-      });
-    }
-  };
-
   return (
     <div className="browse-container">
       <div className="filters-container">
@@ -158,11 +144,10 @@ const Browse = () => {
               value={manyTerms}
               onChange={(e) => setManyTerms(e.target.value)}
             ></input>
-            <input
-              className="search-select"
-              type="select"
-              placeholder="For Sale"
-            ></input>
+            <select className="search-select search-dropdown" type="select">
+              <option value="sale">For sale ▾</option>
+              <option value="rent">For rent ▾</option>
+            </select>
             <input
               className="search-select"
               type="select"
@@ -191,22 +176,26 @@ const Browse = () => {
               value={minBaths}
               onChange={(e) => setMinBaths(e.target.value)}
             ></input>
+
             <input type="image" src={Search} onClick={searchData}></input>
           </form>
         </div>
       </div>
       <div className="items">
-        <div className="browse-cards">
-          {currentProperties.map((property, index) => (
-            <PropertyCard
-              property={property}
-              key={index}
-              className="property-card"
-              onEventClick={onEventClick}
-              decodedToken={decodedToken}
-            />
-          ))}
-        </div>
+        {propertyData.length > 0 ? (
+          <div className="browse-cards">
+            {currentProperties.map((property, index) => (
+              <PropertyCard
+                property={property}
+                key={index}
+                className="property-card"
+                decodedToken={decodedToken}
+              />
+            ))}
+          </div>
+        ) : (
+          <p className="search-failed">No Properties Found</p>
+        )}
       </div>
       <div className="pagination">
         <nav>

@@ -1,30 +1,32 @@
 import express from "express";
 import bcrypt from "bcrypt";
 import User from "../../models/user.js";
-import User_role from "../../models/user_role.js"
-import Role from '../../models/role.js';
-import Broker from '../../models/broker.js';
+import User_role from "../../models/user_role.js";
+import Role from "../../models/role.js";
+import Broker from "../../models/broker.js";
 
 const router = express.Router();
 
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     let data = req.body;
 
     if (!data.username || !data.password) {
-      return res.status(400).json({ message: "username and password cannot be null." });
+      return res
+        .status(400)
+        .json({ message: "username and password cannot be null." });
     }
 
     const hashedPassword = await bcrypt.hash(data.password, 10);
     data.password = hashedPassword;
 
     const role = await Role.findOne({
-      attributes: ['id', 'active', 'type'],
+      attributes: ["id", "active", "type"],
       where: {
-        type: data.userRole.toLowerCase().split(" ").join("")
-      }
+        type: data.userRole.toLowerCase().split(" ").join(""),
+      },
     });
-    
+
     if (!role) {
       res.status(404).json({ message: "Role does not exist." });
     }
@@ -32,17 +34,13 @@ router.post('/', async (req, res) => {
     delete data.userRole;
 
     const [user, created] = await User.findOrCreate({
-      attributes: ['id'],
+      attributes: ["id"],
       where: data,
       defaults: {
         active: 1,
-        firstname: "",
-        lastname: "",
-        email: "",
-        phone: ""
-      }
+      },
     });
-    
+
     if (!created) {
       return res.status(400).json({ message: "Username already taken." });
     } else {
@@ -50,7 +48,7 @@ router.post('/', async (req, res) => {
       const user_role = await User_role.create({
         active: 1,
         user_id: user.id,
-        role_id: role.id
+        role_id: role.id,
       });
 
       if (!user_role) {
@@ -59,19 +57,21 @@ router.post('/', async (req, res) => {
       }
 
       // if user is a broker, create an entry in broker table
-      if (role.type == 'broker') {
+      if (role.type == "broker") {
         const broker = await Broker.create({
           active: 1,
           user_id: user.id,
           license_number: "",
           agency: "",
           email: "",
-          phone: ""
+          phone: "",
         });
 
         if (!broker) {
           user.destroy();
-          return res.status(400).json({ message: "Failed to add broker entry." });
+          return res
+            .status(400)
+            .json({ message: "Failed to add broker entry." });
         }
       }
 
@@ -80,7 +80,7 @@ router.post('/', async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json({
-      message: 'Server error'
+      message: "Server error",
     });
   }
 });

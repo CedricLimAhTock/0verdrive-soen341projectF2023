@@ -1,0 +1,132 @@
+/* DashboardOffers.css */
+.offers {
+  height: 500px;
+}
+
+.offer-header {
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0; /* Background color for the header */
+}
+
+.offer-header-type,
+.offer-header-status,
+.offer-header-address,
+.offer-header-price,
+.offer-header-broker {
+  padding: 10px;
+  text-align: center;
+  border-right: 1px solid #ccc;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: #f0f0f0; /* Background color for header cells */
+}
+
+.offer-header-broker {
+  border-right: none;
+}
+
+.offer-header-type {
+  width: 15%;
+}
+
+.offer-header-status {
+  width: 20%;
+}
+
+.offer-header-address {
+  width: 35%;
+}
+
+.offer-header-price {
+  width: 15%;
+}
+
+.offer-header-broker {
+  width: 15%;
+  border-right: none;
+}
+
+.offer-cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.offer-card {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background-color: transparent; /* Background color for card */
+  margin: 20px 0; /* Add some margin between cards for spacing */
+  height: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.whole-card {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.property-type {
+  width: 15%;
+}
+
+.property-status {
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 13px;
+  width: 100px;
+  margin: 0 auto;
+  height: 30px;
+  text-transform: uppercase;
+}
+
+.property-address {
+  width: 35%;
+}
+
+.property-price {
+  width: 15%;
+}
+
+.property-broker {
+  width: 15%;
+  border-right: none;
+}
+
+.status-confirmed {
+  color: rgba(64, 123, 22);
+  background-color: rgba(233, 245, 230);
+}
+
+.status-hold {
+  color: rgba(191, 143, 60);
+  background-color: rgba(250, 250, 244);
+}
+
+.status-declined {
+  color: rgba(157, 62, 47);
+  background-color: rgba(246, 233, 234);
+}
+
+.expanded-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.offer-card {
+  cursor: pointer;
+}
+
+.no-offers {
+  margin-top: 50px;
+  text-align: center;
+}
