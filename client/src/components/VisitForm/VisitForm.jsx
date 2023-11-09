@@ -9,7 +9,6 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
-  const password = "Wvu#YVZ5YKZPMd";
 
   const { images, price, address, broker } = property;
   const [decodedToken, setDecodedToken] = React.useState(null);
@@ -28,14 +27,16 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
     event.preventDefault();
 
     try {
+      const broker = await axios.get(`http://localhost:8080/listing/property/${property.id}`);
+      console.log(broker.data[0].broker_id);
+
       alert(`Email: ${email}\nPhone: ${phone}\nMessage: ${message}`);
-      const response = await axios.post("http://127.0.0.1:5173/visit/", {
-        property_id: 2,
-        client_id: 1,
-        broker_id: 1,
-        time: "2023-11-03T10:30:00",
+      const response = await axios.post("http://127.0.0.1:8080/visit/", {
+        property_id: property.id.toString(),
+        client_id: decodedToken.id.toString(),
+        broker_id: broker.data[0].broker_id.toString(),
         status: "requested",
-        message: "Testing",
+        message: message.toString(),
       });
 
       if (response.status === 200) {
