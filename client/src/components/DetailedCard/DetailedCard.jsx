@@ -28,6 +28,7 @@ const DetailedCard = ({ property }) => {
 
   const [decodedToken, setDecodedToken] = React.useState(null);
   const [brokerInfo, setBrokerInfo] = useState(null);
+  const [broker, setBroker] = useState(null);
 
   useEffect(() => {
     function fetchData() {
@@ -40,13 +41,15 @@ const DetailedCard = ({ property }) => {
       const response = await axios.get(
         `http://localhost:8080/broker/property/${id}`
       );
+      const temp = response.data;
+      setBroker(temp);
       const { user } = response.data;
       const { firstname, lastname } = user;
       const broker = firstname + " " + lastname;
       setBrokerInfo(broker);
       console.log(broker);
     };
-
+    console.log(brokerInfo);
     fetchData();
     fetchBroker();
   }, []);
@@ -66,6 +69,7 @@ const DetailedCard = ({ property }) => {
   };
 
   const toggleForm = () => {
+    console.log("toggleForm");
     setIsFormOpen(!isFormOpen);
   };
 
@@ -138,21 +142,23 @@ const DetailedCard = ({ property }) => {
 
       <div className="right-side">
         <h2 className="price">${price}</h2>
-        <button className="offer" onClick={() => toggleOfferForm(true)}>
+        <button className="offer offer-button" onClick={() => toggleOfferForm(true)}>
           Make an offer
         </button>
-        <button className="visit" onClick={() => toggleVisitForm(true)}>
+        <button className="visit visit-button" onClick={() => toggleVisitForm(true)}>
           Request a visit
         </button>
-        <button className="calc" onClick={() => setIsFormOpen}>
+        <button className="calc calc-button" onClick={() => toggleForm(true)}>
           Mortgage Calculator
         </button>
-        <MortgageCalculator
-          isOpen={isFormOpen}
-          onClose={toggleForm}
-          property={property}
-        />
-
+        {isFormOpen && (
+          <MortgageCalculator
+            isOpen={isFormOpen}
+            onClose={toggleForm}
+            property={property}
+          />
+        )
+        }
         {isVisitForm && (
           <VisitForm
             isFormOpen={isVisitForm}
@@ -168,6 +174,7 @@ const DetailedCard = ({ property }) => {
             property={property}
             address={address}
             brokerInfo={brokerInfo}
+            broker={broker}
           />
         )}
       </div>
