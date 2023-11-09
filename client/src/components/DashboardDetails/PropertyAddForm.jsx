@@ -66,6 +66,7 @@ const PropertyAddForm = ({ isFormOpen, closeForm }) => {
         />
         <div className="form-pair">
           <input
+            placeholder="Property Type"
             id="type"
             value={type}
             onChange={(e) => setType(e.target.value)}

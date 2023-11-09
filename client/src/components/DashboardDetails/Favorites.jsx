@@ -1,26 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import PropertyCard from '../PropertyCard/PropertyCard';
-import './styles/Favorites.css';
-import axios from 'axios';
-import jwt_decode from 'jwt-decode';
+import React, { useState, useEffect } from "react";
+import PropertyCard from "../PropertyCard/PropertyCard";
+import "./styles/Favorites.css";
+import axios from "axios";
+import jwt_decode from "jwt-decode";
 
 const Favorites = ({ token }) => {
   const [propertyData, setPropertyData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const token = localStorage.getItem("jwtToken");
-      const decodedToken = jwt_decode(token);
+      const token1 = localStorage.getItem("jwtToken");
+      const decodedToken = jwt_decode(token1);
 
       try {
-        const response = await axios.get(`http://localhost:8080/favourite/user/${decodedToken.id}`);
+        const response = await axios.get(
+          `http://localhost:8080/favourite/user/${decodedToken.id}`
+        );
         const favoriteProperties = response.data;
 
         if (favoriteProperties.length === 0) {
           return;
         }
 
-        const propertyIds = favoriteProperties.map((favorite) => favorite.property_id);
+        const propertyIds = favoriteProperties.map(
+          (favorite) => favorite.property_id
+        );
         const propertyData = await fetchPropertiesWithImages(propertyIds);
 
         setPropertyData(propertyData);
@@ -34,7 +38,9 @@ const Favorites = ({ token }) => {
 
   const fetchPropertiesWithImages = async (propertyIds) => {
     const propertyDataPromises = propertyIds.map(async (propertyId) => {
-      const propertyResponse = await axios.get(`http://localhost:8080/property/${propertyId}`);
+      const propertyResponse = await axios.get(
+        `http://localhost:8080/property/${propertyId}`
+      );
       let property = propertyResponse.data;
 
       if (!property.images || property.images.length === 0) {
