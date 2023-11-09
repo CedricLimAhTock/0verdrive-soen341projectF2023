@@ -35,13 +35,11 @@ const PropertyCard = ({ property, decodedToken }) => {
     }
     try {
       const response = await axios.get(
-        `http://localhost:8080/favourite/property/${property.id}`
+        `http://localhost:8080/favourite/user/${decodedToken.id}/property/${property.id}`
       );
-      const foundFavorite = response.data.find(
-        (property) => property.user_id === decodedToken.id
-      );
+      console.log(response.data);
 
-      if (!foundFavorite) {
+      if (response.data.length === 0) {
         setIsSaved(false);
       } else {
         setIsSaved(true);
@@ -50,8 +48,9 @@ const PropertyCard = ({ property, decodedToken }) => {
       console.error("Error in PropertyCard.jsx", error);
     }
   };
-  fetchIsSaved();
-
+  useEffect(() => {
+    fetchIsSaved();
+  }, [decodedToken, property]);
   const handleIsSaved = async (e) => {
     e.stopPropagation();
     console.log("clicked");
@@ -60,15 +59,20 @@ const PropertyCard = ({ property, decodedToken }) => {
       return;
     }
     try {
-      await axios.post("http://localhost:8080/favourite", {
-        property_id: id,
-        user_id: decodedToken.id,
-      });
+      if (!isSaved) {
+        await axios.post("http://localhost:8080/favourite", {
+          property_id: id,
+          user_id: decodedToken.id,
+        });
+        setIsSaved(!isSaved);
+      } else {
+        await axios.delete(
+          `http://localhost:8080/favourite/user/${decodedToken.id}/property/${property.id}`
+        );
+      }
     } catch (error) {
       console.error("Error in PropertyCard.jsx", error);
     }
-
-    setIsSaved(!isSaved);
   };
 
   const onEventClick = async (propertyId) => {
