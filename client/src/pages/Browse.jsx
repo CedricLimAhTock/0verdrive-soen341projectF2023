@@ -12,7 +12,6 @@ const Browse = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const propertiesPerPage = 8;
   const [decodedToken, setDecodedToken] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -133,18 +132,6 @@ const Browse = () => {
     }
   };
 
-  const onEventClick = (propertyId) => {
-    console.log("propertyId", propertyId);
-    const selectedProperty = propertyData.find(
-      (property) => property.id === propertyId
-    );
-    if (selectedProperty) {
-      navigate(`/property/${propertyId}`, {
-        state: { property: selectedProperty },
-      });
-    }
-  };
-
   return (
     <div className="browse-container">
       <div className="filters-container">
@@ -157,11 +144,10 @@ const Browse = () => {
               value={manyTerms}
               onChange={(e) => setManyTerms(e.target.value)}
             ></input>
-            <input
-              className="search-select"
-              type="select"
-              placeholder="For Sale"
-            ></input>
+            <select className="search-select search-dropdown" type="select">
+              <option value="sale">For sale ▾</option>
+              <option value="rent">For rent ▾</option>
+            </select>
             <input
               className="search-select"
               type="select"
@@ -190,6 +176,7 @@ const Browse = () => {
               value={minBaths}
               onChange={(e) => setMinBaths(e.target.value)}
             ></input>
+
             <input type="image" src={Search} onClick={searchData}></input>
           </form>
         </div>
@@ -202,7 +189,6 @@ const Browse = () => {
                 property={property}
                 key={index}
                 className="property-card"
-                onEventClick={onEventClick}
                 decodedToken={decodedToken}
               />
             ))}

@@ -66,7 +66,7 @@ def insert_property(connection, cursor, filepath):
                 #print(f'Column names are {", ".join(row)}')
                 line_count += 1
             else:
-                address = f"{row[3]} {row[2]} {row[4]} {row[5]} {row[6]} {row[7]} {row[8]} {row[10]} {row[9]}"
+                address = f"{row[3]} {row[2]} {row[4]} {row[5]} {row[6]} {row[7]} {row[9]} {row[8]}"
                 # print(address)
                 query = f"""INSERT INTO `property` (`id`, `active`, `civic_address`, `apt_number`, `street`, `city`, `neighbourhood`, `province`, `postal_code`, `country`, `listing_type`, `price`, `living_area`, `property_area`, `num_bedrooms`, `num_bathrooms`, `num_floors`, `year_built`, `listed_date`, `property_type`, `address`) 
                 VALUES (0, {row[1]}, '{row[2]}', '{row[3]}', '{row[4]}', '{row[5]}', '{row[6]}', '{row[7]}', '{row[8]}','{row[9]}', '{row[10]}', {row[11]}, {row[12]}, {row[13]}, {row[14]}, {row[15]}, {row[16]}, '{row[17]}', '{row[18]}', '{row[19]}', '{address}')"""
@@ -180,7 +180,27 @@ def insert_favourites(connection, cursor, filepath):
     records = cursor.fetchone()
     print(f"Inserted {records} records into table favourite.")
     
+
+def insert_offers(connection, cursor, filepath):
     
+    path = pathlib.Path(filepath)
+    with open(path) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        line_count = 0
+        for row in csv_reader:
+            if line_count == 0:
+                line_count += 1
+            else:
+                query = f"""INSERT INTO `offer` (`id`, `active`, `parent_id`, `broker_id`, `user_id`, `property_id`, `price`, `deed_of_sale_date`, `occupancy_date`, `status`) 
+                VALUES (0, {row[1]}, {row[2]}, {row[3]}, {row[4]}, {row[5]}, {row[6]}, '{row[7]}', '{row[8]}', '{row[9]}')"""
+                #print(query)
+                cursor.execute(query)
+        connection.commit()
+    
+    cursor.execute("select COUNT(*) from offer")
+    records = cursor.fetchone()
+    print(f"Inserted {records} records into table offer.")
+ 
 if __name__ == "__main__":
     
     parser = argparse.ArgumentParser(description="Database table populator", add_help=False)
@@ -217,6 +237,8 @@ if __name__ == "__main__":
             insert_visits(connection, cursor, "./visits.csv")
             print("Populating table favourite...")
             insert_favourites(connection, cursor, "./favourites.csv")
+            print("Populating table offer...")
+            insert_offers(connection, cursor, "./offer.csv")
             
     except Error as e:
         print("Error while connecting to MySQL", e)

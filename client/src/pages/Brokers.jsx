@@ -12,7 +12,6 @@ const Brokers = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const brokersPerPage = 8;
   const [decodedToken, setDecodedToken] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -106,16 +105,6 @@ const Brokers = () => {
   const nextPage = () => {
     if (currentPage < Math.ceil(brokerData.length / brokersPerPage)) {
       setCurrentPage(currentPage + 1);
-    }
-  };
-
-  const onEventClick = (brokerId) => {
-    console.log("brokerId", brokerId);
-    const selectedBrokers = brokerData.find((broker) => broker.id === brokerId);
-    if (selectedBrokers) {
-      navigate(`/broker/${brokerId}`, {
-        state: { broker: selectedBrokers },
-      });
     }
   };
 

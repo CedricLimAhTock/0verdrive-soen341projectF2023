@@ -1,26 +1,48 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const PropertyListingCard = ({ data, expanded, toggleExpand }) => {
+  const { property_id, title } = data;
+  const [property, setProperty] = useState({});
 
-    const { type, name, address, price, image } = data;
+  useEffect(() => {
+    const fetchProperty = async () => {
+      const response = await axios.get(
+        `http://localhost:8080/property/${property_id}`
+      );
+      setProperty(response.data);
+    };
 
-    const expand = () => {
-        toggleExpand();
-        console.log('expand')
-    }
+    fetchProperty();
+  }, [property_id]);
 
-    return (
-        <div className="property-listing-card" onClick={() => expand(event)}>
-            <div className="property-detail-card">
-                <div className="property-type">{type}</div>
-                <div className="property-name">{name}</div>
-                <div className="property-address">{address}</div>
-                <div className="property-price">{price}</div>
-                {/* <div className="property-image">{image}</div> */}
+  const {
+    property_type,
+    price,
+    civic_address,
+    apt_number,
+    street,
+    city,
+    province,
+    country,
+  } = property;
+  const address = `${civic_address}-${apt_number}, ${street}, ${city}, ${province}, ${country}`;
+  const expand = () => {
+    toggleExpand();
+    console.log("expand");
+  };
 
-            </div>
-        </div>
-    )
-}
+  return (
+    <div className="property-listing-card" onClick={expand}>
+      <div className="property-detail-card">
+        <div className="property-type">{property_type}</div>
+        <div className="property-name">{title}</div>
+        <div className="property-address">{address}</div>
+        <div className="property-price">{price}</div>
+        {/* <div className="property-image">{image}</div> */}
+      </div>
+    </div>
+  );
+};
 
-export default PropertyListingCard
+export default PropertyListingCard;

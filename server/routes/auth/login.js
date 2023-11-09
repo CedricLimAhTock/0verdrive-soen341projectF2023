@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import User from '../../models/user.js';
 import User_role from '../../models/user_role.js';
 import Role from '../../models/role.js';
+import Broker from '../../models/broker.js';
 
 const router = express.Router();
 
@@ -45,11 +46,23 @@ router.post('/', async (req, res) => {
             ]
     });
 
+    let broker = await Broker.findOne({
+        attributes: ['id', 'active', 'user_id', 'license_number', 'agency', 'email', 'phone'],
+        where: {
+          user_id: user.id
+        }
+      });
+  
+    if (!broker) {
+      broker.id = null;
+    }
+
     const token = jwt.sign(
       {
         id: user.id,
         username: user.username,
-        role: user_role.role.type
+        role: user_role.role.type,
+        broker_id: broker.id
       },
       process.env.JWT_SECRET
     );

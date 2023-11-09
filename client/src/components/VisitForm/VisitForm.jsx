@@ -3,7 +3,7 @@ import axios from "axios";
 import "../DashboardDetails/styles/Users.css";
 import "./VisitForm.css";
 import jwt_decode from "jwt-decode";
-import Carousel from "../Carousel/Carousel";
+import xIcon from "../../assets/xIcon.svg";
 
 const VisitForm = ({ isFormOpen, closeForm, property }) => {
   const [email, setEmail] = useState("");
@@ -35,11 +35,10 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
         broker_id: 1,
         time: "2023-11-03T10:30:00",
         status: "requested",
-        message: "Testing"
+        message: "Testing",
       });
 
       if (response.status === 200) {
-
         alert("Form submitted");
         console.log(response);
       } else {
@@ -53,57 +52,41 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
     }
   };
 
-
   return (
     <div className={isFormOpen ? "show" : "hide"}>
-      <form className="visit-form popup-form" onSubmit={handleSubmit}>
-        <button onClick={closeForm} className='close-button'>Close</button>
+      <form className="popup-form" onSubmit={handleSubmit}>
+        <button onClick={closeForm} className="close-button">
+          <img src={xIcon} alt="close" className="close-button-x" />
+        </button>
         <h2>Visit Form</h2>
-        <div className="left-right-visit">
-          <div className="left-visit">
-            <Carousel images={images} className="carousel-visit" />
-            <div className="property-info-visit">
-              <h3>Price: ${price}</h3>
-              <h4>Address: {address}</h4>
-              <p>Broker: {broker}</p>
-            </div>
-          </div>
-          <div className="right-visit">
-            <label htmlFor="email">Email</label>
-            <input
-              id="email"
-              type="email"
-              value={email}
-              placeholder="Email"
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
+        <input
+          id="email"
+          type="email"
+          value={email}
+          placeholder="Email"
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+        <input
+          id="phone"
+          type="tel"
+          value={phone}
+          placeholder="Phone number"
+          onChange={(e) => setPhone(e.target.value)}
+          required
+        />
+        <textarea
+          id="message"
+          value={message}
+          placeholder="Enter your message here"
+          onChange={(e) => setMessage(e.target.value)}
+          required
+        />
 
-            <label htmlFor="phone">Phone Number</label>
-            <input
-              id="phone"
-              type="tel"
-              value={phone}
-              placeholder="Phone number"
-              onChange={(e) => setPhone(e.target.value)}
-              required
-            />
-
-            <label htmlFor="message">Message</label>
-            <textarea
-              id="message"
-              value={message}
-              placeholder="Enter your message here"
-              onChange={(e) => setMessage(e.target.value)}
-              required
-            />
-
-            <div className="button-container">
-              <button type="submit" className="submit">
-                Submit
-              </button>
-            </div>
-          </div>
+        <div className="button-container">
+          <button type="submit" className="submit">
+            Submit
+          </button>
         </div>
       </form>
     </div>
