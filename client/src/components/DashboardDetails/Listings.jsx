@@ -4,6 +4,7 @@ import PropertyForm from "./PropertyForm";
 import "./styles/Listings.css";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
+import PropertyAddForm from "./PropertyAddForm";
 const Listings = ({ token }) => {
   // const data = [
   //   {
@@ -31,6 +32,8 @@ const Listings = ({ token }) => {
   const [data, setData] = useState([]);
   const [isFormOpen, setFormOpen] = useState(false);
   const [selectedPropertyData, setSelectedPropertyData] = useState(null);
+  const [listings, setListings] = useState([]);
+  const [addingProperty, setAddingProperty] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("jwtToken");
@@ -52,6 +55,25 @@ const Listings = ({ token }) => {
     setFormOpen(true);
   };
 
+  const addProperty = () => {
+    setAddingProperty(true);
+    setFormOpen(false);
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("jwtToken");
+    const decoded = jwtDecode(token);
+    const brokerId = decoded.broker_id;
+    axios
+      .get(`http://localhost:8080/listing/broker/${brokerId}`)
+      .then((res) => {
+        setListings(res.data);
+      })
+      .catch((error) => {
+        console.log("Error in profile.jsx: ", error);
+      });
+  }, []);
+
   const closeForm = () => {
     setFormOpen(false);
   };
@@ -63,6 +85,12 @@ const Listings = ({ token }) => {
         <div className="header-property-name">Name</div>
         <div className="header-property-address">Address</div>
         <div className="header-property-price">Price</div>
+        <div className="property-intro-right">
+          Total: {data.length}
+          <button className="add-property-button" onClick={addProperty}>
+            Add
+          </button>
+        </div>
       </div>
 
       <div className="properties-cards">
@@ -80,6 +108,13 @@ const Listings = ({ token }) => {
           isFormOpen={isFormOpen}
           closeForm={closeForm}
           data={selectedPropertyData}
+        />
+      )}
+
+      {addingProperty && (
+        <PropertyAddForm
+          isFormOpen={addingProperty}
+          closeForm={() => setAddingProperty(false)}
         />
       )}
     </div>
