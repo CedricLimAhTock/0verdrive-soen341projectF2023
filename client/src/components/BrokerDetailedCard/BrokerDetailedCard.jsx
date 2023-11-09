@@ -48,10 +48,10 @@ const BrokerDetailedCard = ({ broker }) => {
 
   return (
     <>
-      <div className="broker-details">
-        <div className="broker-left-side">
+    <div className="broker-details">
+       <div className="broker-left-side">
           <div className="profile-broker">
-            <img src={profileIcon} className="profilepic" />
+            <img src={profileIcon} className="detailed-profilepic" />
           </div>
           <div className="broker-info">
             <p className="broker-agency">{name}</p>
@@ -62,7 +62,7 @@ const BrokerDetailedCard = ({ broker }) => {
 
         <div className="broker-right-side">
           <form className="contact-form">
-            <h3>Contact for More Info</h3>
+            <h3>Contact {firstname} for More Info</h3>
             <input type="text" placeholder="Name" />
             <input type="email" placeholder="Email" />
             <textarea placeholder="Message" />
