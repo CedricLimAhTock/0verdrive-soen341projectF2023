@@ -17,6 +17,7 @@ const OffersMade = () => {
       try {
         const response = await axios.get(`http://localhost:8080/offer/maker/${brokerID}`);
         setOfferData(response.data);
+        console.log(response.data);
         for (const [key, value] of Object.entries(offerData)) {
           console.log(`${key}: ${value}`);
         }
@@ -35,7 +36,7 @@ const OffersMade = () => {
   return (
     <div className="offers">
       <div className="offer-header">
-        <div className="offer-header-type">Type</div>
+
         <div className="offer-header-status">Status</div>
         <div className="offer-header-address">Address</div>
         <div className="offer-header-price">Price</div>

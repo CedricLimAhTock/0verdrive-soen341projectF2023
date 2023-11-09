@@ -29,7 +29,7 @@ const Dashboard = ({ token }) => {
   };
 
   // For temporary use, need to be replaced with role in token
-  const userRole = "admin";
+  const userRole = "broker";
 
   const tabsByRole = {
     homebuyer: ["Profile", "Favorites"],
