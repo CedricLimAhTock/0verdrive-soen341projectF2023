@@ -73,39 +73,40 @@ const PropertyCard = ({ property, decodedToken }) => {
   };
 
   return (
-    <div className="card" onClick={() => onEventClick(property.id)}>
+    <div className="card">
       <div className="listing-container-card">
         <div className="card-img">
           <Carousel images={images} className={"card-carousel"} />
         </div>
-        <div className="card-save"></div>
-        <div className="card-info">
-          <div className="card-price-container">
-            <div className="card-price">{price}</div>
-            {/* <img className="save-icon" src={saveIcon} alt="Save Icon" /> */}
-            <SaveIcon
-              onClick={handleIsSaved}
-              fill={isSaved ? "rgba(255, 153, 0, 1)" : "rgba(0, 0, 0, 0)"}
-              stroke={isSaved ? "rgba(255, 153, 0, 1)" : "rgba(0, 0, 0, 1)"}
-              className="card-save-icon"
-            />
+        <div onClick={() => onEventClick(property.id)}>
+          <div className="card-info">
+            <div className="card-price-container">
+              <div className="card-price">{price}</div>
+              {/* <img className="save-icon" src={saveIcon} alt="Save Icon" /> */}
+              <SaveIcon
+                onClick={handleIsSaved}
+                fill={isSaved ? "rgba(255, 153, 0, 1)" : "rgba(0, 0, 0, 0)"}
+                stroke={isSaved ? "rgba(255, 153, 0, 1)" : "rgba(0, 0, 0, 1)"}
+                className="card-save-icon"
+              />
+            </div>
+            <div className="card-address">{address}</div>
           </div>
-          <div className="card-address">{address}</div>
-        </div>
-        <div className="card-icons">
-          <div className="icon-with-number">
-            <img className="card-icon" src={bedIcon} alt="Bed Icon" />
-            <span className="icon-number">{num_bedrooms}</span>
-          </div>
-          <div className="icon-with-number">
-            <img className="card-icon" src={bathIcon} alt="Bath Icon" />
-            <span className="icon-number">{num_bathrooms}</span>
-          </div>
-          <div className="icon-with-number">
-            <img className="card-icon" src={rulerIcon} alt="Ruler Icon" />
-            <span className="icon-number">
-              {property_area} ft<sup>2</sup>
-            </span>
+          <div className="card-icons">
+            <div className="icon-with-number">
+              <img className="card-icon" src={bedIcon} alt="Bed Icon" />
+              <span className="icon-number">{num_bedrooms}</span>
+            </div>
+            <div className="icon-with-number">
+              <img className="card-icon" src={bathIcon} alt="Bath Icon" />
+              <span className="icon-number">{num_bathrooms}</span>
+            </div>
+            <div className="icon-with-number">
+              <img className="card-icon" src={rulerIcon} alt="Ruler Icon" />
+              <span className="icon-number">
+                {property_area} ft<sup>2</sup>
+              </span>
+            </div>
           </div>
         </div>
       </div>
