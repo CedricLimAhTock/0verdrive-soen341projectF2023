@@ -3,6 +3,7 @@ import axios from "axios";
 import "../DashboardDetails/styles/Users.css";
 import "./VisitForm.css";
 import jwt_decode from "jwt-decode";
+import xIcon from "../../assets/xIcon.svg"
 
 const VisitForm = ({ isFormOpen, closeForm, property }) => {
   const [email, setEmail] = useState("");
@@ -49,10 +50,10 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
   return (
     <div className={isFormOpen ? "show" : "hide"}>
       <form className="popup-form" onSubmit={handleSubmit}>
-        <button onClick={closeForm} className='close-button'>Close</button>
+        <button onClick={closeForm} className='close-button'>
+          <img src = {xIcon} alt = "close" className="close-button-x" />
+        </button>
         <h2>Visit Form</h2>
-
-        <label htmlFor="email">Email</label>
         <input
           id="email"
           type="email"
@@ -61,8 +62,6 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-
-        <label htmlFor="phone">Phone Number</label>
         <input
           id="phone"
           type="tel"
@@ -71,8 +70,6 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
           onChange={(e) => setPhone(e.target.value)}
           required
         />
-
-        <label htmlFor="message">Message</label>
         <textarea
           id="message"
           value={message}
