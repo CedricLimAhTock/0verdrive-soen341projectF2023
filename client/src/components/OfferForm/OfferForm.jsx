@@ -7,7 +7,7 @@ import './OfferForm.css';
 import profileIcon from '../../assets/profile-picture.png';
 import xIcon from "../../assets/xIcon.svg"
 
-const VisitForm = ({ isFormOpen, closeForm, property, brokerInfo }) => {
+const VisitForm = ({ isFormOpen, closeForm, property, broker }) => {
   const [name, setName] = useState('');
   const [userEmail, setUserEmail] = useState('');
   const [addressUser, setAddressUser] = useState('');
@@ -17,7 +17,7 @@ const VisitForm = ({ isFormOpen, closeForm, property, brokerInfo }) => {
   const { images, price, street, city, province, country} = property;
   const address = `${street}, ${city}, ${province}, ${country}`;
 
-  const { firstname, lastname, phone, email } = brokerInfo.user;
+  const { firstname, lastname, phone, email } = broker.user;
 
   useEffect(() => {
     function fetchData() {
@@ -25,7 +25,6 @@ const VisitForm = ({ isFormOpen, closeForm, property, brokerInfo }) => {
       const decoded = jwt_decode(token);
       setDecodedToken(decoded);
     }
-    console.log(brokerInfo);
     fetchData();
   }, []);
 
