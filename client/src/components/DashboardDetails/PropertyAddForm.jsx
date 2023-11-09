@@ -63,14 +63,22 @@ const PropertyAddForm = ({ isFormOpen, closeForm }) => {
         />
 
         <label htmlFor="type">Type</label>
-        <input
+        <select
           id="type"
-          type="text"
           value={type}
-          placeholder="Type"
           onChange={(e) => setType(e.target.value)}
           required
-        />
+        >
+          <option value="">Select a type</option>
+          <option value="single-family">Single Family</option>
+          <option value="duplex">Duplex</option>
+          <option value="triplex">Triplex</option>
+          <option value="quadruplex">Quadruplex</option>
+          <option value="townhouse">Townhouse</option>
+          <option value="studio">Studio</option>
+          <option value="condominium">Condominium</option>
+          <option value="other">Other</option>
+        </select>
 
         <label htmlFor="price">Price</label>
         <input
