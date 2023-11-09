@@ -130,6 +130,7 @@ const listByBrokerId = async (req,res) => {
 const create = async (req, res) => {
     try {
         const data = req.body;
+        alert(data);
         
         if (!data.property_id || !data.client_id || !data.broker_id) {
             return res.status(400).json({message: "Missing id for client, broker, or property."});
