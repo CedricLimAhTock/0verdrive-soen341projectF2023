@@ -58,9 +58,9 @@ const Listings = ({token}) => {
   useEffect(() => {
     const token = localStorage.getItem("jwtToken");
     const decoded = jwt_decode(token);
-    const userId = decoded.id;
+    const brokerId = decoded.broker_id;
       axios
-        .get(`http://localhost:8080/listing/broker${userId}`)
+        .get(`http://localhost:8080/listing/broker/${brokerId}`)
         .then((res) => {
           setListings(res.data);
         })
