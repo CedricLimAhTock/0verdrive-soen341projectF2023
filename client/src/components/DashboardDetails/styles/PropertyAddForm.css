@@ -1,3 +1,5 @@
-.show {
+.popup-form {
   overflow: scroll;
+  height: 45rem;
+  padding-top: 15rem;
 }
