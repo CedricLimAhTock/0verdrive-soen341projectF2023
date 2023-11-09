@@ -85,7 +85,10 @@ const listByUserPropertyId = async (req, res) => {
   try {
     let favourite = await Property_favourite.findAll({
       attributes: ["id", "property_id", "user_id"],
-      where: { user_id: req.params.user_id, property_id: data.property_id },
+      where: {
+        user_id: req.params.user_id,
+        property_id: req.params.property_id,
+      },
     });
 
     if (!favourite) {
