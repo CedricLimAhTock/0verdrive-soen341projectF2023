@@ -66,7 +66,7 @@ def insert_property(connection, cursor, filepath):
                 #print(f'Column names are {", ".join(row)}')
                 line_count += 1
             else:
-                address = f"{row[3]} {row[2]} {row[4]} {row[5]} {row[6]} {row[7]} {row[8]} {row[10]} {row[9]}"
+                address = f"{row[3]} {row[2]} {row[4]} {row[5]} {row[6]} {row[7]} {row[9]} {row[8]}"
                 # print(address)
                 query = f"""INSERT INTO `property` (`id`, `active`, `civic_address`, `apt_number`, `street`, `city`, `neighbourhood`, `province`, `postal_code`, `country`, `listing_type`, `price`, `living_area`, `property_area`, `num_bedrooms`, `num_bathrooms`, `num_floors`, `year_built`, `listed_date`, `property_type`, `address`) 
                 VALUES (0, {row[1]}, '{row[2]}', '{row[3]}', '{row[4]}', '{row[5]}', '{row[6]}', '{row[7]}', '{row[8]}','{row[9]}', '{row[10]}', {row[11]}, {row[12]}, {row[13]}, {row[14]}, {row[15]}, {row[16]}, '{row[17]}', '{row[18]}', '{row[19]}', '{address}')"""
