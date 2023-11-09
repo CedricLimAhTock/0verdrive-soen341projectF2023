@@ -2,24 +2,17 @@
   overflow: scroll;
 }
 
-
-.show .popup-form {
-  max-height: 40rem;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.show .popup-form .form-property-title {
+.form-property-title {
   width: 40.5rem;
 }
-.show .popup-form .form-pair {
+.form-pair {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  width: 40rem;
 }
 
-.show .popup-form input {
+input {
   width: 20rem;
 }
