@@ -8,8 +8,9 @@ import ReceivedOffers from "../components/DashboardDetails/ReceivedOffers";
 import Listings from "../components/DashboardDetails/Listings";
 import Users from "../components/DashboardDetails/Users";
 
+
 const Dashboard = ({ token }) => {
-  const [activeTab, setActiveTab] = useState("favorites");
+  const [activeTab, setActiveTab] = useState("bookings");
   const logout = () => {
     localStorage.removeItem("jwtToken");
     window.location.reload();
@@ -37,6 +38,8 @@ const Dashboard = ({ token }) => {
     broker: [
       "Profile",
       "Favorites",
+      "Bookings",
+      "Received Bookings",
       "Offers Made",
       "Received Offers",
       "Listings",
@@ -74,6 +77,7 @@ const Dashboard = ({ token }) => {
           {activeTab === "profile" && <Profile data={data} token={token} />}
           {activeTab === "favorites" && <Favorites token={token} />}
           {activeTab === "bookings" && <Bookings data={data} token={token} />}
+          {activeTab === "received bookings" && <ReceivedBookings data={data} token={token} />}
           {activeTab === "offers made" && <OffersMade token={token} />}
           {activeTab === "received offers" && <ReceivedOffers token={token} />}
           {activeTab === "listings" && <Listings token={token} />}

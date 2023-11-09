@@ -34,7 +34,7 @@ const ReceivedOffers = () => {
   return (
     <div className="offers">
       <div className="offer-header">
-        <div className="offer-header-type">Type</div>
+
         <div className="offer-header-status">Status</div>
         <div className="offer-header-address">Address</div>
         <div className="offer-header-price">Price</div>

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const UserForm = ({ isFormOpen, data, closeForm }) => {
-  const [firstName, setFirstName] = useState(data.firstName || "");
-  const [lastName, setLastName] = useState(data.lastName || "");
+  const [firstName, setFirstName] = useState(data.user.firstname || "");
+  const [lastName, setLastName] = useState(data.user.lastname || "");
   const [phone, setPhone] = useState(data.phone || "");
   const [createdAt, setCreatedAt] = useState(data.createdAt || "");
   const [email, setEmail] = useState(data.email || "");
@@ -21,6 +21,7 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
             firstName: firstName.toString(),
             lastName: lastName.toString(),
             email: email.toString(),
+            phone: phone.toString(),
           }
         );
 

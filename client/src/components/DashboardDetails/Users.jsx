@@ -22,9 +22,10 @@ const Users = ({ token }) => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/user/broker')
+      .get('http://localhost:8080/broker')
       .then((res) => {
         setUserData(res.data);
+        console.log(res.data)
       })
       .catch((error) => {
         console.log('Error in Users.jsx ', error);
@@ -44,7 +45,7 @@ const Users = ({ token }) => {
       </div>
       <div className="brokers-header">
         <div className="header-name">Name</div>
-        <div className="header-join">Date joined</div>
+        <div className="header-join">Username</div>
         <div className="header-email">Email</div>
       </div>
 
