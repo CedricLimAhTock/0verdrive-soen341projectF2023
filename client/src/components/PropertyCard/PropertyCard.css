@@ -1,6 +1,6 @@
 .card {
   width: 350px;
-  height: auto;
+  height: 360px;
   flex-shrink: 0;
   border-radius: 1.25rem;
   border: 1.5px solid rgba(0, 0, 0, 0.1);

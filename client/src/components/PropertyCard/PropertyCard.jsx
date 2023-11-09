@@ -81,7 +81,7 @@ const PropertyCard = ({ property, decodedToken }) => {
         <div onClick={() => onEventClick(property.id)}>
           <div className="card-info">
             <div className="card-price-container">
-              <div className="card-price">{price}</div>
+              <div className="card-price">${price}</div>
               {/* <img className="save-icon" src={saveIcon} alt="Save Icon" /> */}
               <SaveIcon
                 onClick={handleIsSaved}

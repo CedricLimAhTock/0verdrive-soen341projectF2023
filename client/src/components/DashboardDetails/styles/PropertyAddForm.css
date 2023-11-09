@@ -1,3 +1,25 @@
 .show {
   overflow: scroll;
 }
+
+
+.show .popup-form {
+  max-height: 40rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.show .popup-form .form-property-title {
+  width: 40.5rem;
+}
+.show .popup-form .form-pair {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.show .popup-form input {
+  width: 20rem;
+}
