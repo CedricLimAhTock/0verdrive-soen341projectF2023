@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -28,6 +28,29 @@ const PropertyCard = ({ property, decodedToken }) => {
   } = property;
   const address = `${street}, ${city}, ${province}, ${country}`;
   let [isSaved, setIsSaved] = useState(false);
+
+  const fetchIsSaved = async () => {
+    if (!decodedToken) {
+      return;
+    }
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/favourite/property/${property.id}`
+      );
+      const foundFavorite = response.data.find(
+        (property) => property.user_id === decodedToken.id
+      );
+
+      if (!foundFavorite) {
+        setIsSaved(false);
+      } else {
+        setIsSaved(true);
+      }
+    } catch (error) {
+      console.error("Error in PropertyCard.jsx", error);
+    }
+  };
+  fetchIsSaved();
 
   const handleIsSaved = async (e) => {
     e.stopPropagation();
