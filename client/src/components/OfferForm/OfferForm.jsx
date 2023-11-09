@@ -31,11 +31,13 @@ const VisitForm = ({ isFormOpen, closeForm, property, broker }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log(property.id.toString());
+    const broker = await axios.get(`http://localhost:8080/listing/property/${property.id}`);
+    console.log(broker.data[0]);
+    console.log(broker.data[0].broker_id);
     try {
-      const response = await axios.post('http://127.0.0.1:8080/offer/', {
-        parent_id: decodedToken.id.toString(),
-        broker_id: property.id.toString(),
+      const response = await axios.post('http://127.0.0.1:8080/offer', {
+        parent_id: decodedToken.broker_id.toString(),
+        broker_id: broker.data[0].broker_id.toString(),
         user_id: decodedToken.id.toString(),
         property_id: property.id.toString(),
         price: priceOffered.toString(),

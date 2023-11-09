@@ -26,16 +26,12 @@
   border-right: none;
 }
 
-.offer-header-type {
-  width: 15%;
-}
-
 .offer-header-status {
   width: 20%;
 }
 
 .offer-header-address {
-  width: 35%;
+  width: 50%;
 }
 
 .offer-header-price {
@@ -73,24 +69,24 @@
   margin-bottom: 0;
 }
 
-.property-type {
-  width: 15%;
-}
-
 .property-status {
-  color: #ffffff;
+  color: #000000;
   border: none;
   border-radius: 20px;
   padding: 5px 10px;
   font-size: 13px;
-  width: 100px;
+
   margin: 0 auto;
   height: 30px;
   text-transform: uppercase;
 }
 
 .property-address {
-  width: 35%;
+  width: 50%;
+}
+
+.property-status {
+  width: 20%;
 }
 
 .property-price {

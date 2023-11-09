@@ -9,7 +9,7 @@ import Listings from "../components/DashboardDetails/Listings";
 import Users from "../components/DashboardDetails/Users";
 
 const Dashboard = ({ token }) => {
-  const [activeTab, setActiveTab] = useState("favorites");
+  const [activeTab, setActiveTab] = useState("profile");
   const logout = () => {
     localStorage.removeItem("jwtToken");
     window.location.reload();
