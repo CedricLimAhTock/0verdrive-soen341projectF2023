@@ -65,8 +65,8 @@ jobs:
         run: npm start &
         working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/server
 
-      - name: Wait a moment
-        run: sleep 10
+      # - name: Wait a moment
+      #   run: sleep 10
 
       - name: Test Server
         run: npm test
