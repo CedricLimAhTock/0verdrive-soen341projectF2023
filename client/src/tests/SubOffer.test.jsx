@@ -51,4 +51,5 @@ test("renders OfferForm and updates input values", async ({ assert }) => {
   expect(userAddressInput.value).toBe("123 Test St");
   expect(emailInput.value).toBe("test.user@example.com");
   expect(priceOfferedInput.value).toBe("200000");
+  localStorage.removeItem("jwtToken");
 });
