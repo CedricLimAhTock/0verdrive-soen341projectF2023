@@ -1,5 +1,5 @@
 import { test, expect } from "vitest";
-import { render, fireEvent, getByText } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import MortgageCalculator from "../components/MortgageCalculator/MortgageCalculator";
 
 test("renders MortgageCalculator and updates input values", async () => {
