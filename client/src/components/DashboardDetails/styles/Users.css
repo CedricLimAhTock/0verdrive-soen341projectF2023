@@ -1,15 +1,16 @@
 .listings {
-    height: 700px;
+  height: auto;
+  min-height: 35rem;
 }
 
 .brokers-header {
-    display: flex;
-    align-items: center;
-    background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0;
 }
 
 .whole-card {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .header-name,
@@ -17,154 +18,153 @@
 .header-address,
 .header-listings,
 .header-email {
-    padding: 10px;
-    text-align: center;
-    border-right: 1px solid #ccc;
-    font-weight: 500;
-    color: rgba(0, 0, 0, 0.6);
-    background-color: #f0f0f0;
+  padding: 10px;
+  text-align: center;
+  border-right: 1px solid #ccc;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: #f0f0f0;
 }
 
 .header-name {
-    width: 30%;
+  width: 30%;
 }
 
 .header-join {
-    width: 30%;
+  width: 30%;
 }
 
 .header-email {
-    width: 40%;
-    border-right: none;
+  width: 40%;
+  border-right: none;
 }
 
 .broker-name {
-    width: 30%;
+  width: 30%;
 }
 
 .broker-join {
-    width: 30%;
+  width: 30%;
 }
 
 .broker-email {
-    width: 40%;
-    border-right: none;
-}  
+  width: 40%;
+  border-right: none;
+}
 
 .brokers-cards {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .broker-detail-card {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    background-color: transparent;
-    margin: 20px 0;
-    height: 50px;
-    font-size: 14px;
-    font-weight: 700;
-    color: rgba(0, 0, 0, 0.8);
-    border-bottom: 1px solid #ccc;
-    border-top: 1px solid #ccc;
-    padding-bottom: 0;
-    margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background-color: transparent;
+  margin: 20px 0;
+  height: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .hide {
-    display: none;
-  }
-  
-  .show {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 999;
-    top: 0;
-    left: 0;
-  }
+  display: none;
+}
 
+.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  top: 0;
+  left: 0;
+}
 
-  .popup-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 50%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    color: #333;
-  }
+.popup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #333;
+}
 
-  .popup-form h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
+.popup-form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
 
-  .popup-form label {
-    text-align: left;
-    width: 100%;
-    font-size: 16px;
-    margin-bottom: 5px;
-  }
+.popup-form label {
+  text-align: left;
+  width: 100%;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
 
-  .popup-form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-  }
+.popup-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
 
-  .submit {
-    background-color: rgb(56, 184, 124);
-    color: #fff;
-    border: none;
-    border-radius: 20px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-  }
+.submit {
+  background-color: rgb(56, 184, 124);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
 
-  .submit:hover {
-    background-color: rgb(45, 160, 100);
-  }
-  
-  .submit {
-    background-color: rgb(56, 184, 124);
-  }
-  
-  .submit.delete {
-    background-color: rgb(243, 69,65);
-  }
-  
-  .submit.delete:hover {
-    background-color: rgb(195, 53, 51);
-  }
-  
-  label {
-    color: #3232327f;
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-  }
-  
-  .submit.edit {
-    margin-right: 10px;
-  }
-  
-  .submit.delete {
-    margin-left: 10px;
-  }
+.submit:hover {
+  background-color: rgb(45, 160, 100);
+}
+
+.submit {
+  background-color: rgb(56, 184, 124);
+}
+
+.submit.delete {
+  background-color: rgb(243, 69, 65);
+}
+
+.submit.delete:hover {
+  background-color: rgb(195, 53, 51);
+}
+
+label {
+  color: #3232327f;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.submit.edit {
+  margin-right: 10px;
+}
+
+.submit.delete {
+  margin-left: 10px;
+}

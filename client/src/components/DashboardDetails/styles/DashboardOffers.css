@@ -1,6 +1,7 @@
 /* DashboardOffers.css */
 .offers {
-  height: 500px;
+  height: auto;
+  min-height: 35rem;
 }
 
 .offer-header {

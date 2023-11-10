@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -29,6 +29,28 @@ const PropertyCard = ({ property, decodedToken }) => {
   const address = `${street}, ${city}, ${province}, ${country}`;
   let [isSaved, setIsSaved] = useState(false);
 
+  const fetchIsSaved = async () => {
+    if (!decodedToken) {
+      return;
+    }
+    try {
+      const response = await axios.get(
+        `http://localhost:8080/favourite/user/${decodedToken.id}/property/${property.id}`
+      );
+      console.log(response.data);
+
+      if (response.data.length === 0) {
+        setIsSaved(false);
+      } else {
+        setIsSaved(true);
+      }
+    } catch (error) {
+      console.error("Error in PropertyCard.jsx", error);
+    }
+  };
+  useEffect(() => {
+    fetchIsSaved();
+  }, [decodedToken, property]);
   const handleIsSaved = async (e) => {
     e.stopPropagation();
     console.log("clicked");
@@ -37,15 +59,20 @@ const PropertyCard = ({ property, decodedToken }) => {
       return;
     }
     try {
-      await axios.post("http://localhost:8080/favourite", {
-        property_id: id,
-        user_id: decodedToken.id,
-      });
+      if (!isSaved) {
+        await axios.post("http://localhost:8080/favourite", {
+          property_id: id,
+          user_id: decodedToken.id,
+        });
+      } else {
+        await axios.delete(
+          `http://localhost:8080/favourite/user/${decodedToken.id}/property/${property.id}`
+        );
+      }
+      setIsSaved(!isSaved);
     } catch (error) {
       console.error("Error in PropertyCard.jsx", error);
     }
-
-    setIsSaved(!isSaved);
   };
 
   const onEventClick = async (propertyId) => {
@@ -81,7 +108,7 @@ const PropertyCard = ({ property, decodedToken }) => {
         <div onClick={() => onEventClick(property.id)}>
           <div className="card-info">
             <div className="card-price-container">
-              <div className="card-price">{price}</div>
+              <div className="card-price">${price}</div>
               {/* <img className="save-icon" src={saveIcon} alt="Save Icon" /> */}
               <SaveIcon
                 onClick={handleIsSaved}
