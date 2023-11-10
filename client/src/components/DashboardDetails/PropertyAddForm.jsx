@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./styles/PropertyAddForm.css";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
+import xIcon from "../../assets/xIcon.svg";
+
 const PropertyAddForm = ({ isFormOpen, closeForm }) => {
   const [title, setTitle] = useState("");
   const [type, setType] = useState("");
@@ -49,99 +51,90 @@ const PropertyAddForm = ({ isFormOpen, closeForm }) => {
   return (
     <div className={isFormOpen ? "show" : "hide"}>
       <form className="popup-form">
-        <button onClick={closeForm}>Close</button>
+        <button onClick={closeForm} className="close-button">
+          <img src={xIcon} alt="close" className="close-button-x" />
+        </button>
         <h2>Add Property</h2>
-
-        <label htmlFor="title">Title</label>
         <input
           id="title"
           type="text"
           value={title}
+          className="form-property-title"
           placeholder="Title"
           onChange={(e) => setTitle(e.target.value)}
           required
         />
-
-        <label htmlFor="type">Type</label>
-        <input
-          id="type"
-          type="text"
-          value={type}
-          placeholder="Type"
-          onChange={(e) => setType(e.target.value)}
-          required
-        />
-
-        <label htmlFor="price">Price</label>
-        <input
-          id="price"
-          type="text"
-          value={price}
-          placeholder="Price"
-          onChange={(e) => setPrice(e.target.value)}
-          required
-        />
-
-        <label htmlFor="neighbourhood">Neighbourhood</label>
-        <input
-          id="neighbourhood"
-          type="text"
-          value={neighbourhood}
-          placeholder="Neighbourhood"
-          onChange={(e) => setNeighbourhood(e.target.value)}
-          required
-        />
-
-        <label htmlFor="city">City</label>
-        <input
-          id="city"
-          type="text"
-          value={city}
-          placeholder="City"
-          onChange={(e) => setCity(e.target.value)}
-          required
-        />
-
-        <label htmlFor="province">Province</label>
-        <input
-          id="province"
-          type="text"
-          value={province}
-          placeholder="Province"
-          onChange={(e) => setProvince(e.target.value)}
-          required
-        />
-
-        <label htmlFor="country">Country</label>
-        <input
-          id="country"
-          type="text"
-          value={country}
-          placeholder="Country"
-          onChange={(e) => setCountry(e.target.value)}
-          required
-        />
-
-        <label htmlFor="num_bedrooms">Number of Bedrooms</label>
-        <input
-          id="num_bedrooms"
-          type="text"
-          value={num_bedrooms}
-          placeholder="Number of Bedrooms"
-          onChange={(e) => setNum_bedrooms(e.target.value)}
-          required
-        />
-
-        <label htmlFor="num_bathrooms">Number of Bathrooms</label>
-        <input
-          id="num_bathrooms"
-          type="text"
-          value={num_bathrooms}
-          placeholder="Number of Bathrooms"
-          onChange={(e) => setNum_bathrooms(e.target.value)}
-          required
-        />
-
+        <div className="form-pair">
+          <input
+            placeholder="Property Type"
+            id="type"
+            value={type}
+            onChange={(e) => setType(e.target.value)}
+            required
+          />
+          <input
+            id="price"
+            type="text"
+            value={price}
+            placeholder="Price"
+            onChange={(e) => setPrice(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-pair">
+          <input
+            id="neighbourhood"
+            type="text"
+            value={neighbourhood}
+            placeholder="Neighbourhood"
+            onChange={(e) => setNeighbourhood(e.target.value)}
+            required
+          />
+          <input
+            id="city"
+            type="text"
+            value={city}
+            placeholder="City"
+            onChange={(e) => setCity(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-pair">
+          <input
+            id="province"
+            type="text"
+            value={province}
+            placeholder="Province"
+            onChange={(e) => setProvince(e.target.value)}
+            required
+          />
+          <input
+            id="country"
+            type="text"
+            value={country}
+            placeholder="Country"
+            onChange={(e) => setCountry(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-pair">
+          <input
+            id="num_bedrooms"
+            type="text"
+            value={num_bedrooms}
+            placeholder="Number of Bedrooms"
+            onChange={(e) => setNum_bedrooms(e.target.value)}
+            required
+          />
+          <input
+            id="num_bathrooms"
+            type="text"
+            value={num_bathrooms}
+            placeholder="Number of Bathrooms"
+            onChange={(e) => setNum_bathrooms(e.target.value)}
+            required
+          />
+        </div>
         <div className="button-container">
           <button
             type="submit"

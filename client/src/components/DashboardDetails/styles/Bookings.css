@@ -1,6 +1,7 @@
 /* Bookings.css */
 .bookings {
-  height: 500px;
+  height: auto;
+  min-height: 35rem;
 }
 
 .booking-header {

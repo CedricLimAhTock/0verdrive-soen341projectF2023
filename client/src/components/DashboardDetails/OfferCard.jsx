@@ -2,8 +2,8 @@ import React from "react";
 import "./styles/DashboardOffers.css";
 
 const OfferCard = ({ offer, expanded, toggleExpand }) => {
+  const data = offer;
 
-  let data = offer;
   const statusMap = {
     wait: "status-wait",
     acknowledge: "status-acknowledge",
@@ -13,7 +13,7 @@ const OfferCard = ({ offer, expanded, toggleExpand }) => {
     other: "status-other",
   };
 
-  const statusName = statusMap[status] || "status-other";
+  const statusName = statusMap[data.status] || "status-other";
 
   const expand = () => {
     toggleExpand();
@@ -23,7 +23,6 @@ const OfferCard = ({ offer, expanded, toggleExpand }) => {
   return (
     <div className="whole-card" onClick={() => expand()}>
       <div className="offer-card">
-        <div className="property-type">Test</div>
         <div className={`property-status ${statusName}`}>{data.status}</div>
         <div className="property-address">{data.property.city}</div>
         <div className="property-price">${data.price}</div>

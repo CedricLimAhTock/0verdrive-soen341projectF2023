@@ -32,7 +32,6 @@ const Listings = ({ token }) => {
   const [data, setData] = useState([]);
   const [isFormOpen, setFormOpen] = useState(false);
   const [selectedPropertyData, setSelectedPropertyData] = useState(null);
-  const [listings, setListings] = useState([]);
   const [addingProperty, setAddingProperty] = useState(false);
 
   useEffect(() => {
@@ -59,20 +58,6 @@ const Listings = ({ token }) => {
     setAddingProperty(true);
     setFormOpen(false);
   };
-
-  useEffect(() => {
-    const token = localStorage.getItem("jwtToken");
-    const decoded = jwtDecode(token);
-    const brokerId = decoded.broker_id;
-    axios
-      .get(`http://localhost:8080/listing/broker/${brokerId}`)
-      .then((res) => {
-        setListings(res.data);
-      })
-      .catch((error) => {
-        console.log("Error in profile.jsx: ", error);
-      });
-  }, []);
 
   const closeForm = () => {
     setFormOpen(false);
