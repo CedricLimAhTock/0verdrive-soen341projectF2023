@@ -1,6 +1,7 @@
 import { test, expect } from "vitest";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, waitFor } from "@testing-library/react";
 import OfferForm from "../components/OfferForm/OfferForm";
+import ReceivedOffers from "../components/DashboardDetails/ReceivedOffers";
 import axios from "axios";
 
 test("renders OfferForm and updates input values", async ({ assert }) => {
@@ -23,7 +24,11 @@ test("renders OfferForm and updates input values", async ({ assert }) => {
   const property = propertyFetch.data;
   const broker = brokerFetch.data;
 
-  const { getByPlaceholderText, getAllByPlaceholderText } = render(
+  const {
+    getByPlaceholderText: getByPlaceholderText1,
+    getAllByPlaceholderText: getAllByPlaceholderText1,
+    getByText: getByText1,
+  } = render(
     <OfferForm
       isFormOpen={true}
       closeForm={closeForm}
@@ -32,11 +37,11 @@ test("renders OfferForm and updates input values", async ({ assert }) => {
     />
   );
 
-  const nameInput = getByPlaceholderText("Name");
+  const nameInput = getByPlaceholderText1("Name");
   const [userAddressInput, propertyAddressInput] =
-    getAllByPlaceholderText("Address");
-  const emailInput = getByPlaceholderText("Email");
-  const priceOfferedInput = getByPlaceholderText("Enter a price");
+    getAllByPlaceholderText1("Address");
+  const emailInput = getByPlaceholderText1("Email");
+  const priceOfferedInput = getByPlaceholderText1("Enter a price");
 
   await fireEvent.change(nameInput, { target: { value: "Test User" } });
   await fireEvent.change(userAddressInput, {
@@ -45,11 +50,28 @@ test("renders OfferForm and updates input values", async ({ assert }) => {
   await fireEvent.change(emailInput, {
     target: { value: "test.user@example.com" },
   });
-  await fireEvent.change(priceOfferedInput, { target: { value: "200000" } });
+  await fireEvent.change(priceOfferedInput, { target: { value: "2" } });
 
   expect(nameInput.value).toBe("Test User");
   expect(userAddressInput.value).toBe("123 Test St");
   expect(emailInput.value).toBe("test.user@example.com");
-  expect(priceOfferedInput.value).toBe("200000");
+  expect(priceOfferedInput.value).toBe("2");
+
+  await fireEvent.click(getByText1("Submit"));
+  localStorage.removeItem("jwtToken");
+
+  localStorage.setItem(
+    "jwtToken",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJnb29meW1lbW9yeSIsInJvbGUiOiJicm9rZXIiLCJicm9rZXJfaWQiOjEsImlhdCI6MTY5OTY3MDg3MH0.obmYIVx2lBGNg5luZIiGyRegxQjzy7Hi1ecbLJx-Bvo"
+  );
+
+  const {
+    getByPlaceholderText: getByPlaceholderText2,
+    getAllByPlaceholderText: getAllByPlaceholderText2,
+    getByText: getByText2,
+  } = render(<ReceivedOffers />);
+  await waitFor(() => {
+    expect(getByText2("$2")).toBeTruthy();
+  });
   localStorage.removeItem("jwtToken");
 });
