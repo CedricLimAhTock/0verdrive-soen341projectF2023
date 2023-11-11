@@ -3,8 +3,9 @@ import { render, fireEvent, waitFor } from "@testing-library/react";
 import OfferForm from "../components/OfferForm/OfferForm";
 import ReceivedOffers from "../components/DashboardDetails/ReceivedOffers";
 import axios from "axios";
-
+import { jest } from "@jest/globals";
 test("renders OfferForm and updates input values", async ({ assert }) => {
+  window.alert = jest.fn();
   const closeForm = () => {}; // Mock function
 
   localStorage.setItem(
@@ -77,4 +78,4 @@ test("renders OfferForm and updates input values", async ({ assert }) => {
     { timeout: 7000 }
   );
   localStorage.removeItem("jwtToken");
-});
+}, 10000);
