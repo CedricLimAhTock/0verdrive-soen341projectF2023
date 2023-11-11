@@ -6,7 +6,7 @@ import jwt_decode from "jwt-decode";
 import PropertyCardCarousel from "../PropertyCardCarousel/PropertyCardCarousel";
 
 const BrokerDetailedCard = ({ broker }) => {
-  const { user, email, phone, agency, id } = broker;
+  const { user, email, phone, agency, id, license_number } = broker;
 
   const { firstname, lastname } = user;
   const [properties, setProperties] = useState([]);
@@ -54,10 +54,11 @@ const BrokerDetailedCard = ({ broker }) => {
             <img src={profileIcon} className="detailed-profilepic" />
           </div>
           <div className="broker-info">
-            <p className="broker-agency">{name}</p>
+            <p className="broker-name">{name}</p>
             <p className="broker-email">{email}</p>
             <p className="broker-phone">{phone}</p>
-            <p className="broker-agency">{agency}</p>
+            <p className="broker-agency">Agency: {agency}</p>
+            <p className="broker-license">License: {license_number}</p>
             <p className="broker-desc">{description}</p>
           </div>
         </div>
