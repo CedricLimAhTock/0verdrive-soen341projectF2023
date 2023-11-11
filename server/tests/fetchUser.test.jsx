@@ -1,7 +1,7 @@
 import { expect, test } from "vitest";
 import axios from "axios";
 
-test("Search API should return expected results", async (t) => {
+test("Test fetching user", async (t) => {
   // Define the search query
   const query = "root";
 
