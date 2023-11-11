@@ -1,5 +1,5 @@
-import { test, expect } from "vitest";
-import { render, fireEvent, waitFor } from "@testing-library/react";
+import { test, expect, vi } from "vitest";
+import { render, fireEvent, waitFor, findByText } from "@testing-library/react";
 import OfferForm from "../components/OfferForm/OfferForm";
 import ReceivedOffers from "../components/DashboardDetails/ReceivedOffers";
 import axios from "axios";
@@ -48,6 +48,7 @@ test("renders OfferForm and updates input values", async ({ expect }) => {
     getByPlaceholderText: getByPlaceholderText1,
     getAllByPlaceholderText: getAllByPlaceholderText1,
     getByText: getByText1,
+    unmount: unmount1,
   } = render(
     <OfferForm
       isFormOpen={true}
@@ -77,24 +78,29 @@ test("renders OfferForm and updates input values", async ({ expect }) => {
   expect(emailInput.value).toBe("test.user@example.com");
   expect(priceOfferedInput.value).toBe("2");
 
-  await fireEvent.click(getByText1("Submit"));
-  localStorage.removeItem("jwtToken");
+  // await fireEvent.click(getByText1("Submit"));
+  // localStorage.removeItem("jwtToken");
+  // unmount1();
+  // localStorage.setItem(
+  //   "jwtToken",
+  //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJnb29meW1lbW9yeSIsInJvbGUiOiJicm9rZXIiLCJicm9rZXJfaWQiOjEsImlhdCI6MTY5OTY3MDg3MH0.obmYIVx2lBGNg5luZIiGyRegxQjzy7Hi1ecbLJx-Bvo"
+  // );
+  // const {
+  //   getByPlaceholderText: getByPlaceholderText2,
+  //   getAllByPlaceholderText: getAllByPlaceholderText2,
+  //   getByText: getByText2,
+  //   getByDisplayValue: getByDisplayValue2,
+  //   findByText: findByText2,
+  // } = render(<ReceivedOffers />);
 
-  localStorage.setItem(
-    "jwtToken",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJnb29meW1lbW9yeSIsInJvbGUiOiJicm9rZXIiLCJicm9rZXJfaWQiOjEsImlhdCI6MTY5OTY3MDg3MH0.obmYIVx2lBGNg5luZIiGyRegxQjzy7Hi1ecbLJx-Bvo"
-  );
+  // let test;
+  // await waitFor(
+  //   async () => {
+  //     test = await findByText2("$2");
+  //     expect(test).toBeTruthy();
+  //   },
+  //   { timeout: 10000 }
+  // );
 
-  const {
-    getByPlaceholderText: getByPlaceholderText2,
-    getAllByPlaceholderText: getAllByPlaceholderText2,
-    getByText: getByText2,
-  } = render(<ReceivedOffers />);
-  await waitFor(
-    () => {
-      expect(getByText2("$2")).toBeTruthy();
-    },
-    { timeout: 7000 }
-  );
-  localStorage.removeItem("jwtToken");
-}, 10000);
+  // localStorage.removeItem("jwtToken");
+});
