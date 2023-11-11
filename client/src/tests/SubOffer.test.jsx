@@ -3,11 +3,9 @@ import { render, fireEvent, waitFor } from "@testing-library/react";
 import OfferForm from "../components/OfferForm/OfferForm";
 import ReceivedOffers from "../components/DashboardDetails/ReceivedOffers";
 import axios from "axios";
-import { jest } from "@jest/globals";
-test("renders OfferForm and updates input values", async ({ assert }) => {
-  window.alert = jest.fn();
+test("renders OfferForm and updates input values", async ({ expect }) => {
   const closeForm = () => {}; // Mock function
-
+  globalThis.alert = () => {};
   localStorage.setItem(
     "jwtToken",
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJteXN0ZXJpb3VzcHJvcGVydHkiLCJyb2xlIjoiYnJva2VyIiwiYnJva2VyX2lkIjozLCJpYXQiOjE2OTk1ODgyMzF9.LY-Bd9khYuQcwwhECppd3iTQCpe5nruEC6Low7cCmnA"
