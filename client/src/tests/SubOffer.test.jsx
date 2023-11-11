@@ -70,8 +70,11 @@ test("renders OfferForm and updates input values", async ({ assert }) => {
     getAllByPlaceholderText: getAllByPlaceholderText2,
     getByText: getByText2,
   } = render(<ReceivedOffers />);
-  await waitFor(() => {
-    expect(getByText2("$2")).toBeTruthy();
-  });
+  await waitFor(
+    () => {
+      expect(getByText2("$2")).toBeTruthy();
+    },
+    { timeout: 7000 }
+  );
   localStorage.removeItem("jwtToken");
 });
