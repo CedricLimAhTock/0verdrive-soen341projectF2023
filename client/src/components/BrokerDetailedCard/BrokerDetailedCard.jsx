@@ -48,14 +48,16 @@ const BrokerDetailedCard = ({ broker }) => {
 
   return (
     <>
-    <div className="broker-details">
-       <div className="broker-left-side">
+      <div className="broker-details">
+        <div className="broker-left-side">
           <div className="profile-broker">
             <img src={profileIcon} className="detailed-profilepic" />
           </div>
           <div className="broker-info">
             <p className="broker-agency">{name}</p>
             <p className="broker-email">{email}</p>
+            <p className="broker-phone">{phone}</p>
+            <p className="broker-agency">{agency}</p>
             <p className="broker-desc">{description}</p>
           </div>
         </div>
