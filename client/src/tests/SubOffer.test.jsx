@@ -10,17 +10,38 @@ test("renders OfferForm and updates input values", async ({ expect }) => {
     "jwtToken",
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwidXNlcm5hbWUiOiJteXN0ZXJpb3VzcHJvcGVydHkiLCJyb2xlIjoiYnJva2VyIiwiYnJva2VyX2lkIjozLCJpYXQiOjE2OTk1ODgyMzF9.LY-Bd9khYuQcwwhECppd3iTQCpe5nruEC6Low7cCmnA"
   );
-  const propertyFetch = await axios.get("http://localhost:8080/property/1");
+
   const brokerFetch = await axios.get(
     "http://localhost:8080/broker/username/mysteriousproperty"
   );
 
-  propertyFetch.data.images = [
-    {
-      original: "https://picsum.photos/id/1018/1000/600/",
-    },
-  ];
-  const property = propertyFetch.data;
+  const property = {
+    images: [
+      {
+        original: "https://picsum.photos/id/1018/1000/600/",
+      },
+    ],
+    id: 1,
+    active: true,
+    civic_address: "4",
+    apt_number: "801",
+    street: "Heffernan",
+    neighbourhood: "Conception Bay South",
+    city: "Montreal",
+    province: "Quebec",
+    postal_code: "I6Y 1M6",
+    country: "Canada",
+    listing_type: "rent",
+    price: 9256,
+    living_area: 3122,
+    property_area: 8996,
+    num_bedrooms: 3,
+    num_bathrooms: 8,
+    num_floors: 4,
+    year_built: "1923-01-01",
+    listed_date: "2022-12-15",
+    property_type: "condominium",
+  };
   const broker = brokerFetch.data;
 
   const {
@@ -44,7 +65,7 @@ test("renders OfferForm and updates input values", async ({ expect }) => {
 
   await fireEvent.change(nameInput, { target: { value: "Test User" } });
   await fireEvent.change(userAddressInput, {
-    target: { value: "123 Test St" },
+    target: { value: "Test" },
   });
   await fireEvent.change(emailInput, {
     target: { value: "test.user@example.com" },
@@ -52,7 +73,7 @@ test("renders OfferForm and updates input values", async ({ expect }) => {
   await fireEvent.change(priceOfferedInput, { target: { value: "2" } });
 
   expect(nameInput.value).toBe("Test User");
-  expect(userAddressInput.value).toBe("123 Test St");
+  expect(userAddressInput.value).toBe("Test");
   expect(emailInput.value).toBe("test.user@example.com");
   expect(priceOfferedInput.value).toBe("2");
 
