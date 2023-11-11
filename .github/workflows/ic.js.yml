@@ -33,8 +33,9 @@ jobs:
       - name: Build Client
         run: npm run build --if-present
         working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/client
+
       - name: Start Client
-        runt npm start &
+        run: npm start &
         working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/client
 
       - name: Start SQL Service
