@@ -5,35 +5,14 @@ import "./styles/Listings.css";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
 import PropertyAddForm from "./PropertyAddForm";
-const Listings = ({ token }) => {
-  // const data = [
-  //   {
-  //     type: "House",
-  //     name: "Home sweet home",
-  //     address: "1234 Main St, San Diego, CA 92101",
-  //     price: "$1,000,000",
-  //     image: "https://images.unsplash.com/photo-1560184897-ae8a57b4c1f4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aG91c2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80",
-  //     firstName: "John",
-  //     lastName: "Doe",
-  //     email: "HAHAHA@lo.com"
-  //   },
-  //   {
-  //     type: "Apartment",
-  //     name: "One mansion",
-  //     address: "New York City, New York, U.S",
-  //     price: "$67,000,000",
-  //     image: "https://images.unsplash.com/photo-1560184897-ae8a57b4c1f4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aG91c2V8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80",
-  //     firstName: "John",
-  //     lastName: "Doe",
-  //     email: "IRanOutOfMail@idk.com"
-  //   }
-  // ];
 
+const Listings = ({ token }) => {
   const [data, setData] = useState([]);
   const [isFormOpen, setFormOpen] = useState(false);
   const [selectedPropertyData, setSelectedPropertyData] = useState(null);
   const [addingProperty, setAddingProperty] = useState(false);
 
+  // List of properties
   useEffect(() => {
     const token = localStorage.getItem("jwtToken");
     const decodedToken = jwtDecode(token);
@@ -51,8 +30,14 @@ const Listings = ({ token }) => {
   const toggleExpand = (index) => {
     console.log("expand1");
     setSelectedPropertyData(data[index]);
-    setFormOpen(true);
   };
+
+  useEffect(() => {
+    if (selectedPropertyData) {
+      console.log(selectedPropertyData);
+      setFormOpen(true);
+    }
+  }, [selectedPropertyData]);
 
   const addProperty = () => {
     setAddingProperty(true);
@@ -65,17 +50,20 @@ const Listings = ({ token }) => {
 
   return (
     <div className="listings">
-      <div className="properties-header">
-        <div className="header-property-type">Type</div>
-        <div className="header-property-name">Name</div>
-        <div className="header-property-address">Address</div>
-        <div className="header-property-price">Price</div>
+      <div className="listing-header">
+        <h2>All Properties</h2>
         <div className="property-intro-right">
-          Total: {data.length}
+          <p>Total: {data.length}</p>
           <button className="add-property-button" onClick={addProperty}>
             Add
           </button>
         </div>
+      </div>
+      <div className="properties-header">
+        <div className="header-property-type">Type</div>
+        <div className="header-property-name">Title</div>
+        <div className="header-property-address">Address</div>
+        <div className="header-property-price">Price</div>
       </div>
 
       <div className="properties-cards">
