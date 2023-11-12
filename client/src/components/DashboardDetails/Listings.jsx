@@ -44,7 +44,6 @@ const Listings = ({ token }) => {
     setFormOpen(false);
   };
 
-
   const closeForm = () => {
     setFormOpen(false);
   };
@@ -53,7 +52,7 @@ const Listings = ({ token }) => {
     <div className="listings">
       <div className="listing-header">
         <h2>All Properties</h2>
-      <div className="property-intro-right">
+        <div className="property-intro-right">
           <p>Total: {data.length}</p>
           <button className="add-property-button" onClick={addProperty}>
             Add
@@ -65,7 +64,6 @@ const Listings = ({ token }) => {
         <div className="header-property-name">Title</div>
         <div className="header-property-address">Address</div>
         <div className="header-property-price">Price</div>
-
       </div>
 
       <div className="properties-cards">

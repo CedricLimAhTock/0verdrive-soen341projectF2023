@@ -8,7 +8,7 @@ const BrokerDetailed = (decodedToken) => {
 
   return (
     <div>
-      ,
+      <br></br>
       <BrokerDetailedCard broker={broker} token={decodedToken} />
     </div>
   );

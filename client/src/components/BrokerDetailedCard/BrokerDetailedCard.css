@@ -15,7 +15,7 @@
   border-radius: 0.5rem;
   margin: 0.5rem;
   padding: 1rem;
-  height: 20rem;;
+  height: 20rem;
 }
 
 .profile-broker {
@@ -23,17 +23,22 @@
 }
 
 .profile-broker .detailed-profilepic {
- width: 10rem;
- border-radius: 0.5rem;
- box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-
+  width: 10rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .broker-info {
   max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-shadow: none;
+  background-color: transparent;
 }
 
-.broker-agency {
+.broker-name {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 6px;
@@ -66,7 +71,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
 }
 
 .contact-form h3 {
@@ -81,7 +85,7 @@
   height: 2.5rem;
   padding: 10px;
   margin-bottom: 20px;
-  border: 1px solid white; 
+  border: 1px solid white;
   border-radius: 0.5rem;
   outline: none;
   font-size: 15px;
@@ -103,19 +107,17 @@
   margin-bottom: 1rem;
 }
 
-
 .contact-form input:hover,
 .contact-form textarea:hover {
-  border-color: #1666D9;
+  border-color: #1666d9;
   transition: all 0.3s ease;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #1666D9;
+  border-color: #1666d9;
   transition: all 0.3s ease;
 }
-
 
 .contact-form button {
   display: flex;
@@ -123,11 +125,11 @@
   align-items: center;
   width: 4rem;
   height: 2rem;
-  padding: .2rem;
+  padding: 0.2rem;
   border: none;
-  border-radius: .3rem;
+  border-radius: 0.3rem;
   margin-top: 3px;
-  background-color: #1666D9;
+  background-color: #1666d9;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   color: white;
   width: 40%;
@@ -136,10 +138,8 @@
 }
 
 .contact-form button:hover {
-  border: 2px solid ;
+  border: 2px solid;
   transition: all 0.3s ease-out;
   background-color: white;
-  color:#1666D9;
+  color: #1666d9;
 }
-
-

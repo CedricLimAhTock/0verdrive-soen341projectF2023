@@ -3,12 +3,14 @@ import axios from "axios";
 import "../DashboardDetails/styles/Users.css";
 import "./VisitForm.css";
 import jwt_decode from "jwt-decode";
+import xIcon from "../../assets/xIcon.svg";
 
 const VisitForm = ({ isFormOpen, closeForm, property }) => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
 
+  const { images, price, address, broker } = property;
   const [decodedToken, setDecodedToken] = React.useState(null);
 
   useEffect(() => {
@@ -25,11 +27,16 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
     event.preventDefault();
 
     try {
+      const broker = await axios.get(`http://localhost:8080/listing/property/${property.id}`);
+      console.log(broker.data[0].broker_id);
+
       alert(`Email: ${email}\nPhone: ${phone}\nMessage: ${message}`);
-      const response = await axios.post("http:127.0.0.1:8080/visit/", {
-        propertyId: property.id.toString(),
+      const response = await axios.post("http://127.0.0.1:8080/visit/", {
+        property_id: property.id.toString(),
         client_id: decodedToken.id.toString(),
-        broker_id: property.broker_id.toString(),
+        broker_id: broker.data[0].broker_id.toString(),
+        status: "requested",
+        message: message.toString(),
       });
 
       if (response.status === 200) {
@@ -49,10 +56,10 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
   return (
     <div className={isFormOpen ? "show" : "hide"}>
       <form className="popup-form" onSubmit={handleSubmit}>
-        <button onClick={closeForm} className='close-button'>Close</button>
+        <button onClick={closeForm} className="close-button">
+          <img src={xIcon} alt="close" className="close-button-x" />
+        </button>
         <h2>Visit Form</h2>
-
-        <label htmlFor="email">Email</label>
         <input
           id="email"
           type="email"
@@ -61,8 +68,6 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-
-        <label htmlFor="phone">Phone Number</label>
         <input
           id="phone"
           type="tel"
@@ -71,8 +76,6 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
           onChange={(e) => setPhone(e.target.value)}
           required
         />
-
-        <label htmlFor="message">Message</label>
         <textarea
           id="message"
           value={message}

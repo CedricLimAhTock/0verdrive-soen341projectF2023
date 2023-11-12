@@ -10,6 +10,9 @@ const BuyerBookingCard = ({ data, expanded, toggleExpand }) => {
     declined: "status-declined",
   };
 
+  
+
+
   const statusName = statusMap[status] || "status-hold";
   const expand = () => {
     toggleExpand();
@@ -20,7 +23,7 @@ const BuyerBookingCard = ({ data, expanded, toggleExpand }) => {
       <div className="buyer-booking-card">
         <div className="property-type">{type}</div>
         <div className={`property-status ${statusName}`}>{status}</div>
-        <div className="property-address">{address}</div>
+        <div className="property-address">{data.message}</div>
         <div className="property-price">{price}</div>
         <div className="property-broker">{broker}</div>
         {/* Date probably */}

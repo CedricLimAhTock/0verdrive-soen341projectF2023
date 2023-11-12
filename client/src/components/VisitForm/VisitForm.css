@@ -1,6 +1,40 @@
 #message {
   width: 100%;
-  max-width: 100%;
-  min-width: 100%;
-  min-height: 6vh;
+  max-width: 90%;
+  min-width: 80%;
+  min-height: 12vh;
+}
+
+.show .popup-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.show .popup-form input,
+.show .popup-form textarea {
+  width: 90%;
+  height: 2.5rem;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  outline: none;
+  font-size: 15px;
+  letter-spacing: 0.1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.show .popup-form input:hover,
+.show .popup-form textarea:hover {
+  border-color: #1666d9;
+  transition: all 0.3s ease;
+}
+
+.show .popup-form input:focus,
+.show .popup-form textarea:focus {
+  border-color: #1666d9;
+  transition: all 0.3s ease;
 }
