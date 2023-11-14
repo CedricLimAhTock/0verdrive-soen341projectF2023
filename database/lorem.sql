@@ -72,6 +72,21 @@ CREATE TABLE `broker` (
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
 
+DROP TABLE IF EXISTS `message`;
+
+CREATE TABLE `message` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `active` tinyint NULL DEFAULT '0',
+  `user_id` bigint NOT NULL,
+  `broker_id` bigint NOT NULL,
+  `message` TEXT NULL,
+  PRIMARY KEY (`id`),
+  KEY `message_FK` (`user_id`),
+  KEY `message_FK_1` (`broker_id`),
+  CONSTRAINT `message_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `message_FK_1` FOREIGN KEY (`broker_id`) REFERENCES `broker` (`id`) ON DELETE CASCADE
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
+
 
 DROP TABLE IF EXISTS `property`;
 
