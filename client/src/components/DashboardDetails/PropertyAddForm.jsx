@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./styles/PropertyAddForm.css";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
@@ -7,7 +7,6 @@ import xIcon from "../../assets/xIcon.svg";
 const PropertyAddForm = ({ isFormOpen, closeForm }) => {
   const [title, setTitle] = useState("");
   const [type, setType] = useState("");
-
   const [price, setPrice] = useState("");
   const [neighbourhood, setNeighbourhood] = useState("");
   const [city, setCity] = useState("");
@@ -16,13 +15,14 @@ const PropertyAddForm = ({ isFormOpen, closeForm }) => {
   const [num_bedrooms, setNum_bedrooms] = useState("");
   const [num_bathrooms, setNum_bathrooms] = useState("");
   const [property_area, setProperty_area] = useState("");
-  const [civic_address, setCivic_address] = useState("");
-  const [street, setStreet] = useState("");
-  const [apt_number, setApt_number] = useState("");
+  const [propertyType, setPropertyType] = useState("");
+
+
   const token = localStorage.getItem("jwtToken");
   const decoded = jwtDecode(token);
   const broker_id = decoded.broker_id;
-  const handleSubmit = (event) => {
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const property = {
@@ -34,6 +34,8 @@ const PropertyAddForm = ({ isFormOpen, closeForm }) => {
       num_bedrooms,
       num_bathrooms,
       property_area,
+      listing_type: "sale",
+      property_type: propertyType,
     };
 
     const data = {
@@ -41,16 +43,26 @@ const PropertyAddForm = ({ isFormOpen, closeForm }) => {
       title,
       property,
     };
+
     try {
-      axios.post("http://localhost:8080/listing/property", data);
+      const response = await axios.post("http://localhost:8080/listing/property", data);
+
+      if (response.status === 200) {
+        alert("Property Added");
+        console.log(response.data);
+      } else {
+        console.log("Failed to add property");
+      }
     } catch (error) {
-      console.log(error);
+      console.error("Error adding property", error);
     }
   };
 
+  const inputRef = useRef();
+
   return (
     <div className={isFormOpen ? "show" : "hide"}>
-      <form className="popup-form">
+      <form className="popup-form" onSubmit={handleSubmit}>
         <button onClick={closeForm} className="close-button">
           <img src={xIcon} alt="close" className="close-button-x" />
         </button>
@@ -135,13 +147,34 @@ const PropertyAddForm = ({ isFormOpen, closeForm }) => {
             required
           />
         </div>
-        <div className="button-container">
-          <button
-            type="submit"
-            className="submit add"
-            onClick={handleSubmit && closeForm}
+        <div className="form-pair">
+          <input
+            id="property_area"
+            type="text"
+            value={property_area}
+            placeholder="Property Area"
+            onChange={(e) => setProperty_area(e.target.value)}
+            required
+          />
+          <select
+            id="listingType"
+            value={propertyType}
+            onChange={(e) => setPropertyType(e.target.value)}
           >
-            Add
+            <option value="">Select Listing Type</option>
+            <option value="single-family">Single Family</option>
+            <option value="duplex">Duplex</option>
+            <option value="triplex">Triplex</option>
+            <option value="quadruplex">Quadruplex</option>
+            <option value="townhouse">Townhouse</option>
+            <option value="studio">Studio</option>
+            <option value="condominium">Condominium</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div className="button-container">
+          <button type="submit" className="submit add">
+            Add Property
           </button>
         </div>
       </form>

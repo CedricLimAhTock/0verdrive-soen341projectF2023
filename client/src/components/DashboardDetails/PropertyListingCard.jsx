@@ -38,7 +38,7 @@ const PropertyListingCard = ({ data, expanded, toggleExpand }) => {
         <div className="property-type">{property_type}</div>
         <div className="property-name">{title}</div>
         <div className="property-address">{address}</div>
-        <div className="property-price">{price}</div>
+        <div className="property-price">${price}</div>
         {/* <div className="property-image">{image}</div> */}
       </div>
     </div>
