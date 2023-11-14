@@ -6,7 +6,7 @@ import Carousel from "../Carousel/Carousel";
 import "./OfferForm.css";
 import profileIcon from "../../assets/profile-picture.png";
 import xIcon from "../../assets/xIcon.svg";
-
+import FormatNumber from "../FormatNumber/FormatNumber";
 const OfferForm = ({ isFormOpen, closeForm, property, broker }) => {
   const [name, setName] = useState("");
   const [userEmail, setUserEmail] = useState("");
@@ -72,7 +72,7 @@ const OfferForm = ({ isFormOpen, closeForm, property, broker }) => {
             <h2>Make an Offer</h2>
             <Carousel images={images} className="offer-carousel" />
             <div className="property-info">
-              <h4>Price: ${price}</h4>
+              <h4>Price: ${FormatNumber(price)}</h4>
               <p>Address: {address}</p>
             </div>
             <div className="broker-info">
