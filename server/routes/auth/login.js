@@ -57,7 +57,6 @@ router.post('/', async (req, res) => {
     
   
     if (!broker) {
-      broker.id = null;
       token = jwt.sign(
       {
         id: user.id,
