@@ -144,7 +144,7 @@ const DetailedCard = ({ property }) => {
       </div>
 
       <div className="right-side">
-        <h2 className="price">${price}</h2>
+        <h2 className="price">${FormatNumber(price)}</h2>
         <button
           className="offer offer-button"
           onClick={() => toggleOfferForm(true)}
