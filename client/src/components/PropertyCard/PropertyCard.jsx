@@ -30,6 +30,9 @@ const PropertyCard = ({ property, decodedToken }) => {
   const address = `${street}, ${city}, ${province}, ${country}`;
   let [isSaved, setIsSaved] = useState(false);
 
+  const formatPrice = (p) => {
+    return "$" + p.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
   const fetchIsSaved = async () => {
     if (!decodedToken) {
       return;
@@ -109,7 +112,7 @@ const PropertyCard = ({ property, decodedToken }) => {
         <div onClick={() => onEventClick(property.id)}>
           <div className="card-info">
             <div className="card-price-container">
-              <div className="card-price">{FormatPrice(price)}</div>
+              <div className="card-price">{formatPrice(price)}</div>
               {/* <img className="save-icon" src={saveIcon} alt="Save Icon" /> */}
               <SaveIcon
                 onClick={handleIsSaved}
