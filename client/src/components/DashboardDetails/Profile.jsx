@@ -26,6 +26,7 @@ const Profile = ({ data, token }) => {
         email: email.toString(),
         phone: phone.toString(),
         username: username.toString(),
+        address: address.toString(),
       });
       if (response.status === 200) {
         alert("Updated");
@@ -89,8 +90,8 @@ const Profile = ({ data, token }) => {
         </div>
         <p className="username">{username}</p>
         <div className="seperator"></div>
-        <p className="listings">Listings</p>
-        {/*<span>{data.listings.length}</span>*/}
+        {/* <p className="listings">Listings</p>
+        <span>{data.listings.length}</span> */}
       </div>
 
       <div className="profile-details">
