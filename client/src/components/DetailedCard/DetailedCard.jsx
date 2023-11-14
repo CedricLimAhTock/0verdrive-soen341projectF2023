@@ -10,6 +10,7 @@ import VisitForm from "../VisitForm/VisitForm";
 import OfferForm from "../OfferForm/OfferForm";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
+import FormatNumber from "../FormatNumber/FormatNumber";
 
 const DetailedCard = ({ property }) => {
   const {
@@ -85,7 +86,7 @@ const DetailedCard = ({ property }) => {
         </div>
 
         <div className="info">
-          <h2 className="title">${price}</h2>
+          <h2 className="title">${FormatNumber(price)}</h2>
           <p className="address">{address}</p>
         </div>
 
@@ -135,17 +136,25 @@ const DetailedCard = ({ property }) => {
           </div>
           <div className="features">
             <img className="c-icons" src={rulerIcon} alt="Ruler Icon" />
-            <span className="icon-numbers">{property_area} sq ft</span>
+            <span className="icon-numbers">
+              {FormatNumber(property_area)} sq ft
+            </span>
           </div>
         </div>
       </div>
 
       <div className="right-side">
         <h2 className="price">${price}</h2>
-        <button className="offer offer-button" onClick={() => toggleOfferForm(true)}>
+        <button
+          className="offer offer-button"
+          onClick={() => toggleOfferForm(true)}
+        >
           Make an offer
         </button>
-        <button className="visit visit-button" onClick={() => toggleVisitForm(true)}>
+        <button
+          className="visit visit-button"
+          onClick={() => toggleVisitForm(true)}
+        >
           Request a visit
         </button>
         <button className="calc calc-button" onClick={() => toggleForm(true)}>
@@ -157,8 +166,7 @@ const DetailedCard = ({ property }) => {
             onClose={toggleForm}
             property={property}
           />
-        )
-        }
+        )}
         {isVisitForm && (
           <VisitForm
             isFormOpen={isVisitForm}
