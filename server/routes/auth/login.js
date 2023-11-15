@@ -52,12 +52,21 @@ router.post('/', async (req, res) => {
           user_id: user.id
         }
       });
+    let token = null;
+
+    
   
     if (!broker) {
-      broker.id = null;
-    }
-
-    const token = jwt.sign(
+      token = jwt.sign(
+      {
+        id: user.id,
+        username: user.username,
+        role: user_role.role.type
+      },
+      process.env.JWT_SECRET
+    );
+    } else {
+      token = jwt.sign(
       {
         id: user.id,
         username: user.username,
@@ -66,6 +75,8 @@ router.post('/', async (req, res) => {
       },
       process.env.JWT_SECRET
     );
+
+    }
     res.status(200).json({ token });
   } catch (error) {
     console.error(error);
