@@ -25,7 +25,7 @@ const Users = ({ token }) => {
       .get('http://localhost:8080/broker')
       .then((res) => {
         setUserData(res.data);
-        console.log(res.data)
+        //console.log(res.data)
       })
       .catch((error) => {
         console.log('Error in Users.jsx ', error);

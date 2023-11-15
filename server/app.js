@@ -16,7 +16,8 @@ import listingRoutes from "./routes/listing.js";
 
 import brokerRoutes from "./routes/broker.js";
 import offerRoutes from "./routes/offer.js";
-import propertyFavouriteRoute from "./routes/property_favourite.js";
+import propertyFavouriteRoutes from "./routes/property_favourite.js";
+import messageRoutes from "./routes/message.js"
 
 console.log(config());
 
@@ -46,6 +47,8 @@ app.use("/listing", listingRoutes);
 
 app.use("/broker", brokerRoutes);
 app.use("/offer", offerRoutes);
-app.use("/favourite", propertyFavouriteRoute);
+app.use("/favourite", propertyFavouriteRoutes);
+app.use("/message", messageRoutes);
+
 
 export default app;

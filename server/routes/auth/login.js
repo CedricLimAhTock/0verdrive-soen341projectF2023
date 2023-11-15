@@ -32,18 +32,21 @@ router.post('/', async (req, res) => {
 
     const user_role = await User_role.findOne({
       attributes: ['id', 'active', 'user_id', 'role_id'],
-            include: [
-              {
-                  model: User,
-                  required: true,
-                  attributes: []
-              },
-              {
-                model: Role,
-                required: true,
-                attributes: ['type']
-              }
-            ]
+      include: [
+        {
+            model: User,
+            required: true,
+            attributes: []
+        },
+        {
+          model: Role,
+          required: true,
+          attributes: ['type']
+        }
+      ],
+      where: {
+        user_id: user.id
+      }
     });
 
     let broker = await Broker.findOne({
@@ -53,28 +56,20 @@ router.post('/', async (req, res) => {
         }
     });
     
-    let token = null;
+    let tokenData = {
+      id: user.id,
+      username: user.username,
+      role: user_role.role.type
+    };
 
-    if (!broker) {
-      token = jwt.sign(
-        {
-          id: user.id,
-          username: user.username,
-          role: user_role.role.type
-        },
-        process.env.JWT_SECRET
-      );
-    } else {
-      token = jwt.sign(
-        {
-          id: user.id,
-          username: user.username,
-          role: user_role.role.type,
-          broker_id: broker.id
-        },
-        process.env.JWT_SECRET
-      );
+    if (broker) {
+      tokenData.broker_id = broker.id;
     }
+
+    const token = jwt.sign(
+      tokenData,
+      process.env.JWT_SECRET
+    );
     
     res.status(200).json({ token });
   } catch (error) {
