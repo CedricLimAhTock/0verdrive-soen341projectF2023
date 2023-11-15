@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import FormatNumber from "../FormatNumber/FormatNumber";
 const PropertyForm = ({ isFormOpen, data, closeForm }) => {
   const [name, setName] = useState(data.name || "");
   const [type, setType] = useState(data.type || "");
