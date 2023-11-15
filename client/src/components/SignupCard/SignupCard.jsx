@@ -36,6 +36,7 @@ const SignupCard = () => {
     e.preventDefault();
 
     try {
+      console.log(userRole);
       const res = await axios.post("http://127.0.0.1:8080/signup", {
         username,
         password,
@@ -43,7 +44,7 @@ const SignupCard = () => {
         firstname,
         lastname,
         email,
-        phone,
+        phone
       });
 
       navigate("/signin");

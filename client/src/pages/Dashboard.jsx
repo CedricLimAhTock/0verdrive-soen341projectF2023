@@ -8,10 +8,13 @@ import ReceivedOffers from "../components/DashboardDetails/ReceivedOffers";
 import ReceivedBookings from "../components/DashboardDetails/RecievedBookings";
 import Listings from "../components/DashboardDetails/Listings";
 import Users from "../components/DashboardDetails/Users";
+import jwt_decode from "jwt-decode";
+
 
 
 const Dashboard = ({ token }) => {
   const [activeTab, setActiveTab] = useState("bookings");
+  
   const logout = () => {
     localStorage.removeItem("jwtToken");
     window.location.reload();
@@ -31,7 +34,10 @@ const Dashboard = ({ token }) => {
   };
 
   // For temporary use, need to be replaced with role in token
-  const userRole = "broker";
+  //const userRole = "broker";
+  const jwt = localStorage.getItem("jwtToken");
+  const decodedToken = jwt_decode(jwt);
+  const userRole = decodedToken.role;
 
   const tabsByRole = {
     homebuyer: ["Profile", "Favorites"],

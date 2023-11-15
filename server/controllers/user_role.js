@@ -69,13 +69,13 @@ const create = async (req, res) => {
         // prevent foreign key error for out of bound ids
         const user = await User.findOne({ attributes: [[sequelize.fn('max', sequelize.col('id')), 'id']] });
 
-        if (data.user_id > user.id) {
+        if (user && data.user_id > user.id) {
             return res.status(400).json({message: "invalid user_id."});
         }
 
         const role = await Role.findOne({ attributes: [[sequelize.fn('max', sequelize.col('id')), 'id']]});
 
-        if (data.role_id > role.id) {
+        if (role && data.role_id > role.id) {
             return res.status(400).json({message: "invalid role_id."});
         }
 
