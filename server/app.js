@@ -32,6 +32,7 @@ register.setDefaultLabels({
 // Enable the collection of default metrics
 prometheus.collectDefaultMetrics({ register });
 
+
 console.log(config());
 
 const app = express();
@@ -63,12 +64,10 @@ app.use("/offer", offerRoutes);
 app.use("/favourite", propertyFavouriteRoutes);
 app.use("/message", messageRoutes);
 
-
 app.get('/metrics', (req, res) => {
     res.set('Content-Type', prometheus.register.contentType)
     //res.end(prometheus.register.metrics())
     register.metrics().then(data => res.send(data));
 });
-
 
 export default app;

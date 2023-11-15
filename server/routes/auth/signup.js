@@ -1,5 +1,6 @@
 import express from "express";
 import bcrypt from "bcrypt";
+import { Op } from "sequelize";
 import User from "../../models/user.js";
 import User_role from "../../models/user_role.js";
 import Role from "../../models/role.js";
@@ -11,10 +12,10 @@ router.post("/", async (req, res) => {
   try {
     let data = req.body;
 
-    if (!data.username || !data.password) {
+    if (!data.username || !data.password || !data.userRole) {
       return res
         .status(400)
-        .json({ message: "username and password cannot be null." });
+        .json({ message: "username, password, role cannot be null." });
     }
 
     const hashedPassword = await bcrypt.hash(data.password, 10);
@@ -24,7 +25,7 @@ router.post("/", async (req, res) => {
       attributes: ["id", "active", "type"],
       where: {
         type: data.userRole.toLowerCase().split(" ").join(""),
-      },
+      }
     });
 
     if (!role) {
@@ -35,43 +36,64 @@ router.post("/", async (req, res) => {
 
     const [user, created] = await User.findOrCreate({
       attributes: ["id"],
-      where: data,
+      where: {
+        username: data.username
+      },
       defaults: {
         active: 1,
-      },
+        password: data.password,
+        firstname: data.firstname,
+        lastname: data.lastname,
+        address: data.address,
+        email: data.email,
+        phone: data.phone
+      }
     });
-
     if (!created) {
       return res.status(400).json({ message: "Username already taken." });
     } else {
-      // each new user must have a role associated
-      const user_role = await User_role.create({
-        active: 1,
-        user_id: user.id,
-        role_id: role.id,
-      });
 
-      if (!user_role) {
+      // each new user must have a role associated
+      const [user_role,ur_created] = await User_role.findOrCreate({
+        attributes: ['id'],
+        where: {
+            user_id: user.id
+        },
+        defaults: {
+            active: 1,
+            role_id: role.id
+        }
+      });
+      if (!ur_created) {
         user.destroy();
-        return res.status(400).json({ message: "Failed to assign role." });
+        return res.status(400).json({ message: "user already assigned a role." });
       }
 
       // if user is a broker, create an entry in broker table
+      let uuid = crypto.randomUUID();
+      let broker = null;
       if (role.type == "broker") {
-        const broker = await Broker.create({
-          active: 1,
-          user_id: user.id,
-          license_number: "",
-          agency: "",
-          email: "",
-          phone: "",
+        const [broker, b_created] = await Broker.findOrCreate({
+          attributes: ['id'],
+          where: {
+              [Op.or]: {
+                  user_id: user.id,
+                  license_number: uuid
+              }
+          },
+          defaults: {
+              active: 1,
+              user_id: user.id,
+              license_number: uuid,
+              agency: "",
+              email: user.email,
+              phone: user.phone
+          }
         });
 
-        if (!broker) {
+        if (!b_created) {
           user.destroy();
-          return res
-            .status(400)
-            .json({ message: "Failed to add broker entry." });
+          return res.status(400).json({ message: "Failed to add broker entry." });
         }
       }
 
