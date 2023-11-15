@@ -15,9 +15,12 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
       try {
         console.log(data.id);
 
+        const user = await axios.get(`http://127.0.0.1:8080/user/${data.id}`);
+        console.log(user);
         const response = await axios.put(
           `http://127.0.0.1:8080/user/${data.id}`,
           {
+            username: user.data.username,
             firstName: firstName.toString(),
             lastName: lastName.toString(),
             email: email.toString(),
