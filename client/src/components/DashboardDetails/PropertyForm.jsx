@@ -83,7 +83,7 @@ const PropertyForm = ({ isFormOpen, data, closeForm }) => {
         <input
           id="price"
           type="text"
-          value=${FormatNumber(price)}
+          value={price}
           placeholder="Price"
           onChange={(e) => setPrice(e.target.value)}
         />
