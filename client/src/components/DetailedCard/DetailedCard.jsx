@@ -10,7 +10,7 @@ import VisitForm from "../VisitForm/VisitForm";
 import OfferForm from "../OfferForm/OfferForm";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
-import FormatPrice from "../FormatPrice/FormatPrice";
+import FormatNumber from "../FormatNumber/FormatNumber";
 
 const DetailedCard = ({ property }) => {
   const {
@@ -86,7 +86,7 @@ const DetailedCard = ({ property }) => {
         </div>
 
         <div className="info">
-          <h2 className="title">{FormatPrice(price)}</h2>
+          <h2 className="title">${FormatNumber(price)}</h2>
           <p className="address">{address}</p>
         </div>
 
@@ -136,7 +136,9 @@ const DetailedCard = ({ property }) => {
           </div>
           <div className="features">
             <img className="c-icons" src={rulerIcon} alt="Ruler Icon" />
-            <span className="icon-numbers">{property_area} sq ft</span>
+            <span className="icon-numbers">
+              {FormatNumber(property_area)} sq ft
+            </span>
           </div>
         </div>
       </div>
