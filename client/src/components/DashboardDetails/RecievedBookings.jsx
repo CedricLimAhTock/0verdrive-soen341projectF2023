@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import BuyerBookingCard from "./BuyerBookingCard";
 import "./styles/Bookings.css";
+import jwt_decode from "jwt-decode";
 
-const Bookings = ({ data, token }) => {
+
+const ReceivedBookings = ({ data, token }) => {
   const [expandedCard, setExpandedCard] = useState(null);
+  const [bookingData, setBookingRecv] = useState([]);
 
   const toggleExpand = (index) => {
     console.log("expand1");
@@ -15,23 +18,27 @@ const Bookings = ({ data, token }) => {
     }
   };
 
-  const bookingData = [
-    {
-      type: "Apartment",
-      status: "confirmed",
-      address: "1234 Main St, San Diego, CA 92101",
-      price: "$1,000,000",
-      broker: "John Doe",
-    },
-    {
-      type: "Home",
-      status: "declined",
-      address: "308 Negra Arroyo Lane, Albuquerque, New Mexico 87104",
-      price: "$67,000,000",
-      broker: "Ben Dover",
-    },
-    // Add more booking data as needed
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      const token = localStorage.getItem('jwtToken');
+      const decodedToken = jwt_decode(token);
+      const brokerID = decodedToken.broker_id;
+
+      
+      try {
+        const response = await axios.get(`http://localhost:8080/visit/broker/${brokerID}}`);
+        setBookingRecv(response.data);
+        console.log(response.data);
+        for (const [key, value] of Object.entries(bookingData)) {
+          console.log(`${key}: ${value}`);
+        }
+      } catch (error) {
+        console.error('Error fetching offers:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="bookings">
@@ -44,16 +51,22 @@ const Bookings = ({ data, token }) => {
       </div>
 
       <div className="booking-cards">
-        {bookingData.map((data, index) => (
-          <BuyerBookingCard
-            key={index}
-            data={data}
-            expanded={index === expandedCard}
-            toggleExpand={() => toggleExpand(index)}
-          />
-        ))}
+        {bookingData.length > 0 ? (
+          bookingData.map((data, index) => (
+            <div key={index}>
+              <BuyerBookingCard
+                key={index}
+                data={data}
+                expanded={index === expandedCard}
+                toggleExpand={() => toggleExpand(index)}
+              />
+            </div>
+          ))
+        ) : (
+          <p className="no-bookings">No bookings received</p>
+        )}
       </div>
     </div>
   );
 };
-export default Bookings;
+export default ReceivedBookings;

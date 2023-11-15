@@ -126,3 +126,8 @@
 .buyer-booking-card {
   cursor: pointer;
 }
+
+.no-bookings {
+  margin-top: 50px;
+  text-align: center;
+}

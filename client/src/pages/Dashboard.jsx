@@ -5,6 +5,7 @@ import Favorites from "../components/DashboardDetails/Favorites";
 import Bookings from "../components/DashboardDetails/Bookings";
 import OffersMade from "../components/DashboardDetails/OffersMade";
 import ReceivedOffers from "../components/DashboardDetails/ReceivedOffers";
+import ReceivedBookings from "../components/DashboardDetails/RecievedBookings";
 import Listings from "../components/DashboardDetails/Listings";
 import Users from "../components/DashboardDetails/Users";
 
