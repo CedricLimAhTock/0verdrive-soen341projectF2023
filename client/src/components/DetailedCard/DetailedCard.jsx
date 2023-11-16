@@ -11,6 +11,7 @@ import OfferForm from "../OfferForm/OfferForm";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 import FormatNumber from "../FormatNumber/FormatNumber";
+import BrokerCard from "../BrokerCard/BrokerCard";
 
 const DetailedCard = ({ property }) => {
   const {
@@ -28,7 +29,7 @@ const DetailedCard = ({ property }) => {
   } = property;
 
   const [decodedToken, setDecodedToken] = React.useState(null);
-  const [brokerInfo, setBrokerInfo] = useState(null);
+
   const [broker, setBroker] = useState(null);
 
   useEffect(() => {
@@ -44,13 +45,10 @@ const DetailedCard = ({ property }) => {
       );
       const temp = response.data;
       setBroker(temp);
-      const { user } = response.data;
-      const { firstname, lastname } = user;
-      const broker = firstname + " " + lastname;
-      setBrokerInfo(broker);
+
       console.log(broker);
     };
-    console.log(brokerInfo);
+
     fetchData();
     fetchBroker();
   }, []);
@@ -99,12 +97,6 @@ const DetailedCard = ({ property }) => {
               Description
             </button>
             <button
-              className={activeTab === "broker" ? "active-tab" : ""}
-              onClick={() => setActiveTab("broker")}
-            >
-              Broker
-            </button>
-            <button
               className={activeTab === "map" ? "active-tab" : ""}
               onClick={() => setActiveTab("map")}
             >
@@ -117,9 +109,11 @@ const DetailedCard = ({ property }) => {
                 <p>{description}</p>
                 <br />
                 <p>Neighbourhood: {neighbourhood}</p>
+                <br />
+                <BrokerCard broker={broker} />
               </>
             )}
-            {activeTab === "broker" && <p>{brokerInfo}</p>}
+
             {activeTab === "map" && <p>{address}</p>}
           </div>
         </div>
