@@ -29,7 +29,7 @@ const DetailedCard = ({ property }) => {
   } = property;
 
   const [decodedToken, setDecodedToken] = React.useState(null);
-
+  const [brokerInfo, setBrokerInfo] = useState(null);
   const [broker, setBroker] = useState(null);
 
   useEffect(() => {
@@ -45,7 +45,10 @@ const DetailedCard = ({ property }) => {
       );
 
       setBroker(response.data);
-
+      const { user } = response.data;
+      const { firstname, lastname } = user;
+      const broker = firstname + " " + lastname;
+      setBrokerInfo(broker);
       console.log(broker);
     };
 
