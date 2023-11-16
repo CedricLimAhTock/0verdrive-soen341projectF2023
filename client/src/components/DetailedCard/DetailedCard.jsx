@@ -43,8 +43,8 @@ const DetailedCard = ({ property }) => {
       const response = await axios.get(
         `http://localhost:8080/broker/property/${id}`
       );
-      const temp = response.data;
-      setBroker(temp);
+
+      setBroker(response.data);
 
       console.log(broker);
     };
@@ -104,7 +104,7 @@ const DetailedCard = ({ property }) => {
             </button>
           </div>
           <div className="property-details">
-            {activeTab === "description" && (
+            {broker && activeTab === "description" && (
               <>
                 <p>{description}</p>
                 <br />
