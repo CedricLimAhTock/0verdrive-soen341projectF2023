@@ -104,7 +104,11 @@ const PropertyCard = ({ property, decodedToken }) => {
     <div className="card">
       <div className="listing-container-card">
         <div className="card-img">
-          <Carousel images={images} className={"card-carousel"} />
+          <Carousel
+            images={images}
+            className={"card-carousel"}
+            onClick={() => onEventClick(property.id)}
+          />
         </div>
         <div onClick={() => onEventClick(property.id)}>
           <div className="card-info">

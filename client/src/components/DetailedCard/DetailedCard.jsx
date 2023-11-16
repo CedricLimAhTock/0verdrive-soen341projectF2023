@@ -11,6 +11,7 @@ import OfferForm from "../OfferForm/OfferForm";
 import jwt_decode from "jwt-decode";
 import axios from "axios";
 import FormatNumber from "../FormatNumber/FormatNumber";
+import BrokerCard from "../BrokerCard/BrokerCard";
 
 const DetailedCard = ({ property }) => {
   const {
@@ -42,15 +43,15 @@ const DetailedCard = ({ property }) => {
       const response = await axios.get(
         `http://localhost:8080/broker/property/${id}`
       );
-      const temp = response.data;
-      setBroker(temp);
+
+      setBroker(response.data);
       const { user } = response.data;
       const { firstname, lastname } = user;
       const broker = firstname + " " + lastname;
       setBrokerInfo(broker);
       console.log(broker);
     };
-    console.log(brokerInfo);
+
     fetchData();
     fetchBroker();
   }, []);
@@ -99,12 +100,6 @@ const DetailedCard = ({ property }) => {
               Description
             </button>
             <button
-              className={activeTab === "broker" ? "active-tab" : ""}
-              onClick={() => setActiveTab("broker")}
-            >
-              Broker
-            </button>
-            <button
               className={activeTab === "map" ? "active-tab" : ""}
               onClick={() => setActiveTab("map")}
             >
@@ -112,15 +107,17 @@ const DetailedCard = ({ property }) => {
             </button>
           </div>
           <div className="property-details">
-            {activeTab === "description" && (
+            {broker && activeTab === "description" && (
               <>
                 <p>{description}</p>
                 <br />
                 <p>Neighbourhood: {neighbourhood}</p>
+                <br />
+                <BrokerCard broker={broker} />
               </>
             )}
-            {activeTab === "broker" && <p>{brokerInfo}</p>}
-            {activeTab === "map" && <p>HI</p>}
+
+            {activeTab === "map" && <p>{address}</p>}
           </div>
         </div>
 
@@ -140,7 +137,6 @@ const DetailedCard = ({ property }) => {
               {FormatNumber(property_area)} sq ft
             </span>
           </div>
-
         </div>
       </div>
 
