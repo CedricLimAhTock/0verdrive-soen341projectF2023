@@ -5,7 +5,7 @@ import './MortgageCalculator.css';
 const MortgageCalculator = ({ isOpen, onClose, property }) => {
   if (!isOpen) return null;
 
-  const [homePrice, setHomePrice] = useState(property.price);
+  const [homePrice, setHomePrice] = useState(property?.price || '');
   const [downPayment, setDownPayment] = useState('');
   const [interestRate, setInterestRate] = useState('');
   const [loanTerm, setLoanTerm] = useState('');
