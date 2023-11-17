@@ -230,7 +230,7 @@ python3 populate_tables.py
 
 <br>
 
-### Setting up Monitoring with Graphana 
+### Setting up Monitoring with Prometheus and Graphana 
 
 1. Install docker ***[Docker Install Guide][docker-url]***
 2. Open a terminal and navigate to .../\<project\>/server/ directory where the yml files are.
