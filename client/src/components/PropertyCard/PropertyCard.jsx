@@ -123,7 +123,13 @@ const PropertyCard = ({ property, decodedToken }) => {
               <SaveIcon
                 onClick={handleIsSaved}
                 fill={isSaved ? "rgba(255, 153, 0, 1)" : "rgba(0, 0, 0, 0)"}
-                stroke={isSaved ? "rgba(255, 153, 0, 1)" : "rgba(0, 0, 0, 1)"}
+                stroke={
+                  isSaved
+                    ? "rgba(255, 153, 0, 1)"
+                    : darkMode
+                    ? "rgba(255, 255, 255, 0.714)"
+                    : "rgba(0, 0, 0, 1)"
+                }
                 className="card-save-icon"
               />
             </div>
