@@ -17,6 +17,7 @@ import Dashboard from "./pages/Dashboard";
 import jwt_decode from "jwt-decode";
 import Page404 from "./pages/Page404";
 import Brokers from "./pages/Brokers";
+import { DarkModeProvider } from "./components/DarkModeProvider/DarkModeProvider";
 import { useNavigate } from "react-router-dom"; // Inside your component
 
 function App() {
@@ -49,83 +50,85 @@ function App() {
   const user = localStorage.getItem("jwtToken");
 
   return (
-    <Router>
-      <div>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Layout decodedToken={decodedToken}>
-                <Home />
-              </Layout>
-            }
-          />
-          <Route
-            path="/browse"
-            element={
-              <Layout decodedToken={decodedToken}>
-                <Browse />
-              </Layout>
-            }
-          />
-          <Route
-            path="/brokers"
-            element={
-              <Layout decodedToken={decodedToken}>
-                <Brokers />
-              </Layout>
-            }
-          />
-          <Route
-            path="/property/:id"
-            element={
-              <Layout decodedToken={decodedToken}>
-                <Detailed decodedToken={decodedToken} />
-              </Layout>
-            }
-          />
-          <Route
-            path="/detailed"
-            element={
-              <Layout decodedToken={decodedToken}>
-                <Detailed />
-              </Layout>
-            }
-          />
-          <Route
-            path="/broker/:id"
-            element={
-              <Layout decodedToken={decodedToken}>
-                <BrokerDetailed decodedToken={decodedToken} />
-              </Layout>
-            }
-          />
-          <Route
-            path="/brokerdetailed"
-            element={
-              <Layout decodedToken={decodedToken}>
-                <BrokerDetailed />
-              </Layout>
-            }
-          />
-          <Route path="/signin" element={<Signin />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route
-            path="/dashboard"
-            element={
-              user ? (
-                <Layout>
-                  <Dashboard token={decodedToken} />
+    <DarkModeProvider>
+      <Router>
+        <div>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Layout decodedToken={decodedToken}>
+                  <Home />
                 </Layout>
-              ) : (
-                <Navigate to="/signin" />
-              )
-            }
-          />
-          <Route path="*" element={<Page404 />} />
-        </Routes>
-      </div>
-    </Router>
+              }
+            />
+            <Route
+              path="/browse"
+              element={
+                <Layout decodedToken={decodedToken}>
+                  <Browse />
+                </Layout>
+              }
+            />
+            <Route
+              path="/brokers"
+              element={
+                <Layout decodedToken={decodedToken}>
+                  <Brokers />
+                </Layout>
+              }
+            />
+            <Route
+              path="/property/:id"
+              element={
+                <Layout decodedToken={decodedToken}>
+                  <Detailed decodedToken={decodedToken} />
+                </Layout>
+              }
+            />
+            <Route
+              path="/detailed"
+              element={
+                <Layout decodedToken={decodedToken}>
+                  <Detailed />
+                </Layout>
+              }
+            />
+            <Route
+              path="/broker/:id"
+              element={
+                <Layout decodedToken={decodedToken}>
+                  <BrokerDetailed decodedToken={decodedToken} />
+                </Layout>
+              }
+            />
+            <Route
+              path="/brokerdetailed"
+              element={
+                <Layout decodedToken={decodedToken}>
+                  <BrokerDetailed />
+                </Layout>
+              }
+            />
+            <Route path="/signin" element={<Signin />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route
+              path="/dashboard"
+              element={
+                user ? (
+                  <Layout>
+                    <Dashboard token={decodedToken} />
+                  </Layout>
+                ) : (
+                  <Navigate to="/signin" />
+                )
+              }
+            />
+            <Route path="*" element={<Page404 />} />
+          </Routes>
+        </div>
+      </Router>
+    </DarkModeProvider>
   );
 }
 
