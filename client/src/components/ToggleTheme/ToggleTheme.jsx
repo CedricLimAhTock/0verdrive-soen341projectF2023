@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
-import './ToggleTheme.css'; // Assuming this file contains your dark mode styles
+import React, { useState, useEffect } from "react";
+import "./ToggleTheme.css"; // Assuming this file contains your dark mode styles
 
 const ToggleTheme = () => {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedMode = localStorage.getItem("darkMode");
+    return savedMode === "true" ? true : false;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", darkMode);
+    document.body.classList.toggle("dark-theme", darkMode);
+  }, [darkMode]);
 
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    document.body.classList.toggle('dark-theme', !darkMode);
+    setDarkMode((prevMode) => !prevMode);
   };
 
   return (
