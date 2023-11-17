@@ -234,21 +234,28 @@ python3 populate_tables.py
 
 1. Install docker ***[Docker Install Guide][docker-url]***
 2. Open a terminal and navigate to .../\<project\>/server/ directory where the yml files are.
-3. Install Prometheus
+3. Configure Prometheus :warning: Must use your systems IP
+  ```sh
+  Edit prometheus.yml
+  If installed on the same system as your host, use the local host ip.
+  Set the "targets" value to your local host ip e.g. ['192.168.0.10:9100']
+  NOT "localhost" / "127.0.0.1" or other loopback addresses.
+  ```
+5. Install Prometheus
   ```sh
   docker run --rm -d -p 9090:9090 --name prometheus -v `pwd`/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus:v2.20.1
   ```
 
-4. Configure Graphana :warning: Must use your systems IP
+6. Configure Graphana :warning: Must use your systems IP
 
   ```sh
   Edit datasources.yml
   If installed on the same system as your host, use the local host ip.
-  Set the "url" value to your local host ip e.g. http://192.168.0.10:9090
+  Set the "url" value to your local host ip e.g. http://192.168.0.10:9100
   NOT "localhost" / "127.0.0.1" or other loopback addresses.
   ```
 
-5. Install And Run Graphana via Docker CLI ***[Graphana Installation Guide][graphana-url]***
+7. Install And Run Graphana via Docker CLI ***[Graphana Installation Guide][graphana-url]***
 
   ```sh
   docker volume create grafana-storage
@@ -258,8 +265,8 @@ python3 populate_tables.py
     -e GF_AUTH_ANONYMOUS_ORG_ROLE=Admin \
     -v `pwd`/datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml grafana/grafana-enterprise
   ```
-6. View Graphana Dashboard <http://localhost:3000/dashboards>
-7. Stop Graphana & Prometheus
+8. View Graphana Dashboard <http://localhost:3000/dashboards>
+9. Stop Graphana & Prometheus
 
   ```sh
   docker stop grafana
