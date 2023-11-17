@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import "dotenv/config";
 import { config } from "dotenv";
+import responseTime from "response-time";
+
 
 import signUpRoutes from "./routes/auth/signup.js";
 import loginRoutes from "./routes/auth/login.js";
@@ -18,20 +20,7 @@ import brokerRoutes from "./routes/broker.js";
 import offerRoutes from "./routes/offer.js";
 import propertyFavouriteRoutes from "./routes/property_favourite.js";
 import messageRoutes from "./routes/message.js";
-
-import prometheus from "prom-client";
-
-// Create a Registry which registers the metrics
-const register = new prometheus.Registry();
-
-// Add a default label which is added to all metrics
-register.setDefaultLabels({
-    app: 'lorem'
-});
-
-// Enable the collection of default metrics
-prometheus.collectDefaultMetrics({ register });
-
+import { restResponseTimeHistogram } from "./utils/metrics.js";
 
 console.log(config());
 
@@ -47,6 +36,17 @@ app.use(cors());
 //     allowedHeaders: ['Content-Type'],
 //   })
 // );
+
+app.use(responseTime((req, res, time) => {
+    if (req?.route?.path) {
+        restResponseTimeHistogram.observe({
+            method: req.method,
+            route: req.route.path,
+            status: res.statusCode
+        }, time * 1000);
+    }
+}));
+
 
 app.use("/signin", loginRoutes);
 app.use("/signup", signUpRoutes);
@@ -64,10 +64,5 @@ app.use("/offer", offerRoutes);
 app.use("/favourite", propertyFavouriteRoutes);
 app.use("/message", messageRoutes);
 
-app.get('/metrics', (req, res) => {
-    res.set('Content-Type', prometheus.register.contentType)
-    //res.end(prometheus.register.metrics())
-    register.metrics().then(data => res.send(data));
-});
 
 export default app;

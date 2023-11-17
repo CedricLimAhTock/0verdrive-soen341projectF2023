@@ -55,7 +55,7 @@ const Profile = ({ data, token }) => {
     // Fetch user info from the database after the component is mounted
     if (username) {
       axios
-        .get(`http://localhost:8080/user/username/${username}`)
+        .get(`http://localhost:8080/user/${userID}`)
         .then((res) => {
           setFirstName(res.data.firstname);
           setLastName(res.data.lastname);
