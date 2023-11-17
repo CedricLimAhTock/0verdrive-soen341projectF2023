@@ -4,18 +4,15 @@ body, html {
     padding: 0;
 }
 
-body {
-    background-color: aliceblue;
-}
-
 .dashboard {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+    background-color: var(--background-color);
 }
 
 .sidebar {
-    background-color: #fdfdfd;
+    background-color: var(--header-color);
     height: 100%;
     width: 20%;
     position: fixed;
@@ -30,7 +27,7 @@ body {
 }
 
 .sidebar button {
-    background-color: #fdfdfd;
+    background-color: var(--header-color);
     border: none;
     color: rgb(113, 123, 143, 0.9);
     padding: 20px;
@@ -58,16 +55,19 @@ body {
     display: flex;
     flex-direction: column;
     padding-left: 20%;
+    background-color: var(--container-color);
 }
 
 .banner {
     padding: 20px;
-    background-color: white;
     height: 80px;
+    margin-bottom: -1rem;
+    color: var(--text-color);
 }
 
-.banner p{
-    color: rgba(0, 0, 0, 0.6);
+.banner p {
+    color: var(--logo-color);
+
 }
 
 .logout {
@@ -81,5 +81,4 @@ body {
 .dashboard-data {
     width: 85%;
     margin: 50px auto; /* Center horizontally */
-    background-color: #ffffff;
 }

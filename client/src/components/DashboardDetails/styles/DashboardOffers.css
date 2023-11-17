@@ -2,12 +2,15 @@
 .offers {
   height: auto;
   min-height: 35rem;
+  background-color: var(--card-color);
+  padding: 1rem;
+  border-radius: 0.5rem;
 }
 
 .offer-header {
   display: flex;
   align-items: center;
-  background-color: #f0f0f0; /* Background color for the header */
+  background-color: var(--header-color); /* Background color for the header */
 }
 
 .offer-header-type,
@@ -18,9 +21,10 @@
   padding: 10px;
   text-align: center;
   border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.6);
-  background-color: #f0f0f0; /* Background color for header cells */
+  color: var(--logo-color);
+  background-color: var(--header-color); /* Background color for header cells */
 }
 
 .offer-header-broker {
@@ -60,7 +64,6 @@
   font-weight: 700;
   color: rgba(0, 0, 0, 0.8);
   border-bottom: 1px solid #ccc;
-  border-top: 1px solid #ccc;
   padding-bottom: 0;
   margin-bottom: 0;
 }
@@ -71,7 +74,7 @@
 }
 
 .property-status {
-  color: #000000;
+  color: var(--off-white-text-color);
   border: none;
   border-radius: 20px;
   padding: 5px 10px;
@@ -84,19 +87,23 @@
 
 .property-address {
   width: 50%;
+  color: var(--off-white-text-color);
 }
 
 .property-status {
   width: 20%;
+  color: var(--off-white-text-color);
 }
 
 .property-price {
   width: 15%;
+  color: var(--off-white-text-color);
 }
 
 .property-broker {
   width: 15%;
   border-right: none;
+  color: var(--off-white-text-color);
 }
 
 .status-confirmed {
@@ -117,6 +124,7 @@
 .expanded-content {
   display: flex;
   flex-direction: column;
+  color: var(--text-color);
 }
 
 .offer-card {

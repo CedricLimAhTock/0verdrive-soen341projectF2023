@@ -1,3 +1,7 @@
+.browse-container {
+  background-color: var(--background-color);
+}
+
 .search-area {
   width: 25rem;
   left: 0;

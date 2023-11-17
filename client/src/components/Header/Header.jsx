@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./Header.css";
 import Dropdown from "../Dropdown/Dropdown";
 import jwt_decode from "jwt-decode";
+import ToggleTheme from "../ToggleTheme/ToggleTheme";
 
 export default function Header() {
   const userToken = localStorage.getItem("jwtToken");
@@ -63,6 +64,7 @@ export default function Header() {
       </ul>
       <div className="buttons">
         <div className="username-display">Hello, {displayUsername}</div>
+        <ToggleTheme/>
         <div className="signin-signout-button">
           {decodedToken ? (
             <a href="#" className="signin-signout" onClick={() => handleSignOut()}>

@@ -5,14 +5,14 @@
   padding: 2rem;
   align-items: center;
   justify-content: space-between;
-  background-color: #ffffff;
+  background-color: var(--card-color);
   border-radius: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--box-shadow);
   cursor: pointer;
 }
 
 .brokerCard:hover {
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow-hover);
   transition: all 0.3s ease;
   
 }
@@ -40,4 +40,5 @@
 
 .email {
   margin-left: 2rem;
+  color: var(--text-color);
 }

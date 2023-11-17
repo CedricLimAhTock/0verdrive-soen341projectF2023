@@ -89,7 +89,7 @@ const Profile = ({ data, token }) => {
         </div>
         <p className="username">{username}</p>
         <div className="seperator"></div>
-        <p className="listings">Listings</p>
+        <p className="listing">Listings</p>
         {/*<span>{data.listings.length}</span>*/}
       </div>
 

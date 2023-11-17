@@ -2,12 +2,15 @@
 .bookings {
   height: auto;
   min-height: 35rem;
+  background-color: var(--card-color);
+  padding: 1rem;
+  border-radius: 0.5rem;
 }
 
 .booking-header {
   display: flex;
   align-items: center;
-  background-color: #f0f0f0; /* Background color for the header */
+  background-color: var(--header-color); /* Background color for the header */
 }
 
 .header-type,
@@ -18,9 +21,10 @@
   padding: 10px;
   text-align: center;
   border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.6);
-  background-color: #f0f0f0; /* Background color for header cells */
+  color: var(--logo-color);
+  background-color: var(--header-color) /* Background color for header cells */
 }
 
 .broker {
@@ -62,9 +66,8 @@
   height: 50px;
   font-size: 14px;
   font-weight: 700;
-  color: rgba(0, 0, 0, 0.8);
+  color: var(--logo-color);
   border-bottom: 1px solid #ccc;
-  border-top: 1px solid #ccc;
   padding-bottom: 0;
   margin-bottom: 0;
 }
@@ -76,6 +79,7 @@
 
 .property-type {
   width: 15%;
+  color: var(--text-color);
 }
 
 .property-status {
@@ -92,15 +96,18 @@
 
 .property-address {
   width: 35%;
+  color: var(--text-color);
 }
 
 .property-price {
   width: 15%;
+  color: var(--text-color);
 }
 
 .property-broker {
   width: 15%;
   border-right: none;
+  color: var(--text-color);
 }
 
 .status-confirmed {
