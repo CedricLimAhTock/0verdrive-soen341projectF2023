@@ -4,15 +4,13 @@ import xIcon from "../../assets/xIcon.svg";
 import xIconDark from "../../assets/xIcon_darkMode.svg";
 import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
 
-{/*const [decodedToken, setDecodedToken] = React.useState(null);
-const { darkMode } = useContext(DarkModeContext);*/}
-
 const UserForm = ({ isFormOpen, data, closeForm }) => {
   const [firstName, setFirstName] = useState(data.user.firstname || "");
   const [lastName, setLastName] = useState(data.user.lastname || "");
   const [phone, setPhone] = useState(data.phone || "");
   const [createdAt, setCreatedAt] = useState(data.createdAt || "");
   const [email, setEmail] = useState(data.email || "");
+  const { darkMode } = useContext(DarkModeContext);
 
   const handleSubmit = async (event, action) => {
     event.preventDefault();
@@ -66,11 +64,11 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
     <div className={isFormOpen ? "show" : "hide"}>
       <form className="popup-form" onSubmit={handleSubmit}>
         <button onClick={closeForm} className="close-button"> 
-          {/*<img
+        <img
             src={darkMode ? xIconDark : xIcon}
             alt="close"
             className="close-button-x"
-            />*/}
+          />
         </button>
         <h2>Selected User Information</h2>
         <input

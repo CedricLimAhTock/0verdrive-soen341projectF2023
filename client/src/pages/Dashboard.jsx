@@ -13,7 +13,7 @@ import jwt_decode from "jwt-decode";
 
 
 const Dashboard = ({ token }) => {
-  const [activeTab, setActiveTab] = useState("bookings");
+  const [activeTab, setActiveTab] = useState("profile");
   
   const logout = () => {
     localStorage.removeItem("jwtToken");
