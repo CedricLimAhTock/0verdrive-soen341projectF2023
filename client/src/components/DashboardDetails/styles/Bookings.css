@@ -33,23 +33,28 @@
 
 .header-type {
   width: 15%;
+  color: var(--text-color);
 }
 
 .header-status {
   width: 20%;
+  color: var(--text-color);
 }
 
 .header-address {
   width: 35%;
+  color: var(--text-color);
 }
 
 .header-price {
   width: 15%;
+  color: var(--text-color);
 }
 
 .header-broker {
   width: 15%;
   border-right: none;
+  color: var(--text-color);
 }
 
 .booking-cards {
@@ -92,6 +97,9 @@
   margin: 0 auto;
   height: 30px;
   text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .property-address {

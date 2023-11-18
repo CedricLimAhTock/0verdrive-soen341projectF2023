@@ -29,23 +29,28 @@
 
 .offer-header-broker {
   border-right: none;
+  color: var(--text-color);
 }
 
 .offer-header-status {
+  color: var(--text-color);
   width: 20%;
 }
 
 .offer-header-address {
   width: 50%;
+  color: var(--text-color);
 }
 
 .offer-header-price {
   width: 15%;
+  color: var(--text-color);
 }
 
 .offer-header-broker {
   width: 15%;
   border-right: none;
+  color: var(--text-color);
 }
 
 .offer-cards {
@@ -85,23 +90,23 @@
   text-transform: uppercase;
 }
 
-.property-address {
-  width: 50%;
+.offer-cards .property-address {
+  min-width: 50%;
   color: var(--off-white-text-color);
 }
 
-.property-status {
-  width: 20%;
+.offer-cards .property-status {
+  min-width: 20%;
   color: var(--off-white-text-color);
 }
 
-.property-price {
-  width: 15%;
+.offer-cards .property-price {
+  min-width: 15%;
   color: var(--off-white-text-color);
 }
 
-.property-broker {
-  width: 15%;
+.offer-cards .property-broker {
+  min-width: 15%;
   border-right: none;
   color: var(--off-white-text-color);
 }

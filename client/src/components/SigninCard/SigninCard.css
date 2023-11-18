@@ -85,7 +85,7 @@
 .form-element-login input[type="text"]:focus,
 .form-element-login input[type="password"]:focus,
 .form-element-login input[type="submit"]:focus {
-  color: #000;
+  color: var(--text-color);
   font-weight: 400;
   border-color: #157dff;
   transition: border-color 0.5s ease-in-out;

@@ -90,7 +90,6 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
           onChange={(e) => setMessage(e.target.value)}
           required
         />
-
         <div className="button-container">
           <button type="submit" className="submit">
             Submit

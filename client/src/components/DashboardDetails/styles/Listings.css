@@ -51,22 +51,22 @@
 }
 
 .property-type {
-  width: 20%;
+  min-width: 20%;
   color: var(--off-white-text-color);
 }
 
 .property-name {
-  width: 30%;
+  min-width: 30%;
   color: var(--off-white-text-color);
 }
 
 .property-address {
-  width: 30%;
+  min-width: 30%;
   color: var(--off-white-text-color);
 }
 
 .property-price {
-  width: 20%;
+  min-width: 20%;
   color: var(--off-white-text-color);
 }
 
