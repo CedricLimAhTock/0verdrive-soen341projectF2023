@@ -4,33 +4,31 @@ import xIcon from "../../assets/xIcon.svg";
 import xIconDark from "../../assets/xIcon_darkMode.svg";
 import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
 const AddUserForm = ({ isFormOpen, closeForm }) => {
-  const { darkMode } = React.useContext(DarkModeContext);
-  const [username, setUsername] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [createdAt, setCreatedAt] = useState(
-    new Date().toISOString().slice(0, 10)
-  ); // Initialize createdAt as a formatted date string
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const { darkMode } = React.useContext(DarkModeContext);
+const [username, setUsername] = useState('');
+const [firstname, setFirstName] = useState('');
+const [lastname, setLastName] = useState('');
+const [phone, setPhone] = useState('');
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+const [userRole, setUserRole] = useState("homebuyer");
 
-  const handleSubmit = async (event) => {
+const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
       alert(
-        `Username: ${username}\nFirst Name: ${firstName}\nLast Name: ${lastName}\nPhone: ${phone}\nEmail: ${email}\nPassword: ${password}\nDate Joined: ${createdAt}`
+        `Username: ${username}\nFirst Name: ${firstname}\nLast Name: ${lastname}\nPhone: ${phone}\nEmail: ${email}\nPassword: ${password}\n`
       );
 
-      const response = await axios.post("http://127.0.0.1:8080/user/", {
-        username: username.toString(),
-        password: password.toString(),
-        firstName: firstName.toString(),
-        lastName: lastName.toString(),
-        phone: phone.toString(),
-        email: email.toString(),
-        createdAt, // Send the formatted date to the server
+      const response = await axios.post("http://127.0.0.1:8080/signup", {
+        username,
+        password,
+        userRole,
+        firstname,
+        lastname,
+        email,
+        phone
       });
 
       if (response.status === 200) {
@@ -41,8 +39,8 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
         console.log("Failed to add user");
       }
     } catch (err) {
-      alert(err.message);
-      console.log("Error adding user");
+      alert(err.message + "\n" + err.response.data.message);
+      console.log('Error adding user');
       console.error(err);
     }
   };
@@ -58,6 +56,24 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
           />
         </button>
         <h2>Add New User</h2>
+
+        <div className="form-element-role centered-select">
+          <select
+            name="userRole"
+            value={userRole}
+            onChange={(e) => setUserRole(e.target.value)}
+            required
+            className="roleSelect"
+          >
+            <option value="homebuyer">Home Buyer</option>
+            <option value="renter">Renter</option>
+            <option value="broker">Broker</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+
+        <label htmlFor="username">Username</label>
+
         <input
           id="username"
           type="text"
@@ -66,17 +82,20 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
           onChange={(e) => setUsername(e.target.value)}
           required
         />
+
+        <label htmlFor="firstname">First Name</label>
         <input
-          id="firstName"
+          id="firstname"
           type="text"
-          value={firstName}
+          value={firstname}
           placeholder="First Name"
           onChange={(e) => setFirstName(e.target.value)}
         />
+        <label htmlFor="lastname">Last Name</label>
         <input
-          id="lastName"
+          id="lastname"
           type="text"
-          value={lastName}
+          value={lastname}
           placeholder="Last Name"
           onChange={(e) => setLastName(e.target.value)}
         />
@@ -87,13 +106,8 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
           placeholder="Phone number"
           onChange={(e) => setPhone(e.target.value)}
         />
-        <input
-          id="createdAt"
-          type="text"
-          value={createdAt}
-          placeholder="Date Joined"
-          onChange={(e) => setCreatedAt(e.target.value)}
-        />
+
+        <label htmlFor="email">Email</label>
         <input
           id="email"
           type="text"

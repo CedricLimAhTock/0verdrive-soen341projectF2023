@@ -42,8 +42,7 @@ const BrokerDetailedCard = ({ broker }) => {
     fetchProperties();
   }, []);
 
-  const description =
-    "A hard working broker that strives to give the best and nothing less.";
+  const description = "A hard working broker that strives to give the best and nothing less.";
   const name = firstname + " " + lastname;
 
   return (

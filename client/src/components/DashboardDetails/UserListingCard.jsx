@@ -3,7 +3,7 @@ import './styles/Users.css'
 
 const UserListingCard = ({ data, expanded, toggleExpand }) => {
 
-    const { firstName, lastName, createdAt, address, noOfListings, email} = data;
+    const { firstname, lastname, address, noOfListings, email} = data;
 
     const expand = () => {
         toggleExpand();

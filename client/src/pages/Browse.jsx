@@ -56,6 +56,7 @@ const Browse = () => {
             price: { min: minPrice, max: maxPrice },
             num_bedrooms: { min: minBeds },
             num_bathrooms: { min: minBaths },
+            listing_type: listingType,
             manyTerms: manyTerms,
           },
           sort: {
@@ -88,6 +89,7 @@ const Browse = () => {
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [minBaths, setMinBaths] = useState("");
+  const [listingType, setListingType] = useState("");
   const [manyTerms, setManyTerms] = useState("");
 
   const maxVisiblePages = 5;
@@ -144,7 +146,7 @@ const Browse = () => {
               value={manyTerms}
               onChange={(e) => setManyTerms(e.target.value)}
             ></input>
-            <select className="search-select search-dropdown" type="select">
+            <select className="search-select search-dropdown" type="select" onChange={(e) => setListingType(e.target.value)}>
               <option value="sale">For sale ▾</option>
               <option value="rent">For rent ▾</option>
             </select>

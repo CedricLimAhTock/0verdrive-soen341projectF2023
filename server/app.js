@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import "dotenv/config";
 import { config } from "dotenv";
+import responseTime from "response-time";
+
 
 import signUpRoutes from "./routes/auth/signup.js";
 import loginRoutes from "./routes/auth/login.js";
@@ -17,7 +19,8 @@ import listingRoutes from "./routes/listing.js";
 import brokerRoutes from "./routes/broker.js";
 import offerRoutes from "./routes/offer.js";
 import propertyFavouriteRoutes from "./routes/property_favourite.js";
-import messageRoutes from "./routes/message.js"
+import messageRoutes from "./routes/message.js";
+import { restResponseTimeHistogram } from "./utils/metrics.js";
 
 console.log(config());
 
@@ -33,6 +36,17 @@ app.use(cors());
 //     allowedHeaders: ['Content-Type'],
 //   })
 // );
+
+app.use(responseTime((req, res, time) => {
+    if (req?.route?.path) {
+        restResponseTimeHistogram.observe({
+            method: req.method,
+            route: req.route.path,
+            status: res.statusCode
+        }, time * 1000);
+    }
+}));
+
 
 app.use("/signin", loginRoutes);
 app.use("/signup", signUpRoutes);
