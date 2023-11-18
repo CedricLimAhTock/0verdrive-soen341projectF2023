@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useContext } from "react";
+import axios from "axios";
 import xIcon from "../../assets/xIcon.svg";
-
+import xIconDark from "../../assets/xIcon_darkMode.svg";
+import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
 const AddUserForm = ({ isFormOpen, closeForm }) => {
-  const [username, setUsername] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [createdAt, setCreatedAt] = useState(new Date().toISOString().slice(0, 10)); // Initialize createdAt as a formatted date string
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const { darkMode } = React.useContext(DarkModeContext);
+  const [username, setUsername] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [createdAt, setCreatedAt] = useState(
+    new Date().toISOString().slice(0, 10)
+  ); // Initialize createdAt as a formatted date string
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -19,7 +23,7 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
         `Username: ${username}\nFirst Name: ${firstName}\nLast Name: ${lastName}\nPhone: ${phone}\nEmail: ${email}\nPassword: ${password}\nDate Joined: ${createdAt}`
       );
 
-      const response = await axios.post('http://127.0.0.1:8080/user/', {
+      const response = await axios.post("http://127.0.0.1:8080/user/", {
         username: username.toString(),
         password: password.toString(),
         firstName: firstName.toString(),
@@ -30,24 +34,28 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
       });
 
       if (response.status === 200) {
-        alert('User added');
+        alert("User added");
         console.log(response);
       } else {
         console.log(response);
-        console.log('Failed to add user');
+        console.log("Failed to add user");
       }
     } catch (err) {
       alert(err.message);
-      console.log('Error adding user');
+      console.log("Error adding user");
       console.error(err);
     }
   };
 
   return (
-    <div className={isFormOpen ? 'show' : 'hide'}>
+    <div className={isFormOpen ? "show" : "hide"}>
       <form className="popup-form" onSubmit={handleSubmit}>
         <button onClick={closeForm} className="close-button">
-          <img src={xIcon} alt="close" className="close-button-x" />
+          <img
+            src={darkMode ? xIconDark : xIcon}
+            alt="close"
+            className="close-button-x"
+          />
         </button>
         <h2>Add New User</h2>
         <input

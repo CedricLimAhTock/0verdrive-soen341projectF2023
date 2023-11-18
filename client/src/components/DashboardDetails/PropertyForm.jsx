@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import FormatNumber from "../FormatNumber/FormatNumber";
 import xIcon from "../../assets/xIcon.svg";
-
+import xIconDark from "../../assets/xIcon_darkMode.svg";
+import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
 const PropertyForm = ({ isFormOpen, data, closeForm }) => {
   const [name, setName] = useState(data.name || "");
   const [type, setType] = useState(data.type || "");
   const [address, setAddress] = useState(data.address || "");
   const [price, setPrice] = useState(data.price || "");
-
+  const { darkMode } = useContext(DarkModeContext);
   const handleSubmit = async (event, action) => {
     event.preventDefault();
 
@@ -52,7 +53,11 @@ const PropertyForm = ({ isFormOpen, data, closeForm }) => {
     <div className={isFormOpen ? "show" : "hide"}>
       <form className="popup-form" onSubmit={handleSubmit}>
         <button onClick={closeForm} className="close-button">
-          <img src={xIcon} alt="close" className="close-button-x" />
+          <img
+            src={darkMode ? xIconDark : xIcon}
+            alt="close"
+            className="close-button-x"
+          />
         </button>
         <h2>Property Information</h2>
         <input

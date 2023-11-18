@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import "../DashboardDetails/styles/Users.css";
 import jwt_decode from "jwt-decode";
@@ -6,13 +6,15 @@ import Carousel from "../Carousel/Carousel";
 import "./OfferForm.css";
 import profileIcon from "../../assets/profile-picture.png";
 import xIcon from "../../assets/xIcon.svg";
+import xIconDark from "../../assets/xIcon_darkMode.svg";
 import FormatNumber from "../FormatNumber/FormatNumber";
+import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
 const OfferForm = ({ isFormOpen, closeForm, property, broker }) => {
   const [name, setName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [addressUser, setAddressUser] = useState("");
   const [priceOffered, setPriceOffered] = useState("");
-
+  const { darkMode } = useContext(DarkModeContext);
   const [decodedToken, setDecodedToken] = React.useState(null);
   const { images, price, street, city, province, country } = property;
   const address = `${street}, ${city}, ${province}, ${country}`;
@@ -64,7 +66,11 @@ const OfferForm = ({ isFormOpen, closeForm, property, broker }) => {
     <div className={isFormOpen ? "show" : "hide"}>
       <form className="popup-form" onSubmit={handleSubmit}>
         <button onClick={closeForm} className="close-button">
-          <img src={xIcon} alt="close" className="close-button-x" />
+          <img
+            src={darkMode ? xIconDark : xIcon}
+            alt="close"
+            className="close-button-x"
+          />
         </button>
         <div className="offer-container">
           <div className="offer-left">
