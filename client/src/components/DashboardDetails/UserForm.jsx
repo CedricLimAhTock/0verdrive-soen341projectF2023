@@ -2,27 +2,29 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const UserForm = ({ isFormOpen, data, closeForm }) => {
-  const [firstName, setFirstName] = useState(data.user.firstname || "");
-  const [lastName, setLastName] = useState(data.user.lastname || "");
-  const [phone, setPhone] = useState(data.phone || "");
-  const [createdAt, setCreatedAt] = useState(data.createdAt || "");
-  const [email, setEmail] = useState(data.email || "");
+  const [firstname, setFirstName] = useState(data.user.firstname || "");
+  const [lastname, setLastName] = useState(data.user.lastname || "");
+  const [phone, setPhone] = useState(data.user.phone || "");
+  const [email, setEmail] = useState(data.user.email || "");
 
   const handleSubmit = async (event, action) => {
     event.preventDefault();
 
+    console.log(data);
+
     if (action === "edit") {
       try {
-        console.log(data.id);
-
-        const user = await axios.get(`http://127.0.0.1:8080/user/${data.id}`);
-        console.log(user);
+        console.log(firstname);
+        console.log(lastname);
+        console.log(phone);
+        console.log(email);
+        
         const response = await axios.put(
-          `http://127.0.0.1:8080/user/${data.id}`,
+          `http://127.0.0.1:8080/user/${data.user_id}`,
           {
-            username: user.data.username,
-            firstName: firstName.toString(),
-            lastName: lastName.toString(),
+            username: data.user.username,
+            fistname: firstname.toString(),
+            lastname: lastname.toString(),
             email: email.toString(),
             phone: phone.toString(),
           }
@@ -41,9 +43,10 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
       }
     } else if (action === "delete") {
       try {
-        const response = await axios.delete(
-          `http://127.0.0.1:8080/user/${data.id}`
-        );
+        let response = await axios.delete(`http://127.0.0.1:8080/user/${data.user_id}`);
+
+        // delete associated broker when user is deleted. should then also delete all properties :/
+        await axios.delete(`http://127.0.0.1:8080/broker/${data.id}`);
 
         if (response.status === 200) {
           alert("Deleted");
@@ -67,18 +70,18 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
 
         <label htmlFor="name">First Name</label>
         <input
-          id="firstName"
+          id="firstname"
           type="text"
-          value={firstName}
+          value={firstname}
           placeholder="First Name"
           onChange={(e) => setFirstName(e.target.value)}
         />
 
         <label htmlFor="name">Last Name</label>
         <input
-          id="Last Name"
+          id="lastname"
           type="text"
-          value={lastName}
+          value={lastname}
           placeholder="Last Name"
           onChange={(e) => setLastName(e.target.value)}
         />
@@ -90,15 +93,6 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
           value={phone}
           placeholder="Phone number"
           onChange={(e) => setPhone(e.target.value)}
-        />
-
-        <label htmlFor="dateJoined">Date Joined</label>
-        <input
-          id="dateJoined"
-          type="text"
-          value={createdAt}
-          placeholder="Date Joined"
-          onChange={(e) => setCreatedAt(e.target.value)}
         />
 
         <label htmlFor="email">Email</label>
