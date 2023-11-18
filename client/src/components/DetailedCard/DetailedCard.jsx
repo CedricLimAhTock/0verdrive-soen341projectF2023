@@ -121,8 +121,9 @@ const DetailedCard = ({ property }) => {
                 <BrokerCard broker={broker} />
               </>
             )}
-
+            {activeTab === "broker" && <p>{brokerInfo}</p>}
             {activeTab === "map" && <p>{address}</p>}
+
           </div>
         </div>
 
@@ -154,6 +155,7 @@ const DetailedCard = ({ property }) => {
               {FormatNumber(property_area)} sq ft
             </span>
           </div>
+
         </div>
       </div>
 
