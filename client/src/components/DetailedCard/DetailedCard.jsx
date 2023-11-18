@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import template from "../../assets/slideshow-template.jpg";
 import "./DetailedCard.css";
-import bedIcon from "../../../public/assets/bed.svg";
-import bedIconDark from "../../../public/assets/bed_darkMode.svg";
-import bathIcon from "../../../public/assets/bath.svg";
-import bathIconDark from "../../../public/assets/bath_darkMode.svg";
-import rulerIcon from "../../../public/assets/ruler.svg";
-import rulerIconDark from "../../../public/assets/ruler_darkMode.svg";
+import bedIcon from "../../assets/bed.svg";
+import bedIconDark from "../../assets/bed_darkMode.svg";
+import bathIcon from "../../assets/bath.svg";
+import bathIconDark from "../../assets/bath_darkMode.svg";
+import rulerIcon from "../../assets/ruler.svg";
+import rulerIconDark from "../../assets/ruler_darkMode.svg";
 import MortgageCalculator from "../MortgageCalculator/MortgageCalculator";
 import Carousel from "../Carousel/Carousel";
 import VisitForm from "../VisitForm/VisitForm";
@@ -123,7 +123,6 @@ const DetailedCard = ({ property }) => {
             )}
             {activeTab === "broker" && <p>{brokerInfo}</p>}
             {activeTab === "map" && <p>{address}</p>}
-
           </div>
         </div>
 
@@ -155,7 +154,6 @@ const DetailedCard = ({ property }) => {
               {FormatNumber(property_area)} sq ft
             </span>
           </div>
-
         </div>
       </div>
 
