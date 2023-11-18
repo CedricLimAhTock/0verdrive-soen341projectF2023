@@ -3,7 +3,7 @@ import "./styles/PropertyAddForm.css";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 import xIcon from "../../assets/xIcon.svg";
-
+import FormatNumber from "../FormatNumber/FormatNumber";
 const PropertyAddForm = ({ isFormOpen, closeForm }) => {
   const [title, setTitle] = useState("");
   const [type, setType] = useState("");

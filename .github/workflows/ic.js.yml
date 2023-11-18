@@ -76,3 +76,6 @@ jobs:
       - name: Test Client
         run: npm test
         working-directory: /home/runner/work/0verdrive-soen341projectF2023/0verdrive-soen341projectF2023/client
+
+      - name: Stop Automatic Deployments
+        run: echo "Automatic deployments stopped"

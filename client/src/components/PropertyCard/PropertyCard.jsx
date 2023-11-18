@@ -11,7 +11,7 @@ import SaveIcon from "../SaveIcon/SaveIcon";
 import Carousel from "../Carousel/Carousel";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import FormatPrice from "../FormatPrice/FormatPrice";
+import FormatNumber from "../FormatNumber/FormatNumber";
 
 const PropertyCard = ({ property, decodedToken }) => {
   const navigate = useNavigate();
@@ -104,12 +104,16 @@ const PropertyCard = ({ property, decodedToken }) => {
     <div className="card">
       <div className="listing-container-card">
         <div className="card-img">
-          <Carousel images={images} className={"card-carousel"} />
+          <Carousel
+            images={images}
+            className={"card-carousel"}
+            onClick={() => onEventClick(property.id)}
+          />
         </div>
         <div onClick={() => onEventClick(property.id)}>
           <div className="card-info">
             <div className="card-price-container">
-              <div className="card-price">{FormatPrice(price)}</div>
+              <div className="card-price">${FormatNumber(price)}</div>
               {/* <img className="save-icon" src={saveIcon} alt="Save Icon" /> */}
               <SaveIcon
                 onClick={handleIsSaved}
@@ -132,7 +136,7 @@ const PropertyCard = ({ property, decodedToken }) => {
             <div className="icon-with-number">
               <img className="card-icon" src={rulerIcon} alt="Ruler Icon" />
               <span className="icon-number">
-                {property_area} ft<sup>2</sup>
+                {FormatNumber(property_area)} ft<sup>2</sup>
               </span>
             </div>
           </div>

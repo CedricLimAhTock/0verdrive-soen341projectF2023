@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import xIcon from "../../assets/xIcon.svg";
 
 const AddUserForm = ({ isFormOpen, closeForm }) => {
   const [username, setUsername] = useState('');
@@ -45,7 +46,9 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
   return (
     <div className={isFormOpen ? 'show' : 'hide'}>
       <form className="popup-form" onSubmit={handleSubmit}>
-        <button onClick={closeForm}>Close</button>
+        <button onClick={closeForm} className="close-button">
+          <img src={xIcon} alt="close" className="close-button-x" />
+        </button>
         <h2>Add New User</h2>
 
         <div className="form-element-role centered-select">
@@ -64,6 +67,7 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
         </div>
 
         <label htmlFor="username">Username</label>
+
         <input
           id="username"
           type="text"
@@ -81,7 +85,6 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
           placeholder="First Name"
           onChange={(e) => setFirstName(e.target.value)}
         />
-
         <label htmlFor="lastname">Last Name</label>
         <input
           id="lastname"
@@ -90,8 +93,6 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
           placeholder="Last Name"
           onChange={(e) => setLastName(e.target.value)}
         />
-
-        <label htmlFor="phone">Phone Number</label>
         <input
           id="phone"
           type="text"
@@ -108,8 +109,6 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
-
-        <label htmlFor="password">Password</label>
         <input
           id="password"
           type="password"
@@ -117,7 +116,6 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
           placeholder="********"
           onChange={(e) => setPassword(e.target.value)}
         />
-
         <div className="button-container">
           <button type="submit" className="submit add">
             Add User
