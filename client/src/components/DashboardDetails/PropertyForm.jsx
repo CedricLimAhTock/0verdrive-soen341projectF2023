@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import FormatNumber from "../FormatNumber/FormatNumber";
+import xIcon from "../../assets/xIcon.svg";
+
 const PropertyForm = ({ isFormOpen, data, closeForm }) => {
   const [name, setName] = useState(data.name || "");
   const [type, setType] = useState(data.type || "");
@@ -49,10 +51,10 @@ const PropertyForm = ({ isFormOpen, data, closeForm }) => {
   return (
     <div className={isFormOpen ? "show" : "hide"}>
       <form className="popup-form" onSubmit={handleSubmit}>
-        <button onClick={closeForm}>Close</button>
+        <button onClick={closeForm} className="close-button">
+          <img src={xIcon} alt="close" className="close-button-x" />
+        </button>
         <h2>Property Information</h2>
-
-        <label htmlFor="name">Name</label>
         <input
           id="name"
           type="text"
@@ -60,8 +62,6 @@ const PropertyForm = ({ isFormOpen, data, closeForm }) => {
           placeholder="Name"
           onChange={(e) => setName(e.target.value)}
         />
-
-        <label htmlFor="type">Type</label>
         <input
           id="type"
           type="text"
@@ -69,8 +69,6 @@ const PropertyForm = ({ isFormOpen, data, closeForm }) => {
           placeholder="Type"
           onChange={(e) => setType(e.target.value)}
         />
-
-        <label htmlFor="address">Address</label>
         <input
           id="address"
           type="text"
@@ -78,8 +76,6 @@ const PropertyForm = ({ isFormOpen, data, closeForm }) => {
           placeholder="Address"
           onChange={(e) => setAddress(e.target.value)}
         />
-
-        <label htmlFor="price">Price</label>
         <input
           id="price"
           type="text"
@@ -98,7 +94,7 @@ const PropertyForm = ({ isFormOpen, data, closeForm }) => {
           </button>
           <button
             type="submit"
-            className="submit delete"
+            className="submit-delete"
             onClick={(e) => handleSubmit(e, "delete")}
           >
             Delete

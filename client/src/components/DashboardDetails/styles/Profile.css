@@ -59,11 +59,12 @@
   width: 100%;
   padding: 8px;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--logo-color);
   border-radius: 7px;
   font-size: 16px;
-  background-color: rgba(250, 250, 250);
+  background-color: var(--signin-inputs-color);
   outline: none;
+  color: var(--logo-color);
 }
 
 .profile-details input:hover,
@@ -77,7 +78,7 @@
   background-color: #007bff;
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;

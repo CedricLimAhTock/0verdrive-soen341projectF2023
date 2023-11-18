@@ -89,11 +89,13 @@
   height: 2.5rem;
   padding: 10px;
   margin-bottom: 20px;
-  border: 1px solid white;
+  border: 1px solid var(--container-color);
   border-radius: 0.5rem;
   outline: none;
   font-size: 15px;
   letter-spacing: 0.1rem;
+  background-color: var(--card-color);
+  color: var(--text-color);
 }
 
 .contact-form input,

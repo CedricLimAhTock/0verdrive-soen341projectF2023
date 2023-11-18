@@ -9,6 +9,9 @@
     --box-shadow-hover: 0 8px 12px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1);
     --container-color: #dad7d727;
     --dropdown-color: #fafcff;
+    --popup-color: #fff;
+    --mortgage-color: #fff;
+    --signin-inputs-color: rgba(244, 244, 244, 0.465);
   }
 
   .dark-theme {
@@ -20,4 +23,7 @@
     --card-color: #97adcc18;
     --container-color: #565c6418;
     --dropdown-color: #0d1117;
+    --popup-color: #0d1117;
+    --mortgage-color: #565c6418;
+    --signin-inputs-color: #97adcc18;
   }

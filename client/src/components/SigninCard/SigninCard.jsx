@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+
 const SigninCard = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -31,9 +32,11 @@ const SigninCard = () => {
   };
   return (
     <div className="signin-card-container">
-      <NavLink to="/" className="logo">
-        Lorem Ipsum
-      </NavLink>
+      <div className="signin-header">
+        <NavLink to="/" className="logo">
+          Lorem Ipsum
+        </NavLink>
+      </div>
       <div className="login-container">
         <h2>Sign In</h2>
         <form onSubmit={handleSubmit}>
