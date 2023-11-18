@@ -111,10 +111,10 @@ const update = async (req, res) => {
         let data = req.body;
         let ur_id = req.body.id;
 
-        if(ur_id == null){
+        if(ur_id == null || !req.body.role_id){
             return res.status(400).json({message: "missing id."});
         }
-        let user_role = await User_role.findOne({where: {id: ur_id}});
+        let user_role = await User_role.findOne({where: {id: req.body.role_id}});
 
         if (!user_role) {
             return res.status(400).json({message: "invalid role id."});
@@ -141,10 +141,10 @@ const updateById = async (req, res) => {
         let data = req.body;
         let ur_id = req.params.id;
 
-        if(ur_id == null){
-            return res.status(400).json({message: "missing id."});
+        if(!req.body.role_id){
+            return res.status(400).json({message: "missing role id."});
         }
-        let user_role = await User_role.findOne({where: {id: ur_id}});
+        let user_role = await User_role.findOne({where: {id: req.body.role_id}});
 
         if (!user_role) {
             return res.status(400).json({message: "invalid role id."});
