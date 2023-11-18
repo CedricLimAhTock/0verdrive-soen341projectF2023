@@ -148,9 +148,9 @@ const update = async (req, res) => {
         let data = req.body;
         let user_id = req.body.id;
 
-        if(user_id == null){
+        if(user_id == null || !data.username){
             return res.status(400).json({
-                message: 'missing id.'
+                message: 'missing id or username'
             });
         }
 
@@ -196,8 +196,10 @@ const updateById = async (req, res) => {
         let data = req.body;
         let user_id = req.params.id;
 
-        if (user_id == null || data == null) {
-            return res.status(400).json();
+        if (user_id == null || !data.username) {
+            return res.status(400).json({
+                message: 'missing id or username'
+            });
         }
 
         // check user exits
