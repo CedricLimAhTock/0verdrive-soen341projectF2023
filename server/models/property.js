@@ -11,7 +11,8 @@ const Property = sequelize.define(
             allowNull: false
         },
         active: {
-            type: DataTypes.BOOLEAN
+            type: DataTypes.BOOLEAN,
+            defaultValue: 1
         },
         civic_address: {
             type: DataTypes.STRING
@@ -39,8 +40,7 @@ const Property = sequelize.define(
             type: DataTypes.STRING
         },
         listing_type: {
-            type: DataTypes.ENUM('sale', 'rent'),
-            allowNull: false
+            type: DataTypes.ENUM('sale', 'rent')
         },
         price: {
             type: DataTypes.FLOAT

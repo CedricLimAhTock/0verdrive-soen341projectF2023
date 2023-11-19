@@ -9,9 +9,10 @@
   padding-top: 15rem;
 }
 
-.form-property-title {
+/* .form-property-title {
   width: 40.5rem !important;
-}
+} */
+
 .form-pair {
   display: flex;
   justify-content: center;
@@ -20,6 +21,12 @@
   width: 40rem;
 }
 
+
+
 input {
+  width: 20rem;
+}
+
+select {
   width: 20rem;
 }

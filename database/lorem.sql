@@ -101,7 +101,7 @@ CREATE TABLE `property` (
 	`province` varchar(50) NULL,
 	`postal_code` varchar(10) NULL,
 	`country` varchar(50) NULL,
-	`listing_type` ENUM('sale','rent') NOT NULL,
+	`listing_type` ENUM('sale','rent') NULL,
 	`price` FLOAT NULL,
 	`living_area` FLOAT NULL,
 	`property_area` FLOAT NULL,
