@@ -17,7 +17,7 @@ import Dashboard from "./pages/Dashboard";
 import jwt_decode from "jwt-decode";
 import Page404 from "./pages/Page404";
 import Brokers from "./pages/Brokers";
-import { DarkModeProvider } from "./components/DarkModeProvider/DarkModeProvider";
+import DarkModeProvider from "./components/DarkModeProvider/DarkModeProvider";
 import { useNavigate } from "react-router-dom"; // Inside your component
 
 function App() {
