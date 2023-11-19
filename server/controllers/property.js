@@ -232,6 +232,18 @@ const create = async (req, res) => {
     try {
         const data = req.body;
 
+        req.body.price ? null : delete data.price;
+        req.body.living_area ? null : delete data.living_area;
+        req.body.property_area ? null : delete data.property_area;
+        req.body.num_bathrooms ? null : delete data.num_bathrooms;
+        req.body.num_bedrooms ? null : delete data.num_bedrooms;
+        req.body.num_floors ? null : delete data.num_floors;
+        req.body.listed_date ? null : delete data.listed_date;
+        req.body.year_built ? null : delete data.year_built;
+
+
+
+
         let property_address = [
             data.apt_number,
             data.civic_address,
@@ -242,29 +254,33 @@ const create = async (req, res) => {
             data.country,
             data.postal_code].join(" ");
 
-        const property = await Property.create({
-            active: 1,
-            civic_address: data.civic_address,
-            apt_number: data.apt_number,
-            street: data.street,
-            neighbourhood: data.neighbourhood,
-            city: data.city,
-            province: data.province,
-            postal_code: data.postal_code,
-            country: data.country,
-            listing_type: data.listing_type,
-            price: data.price,
-            living_area: data.living_area,
-            property_area: data.property_area,
-            num_bedrooms: data.num_bedrooms,
-            num_bathrooms: data.num_bathrooms,
-            num_floors: data.num_floors,
-            year_built: data.year_built,
-            listed_date: data.listed_date,
-            property_type: data.property_type,
-            address: property_address
+        const [property, created] = await Property.findOrCreate({
+            attributes: ['id'],
+            where: {id: null},
+            defaults: {
+                active: 1,
+                civic_address: data.civic_address,
+                apt_number: data.apt_number,
+                street: data.street,
+                neighbourhood: data.neighbourhood,
+                city: data.city,
+                province: data.province,
+                postal_code: data.postal_code,
+                country: data.country,
+                listing_type: data.listing_type,
+                price: data.price,
+                living_area: data.living_area,
+                property_area: data.property_area,
+                num_bedrooms: data.num_bedrooms,
+                num_bathrooms: data.num_bathrooms,
+                num_floors: data.num_floors,
+                year_built: data.year_built,
+                listed_date: data.listed_date,
+                property_type: data.property_type,
+                address: property_address
+            }
         });
-        if (!property) {
+        if (!created) {
             return res.status(400).json({message: "Failed to create."});
         } else {
             res.status(200).send(property);

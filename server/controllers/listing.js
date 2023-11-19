@@ -193,6 +193,7 @@ const listByPropertyId = async (req, res) => {
 const createWithProperty = async (req, res) => {
     try {
         const data = req.body;
+        console.log(req.body);
 
         if (!data.broker_id || !data.property) {
             return res.status(400).json({ message: "broker id or property data cannot be null." });
@@ -204,6 +205,13 @@ const createWithProperty = async (req, res) => {
             return res.status(400).json({ message: "broker does not exist." });
         }
 
+        req.body.price ? pass : delete data.price;
+        req.body.living_area ? pass : delete data.living_area;
+        req.body.property_area ? pass : delete data.property_area;
+        req.body.num_bathrooms ? pass : delete data.num_bathrooms;
+        req.body.num_bedrooms ? pass : delete data.num_bedrooms;
+        req.body.num_floors ? pass : delete data.num_floors;
+
         let property_address = [
             data.property.apt_number,
             data.property.civic_address,
@@ -214,34 +222,37 @@ const createWithProperty = async (req, res) => {
             data.property.country,
             data.property.postal_code].join(" ");
 
-        const property = await Property.create({
-            active: 1,
-            civic_address: data.property.civic_address,
-            apt_number: data.property.apt_number,
-            street: data.property.street,
-            neighbourhood: data.property.neighbourhood,
-            city: data.property.city,
-            province: data.property.province,
-            postal_code: data.property.postal_code,
-            country: data.property.country,
-            listing_type: data.property.listing_type,
-            price: data.property.price,
-            living_area: data.property.living_area,
-            property_area: data.property.property_area,
-            num_bedrooms: data.property.num_bedrooms,
-            num_bathrooms: data.property.num_bathrooms,
-            num_floors: data.property.num_floors,
-            year_built: data.property.year_built,
-            listed_date: data.property.listed_date,
-            property_type: data.property.property_type,
-            address: property_address
+        const [property, created] = await Property.findOrCreate({
+            attributes: ['id'],
+            where: {id: null},
+            defaults: {
+                active: 1,
+                civic_address: data.civic_address,
+                apt_number: data.apt_number,
+                street: data.street,
+                neighbourhood: data.neighbourhood,
+                city: data.city,
+                province: data.province,
+                postal_code: data.postal_code,
+                country: data.country,
+                listing_type: data.listing_type,
+                price: data.price,
+                living_area: data.living_area,
+                property_area: data.property_area,
+                num_bedrooms: data.num_bedrooms,
+                num_bathrooms: data.num_bathrooms,
+                num_floors: data.num_floors,
+                year_built: data.year_built,
+                listed_date: data.listed_date,
+                property_type: data.property_type,
+                address: property_address
+            }
         });
-
-        if (!property) {
-            return res.status(400).json({message: "Failed to create property."});
+        if (!created) {
+            return res.status(400).json({message: "Failed to create."});
         }
 
-        const [listing, created] = await Listing.findOrCreate({
+        const [listing, lcreated] = await Listing.findOrCreate({
             attributes: ['id'],
             where: {
                 broker_id: data.broker_id,
@@ -255,7 +266,7 @@ const createWithProperty = async (req, res) => {
                 description: data.description
             }
         });
-        if (!created) {
+        if (!lcreated) {
             return res.status(400).json({ message: "Already exists." });
         }
 
