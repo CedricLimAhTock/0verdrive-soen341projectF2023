@@ -11,6 +11,31 @@
 
 .whole-card {
   cursor: pointer;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+p {
+  color: var(--logo-color);
+} 
+
+.user-count {
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.users-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.users-right p {
+  margin-right: 1rem;
 }
 
 .header-name,
@@ -20,36 +45,45 @@
 .header-email {
   padding: 10px;
   text-align: center;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid var(--logo-color);
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.6);
-  background-color: #f0f0f0;
+  color: var(--logo-color);
+  background-color: var(--header-color);
+  border-bottom: 1px solid var(--logo-color);
 }
 
 .header-name {
-  width: 30%;
+  min-width: 30%;
+  color: var(--text-color);
 }
 
 .header-join {
-  width: 30%;
+  min-width: 30%;
+  color: var(--text-color);
 }
 
 .header-email {
-  width: 40%;
+  min-width: 40%;
   border-right: none;
+  color: var(--text-color);
 }
 
-.broker-name {
-  width: 30%;
+.brokers-cards .broker-name {
+  min-width: 30%;
+  color: var(--off-white-text-color);
+  font-size: 15px;
+  
 }
 
 .broker-join {
-  width: 30%;
+  min-width: 30%;
+  color: var(--off-white-text-color);
 }
 
 .broker-email {
-  width: 40%;
+  min-width: 40%;
   border-right: none;
+  color: var(--off-white-text-color);
 }
 
 .brokers-cards {
@@ -68,7 +102,6 @@
   font-weight: 700;
   color: rgba(0, 0, 0, 0.8);
   border-bottom: 1px solid #ccc;
-  border-top: 1px solid #ccc;
   padding-bottom: 0;
   margin-bottom: 0;
 }
@@ -133,26 +166,6 @@
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
-}
-
-.submit:hover {
-  background-color: rgb(45, 160, 100);
-}
-
-.submit {
-  background-color: rgb(56, 184, 124);
-}
-
-.submit.delete {
-  background-color: rgb(243, 69, 65);
-}
-
-.submit.delete:hover {
-  background-color: rgb(195, 53, 51);
-}
-
-label {
-  color: #3232327f;
 }
 
 .button-container {

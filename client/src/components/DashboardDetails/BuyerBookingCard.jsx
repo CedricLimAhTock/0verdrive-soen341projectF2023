@@ -11,6 +11,7 @@ const BuyerBookingCard = ({ data, expanded, toggleExpand }) => {
   };
 
   const statusName = statusMap[status] || "status-hold";
+
   const expand = () => {
     toggleExpand();
     console.log("expand");

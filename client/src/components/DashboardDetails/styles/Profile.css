@@ -5,6 +5,9 @@
   justify-content: space-between;
   min-height: 35rem;
   height: auto;
+  background-color: var(--background-color);
+  padding: 2rem;
+  border-radius: 0.5rem;
 }
 
 .profile-card {
@@ -12,15 +15,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
+  background-color: var(--card-color);
   padding: 20px;
   margin-right: 25px;
+  color: var(--text-color);
+  border-radius: 0.5rem;
 }
 
 .profile-picture {
   width: 100px;
   height: 100px;
-  border-radius: 50%;
+  border-radius: 0.5rem;
   object-fit: cover;
   margin-bottom: 20px;
 }
@@ -31,36 +36,49 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  background-color: var(--card-color);
   padding: 20px;
+  border-radius: 0.5rem;
+  
 }
 
 .profile-details form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
 }
 
 .profile-details label {
   font-weight: 500;
   margin-bottom: 15px;
+  color: var(--text-color);
 }
 
 .profile-details input {
   width: 100%;
   padding: 8px;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--logo-color);
   border-radius: 7px;
   font-size: 16px;
-  background-color: rgba(250, 250, 250);
+  background-color: var(--signin-inputs-color);
+  outline: none;
+  color: var(--logo-color);
+}
+
+.profile-details input:hover,
+.profile-details input:focus {
+  border-color: #1666D9;
+  caret-color: #1666D9;
+  transition: all 0.3s ease;
 }
 
 .profile-details .profile-update {
   background-color: #007bff;
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;

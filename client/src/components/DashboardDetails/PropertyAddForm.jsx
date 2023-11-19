@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles/PropertyAddForm.css";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
 import xIcon from "../../assets/xIcon.svg";
+import xIconDark from "../../assets/xIcon_darkMode.svg";
 import FormatNumber from "../FormatNumber/FormatNumber";
+import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
 const PropertyAddForm = ({ isFormOpen, closeForm }) => {
+  const { darkMode } = React.useContext(DarkModeContext);
   const [title, setTitle] = useState("");
 
   const [civic_address, setCivicAddress] = useState("");
@@ -92,7 +95,11 @@ const PropertyAddForm = ({ isFormOpen, closeForm }) => {
     <div className={isFormOpen ? "show" : "hide"}>
       <form className="popup-form" onSubmit={handleSubmit}>
         <button onClick={closeForm} className="close-button">
-          <img src={xIcon} alt="close" className="close-button-x" />
+          <img
+            src={darkMode ? xIconDark : xIcon}
+            alt="close"
+            className="close-button-x"
+          />
         </button>
         <h2>Add Property</h2>
 

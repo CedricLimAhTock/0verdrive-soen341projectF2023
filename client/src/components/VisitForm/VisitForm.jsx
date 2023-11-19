@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import "../DashboardDetails/styles/Users.css";
 import "./VisitForm.css";
 import jwt_decode from "jwt-decode";
 import xIcon from "../../assets/xIcon.svg";
-
+import xIconDark from "../../assets/xIcon_darkMode.svg";
+import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
 const VisitForm = ({ isFormOpen, closeForm, property }) => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -12,7 +13,7 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
 
   const { images, price, address, broker } = property;
   const [decodedToken, setDecodedToken] = React.useState(null);
-
+  const { darkMode } = useContext(DarkModeContext);
   useEffect(() => {
     function fetchData() {
       const token = localStorage.getItem("jwtToken");
@@ -27,7 +28,9 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
     event.preventDefault();
 
     try {
-      const broker = await axios.get(`http://localhost:8080/listing/property/${property.id}`);
+      const broker = await axios.get(
+        `http://localhost:8080/listing/property/${property.id}`
+      );
       console.log(broker.data[0].broker_id);
 
       alert(`Email: ${email}\nPhone: ${phone}\nMessage: ${message}`);
@@ -57,7 +60,11 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
     <div className={isFormOpen ? "show" : "hide"}>
       <form className="popup-form" onSubmit={handleSubmit}>
         <button onClick={closeForm} className="close-button">
-          <img src={xIcon} alt="close" className="close-button-x" />
+          <img
+            src={darkMode ? xIconDark : xIcon}
+            alt="close"
+            className="close-button-x"
+          />
         </button>
         <h2>Visit Form</h2>
         <input
@@ -83,7 +90,6 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
           onChange={(e) => setMessage(e.target.value)}
           required
         />
-
         <div className="button-container">
           <button type="submit" className="submit">
             Submit

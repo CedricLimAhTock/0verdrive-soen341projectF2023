@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./styles/Home.css";
 import searchIcon from "../assets/searchIcon.svg";
 import homeImg from "../assets/tempHomeImg.svg";
-import searchImg from "../../public/assets/search-img.svg";
+import searchImg from "../assets/search-img.svg";
 import PropertyCard from "../components/PropertyCard/PropertyCard";
 
 const Home = () => {

@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useContext } from "react";
+import axios from "axios";
 import xIcon from "../../assets/xIcon.svg";
-
+import xIconDark from "../../assets/xIcon_darkMode.svg";
+import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
 const AddUserForm = ({ isFormOpen, closeForm }) => {
-  const [username, setUsername] = useState('');
-  const [firstname, setFirstName] = useState('');
-  const [lastname, setLastName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [userRole, setUserRole] = useState("homebuyer");
+const { darkMode } = React.useContext(DarkModeContext);
+const [username, setUsername] = useState('');
+const [firstname, setFirstName] = useState('');
+const [lastname, setLastName] = useState('');
+const [phone, setPhone] = useState('');
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+const [userRole, setUserRole] = useState("homebuyer");
 
-  const handleSubmit = async (event) => {
+const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
@@ -30,11 +32,11 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
       });
 
       if (response.status === 200) {
-        alert('User added');
+        alert("User added");
         console.log(response);
       } else {
         console.log(response);
-        console.log('Failed to add user');
+        console.log("Failed to add user");
       }
     } catch (err) {
       alert(err.message + "\n" + err.response.data.message);
@@ -44,10 +46,14 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
   };
 
   return (
-    <div className={isFormOpen ? 'show' : 'hide'}>
+    <div className={isFormOpen ? "show" : "hide"}>
       <form className="popup-form" onSubmit={handleSubmit}>
         <button onClick={closeForm} className="close-button">
-          <img src={xIcon} alt="close" className="close-button-x" />
+          <img
+            src={darkMode ? xIconDark : xIcon}
+            alt="close"
+            className="close-button-x"
+          />
         </button>
         <h2>Add New User</h2>
 

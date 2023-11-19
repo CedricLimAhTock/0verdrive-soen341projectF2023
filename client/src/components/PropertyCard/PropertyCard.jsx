@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Slider from "react-slick";
+import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./PropertyCard.css";
-import bedIcon from "../../../public/assets/bed.svg";
-import bathIcon from "../../../public/assets/bath.svg";
-import rulerIcon from "../../../public/assets/ruler.svg";
+import bedIcon from "../../assets/bed.svg";
+import bedIconDark from "../../assets/bed_darkMode.svg";
+import bathIcon from "../../assets/bath.svg";
+import bathIconDark from "../../assets/bath_darkMode.svg";
+import rulerIcon from "../../assets/ruler.svg";
+import rulerIconDark from "../../assets/ruler_darkMode.svg";
 // import saveIcon from "../../assets/saveIcon.svg";
 import SaveIcon from "../SaveIcon/SaveIcon";
 import Carousel from "../Carousel/Carousel";
@@ -14,6 +18,7 @@ import { useNavigate } from "react-router-dom";
 import FormatNumber from "../FormatNumber/FormatNumber";
 
 const PropertyCard = ({ property, decodedToken }) => {
+  const { darkMode } = useContext(DarkModeContext);
   const navigate = useNavigate();
   const {
     images,
@@ -118,7 +123,13 @@ const PropertyCard = ({ property, decodedToken }) => {
               <SaveIcon
                 onClick={handleIsSaved}
                 fill={isSaved ? "rgba(255, 153, 0, 1)" : "rgba(0, 0, 0, 0)"}
-                stroke={isSaved ? "rgba(255, 153, 0, 1)" : "rgba(0, 0, 0, 1)"}
+                stroke={
+                  isSaved
+                    ? "rgba(255, 153, 0, 1)"
+                    : darkMode
+                    ? "rgba(255, 255, 255, 0.714)"
+                    : "rgba(0, 0, 0, 1)"
+                }
                 className="card-save-icon"
               />
             </div>
@@ -126,15 +137,27 @@ const PropertyCard = ({ property, decodedToken }) => {
           </div>
           <div className="card-icons">
             <div className="icon-with-number">
-              <img className="card-icon" src={bedIcon} alt="Bed Icon" />
+              <img
+                className="card-icon"
+                src={darkMode ? bedIconDark : bedIcon}
+                alt="Bed Icon"
+              />
               <span className="icon-number">{num_bedrooms}</span>
             </div>
             <div className="icon-with-number">
-              <img className="card-icon" src={bathIcon} alt="Bath Icon" />
+              <img
+                className="card-icon"
+                src={darkMode ? bathIconDark : bathIcon}
+                alt="Bath Icon"
+              />
               <span className="icon-number">{num_bathrooms}</span>
             </div>
             <div className="icon-with-number">
-              <img className="card-icon" src={rulerIcon} alt="Ruler Icon" />
+              <img
+                className="card-icon"
+                src={darkMode ? rulerIconDark : rulerIcon}
+                alt="Ruler Icon"
+              />
               <span className="icon-number">
                 {FormatNumber(property_area)} ft<sup>2</sup>
               </span>

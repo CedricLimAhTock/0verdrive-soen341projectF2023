@@ -7,9 +7,9 @@
     margin: 0;
     font-size: 13px;
     letter-spacing: 1px;
-    color: #212121;
+    color: white;
     list-style: none;
-    background-color: #fafcff;
+    background-color: var(--dropdown-color);
     border: none;
     border-radius: 3px;
     box-shadow: 0 5px 10px 0 rgba(138, 155, 165, 0.15);
@@ -20,7 +20,7 @@
 
 .dropdown-menu li {
     padding: 3px 15px;
-	color: #212121;
+	color: white;
 	border-radius: 2px;
     transition: all 200ms linear;
 }
@@ -40,7 +40,7 @@
     height: 100%;
     text-decoration: none;
     padding: 10px;
-    color: black;
+    color: var(--text-color);
     border-radius: 0.5rem;
 }
 

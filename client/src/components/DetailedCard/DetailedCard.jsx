@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import template from "../../assets/slideshow-template.jpg";
 import "./DetailedCard.css";
 import bedIcon from "../../assets/bed.svg";
+import bedIconDark from "../../assets/bed_darkMode.svg";
 import bathIcon from "../../assets/bath.svg";
+import bathIconDark from "../../assets/bath_darkMode.svg";
 import rulerIcon from "../../assets/ruler.svg";
+import rulerIconDark from "../../assets/ruler_darkMode.svg";
 import MortgageCalculator from "../MortgageCalculator/MortgageCalculator";
 import Carousel from "../Carousel/Carousel";
 import VisitForm from "../VisitForm/VisitForm";
@@ -12,8 +15,10 @@ import jwt_decode from "jwt-decode";
 import axios from "axios";
 import FormatNumber from "../FormatNumber/FormatNumber";
 import BrokerCard from "../BrokerCard/BrokerCard";
+import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
 
 const DetailedCard = ({ property }) => {
+  const { darkMode } = useContext(DarkModeContext);
   const {
     images,
     price,
@@ -118,27 +123,37 @@ const DetailedCard = ({ property }) => {
             )}
             {activeTab === "broker" && <p>{brokerInfo}</p>}
             {activeTab === "map" && <p>{address}</p>}
-
           </div>
         </div>
 
         <b>Features</b>
         <div className="property-features">
           <div className="features">
-            <img className="c-icons" src={bedIcon} alt="Bed Icon" />
+            <img
+              className="c-icons"
+              src={darkMode ? bedIconDark : bedIcon}
+              alt="Bed Icon"
+            />
             <span className="icon-numbers">{num_bedrooms}</span>
           </div>
           <div className="features">
-            <img className="c-icons" src={bathIcon} alt="Bath Icon" />
+            <img
+              className="c-icons"
+              src={darkMode ? bathIconDark : bathIcon}
+              alt="Bath Icon"
+            />
             <span className="icon-numbers">{num_bathrooms}</span>
           </div>
           <div className="features">
-            <img className="c-icons" src={rulerIcon} alt="Ruler Icon" />
+            <img
+              className="c-icons"
+              src={darkMode ? rulerIconDark : rulerIcon}
+              alt="Ruler Icon"
+            />
             <span className="icon-numbers">
               {FormatNumber(property_area)} sq ft
             </span>
           </div>
-
         </div>
       </div>
 

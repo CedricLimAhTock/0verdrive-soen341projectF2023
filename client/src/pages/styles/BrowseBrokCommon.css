@@ -6,7 +6,7 @@
   width: 100%;
   padding-top: 30px;
   padding-bottom: 30px;
-  background-color: #cdcdcd27;
+  background-color: var(--container-color);
   margin: 0.5rem;
   border-radius: 1rem;
 }
@@ -17,11 +17,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #cdcdcd27;
+  background-color: var(--container-color);
+}
+  .filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8rem;
 }
 
 .search {
   display: flex;
+}
+
+.search input[type = "image"] {
+  margin-left: -7rem;
 }
 
 .search > input {
@@ -43,10 +53,6 @@
   padding: 0.5rem;
 }
 
-.search > input[type="image"] {
-  margin-left: 0.5rem;
-}
-
 .search-dropdown {
   appearance: none;
   height: 3rem;
@@ -54,21 +60,6 @@
   border: none;
   outline: none;
   background-color: #fff;
-}
-
-.search-dropdown::after {
-  content: '\25BC'; /* Downward-pointing triangle (Unicode for a small triangle) */
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.search-dropdown option {
-  /* Add your option styles here */
-  background-color: #fff;
-  color: #333;
-  padding: 10px;
 }
 
 .items {
@@ -82,7 +73,8 @@
   justify-content: center;
   align-items: center;
   margin-top: 20px;
-  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+
 }
 
 .pagination-list {
@@ -107,9 +99,9 @@
   display: block;
   padding: 10px 15px;
   text-decoration: none;
-  border: 1px solid #ddd;
+  border: 1px solid var(--text-color);
   transition: background-color 0.3s, color 0.3s;
-  color: black;
+  color: var(--text-color);
   border-radius: .5rem;
   font-weight: 500;
 }

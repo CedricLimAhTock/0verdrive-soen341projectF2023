@@ -1,13 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
+import xIcon from "../../assets/xIcon.svg";
+import xIconDark from "../../assets/xIcon_darkMode.svg";
+import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
 
 const UserForm = ({ isFormOpen, data, closeForm }) => {
-  const [firstname, setFirstName] = useState(data.user.firstname || "");
-  const [lastname, setLastName] = useState(data.user.lastname || "");
-  const [phone, setPhone] = useState(data.user.phone || "");
-  const [email, setEmail] = useState(data.user.email || "");
+const { darkMode } = useContext(DarkModeContext);
+const [firstname, setFirstName] = useState(data.user.firstname || "");
+const [lastname, setLastName] = useState(data.user.lastname || "");
+const [phone, setPhone] = useState(data.user.phone || "");
+const [email, setEmail] = useState(data.user.email || "");
 
-  const handleSubmit = async (event, action) => {
+const handleSubmit = async (event, action) => {
     event.preventDefault();
 
     console.log(data);
@@ -65,10 +69,14 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
   return (
     <div className={isFormOpen ? "show" : "hide"}>
       <form className="popup-form" onSubmit={handleSubmit}>
-        <button onClick={closeForm}>Close</button>
+        <button onClick={closeForm} className="close-button"> 
+        <img
+            src={darkMode ? xIconDark : xIcon}
+            alt="close"
+            className="close-button-x"
+          />
+        </button>
         <h2>Selected User Information</h2>
-
-        <label htmlFor="name">First Name</label>
         <input
           id="firstname"
           type="text"
@@ -76,8 +84,6 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
           placeholder="First Name"
           onChange={(e) => setFirstName(e.target.value)}
         />
-
-        <label htmlFor="name">Last Name</label>
         <input
           id="lastname"
           type="text"
@@ -85,8 +91,6 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
           placeholder="Last Name"
           onChange={(e) => setLastName(e.target.value)}
         />
-
-        <label htmlFor="phone">Phone Number</label>
         <input
           id="phone"
           type="text"
@@ -94,7 +98,6 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
           placeholder="Phone number"
           onChange={(e) => setPhone(e.target.value)}
         />
-
         <label htmlFor="email">Email</label>
         <input
           id="email"
@@ -114,7 +117,7 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
           </button>
           <button
             type="submit"
-            className="submit delete"
+            className="submit-delete"
             onClick={(e) => handleSubmit(e, "delete")}
           >
             Delete

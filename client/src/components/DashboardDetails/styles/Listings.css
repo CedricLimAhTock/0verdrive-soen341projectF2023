@@ -1,12 +1,15 @@
 .listings {
   height: auto;
   min-height: 35rem;
+  background-color: var(--card-color);
+  padding: 1rem;
+  border-radius: 0.5rem;
 }
 
 .properties-header {
   display: flex;
   align-items: center;
-  background-color: #f0f0f0;
+  background-color: var(--card-color)
 }
 
 .properties-card {
@@ -20,42 +23,51 @@
   padding: 10px;
   text-align: center;
   border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.6);
-  background-color: #f0f0f0;
+  color: var(--logo-color);
+  background-color: var(--header-color);
 }
 
 .header-property-type {
   width: 20%;
+  color: var(--text-color);
 }
 
 .header-property-name {
-  width: 30%;
+  width: 30%;color: var(--text-color);
+  
 }
 
 .header-property-address {
   width: 30%;
+  color: var(--text-color);
 }
 
 .header-property-price {
   width: 20%;
   border-right: none;
+  color: var(--text-color);
 }
 
 .property-type {
-  width: 20%;
+  min-width: 20%;
+  color: var(--off-white-text-color);
 }
 
 .property-name {
-  width: 30%;
+  min-width: 30%;
+  color: var(--off-white-text-color);
 }
 
 .property-address {
-  width: 30%;
+  min-width: 30%;
+  color: var(--off-white-text-color);
 }
 
 .property-price {
-  width: 20%;
+  min-width: 20%;
+  color: var(--off-white-text-color);
 }
 
 .brokers-cards {
@@ -74,7 +86,6 @@
   font-weight: 700;
   color: rgba(0, 0, 0, 0.8);
   border-bottom: 1px solid #ccc;
-  border-top: 1px solid #ccc;
   padding-bottom: 0;
   margin-bottom: 0;
 }
@@ -179,13 +190,12 @@ label {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: aliceblue;
   padding: 0 0 15px 0;
 }
 
-.listing-header h1 {
+.listing-header h2 {
   margin: 0;
-  font-weight: 300;
+  color: var(--text-color);
 }
 
 .property-intro-right {
@@ -193,7 +203,7 @@ label {
   align-items: center;
 }
 .property-intro-right p {
-  color: rgba(0, 0, 0, 0.5);
+  color: var(--logo-color);
   padding: 0 30px;
 }
 
@@ -204,9 +214,17 @@ label {
   text-decoration: none;
   color: #fff;
   background-color: #1666d9;
-  border: none;
+  border: 2px solid;
   font-size: 16px;
   cursor: pointer;
   width: 5rem;
   height: 2rem;
+  border-radius: 0.5rem;
+}
+
+.add-property-button:hover {
+  background-color: white;
+  transition: all 0.3s ease;
+  color: #1666d9;
+  border-color: #1666d9;
 }

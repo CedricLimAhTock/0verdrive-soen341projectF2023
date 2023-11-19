@@ -38,7 +38,7 @@ const Users = ({ token }) => {
         <h2>All users</h2>
         <div className="users-right">
           <p>{userData.length} users</p>
-          <button className="add-user" onClick={() => setAddFormOpen(true)}>
+          <button className="add-property-button" onClick={() => setAddFormOpen(true)}>
             Add User
           </button>
         </div>

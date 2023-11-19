@@ -5,6 +5,8 @@
   align-items: center; /* Vertically center items */
   padding: 50px;
   min-height: 35rem;
+  background-color: var(--card-color);
+  border-radius: 0.5rem;
 }
 
 .card-fav {
