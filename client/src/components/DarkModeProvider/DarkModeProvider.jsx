@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
 
-export const DarkModeProvider = ({ children }) => {
+const DarkModeProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(() => {
     const savedMode = localStorage.getItem("darkMode");
     return savedMode === "true" ? true : false;
@@ -18,3 +18,4 @@ export const DarkModeProvider = ({ children }) => {
     </DarkModeContext.Provider>
   );
 };
+export default DarkModeProvider;

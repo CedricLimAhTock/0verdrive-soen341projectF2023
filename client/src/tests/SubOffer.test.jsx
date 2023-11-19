@@ -3,6 +3,9 @@ import { render, fireEvent, waitFor, findByText } from "@testing-library/react";
 import OfferForm from "../components/OfferForm/OfferForm";
 import ReceivedOffers from "../components/DashboardDetails/ReceivedOffers";
 import axios from "axios";
+import { DarkModeContext } from "../components/DarkModeContext/DarkModeContext";
+import DarkModeProvider from "../components/DarkModeProvider/DarkModeProvider";
+import React, { useState } from "react";
 test("renders OfferForm and updates input values", async ({ expect }) => {
   const closeForm = () => {}; // Mock function
   globalThis.alert = () => {};
@@ -43,19 +46,20 @@ test("renders OfferForm and updates input values", async ({ expect }) => {
     property_type: "condominium",
   };
   const broker = brokerFetch.data;
-
   const {
     getByPlaceholderText: getByPlaceholderText1,
     getAllByPlaceholderText: getAllByPlaceholderText1,
     getByText: getByText1,
     unmount: unmount1,
   } = render(
-    <OfferForm
-      isFormOpen={true}
-      closeForm={closeForm}
-      property={property}
-      broker={broker}
-    />
+    <DarkModeProvider>
+      <OfferForm
+        isFormOpen={true}
+        closeForm={closeForm}
+        property={property}
+        broker={broker}
+      />
+    </DarkModeProvider>
   );
 
   const nameInput = getByPlaceholderText1("Name");
