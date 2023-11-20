@@ -51,14 +51,20 @@ const PropertyForm = ({ isFormOpen, data, closeForm }) => {
 
     if (action === "delete") {
       try {
-        const response = await axios.delete(
+        const response2 = await axios.delete(
+          `http://127.0.0.1:8080/listing/${data.id}`
+        );
+        const response1 = await axios.delete(
           `http://127.0.0.1:8080/property/${property.id}`
         );
-        if (response.status === 200) {
+
+        if (response1.status === 200 && response2.status === 200) {
           alert("Deleted");
-          console.log(response);
+          console.log(response1);
+          console.log(response2);
         } else {
-          console.log(response);
+          console.log(response1);
+          console.log(response2);
           console.log("Failed to delete");
         }
       } catch (error) {
@@ -309,8 +315,19 @@ const PropertyForm = ({ isFormOpen, data, closeForm }) => {
           />
         </div>
         <div className="button-container">
-          <button type="submit" className="submit add">
-            Add
+          <button
+            type="submit"
+            className="submit edit"
+            onClick={(e) => handleSubmit(e, "update")}
+          >
+            Update
+          </button>
+          <button
+            type="submit"
+            className="submit-delete"
+            onClick={(e) => handleSubmit(e, "delete")}
+          >
+            Delete
           </button>
         </div>
       </form>
