@@ -10,6 +10,10 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
   const [lastname, setLastName] = useState(data.user.lastname || "");
   const [phone, setPhone] = useState(data.user.phone || "");
   const [email, setEmail] = useState(data.user.email || "");
+  const [agency, setAgency] = useState(data.user.agency || "");
+  const [license_number, setLicenseNumber] = useState(
+    data.license_number || ""
+  );
 
   const handleSubmit = async (event, action) => {
     event.preventDefault();
@@ -31,6 +35,8 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
             lastname: lastname.toString(),
             email: email.toString(),
             phone: phone.toString(),
+            agency: agency.toString(),
+            license_number: license_number.toString(),
           }
         );
 
@@ -109,6 +115,23 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
           onChange={(e) => setEmail(e.target.value)}
         />
 
+        <label htmlFor="agency">Agency</label>
+        <input
+          id="agency"
+          type="text"
+          value={agency}
+          placeholder="Agency"
+          onChange={(e) => setAgency(e.target.value)}
+        />
+
+        <label htmlFor="license_number">License Number</label>
+        <input
+          id="license_number"
+          type="text"
+          value={license_number}
+          placeholder="License Number"
+          onChange={(e) => setLicenseNumber(e.target.value)}
+        />
         <div className="button-container">
           <button
             type="submit"
