@@ -1,5 +1,6 @@
 import Message from "../models/message.js";
 import User from "../models/user.js";
+
 const list = async (req, res) => {
   try {
     let message = await Message.findAll({
@@ -105,16 +106,17 @@ const create = async (req, res) => {
       return res.status(404).json({ message: "receiver does not exist." });
     }
 
-    const message = await Message.create({
-      attributes: ["id"],
-      where: {
-        active: data.active,
+    const [message, created] = await Message.findOrCreate({
+      attributes: ['id'],
+      where: {id: null},
+      defaults: {
+        active: 1,
         parent_id: data.parent_id,
         user_id: data.user_id,
-        message: data.message,
+        message: data.message
       },
     });
-    if (!message) {
+    if (!created) {
       return res.status(400).json({ message: "Failed to create." });
     }
 
