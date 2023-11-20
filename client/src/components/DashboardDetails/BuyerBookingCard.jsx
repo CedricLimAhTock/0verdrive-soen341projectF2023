@@ -22,7 +22,6 @@ const BuyerBookingCard = ({ data, expanded, toggleExpand }) => {
         <div className="property-type">{type}</div>
         <div className={`property-status ${statusName}`}>{status}</div>
         <div className="property-address">{data.message}</div>
-        <div className="property-price">${FormatNumber(price)}</div>
         <div className="property-broker">{broker}</div>
         {/* Date probably */}
       </div>
