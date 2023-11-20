@@ -85,6 +85,7 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
           />
         </button>
         <h2>Selected User Information</h2>
+        <div className="form-pair">
         <input
           id="firstname"
           type="text"
@@ -99,6 +100,8 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
           placeholder="Last Name"
           onChange={(e) => setLastName(e.target.value)}
         />
+        </div>
+        <div className="form-pair">
         <input
           id="phone"
           type="text"
@@ -106,7 +109,6 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
           placeholder="Phone number"
           onChange={(e) => setPhone(e.target.value)}
         />
-        <label htmlFor="email">Email</label>
         <input
           id="email"
           type="text"
@@ -114,8 +116,7 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
-
-        <label htmlFor="agency">Agency</label>
+        </div>
         <input
           id="agency"
           type="text"
@@ -123,8 +124,6 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
           placeholder="Agency"
           onChange={(e) => setAgency(e.target.value)}
         />
-
-        <label htmlFor="license_number">License Number</label>
         <input
           id="license_number"
           type="text"

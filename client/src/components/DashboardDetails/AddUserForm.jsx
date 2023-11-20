@@ -76,9 +76,6 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
             <option value="admin">Admin</option>
           </select>
         </div>
-
-        <label htmlFor="username">Username</label>
-
         <input
           id="username"
           type="text"
@@ -87,8 +84,7 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
           onChange={(e) => setUsername(e.target.value)}
           required
         />
-
-        <label htmlFor="firstname">First Name</label>
+        <div className="form-pair">
         <input
           id="firstname"
           type="text"
@@ -96,7 +92,6 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
           placeholder="First Name"
           onChange={(e) => setFirstName(e.target.value)}
         />
-        <label htmlFor="lastname">Last Name</label>
         <input
           id="lastname"
           type="text"
@@ -104,6 +99,8 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
           placeholder="Last Name"
           onChange={(e) => setLastName(e.target.value)}
         />
+        </div>
+        <div className="form-pair">
         <input
           id="phone"
           type="text"
@@ -111,8 +108,6 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
           placeholder="Phone number"
           onChange={(e) => setPhone(e.target.value)}
         />
-
-        <label htmlFor="email">Email</label>
         <input
           id="email"
           type="text"
@@ -120,16 +115,16 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
+        </div>
         <input
           id="password"
           type="password"
           value={password}
-          placeholder="********"
+          placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
         {userRole === "broker" && (
           <>
-            <label htmlFor="agency">Agency</label>
             <input
               id="agency"
               type="text"
@@ -137,7 +132,6 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
               placeholder="Agency"
               onChange={(e) => setAgency(e.target.value)}
             />
-            <label htmlFor="license_number">License Number</label>
             <input
               id="license_number"
               type="text"
