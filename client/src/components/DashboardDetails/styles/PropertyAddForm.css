@@ -1,6 +1,7 @@
 .popup-form {
   max-height: 45rem;
   max-width: 50rem;
+  overflow: scroll;
   /* padding-top: 15rem; */
 }
 
@@ -19,8 +20,6 @@
   gap: 0.5rem;
   width: 40rem;
 }
-
-
 
 input {
   width: 20rem;
