@@ -9,12 +9,11 @@ import ReceivedBookings from "../components/DashboardDetails/RecievedBookings";
 import Listings from "../components/DashboardDetails/Listings";
 import Users from "../components/DashboardDetails/Users";
 import jwt_decode from "jwt-decode";
-
-
+// import Messages from "../components/DashboardDetails/Messages";
 
 const Dashboard = ({ token }) => {
   const [activeTab, setActiveTab] = useState("profile");
-  
+
   const logout = () => {
     localStorage.removeItem("jwtToken");
     window.location.reload();
@@ -50,6 +49,7 @@ const Dashboard = ({ token }) => {
       "Offers Made",
       "Received Offers",
       "Listings",
+      "Messages",
     ],
     admin: ["Profile", "Favorites", "Users"],
   };
@@ -84,11 +84,14 @@ const Dashboard = ({ token }) => {
           {activeTab === "profile" && <Profile data={data} token={token} />}
           {activeTab === "favorites" && <Favorites token={token} />}
           {activeTab === "bookings" && <Bookings data={data} token={token} />}
-          {activeTab === "received bookings" && <ReceivedBookings data={data} token={token} />}
+          {activeTab === "received bookings" && (
+            <ReceivedBookings data={data} token={token} />
+          )}
           {activeTab === "offers made" && <OffersMade token={token} />}
           {activeTab === "received offers" && <ReceivedOffers token={token} />}
           {activeTab === "listings" && <Listings token={token} />}
           {activeTab === "users" && <Users token={token} />}
+          {/* {activeTab === "messages" && <Messages token={token} />} */}
         </div>
       </div>
     </div>
