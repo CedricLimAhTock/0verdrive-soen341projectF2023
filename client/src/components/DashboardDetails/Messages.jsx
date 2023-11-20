@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import MessageCard from "./MessageCard";
 import "./styles/DashboardOffers.css";
+import "./styles/Messages.css";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
@@ -34,7 +35,8 @@ const Messages = () => {
   return (
     <div className="offers">
       <div className="offer-header">
-        <div className="offer-header-status">From</div>
+        <div className="from-title">From</div>
+        <div className="message-title">Message</div>
       </div>
 
       <div className="offer-cards">

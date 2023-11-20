@@ -31,6 +31,9 @@ const MessageCard = ({ messageInfo, expanded, toggleExpand }) => {
     <div className="whole-card" onClick={() => expand()}>
       <div className="offer-card">
         <div className="property-broker">{userName}</div>
+        <div className="property-address">
+          {message.length > 100 ? message.slice(0, 100) + "..." : message}
+        </div>
         {/* Additional details can be added here, such as date, deed, etc. */}
       </div>
       {expanded && (

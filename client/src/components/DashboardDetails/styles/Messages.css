@@ -1,0 +1,8 @@
+.message-title {
+  width: 75%;
+  color: var(--text-color);
+}
+.from-title {
+  width: 25%;
+  color: var(--text-color);
+}
