@@ -104,14 +104,16 @@ const PropertyForm = ({ isFormOpen, data, closeForm }) => {
         console.log(response3);
 
         if (response3.status === 200) {
-          const data = {
-            title: data.title,
+          const dataExtra = {
+            broker_id: broker_id,
+            title: title,
+            property_id: property.data.id,
             description: "",
           };
 
           const response4 = await axios.put(
             "http://127.0.0.1:8080/listing",
-            data
+            dataExtra
           );
 
           if (response4.status === 200) {
