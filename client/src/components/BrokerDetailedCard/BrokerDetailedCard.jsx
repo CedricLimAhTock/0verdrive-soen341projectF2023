@@ -36,7 +36,7 @@ const BrokerDetailedCard = ({ broker }) => {
 
   useEffect(() => {
     function fetchData() {
-      setDecodedToken(jwt_decode(localStorage.getItem("jwtToken")));
+      setDecodedToken(jwt_decode(localStorage.getItem("jwtToken")) || null);
     }
 
     fetchData();
