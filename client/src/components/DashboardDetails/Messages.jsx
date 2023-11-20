@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from "react";
-import OfferCard from "./OfferCard";
+import MessageCard from "./MessageCard";
 import "./styles/DashboardOffers.css";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
 
 const Messages = () => {
-  const [offerData, setOfferData] = useState([]);
+  const [messageData, setMessageData] = useState([]);
   const [expandedCard, setExpandedCard] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem("jwtToken");
     const decodedToken = jwt_decode(token);
-    const brokerID = decodedToken.broker_id;
+    const brokerID = decodedToken.id;
 
     axios
-      .get(`http://localhost:8080/offer/broker/${brokerID}`)
+      .get(`http://localhost:8080/message/received/${brokerID}`)
       .then((response) => {
-        setOfferData(response.data);
+        setMessageData(response.data.reverse());
       })
       .catch((error) => {
-        console.error("Error fetching offers:", error);
+        console.error("Error fetching messages:", error);
       });
   }, []);
 
@@ -34,26 +34,23 @@ const Messages = () => {
   return (
     <div className="offers">
       <div className="offer-header">
-        <div className="offer-header-status">Status</div>
-        <div className="offer-header-address">Address</div>
-        <div className="offer-header-price">Price</div>
-        <div className="offer-header-broker">Broker</div>
+        <div className="offer-header-status">From</div>
       </div>
 
       <div className="offer-cards">
-        {offerData.length > 0 ? (
-          offerData.map((offer, index) => (
+        {messageData.length > 0 ? (
+          messageData.map((message, index) => (
             <div key={index} className="hehe">
-              <OfferCard
+              <MessageCard
                 key={index}
-                offer={offer}
+                messageInfo={message}
                 expanded={index === expandedCard}
                 toggleExpand={() => toggleExpand(index)}
               />
             </div>
           ))
         ) : (
-          <p className="no-offers">No offers received</p>
+          <p className="no-offers">No messages received</p>
         )}
       </div>
     </div>

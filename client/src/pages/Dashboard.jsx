@@ -9,7 +9,7 @@ import ReceivedBookings from "../components/DashboardDetails/RecievedBookings";
 import Listings from "../components/DashboardDetails/Listings";
 import Users from "../components/DashboardDetails/Users";
 import jwt_decode from "jwt-decode";
-// import Messages from "../components/DashboardDetails/Messages";
+import Messages from "../components/DashboardDetails/Messages";
 
 const Dashboard = ({ token }) => {
   const [activeTab, setActiveTab] = useState("profile");
@@ -91,7 +91,7 @@ const Dashboard = ({ token }) => {
           {activeTab === "received offers" && <ReceivedOffers token={token} />}
           {activeTab === "listings" && <Listings token={token} />}
           {activeTab === "users" && <Users token={token} />}
-          {/* {activeTab === "messages" && <Messages token={token} />} */}
+          {activeTab === "messages" && <Messages token={token} />}
         </div>
       </div>
     </div>
