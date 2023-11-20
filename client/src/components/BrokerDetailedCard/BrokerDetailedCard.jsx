@@ -61,9 +61,9 @@ const BrokerDetailedCard = ({ broker }) => {
     let response;
     try {
       response = await axios.post("http://localhost:8080/message", {
-        parent_id,
-        user_id,
-        message,
+        parent_id: parent_id,
+        user_id: user_id,
+        message: message,
       });
       console.log(response);
     } catch (err) {
