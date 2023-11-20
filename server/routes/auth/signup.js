@@ -71,22 +71,32 @@ router.post("/", async (req, res) => {
       }
 
       // if user is a broker, create an entry in broker table
-      let uuid = crypto.randomUUID();
+
       let broker = null;
       if (role.type == "broker") {
+        if (!data.license_number) {
+          return res
+            .status(400)
+            .json({ message: "Broker license cannot be null." });
+        }
+        if (!data.agency) {
+          return res
+            .status(400)
+            .json({ message: "Broker agency cannot be null." });
+        }
         const [broker, b_created] = await Broker.findOrCreate({
           attributes: ["id"],
           where: {
             [Op.or]: {
               user_id: user.id,
-              license_number: uuid,
+              license_number: data.license_number,
             },
           },
           defaults: {
             active: 1,
             user_id: user.id,
-            license_number: uuid,
-            agency: "",
+            license_number: data.license_number,
+            agency: data.agency,
             email: user.email,
             phone: user.phone,
           },
