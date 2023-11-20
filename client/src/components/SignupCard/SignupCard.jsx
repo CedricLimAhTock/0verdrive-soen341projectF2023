@@ -13,6 +13,8 @@ const SignupCard = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [formattedPhone, setFormattedPhone] = useState("");
+  const [agency, setAgency] = useState("");
+  const [license_number, setLicenseNumber] = useState("");
   const navigate = useNavigate();
   const [alert, setAlert] = useState("");
 
@@ -44,7 +46,9 @@ const SignupCard = () => {
         firstname,
         lastname,
         email,
-        phone
+        phone,
+        agency,
+        license_number,
       });
 
       navigate("/signin");
@@ -116,6 +120,25 @@ const SignupCard = () => {
                 required
               ></input>
             </div>
+            {userRole === "broker" && (
+              <div className="fname-lname">
+                <input
+                  type="text"
+                  placeholder="A G E N C Y"
+                  value={agency}
+                  onChange={(e) => setAgency(e.target.value)}
+                  required
+                ></input>
+                <input
+                  type="text"
+                  placeholder="L I C E N S E"
+                  value={license_number}
+                  onChange={(e) => setLicenseNumber(e.target.value)}
+                  required
+                ></input>
+              </div>
+            )}
+
             <div className="form-element-role centered-select">
               <select
                 name="userRole"
