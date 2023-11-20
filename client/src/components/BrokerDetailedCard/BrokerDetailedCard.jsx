@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./BrokerDetailedCard.css";
 import profileIcon from "../../assets/profile-picture.png";
@@ -6,11 +7,13 @@ import jwt_decode from "jwt-decode";
 import PropertyCardCarousel from "../PropertyCardCarousel/PropertyCardCarousel";
 
 const BrokerDetailedCard = ({ broker }) => {
+  const navigate = useNavigate();
   const { user, email, phone, agency, id, license_number } = broker;
 
   const { firstname, lastname } = user;
   const [properties, setProperties] = useState([]);
   const [decodedToken, setDecodedToken] = React.useState(null);
+  const [message, setMessage] = useState("");
 
   const fetchProperties = async () => {
     const response = await axios.get(
@@ -33,17 +36,47 @@ const BrokerDetailedCard = ({ broker }) => {
 
   useEffect(() => {
     function fetchData() {
-      //const token = localStorage.getItem("jwtToken");
-      const decoded = null;
-      setDecodedToken(decoded);
+      setDecodedToken(jwt_decode(localStorage.getItem("jwtToken")));
     }
 
     fetchData();
     fetchProperties();
   }, []);
 
-  const description = "A hard working broker that strives to give the best and nothing less.";
+  const description =
+    "A hard working broker that strives to give the best and nothing less.";
   const name = firstname + " " + lastname;
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log(decodedToken);
+    if (!decodedToken) {
+      alert("Please login to contact broker");
+      navigate("/signin");
+      return;
+    }
+    const parent_id = decodedToken.id;
+    const user_id = broker.user_id;
+    console.log({ parent_id, user_id, message });
+    let response;
+    try {
+      response = await axios.post("http://localhost:8080/message", {
+        parent_id,
+        user_id,
+        message,
+      });
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+    if (response && response.status === 200) {
+      alert("Form submitted");
+      console.log(response);
+    } else {
+      console.log(response);
+      console.log("Failed to submit form");
+    }
+  };
 
   return (
     <>
@@ -63,11 +96,15 @@ const BrokerDetailedCard = ({ broker }) => {
         </div>
 
         <div className="broker-right-side">
-          <form className="contact-form">
+          <form className="contact-form" onSubmit={handleSubmit}>
             <h3>Contact {firstname} for More Info</h3>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <textarea placeholder="Message" />
+            {/* <input type="text" placeholder="Name" />
+            <input type="email" placeholder="Email" /> */}
+            <textarea
+              placeholder="Message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
             <button type="submit">Submit</button>
           </form>
         </div>
