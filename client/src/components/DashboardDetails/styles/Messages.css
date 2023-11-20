@@ -20,3 +20,16 @@
   display: flex;
   align-items: center;
 }
+
+
+.offer-cards .property-broker-messages {
+  min-width: 25%;
+  border-right: none;
+  color: var(--off-white-text-color);
+}
+
+.offer-cards .property-message {
+  min-width: 75%;
+  border-right: none;
+  color: var(--off-white-text-color);
+}

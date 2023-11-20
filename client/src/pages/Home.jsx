@@ -61,11 +61,11 @@ const Home = () => {
           <h1>Recent Listings</h1>
         </div>
         <div className="explore-conatiner-text2">
-          Explore our newest listing below!
+          Explore our newest listings below!
         </div>
         <div className="explore-container-buttons">
-          <NavLink className="button">Buy</NavLink>
-          <NavLink className="button">Rent</NavLink>
+          <NavLink to = "/Browse" className="button">Buy</NavLink>
+          <NavLink to = "/Browse" className="button">Rent</NavLink>
         </div>
       </div>
       <div className="listing-container">

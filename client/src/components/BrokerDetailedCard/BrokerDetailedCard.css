@@ -5,6 +5,7 @@
   padding: 1rem;
   margin-top: -1.8rem;
   background-color: var(--background-color);
+  min-height: 61vh;
 }
 
 .broker-left-side {
@@ -53,6 +54,18 @@
   margin-bottom: 5px;
 }
 
+.broker-phone {
+  color: var(--text-color);
+}
+
+.broker-agency {
+  color: var(--text-color);
+}
+
+.broker-license {
+  color: var(--text-color);
+}
+
 .broker-desc {
   color: var(--text-color);
 }
@@ -78,7 +91,7 @@
 
 .contact-form h3 {
   font-size: 1.4rem;
-  margin-bottom: 10px;
+  margin-bottom: 1.5rem;
   color: var(--text-color);
 }
 

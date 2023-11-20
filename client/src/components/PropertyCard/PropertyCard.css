@@ -68,3 +68,7 @@
   text-decoration: none;
   color: inherit;
 }
+
+h1 {
+  color: var(--text-color);
+}
