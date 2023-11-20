@@ -97,31 +97,29 @@ const PropertyForm = ({ isFormOpen, data, closeForm }) => {
       };
 
       try {
-        const property = await axios.put(
+        const response3 = await axios.put(
           "http://127.0.0.1:8080/property/" + property.id,
           propertyData
         );
-        console.log(property);
+        console.log(response3);
 
-        if (property.data.id) {
+        if (response3.status === 200) {
           const data = {
-            broker_id: broker_id,
             title: data.title,
-            property_id: property.data.id,
             description: "",
           };
 
-          const response = await axios.put(
+          const response4 = await axios.put(
             "http://127.0.0.1:8080/listing",
             data
           );
 
-          if (response.status === 200) {
-            alert("Property added");
+          if (response4.status === 200) {
+            alert("Property updated");
           } else {
-            console.log(response);
+            console.log(response4);
             console.log("Failed to update listing");
-            axios.delete(`http://127.0.0.1:8080/${property.data.id}`);
+            axios.delete(`http://127.0.0.1:8080/${response3.data.id}`);
           }
         } else {
           console.log("Failed to update property");
