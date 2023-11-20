@@ -1,52 +1,129 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import FormatNumber from "../FormatNumber/FormatNumber";
 import xIcon from "../../assets/xIcon.svg";
 import xIconDark from "../../assets/xIcon_darkMode.svg";
 import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
+import axios from "axios";
+import jwtDecode from "jwt-decode";
 const PropertyForm = ({ isFormOpen, data, closeForm }) => {
-  const [name, setName] = useState(data.name || "");
-  const [type, setType] = useState(data.type || "");
-  const [address, setAddress] = useState(data.address || "");
-  const [price, setPrice] = useState(data.price || "");
-  const { darkMode } = useContext(DarkModeContext);
+  const { darkMode } = React.useContext(DarkModeContext);
+  console.log(data);
+  const property = data.property;
+
+  const [title, setTitle] = useState(data.title || "");
+
+  const [civic_address, setCivicAddress] = useState(
+    property.civic_address || ""
+  );
+  const [apt_number, setAptNumber] = useState(property.apt_number || "");
+  const [street, setStreet] = useState(property.street || "");
+  const [neighbourhood, setNeighbourhood] = useState(
+    property.neighbourhood || ""
+  );
+  const [city, setCity] = useState(property.city || "");
+  const [province, setProvince] = useState(property.province || "");
+  const [postal_code, setPostalCode] = useState(property.postal_code || "");
+  const [country, setCountry] = useState(property.country || "");
+  const [listing_type, setListingType] = useState(
+    property.listing_type || "sale"
+  );
+  const [price, setPrice] = useState(property.price || "");
+  const [living_area, setLivingArea] = useState(property.living_area || "");
+  const [property_area, setPropertyArea] = useState(
+    property.property_area || ""
+  );
+  const [num_bedrooms, setNumBedrooms] = useState(property.num_bedrooms || "");
+  const [num_bathrooms, setNumBathrooms] = useState(
+    property.num_bathrooms || ""
+  );
+  const [num_floors, setNumFloors] = useState(property.num_floors || "");
+  const [year_built, setYearBuilt] = useState(property.year_built || "");
+  const [property_type, setPropertyType] = useState(
+    property.property_type || "other"
+  );
+
+  const token = localStorage.getItem("jwtToken");
+  const decoded = jwtDecode(token);
+  const broker_id = decoded.broker_id;
+
   const handleSubmit = async (event, action) => {
     event.preventDefault();
 
-    // if (action === 'edit') {
-    //   try {
-    //     const response = await axios.put(`http://localhost:5555/events/${id}`, {
-    //       title: title.toString(),
-    //       description: description.toString(),
-    //       date: date,
-    //     });
+    if (action === "delete") {
+      try {
+        const response = await axios.delete(
+          `http://127.0.0.1:8080/property/${property.id}`
+        );
+        if (response.status === 200) {
+          alert("Deleted");
+          console.log(response);
+        } else {
+          console.log(response);
+          console.log("Failed to delete");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    } else if (action === "update") {
+      const currDate = new Date();
+      const datetime = currDate.toISOString().split("T")[0];
 
-    //     if (response.status === 200) {
-    //       alert('Updated');
-    //       console.log(response);
-    //     } else {
-    //       console.log(response);
-    //       console.log('Failed to update');
-    //     }
-    //   } catch (err) {
-    //     console.log('Error updating');
-    //     console.error(err);
-    //   }
-    // } else if (action === 'delete') {
-    //   try {
-    //     const response = await axios.delete(`http://localhost:5555/events/${id}`);
+      const propertyData = {
+        active: 1,
+        civic_address,
+        apt_number,
+        street,
+        neighbourhood,
+        city,
+        province,
+        postal_code,
+        country,
+        listing_type,
+        price,
+        living_area,
+        property_area,
+        num_bedrooms,
+        num_bathrooms,
+        num_floors,
+        year_built,
+        listed_date: datetime,
+        property_type,
+      };
 
-    //     if (response.status === 204) {
-    //       alert('Deleted');
-    //       console.log(response);
-    //     } else {
-    //       console.log(response);
-    //       console.log('Failed to delete');
-    //     }
-    //   } catch (err) {
-    //     console.log('Error deleting');
-    //     console.error(err);
-    //   }
-    // }
+      try {
+        const property = await axios.put(
+          "http://127.0.0.1:8080/property/" + property.id,
+          propertyData
+        );
+        console.log(property);
+
+        if (property.data.id) {
+          const data = {
+            broker_id: broker_id,
+            title: data.title,
+            property_id: property.data.id,
+            description: "",
+          };
+
+          const response = await axios.put(
+            "http://127.0.0.1:8080/listing",
+            data
+          );
+
+          if (response.status === 200) {
+            alert("Property added");
+          } else {
+            console.log(response);
+            console.log("Failed to update listing");
+            axios.delete(`http://127.0.0.1:8080/${property.data.id}`);
+          }
+        } else {
+          console.log("Failed to update property");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
 
   return (
@@ -59,50 +136,181 @@ const PropertyForm = ({ isFormOpen, data, closeForm }) => {
             className="close-button-x"
           />
         </button>
-        <h2>Property Information</h2>
-        <input
-          id="name"
-          type="text"
-          value={name}
-          placeholder="Name"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <input
-          id="type"
-          type="text"
-          value={type}
-          placeholder="Type"
-          onChange={(e) => setType(e.target.value)}
-        />
-        <input
-          id="address"
-          type="text"
-          value={address}
-          placeholder="Address"
-          onChange={(e) => setAddress(e.target.value)}
-        />
-        <input
-          id="price"
-          type="text"
-          value={price}
-          placeholder="Price"
-          onChange={(e) => setPrice(e.target.value)}
-        />
+        <h2>Add Property</h2>
 
+        <div className="form-pair">
+          <input
+            id="title"
+            type="text"
+            value={title}
+            placeholder="Title"
+            onChange={(e) => setTitle(e.target.value)}
+          />
+          <div className="form-property-listing-type">
+            <select
+              name="listing_type"
+              value={listing_type}
+              onChange={(e) => setListingType(e.target.value)}
+              required
+            >
+              <option value="sale">For Sale</option>
+              <option value="rent">For Rent</option>
+            </select>
+          </div>
+        </div>
+
+        <div className="form-pair">
+          <input
+            placeholder="Civic Address"
+            id="civic_address"
+            value={civic_address}
+            onChange={(e) => setCivicAddress(e.target.value)}
+          />
+          <input
+            placeholder="Apt Number"
+            id="apt_number"
+            value={apt_number}
+            onChange={(e) => setAptNumber(e.target.value)}
+          />
+        </div>
+
+        <div className="form-pair">
+          <input
+            id="street"
+            type="text"
+            value={street}
+            placeholder="Street"
+            onChange={(e) => setStreet(e.target.value)}
+          />
+          <input
+            id="neighbourhood"
+            type="text"
+            value={neighbourhood}
+            placeholder="Neighbourhood"
+            onChange={(e) => setNeighbourhood(e.target.value)}
+          />
+        </div>
+
+        <div className="form-pair">
+          <input
+            id="city"
+            type="text"
+            value={city}
+            placeholder="City"
+            onChange={(e) => setCity(e.target.value)}
+          />
+          <input
+            id="province"
+            type="text"
+            value={province}
+            placeholder="Province"
+            onChange={(e) => setProvince(e.target.value)}
+          />
+        </div>
+
+        <div className="form-pair">
+          <input
+            id="postal_code"
+            type="text"
+            value={postal_code}
+            placeholder="Postal Code"
+            onChange={(e) => setPostalCode(e.target.value)}
+          />
+          <input
+            id="country"
+            type="text"
+            value={country}
+            placeholder="Country"
+            onChange={(e) => setCountry(e.target.value)}
+          />
+        </div>
+
+        <div className="form-pair">
+          <div className="form-property-property-type">
+            <select
+              name="property_type"
+              value={property_type}
+              onChange={(e) => setPropertyType(e.target.value)}
+            >
+              <option value="other">Other</option>
+              <option value="single-family">Family</option>
+              <option value="duplex">Duplex</option>
+              <option value="triplex">Triplex</option>
+              <option value="quadruplex">Quadruplex</option>
+              <option value="townhouse">Townhouse</option>
+              <option value="studio">Studio</option>
+              <option value="condominium">Condominium</option>
+            </select>
+          </div>
+          <input
+            id="price"
+            type="number"
+            min="0"
+            value={price}
+            placeholder="Price"
+            onChange={(e) => setPrice(e.target.value)}
+          />
+        </div>
+        <div className="form-pair">
+          <input
+            id="living_area"
+            type="number"
+            min="0"
+            value={living_area}
+            placeholder="Living Area"
+            onChange={(e) => setLivingArea(e.target.value)}
+          />
+          <input
+            id="property_area"
+            type="number"
+            min="0"
+            value={property_area}
+            placeholder="Property Area"
+            onChange={(e) => setPropertyArea(e.target.value)}
+          />
+        </div>
+        <div className="form-pair">
+          <input
+            id="num_bedrooms"
+            type="number"
+            min="0"
+            max="10000"
+            value={num_bedrooms}
+            placeholder="Number of Bedrooms"
+            onChange={(e) => setNumBedrooms(e.target.value)}
+          />
+          <input
+            id="num_bathrooms"
+            type="number"
+            min="1"
+            max="10000"
+            value={num_bathrooms}
+            placeholder="Number of Bathrooms"
+            onChange={(e) => setNumBathrooms(e.target.value)}
+          />
+        </div>
+        <div className="form-pair">
+          <input
+            id="num_floors"
+            type="number"
+            min="1"
+            max="10000"
+            value={num_floors}
+            placeholder="Number of Floors"
+            onChange={(e) => setNumFloors(e.target.value)}
+          />
+          <input
+            id="year_built"
+            type="date"
+            min="1900-01-01"
+            value={year_built}
+            placeholder="Year Built"
+            onChange={(e) => setYearBuilt(e.target.value)}
+          />
+        </div>
         <div className="button-container">
-          <button
-            type="submit"
-            className="submit edit"
-            onClick={(e) => handleSubmit(e, "edit")}
-          >
-            Update
-          </button>
-          <button
-            type="submit"
-            className="submit-delete"
-            onClick={(e) => handleSubmit(e, "delete")}
-          >
-            Delete
+          <button type="submit" className="submit add">
+            Add
           </button>
         </div>
       </form>
