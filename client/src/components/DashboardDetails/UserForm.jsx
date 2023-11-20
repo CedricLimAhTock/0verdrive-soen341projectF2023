@@ -5,13 +5,13 @@ import xIconDark from "../../assets/xIcon_darkMode.svg";
 import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
 
 const UserForm = ({ isFormOpen, data, closeForm }) => {
-const { darkMode } = useContext(DarkModeContext);
-const [firstname, setFirstName] = useState(data.user.firstname || "");
-const [lastname, setLastName] = useState(data.user.lastname || "");
-const [phone, setPhone] = useState(data.user.phone || "");
-const [email, setEmail] = useState(data.user.email || "");
+  const { darkMode } = useContext(DarkModeContext);
+  const [firstname, setFirstName] = useState(data.user.firstname || "");
+  const [lastname, setLastName] = useState(data.user.lastname || "");
+  const [phone, setPhone] = useState(data.user.phone || "");
+  const [email, setEmail] = useState(data.user.email || "");
 
-const handleSubmit = async (event, action) => {
+  const handleSubmit = async (event, action) => {
     event.preventDefault();
 
     console.log(data);
@@ -22,12 +22,12 @@ const handleSubmit = async (event, action) => {
         console.log(lastname);
         console.log(phone);
         console.log(email);
-        
+
         const response = await axios.put(
           `http://127.0.0.1:8080/user/${data.user_id}`,
           {
             username: data.user.username,
-            fistname: firstname.toString(),
+            firstname: firstname.toString(),
             lastname: lastname.toString(),
             email: email.toString(),
             phone: phone.toString(),
@@ -47,7 +47,9 @@ const handleSubmit = async (event, action) => {
       }
     } else if (action === "delete") {
       try {
-        let response = await axios.delete(`http://127.0.0.1:8080/user/${data.user_id}`);
+        let response = await axios.delete(
+          `http://127.0.0.1:8080/user/${data.user_id}`
+        );
 
         // delete associated broker when user is deleted. should then also delete all properties :/
         await axios.delete(`http://127.0.0.1:8080/broker/${data.id}`);
@@ -69,8 +71,8 @@ const handleSubmit = async (event, action) => {
   return (
     <div className={isFormOpen ? "show" : "hide"}>
       <form className="popup-form" onSubmit={handleSubmit}>
-        <button onClick={closeForm} className="close-button"> 
-        <img
+        <button onClick={closeForm} className="close-button">
+          <img
             src={darkMode ? xIconDark : xIcon}
             alt="close"
             className="close-button-x"
