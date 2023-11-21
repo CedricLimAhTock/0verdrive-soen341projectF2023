@@ -11,7 +11,8 @@ const Home = () => {
   const property = {
     images: [
       {
-        original: "https://picsum.photos/id/1018/1000/600/",
+        original:
+          "https://www.vanulaw.com/wp-content/uploads/2017/10/house-03.jpg",
       },
       {
         original: "https://picsum.photos/id/1015/1000/600/",
@@ -64,8 +65,12 @@ const Home = () => {
           Explore our newest listings below!
         </div>
         <div className="explore-container-buttons">
-          <NavLink to = "/Browse" className="button">Buy</NavLink>
-          <NavLink to = "/Browse" className="button">Rent</NavLink>
+          <NavLink to="/Browse" className="button">
+            Buy
+          </NavLink>
+          <NavLink to="/Browse" className="button">
+            Rent
+          </NavLink>
         </div>
       </div>
       <div className="listing-container">

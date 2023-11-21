@@ -24,7 +24,8 @@ const BrokerDetailedCard = ({ broker }) => {
       if (!property.images || property.images.length === 0) {
         property.images = [
           {
-            original: "https://picsum.photos/id/1018/1000/600/",
+            original:
+              "https://www.vanulaw.com/wp-content/uploads/2017/10/house-03.jpg",
           },
         ];
       }
