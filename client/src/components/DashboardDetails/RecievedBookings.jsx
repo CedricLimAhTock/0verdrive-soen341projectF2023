@@ -27,7 +27,7 @@ const ReceivedBookings = ({ data, token }) => {
         const response = await axios.get(
           `http://localhost:8080/visit/broker/${brokerID}}`
         );
-        setBookingRecv(response.data);
+        setBookingRecv(response.data.reverse());
         console.log(response.data);
         for (const [key, value] of Object.entries(bookingData)) {
           console.log(`${key}: ${value}`);
@@ -46,7 +46,7 @@ const ReceivedBookings = ({ data, token }) => {
         <div className="header-type">User</div>
         <div className="header-status">Status</div>
         <div className="header-address">Email</div>
-        <div className="header-broker">Phone</div>
+        <div className="header-broker">Message</div>
       </div>
 
       <div className="booking-cards">
