@@ -33,10 +33,10 @@ const BuyerBookingCard = ({ data, expanded, toggleExpand }) => {
   return (
     <div className="whole-card" onClick={() => expand(event)}>
       <div className="buyer-booking-card">
-        <div className="property-type">{user.username}</div>
+        <div className="property-user">{user.username}</div>
         <div className={`property-status ${statusName}`}>{status}</div>
         <div className="property-email">{user.email}</div>
-        <div className="property-address">{message}</div>
+        <div className="property-message">{message}</div>
         {/* Date probably */}
       </div>
       {expanded && (
