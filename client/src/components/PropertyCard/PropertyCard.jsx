@@ -93,6 +93,10 @@ const PropertyCard = ({ property, decodedToken }) => {
             original:
               "https://www.vanulaw.com/wp-content/uploads/2017/10/house-03.jpg",
           },
+          {
+            original:
+              "https://www.rismedia.com/wp-content/uploads/2021/03/luxury_real_estate_1150278000-1-750x435.jpg",
+          },
         ];
       }
       return response.data;
