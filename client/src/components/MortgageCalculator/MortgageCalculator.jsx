@@ -132,7 +132,7 @@ const MortgageCalculator = ({ isOpen, onClose, property }) => {
 
         <label>
           Mortgage Result:
-          <span>${mortgageResult.toFixed(0)}</span>
+          <span>${mortgageResult.toFixed(2)}</span>
         </label>
 
         <div>
