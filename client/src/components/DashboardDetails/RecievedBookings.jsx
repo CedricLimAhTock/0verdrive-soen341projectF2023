@@ -43,10 +43,10 @@ const ReceivedBookings = ({ data, token }) => {
   return (
     <div className="bookings">
       <div className="booking-header">
-        <div className="header-type">Type</div>
+        <div className="header-type">User</div>
         <div className="header-status">Status</div>
-        <div className="header-address">Address</div>
-        <div className="header-broker">Broker</div>
+        <div className="header-address">Email</div>
+        <div className="header-broker">Phone</div>
       </div>
 
       <div className="booking-cards">
