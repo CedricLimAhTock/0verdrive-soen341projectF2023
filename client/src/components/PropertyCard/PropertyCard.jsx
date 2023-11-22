@@ -90,7 +90,12 @@ const PropertyCard = ({ property, decodedToken }) => {
       if (!response.data.images || response.data.images.length === 0) {
         response.data.images = [
           {
-            original: "https://picsum.photos/id/1018/1000/600/",
+            original:
+              "https://www.vanulaw.com/wp-content/uploads/2017/10/house-03.jpg",
+          },
+          {
+            original:
+              "https://www.rismedia.com/wp-content/uploads/2021/03/luxury_real_estate_1150278000-1-750x435.jpg",
           },
         ];
       }

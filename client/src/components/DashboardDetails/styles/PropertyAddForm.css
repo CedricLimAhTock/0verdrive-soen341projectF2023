@@ -1,6 +1,7 @@
 .popup-form {
   max-height: 45rem;
   max-width: 50rem;
+  overflow: scroll;
   /* padding-top: 15rem; */
 }
 
@@ -20,12 +21,39 @@
   width: 40rem;
 }
 
-
-
 input {
   width: 20rem;
 }
 
 select {
   width: 20rem;
+  appearance: none;
+  height: 2.5rem;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid var(--popup-color);
+  border-radius: 0.5rem;
+  outline: none;
+  font-size: 15px;
+  letter-spacing: 0.1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: var(--signin-inputs-color);
+  color: var(--text-color);
+}
+
+.form-property-listing-type .option {
+  appearance: none;
+  width: 90%;
+  height: 2.5rem;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid var(--popup-color);
+  border-radius: 0.5rem;
+  outline: none;
+  font-size: 15px;
+  letter-spacing: 0.1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: var(--signin-inputs-color);
+  color: var(--text-color);
+  
 }

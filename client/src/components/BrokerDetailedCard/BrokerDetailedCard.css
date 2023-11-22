@@ -5,6 +5,7 @@
   padding: 1rem;
   margin-top: -1.8rem;
   background-color: var(--background-color);
+  min-height: 61vh;
 }
 
 .broker-left-side {
@@ -26,7 +27,7 @@
 .profile-broker .detailed-profilepic {
   width: 10rem;
   border-radius: 0.5rem;
-  box-shadow: var(--box-shadow)
+  box-shadow: var(--box-shadow);
 }
 
 .broker-info {
@@ -51,6 +52,18 @@
 .broker-email {
   color: var(--text-color);
   margin-bottom: 5px;
+}
+
+.broker-phone {
+  color: var(--text-color);
+}
+
+.broker-agency {
+  color: var(--text-color);
+}
+
+.broker-license {
+  color: var(--text-color);
 }
 
 .broker-desc {
@@ -78,10 +91,9 @@
 
 .contact-form h3 {
   font-size: 1.4rem;
-  margin-bottom: 10px;
+  margin-bottom: 1.5rem;
   color: var(--text-color);
 }
-
 
 .contact-form input,
 .contact-form textarea {
@@ -108,10 +120,10 @@
 }
 
 .carousel-properties {
- 
   margin-top: -0.5rem;
   padding-bottom: 1rem;
   background-color: var(--background-color);
+  min-height: 30rem;
 }
 
 .contact-form input:hover,

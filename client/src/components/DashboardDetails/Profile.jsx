@@ -14,7 +14,7 @@ const Profile = ({ data, token }) => {
   const [lastName, setLastName] = useState(decodedToken.lastname || "");
   const [email, setEmail] = useState(decodedToken.email || "");
   const [phone, setPhoneNumber] = useState(decodedToken.phone || "");
-  const [address, setAddress] = useState(decodedToken.address || "");
+  // const [address, setAddress] = useState(decodedToken.address || "");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -62,7 +62,7 @@ const Profile = ({ data, token }) => {
           setUsername(res.data.username);
           setEmail(res.data.email);
           setPhoneNumber(res.data.phone);
-          setAddress(res.data.address);
+          // setAddress(res.data.address);
         })
         .catch((error) => {
           console.log("Error in profile.jsx: ", error);
@@ -140,7 +140,7 @@ const Profile = ({ data, token }) => {
             </div>
           </div>
           <div className="form-row">
-            <div className="form-group">
+            {/* <div className="form-group">
               <label htmlFor="address">Address</label>
               <input
                 type="text"
@@ -149,7 +149,7 @@ const Profile = ({ data, token }) => {
                 onChange={(event) => setAddress(event.target.value)}
                 id="address"
               />
-            </div>
+            </div> */}
           </div>
           <button className="profile-update" type="submit">
             Update

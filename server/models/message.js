@@ -38,7 +38,7 @@ const Message = sequelize.define(
         timestamps: false,
         underscored: true,
         freezeTableName: true,
-        tableName: "listings"
+        tableName: "message"
     }
 );
 

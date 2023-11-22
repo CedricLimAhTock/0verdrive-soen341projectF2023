@@ -133,6 +133,7 @@ b {
   object-fit: hidden;
   border-radius: 0.625rem 0.625rem 0.625rem 0.625rem;
   overflow: hidden;
+  height: 40rem;
 }
 
 .carousel-detailed .image-gallery-left-nav {
@@ -141,4 +142,8 @@ b {
 
 .carousel-detailed .image-gallery-right-nav {
   scale: 65%;
+}
+
+.carousel-detailed .image-gallery-slide img {
+  overflow: hidden;
 }

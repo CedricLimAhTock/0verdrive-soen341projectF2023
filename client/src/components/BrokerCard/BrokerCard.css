@@ -14,13 +14,12 @@
 .brokerCard:hover {
   box-shadow: var(--box-shadow-hover);
   transition: all 0.3s ease;
-  
 }
 
 .profilepic {
   width: 6rem;
   height: auto;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 
 .info {
@@ -38,7 +37,8 @@
   min-height: 60rem;
 }
 
-.email {
+.email,
+.agency {
   margin-left: 2rem;
   color: var(--text-color);
 }

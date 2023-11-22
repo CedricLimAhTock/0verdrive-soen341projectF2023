@@ -17,14 +17,16 @@
 .header-status,
 .header-address,
 .header-price,
-.header-broker {
+.header-broker,
+.header-user,
+.header-message {
   padding: 10px;
   text-align: center;
   border-right: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   font-weight: 500;
   color: var(--logo-color);
-  background-color: var(--header-color) /* Background color for header cells */
+  background-color: var(--header-color); /* Background color for header cells */
 }
 
 .broker {
@@ -41,12 +43,14 @@
   color: var(--text-color);
 }
 
-.header-address {
+.header-address,
+.header-message {
   width: 35%;
   color: var(--text-color);
 }
 
-.header-price {
+.header-price,
+.header-user {
   width: 15%;
   color: var(--text-color);
 }
@@ -102,12 +106,14 @@
   align-items: center;
 }
 
-.property-address {
+.property-address,
+.property-message {
   width: 35%;
   color: var(--text-color);
 }
 
-.property-price {
+.property-price,
+.property-user {
   width: 15%;
   color: var(--text-color);
 }
