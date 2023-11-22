@@ -13,9 +13,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: sibiraj-s/action-eslint@v3
-        with:
-          eslint-args: '--ignore-path=.gitignore --quiet'
-          extensions: 'js,jsx'
-          annotations: true
-          files: server/
+      - name: ESLint
+        run: ./node_modules/eslint/bin/eslint.js ./ --ext .js,.jsx
