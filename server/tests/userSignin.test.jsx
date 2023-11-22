@@ -1,7 +1,8 @@
 import { expect, test } from "vitest";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
-test("Test signing user", async (t) => {
+test("Test signing user", async () => {
+  let localStorage = null;
   // Define the search query
   const query1 = { username: "goofymemory", password: "root" };
 
