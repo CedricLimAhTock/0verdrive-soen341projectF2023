@@ -14,4 +14,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: ESLint
-        run: server/node_modules/eslint/bin/eslint.js ./ --ext .js,.jsx
+        run: npx eslint server/ --ext .js,.jsx
