@@ -1,28 +1,28 @@
 import { Op } from "sequelize";
-import User from '../models/user.js';
-import Offer from '../models/offer.js';
-import Broker from '../models/broker.js';
-import Property from '../models/property.js';
+import User from "../models/user.js";
+import Offer from "../models/offer.js";
+import Broker from "../models/broker.js";
+import Property from "../models/property.js";
 import Listing from "../models/listing.js";
 
 const list = async (req, res) => {
     try {
         let offers = await Offer.findAll({
-            attributes: ['id', 'active', 'broker_id', 'property_id', 'parent_id', 'user_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
+            attributes: ["id", "active", "broker_id", "property_id", "parent_id", "user_id", "price", "deed_of_sale_date", "occupancy_date", "status"],
             include: [
                 {
                     model: User,
-                    attributes: ['id', 'firstname', 'lastname', 'address', 'email', 'phone'],
+                    attributes: ["id", "firstname", "lastname", "address", "email", "phone"],
                     required: true
                 },
                 {
                     model: Broker,
-                    attributes: ['id', 'license_number', 'agency', 'email', 'phone'],
+                    attributes: ["id", "license_number", "agency", "email", "phone"],
                     required: true
                 },
                 {
                     model: Property,
-                    attributes: ['id', 'civic_address', 'apt_number', 'street', 'neighbourhood', 'city', 'province', 'postal_code', 'country'],
+                    attributes: ["id", "civic_address", "apt_number", "street", "neighbourhood", "city", "province", "postal_code", "country"],
                     required: true
                 }
             ]
@@ -37,29 +37,29 @@ const list = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listById = async (req, res) => {
     try {
         let offer = await Offer.findOne({
-            attributes: ['id', 'active', 'broker_id', 'property_id', 'parent_id', 'user_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
+            attributes: ["id", "active", "broker_id", "property_id", "parent_id", "user_id", "price", "deed_of_sale_date", "occupancy_date", "status"],
             include: [
                 {
                     model: User,
-                    attributes: ['id', 'firstname', 'lastname', 'address', 'email', 'phone'],
+                    attributes: ["id", "firstname", "lastname", "address", "email", "phone"],
                     required: true
                 },
                 {
                     model: Broker,
-                    attributes: ['id', 'license_number', 'agency', 'email', 'phone'],
+                    attributes: ["id", "license_number", "agency", "email", "phone"],
                     required: true
                 },
                 {
                     model: Property,
-                    attributes: ['id', 'civic_address', 'apt_number', 'street', 'neighbourhood', 'city', 'province', 'postal_code', 'country'],
+                    attributes: ["id", "civic_address", "apt_number", "street", "neighbourhood", "city", "province", "postal_code", "country"],
                     required: true
                 }
             ],
@@ -75,30 +75,30 @@ const listById = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listByUserId = async (req, res) => {
     try {
         let offer = await Offer.findAll({
-            attributes: ['id', 'active', 'broker_id', 'property_id', 'parent_id', 'user_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
+            attributes: ["id", "active", "broker_id", "property_id", "parent_id", "user_id", "price", "deed_of_sale_date", "occupancy_date", "status"],
             include: [
                 {
                     model: User,
-                    attributes: ['id', 'firstname', 'lastname', 'address', 'email', 'phone'],
+                    attributes: ["id", "firstname", "lastname", "address", "email", "phone"],
                     required: true,
                     where: {id: req.params.id}
                 },
                 {
                     model: Broker,
-                    attributes: ['id', 'license_number', 'agency', 'email', 'phone'],
+                    attributes: ["id", "license_number", "agency", "email", "phone"],
                     required: true
                 },
                 {
                     model: Property,
-                    attributes: ['id', 'civic_address', 'apt_number', 'street', 'neighbourhood', 'city', 'province', 'postal_code', 'country'],
+                    attributes: ["id", "civic_address", "apt_number", "street", "neighbourhood", "city", "province", "postal_code", "country"],
                     required: true
                 }
             ]
@@ -113,30 +113,30 @@ const listByUserId = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listByBrokerId = async (req, res) => {
     try {
         let offer = await Offer.findAll({
-            attributes: ['id', 'active', 'broker_id', 'property_id', 'parent_id', 'user_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
+            attributes: ["id", "active", "broker_id", "property_id", "parent_id", "user_id", "price", "deed_of_sale_date", "occupancy_date", "status"],
             include: [
                 {
                     model: User,
-                    attributes: ['id', 'firstname', 'lastname', 'address', 'email', 'phone'],
+                    attributes: ["id", "firstname", "lastname", "address", "email", "phone"],
                     required: true
                 },
                 {
                     model: Broker,
-                    attributes: ['id', 'license_number', 'agency', 'email', 'phone'],
+                    attributes: ["id", "license_number", "agency", "email", "phone"],
                     required: true,
                     where: {id: req.params.id}
                 },
                 {
                     model: Property,
-                    attributes: ['id', 'civic_address', 'apt_number', 'street', 'neighbourhood', 'city', 'province', 'postal_code', 'country'],
+                    attributes: ["id", "civic_address", "apt_number", "street", "neighbourhood", "city", "province", "postal_code", "country"],
                     required: true
                 }
             ]
@@ -151,30 +151,30 @@ const listByBrokerId = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listByMakerId = async (req, res) => {
     try {
         let offer = await Offer.findAll({
-            attributes: ['id', 'active', 'broker_id', 'property_id', 'parent_id', 'user_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
+            attributes: ["id", "active", "broker_id", "property_id", "parent_id", "user_id", "price", "deed_of_sale_date", "occupancy_date", "status"],
             where: {parent_id: req.params.id},
             include: [
                 {
                     model: User,
-                    attributes: ['id', 'firstname', 'lastname', 'address', 'email', 'phone'],
+                    attributes: ["id", "firstname", "lastname", "address", "email", "phone"],
                     required: true
                 },
                 {
                     model: Broker,
-                    attributes: ['id', 'license_number', 'agency', 'email', 'phone'],
+                    attributes: ["id", "license_number", "agency", "email", "phone"],
                     required: true
                 },
                 {
                     model: Property,
-                    attributes: ['id', 'civic_address', 'apt_number', 'street', 'neighbourhood', 'city', 'province', 'postal_code', 'country'],
+                    attributes: ["id", "civic_address", "apt_number", "street", "neighbourhood", "city", "province", "postal_code", "country"],
                     required: true
                 }
             ]
@@ -189,29 +189,29 @@ const listByMakerId = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listByPropertyId = async (req, res) => {
     try {
         let offer = await Offer.findAll({
-            attributes: ['id', 'active', 'broker_id', 'property_id', 'parent_id', 'user_id', 'price', 'deed_of_sale_date', 'occupancy_date', 'status'],
+            attributes: ["id", "active", "broker_id", "property_id", "parent_id", "user_id", "price", "deed_of_sale_date", "occupancy_date", "status"],
             include: [
                 {
                     model: User,
-                    attributes: ['id', 'firstname', 'lastname', 'address', 'email', 'phone'],
+                    attributes: ["id", "firstname", "lastname", "address", "email", "phone"],
                     required: true
                 },
                 {
                     model: Broker,
-                    attributes: ['id', 'license_number', 'agency', 'email', 'phone'],
+                    attributes: ["id", "license_number", "agency", "email", "phone"],
                     required: true
                 },
                 {
                     model: Property,
-                    attributes: ['id', 'civic_address', 'apt_number', 'street', 'neighbourhood', 'city', 'province', 'postal_code', 'country'],
+                    attributes: ["id", "civic_address", "apt_number", "street", "neighbourhood", "city", "province", "postal_code", "country"],
                     required: true,
                     where: {id: req.params.id}
                 }
@@ -227,10 +227,10 @@ const listByPropertyId = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const create = async (req, res) => {
     try {
@@ -244,23 +244,23 @@ const create = async (req, res) => {
             return res.status(400).json({message: "Invalid id for user"});
         }
         // check target broker
-        const broker = await Broker.findOne({ attributes: ['id'], where: { id: data.broker_id } });
+        const broker = await Broker.findOne({ attributes: ["id"], where: { id: data.broker_id } });
         if (!broker) {
             return res.status(400).json({message: "Invalid id for broker"});
         }
         // check owner broker
-        const parent = await Broker.findOne({ attributes: ['id'], where: { id: data.parent_id } });
+        const parent = await Broker.findOne({ attributes: ["id"], where: { id: data.parent_id } });
         if (!parent) {
             return res.status(400).json({message: "Invalid id for parent broker"});
         }
         // check property
-        const listing = await Listing.findOne({ attributes: ['id'], where: { broker_id: data.broker_id, property_id: data.property_id } });
+        const listing = await Listing.findOne({ attributes: ["id"], where: { broker_id: data.broker_id, property_id: data.property_id } });
         if (!listing) {
             return res.status(400).json({message: "Property does not belong to broker."});
         }
 
         const [offer, created] = await Offer.findOrCreate({
-            attributes: ['id'],
+            attributes: ["id"],
             where: {
                 [Op.and]: [
                     { user_id: data.user_id },
@@ -293,10 +293,10 @@ const create = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const update = async (req, res) => {
     try {
@@ -326,10 +326,10 @@ const update = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const updateById = async (req, res) => {
     try {
@@ -355,16 +355,16 @@ const updateById = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 
 const destroy = async (req, res) => {
     try {
         const offer = await Offer.findOne({
-            attributes: ['id'],
+            attributes: ["id"],
             where: {id: req.params.id}
         });
 
@@ -379,9 +379,9 @@ const destroy = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 export default { list, listById, listByUserId, listByBrokerId, listByMakerId, listByPropertyId, update, updateById, create, destroy};

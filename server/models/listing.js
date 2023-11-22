@@ -20,7 +20,7 @@ const Listing = sequelize.define(
             allowNull: false,
             references: {
                 model: Broker,
-                key: 'id'
+                key: "id"
             }
         },
         property_id: {
@@ -28,7 +28,7 @@ const Listing = sequelize.define(
             allowNull: false,
             references: {
                 model: Property,
-                key: 'id'
+                key: "id"
             }
         },
         title: {
@@ -46,8 +46,8 @@ const Listing = sequelize.define(
     }
 );
 
-Broker.hasMany(Listing, { foreignKey: 'broker_id' });
-Property.hasMany(Listing, { foreignKey: 'property_id' });
+Broker.hasMany(Listing, { foreignKey: "broker_id" });
+Property.hasMany(Listing, { foreignKey: "property_id" });
 Listing.belongsTo(Property);
 Listing.belongsTo(Broker);
 

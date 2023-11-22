@@ -1,24 +1,24 @@
-import express from 'express';
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-import User from '../../models/user.js';
-import User_role from '../../models/user_role.js';
-import Role from '../../models/role.js';
-import Broker from '../../models/broker.js';
+import express from "express";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import User from "../../models/user.js";
+import User_role from "../../models/user_role.js";
+import Role from "../../models/role.js";
+import Broker from "../../models/broker.js";
 
 const router = express.Router();
 
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const { username, password } = req.body;
     const user = await User.findOne({
-      attributes: ['id', 'username', 'password'],
+      attributes: ["id", "username", "password"],
       where: { username: username }
     });
 
     if (!user) {
       return res.status(404).json({
-        message: 'User not found',
+        message: "User not found",
       });
     }
 
@@ -26,12 +26,12 @@ router.post('/', async (req, res) => {
 
     if (!passwordMatch) {
       return res.status(401).json({
-        message: 'Authentication failed',
+        message: "Authentication failed",
       });
     }
 
     const user_role = await User_role.findOne({
-      attributes: ['id', 'active', 'user_id', 'role_id'],
+      attributes: ["id", "active", "user_id", "role_id"],
       include: [
         {
             model: User,
@@ -41,7 +41,7 @@ router.post('/', async (req, res) => {
         {
           model: Role,
           required: true,
-          attributes: ['type']
+          attributes: ["type"]
         }
       ],
       where: {
@@ -50,7 +50,7 @@ router.post('/', async (req, res) => {
     });
 
     let broker = await Broker.findOne({
-        attributes: ['id', 'active', 'user_id', 'license_number', 'agency', 'email', 'phone'],
+        attributes: ["id", "active", "user_id", "license_number", "agency", "email", "phone"],
         where: {
           user_id: user.id
         }
@@ -74,7 +74,7 @@ router.post('/', async (req, res) => {
     res.status(200).json({ token });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: "Server error" });
   }
 });
 

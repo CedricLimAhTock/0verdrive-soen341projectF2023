@@ -6,7 +6,7 @@ test("Test signing user", async (t) => {
   const query1 = { username: "goofymemory", password: "root" };
 
   // Make a request to the search API
-  const response = await axios.post(`http://localhost:8080/signin/`, query1);
+  const response = await axios.post("http://localhost:8080/signin/", query1);
 
   // Assert that the response status is 200 (OK)
   expect(response.status).toBe(200);

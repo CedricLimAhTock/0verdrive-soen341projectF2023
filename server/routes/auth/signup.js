@@ -54,14 +54,14 @@ router.post("/", async (req, res) => {
     } else {
 
       // each new user must have a role associated
-      const [user_role,ur_created] = await User_role.findOrCreate({
-        attributes: ['id'],
+      const [user_role, ur_created] = await User_role.findOrCreate({
+        attributes: ["id"],
         where: {
-            user_id: user.id
+          user_id: user.id
         },
         defaults: {
-            active: 1,
-            role_id: role.id
+          active: 1,
+          role_id: role.id
         }
       });
       if (!ur_created) {
@@ -71,23 +71,22 @@ router.post("/", async (req, res) => {
 
       // if user is a broker, create an entry in broker table
       let uuid = crypto.randomUUID();
-      let broker = null;
       if (role.type == "broker") {
         const [broker, b_created] = await Broker.findOrCreate({
-          attributes: ['id'],
+          attributes: ["id"],
           where: {
-              [Op.or]: {
-                  user_id: user.id,
-                  license_number: uuid
-              }
+            [Op.or]: {
+              user_id: user.id,
+              license_number: uuid
+            }
           },
           defaults: {
-              active: 1,
-              user_id: user.id,
-              license_number: uuid,
-              agency: "",
-              email: user.email,
-              phone: user.phone
+            active: 1,
+            user_id: user.id,
+            license_number: uuid,
+            agency: "",
+            email: user.email,
+            phone: user.phone
           }
         });
 

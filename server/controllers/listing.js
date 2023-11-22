@@ -6,29 +6,29 @@ import Listing from "../models/listing.js";
 const list = async (req, res) => {
     try {
         let listings = await Listing.findAll({
-            attributes: ['id', 'active', 'broker_id', 'property_id', 'title', 'description'],
+            attributes: ["id", "active", "broker_id", "property_id", "title", "description"],
             include: [
                 {
                     model: Broker,
-                    attributes: ['id', 'active', 'user_id', 'license_number', 'agency', 'email', 'phone'],
+                    attributes: ["id", "active", "user_id", "license_number", "agency", "email", "phone"],
                     required: true
                 },
                 {
                     model: Property,
                     attributes: [
-                        'id',
-                        'active',
-                        'address',
-                        'listing_type',
-                        'price',
-                        'living_area',
-                        'property_area',
-                        'num_bedrooms',
-                        'num_bathrooms',
-                        'num_floors',
-                        'year_built',
-                        'listed_date',
-                        'property_type'
+                        "id",
+                        "active",
+                        "address",
+                        "listing_type",
+                        "price",
+                        "living_area",
+                        "property_area",
+                        "num_bedrooms",
+                        "num_bathrooms",
+                        "num_floors",
+                        "year_built",
+                        "listed_date",
+                        "property_type"
                     ],
                     required: true
                 }
@@ -44,37 +44,37 @@ const list = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listById = async (req, res) => {
     try {
         let listing = await Listing.findOne({
-            attributes: ['id', 'active', 'broker_id', 'property_id', 'title', 'description'],
+            attributes: ["id", "active", "broker_id", "property_id", "title", "description"],
             include: [
                 {
                     model: Broker,
-                    attributes: ['id', 'active', 'user_id', 'license_number', 'agency', 'email', 'phone'],
+                    attributes: ["id", "active", "user_id", "license_number", "agency", "email", "phone"],
                     required: true
                 },
                 {
                     model: Property,
                     attributes: [
-                        'id',
-                        'active',
-                        'address',
-                        'listing_type',
-                        'price',
-                        'living_area',
-                        'property_area',
-                        'num_bedrooms',
-                        'num_bathrooms',
-                        'num_floors',
-                        'year_built',
-                        'listed_date',
-                        'property_type'
+                        "id",
+                        "active",
+                        "address",
+                        "listing_type",
+                        "price",
+                        "living_area",
+                        "property_area",
+                        "num_bedrooms",
+                        "num_bathrooms",
+                        "num_floors",
+                        "year_built",
+                        "listed_date",
+                        "property_type"
                     ],
                     required: true
                 }
@@ -91,37 +91,37 @@ const listById = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listByBrokerId = async (req, res) => {
     try {
         const listing = await Listing.findAll({
-            attributes: ['id', 'active', 'broker_id', 'property_id', 'title', 'description'],
+            attributes: ["id", "active", "broker_id", "property_id", "title", "description"],
             include: [
                 {
                     model: Broker,
-                    attributes: ['id', 'active', 'user_id', 'license_number', 'agency', 'email', 'phone'],
+                    attributes: ["id", "active", "user_id", "license_number", "agency", "email", "phone"],
                     required: true
                 },
                 {
                     model: Property,
                     attributes: [
-                        'id',
-                        'active',
-                        'address',
-                        'listing_type',
-                        'price',
-                        'living_area',
-                        'property_area',
-                        'num_bedrooms',
-                        'num_bathrooms',
-                        'num_floors',
-                        'year_built',
-                        'listed_date',
-                        'property_type'
+                        "id",
+                        "active",
+                        "address",
+                        "listing_type",
+                        "price",
+                        "living_area",
+                        "property_area",
+                        "num_bedrooms",
+                        "num_bathrooms",
+                        "num_floors",
+                        "year_built",
+                        "listed_date",
+                        "property_type"
                     ],
                     required: true
                 }
@@ -138,37 +138,37 @@ const listByBrokerId = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listByPropertyId = async (req, res) => {
     try {
         const listing = await Listing.findAll({
-            attributes: ['id', 'active', 'broker_id', 'property_id', 'title', 'description'],
+            attributes: ["id", "active", "broker_id", "property_id", "title", "description"],
             include: [
                 {
                     model: Broker,
-                    attributes: ['id', 'active', 'user_id', 'license_number', 'agency', 'email', 'phone'],
+                    attributes: ["id", "active", "user_id", "license_number", "agency", "email", "phone"],
                     required: true
                 },
                 {
                     model: Property,
                     attributes: [
-                        'id',
-                        'active',
-                        'address',
-                        'listing_type',
-                        'price',
-                        'living_area',
-                        'property_area',
-                        'num_bedrooms',
-                        'num_bathrooms',
-                        'num_floors',
-                        'year_built',
-                        'listed_date',
-                        'property_type'
+                        "id",
+                        "active",
+                        "address",
+                        "listing_type",
+                        "price",
+                        "living_area",
+                        "property_area",
+                        "num_bedrooms",
+                        "num_bathrooms",
+                        "num_floors",
+                        "year_built",
+                        "listed_date",
+                        "property_type"
                     ],
                     required: true
                 }
@@ -185,10 +185,10 @@ const listByPropertyId = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const createWithProperty = async (req, res) => {
     try {
@@ -199,18 +199,18 @@ const createWithProperty = async (req, res) => {
             return res.status(400).json({ message: "broker id or property data cannot be null." });
         }
 
-        let temp = await Broker.findOne({attributes: ['id'], where: {id: data.broker_id }});
+        let temp = await Broker.findOne({attributes: ["id"], where: {id: data.broker_id }});
 
         if (!temp) {
             return res.status(400).json({ message: "broker does not exist." });
         }
 
-        req.body.price ? pass : delete data.price;
-        req.body.living_area ? pass : delete data.living_area;
-        req.body.property_area ? pass : delete data.property_area;
-        req.body.num_bathrooms ? pass : delete data.num_bathrooms;
-        req.body.num_bedrooms ? pass : delete data.num_bedrooms;
-        req.body.num_floors ? pass : delete data.num_floors;
+        if (!req.body.price) { delete data.price; }
+        if (!req.body.living_area) { delete data.living_area; }
+        if (!req.body.property_area) { delete data.property_area; }
+        if (!req.body.num_bathrooms) { delete data.num_bathrooms; }
+        if (!req.body.num_bedrooms) { delete data.num_bedrooms; }
+        if (!req.body.num_floors) { delete data.num_floors; }
 
         let property_address = [
             data.property.apt_number,
@@ -223,7 +223,7 @@ const createWithProperty = async (req, res) => {
             data.property.postal_code].join(" ");
 
         const [property, created] = await Property.findOrCreate({
-            attributes: ['id'],
+            attributes: ["id"],
             where: {id: null},
             defaults: {
                 active: 1,
@@ -253,7 +253,7 @@ const createWithProperty = async (req, res) => {
         }
 
         const [listing, lcreated] = await Listing.findOrCreate({
-            attributes: ['id'],
+            attributes: ["id"],
             where: {
                 broker_id: data.broker_id,
                 property_id: property.id
@@ -275,10 +275,10 @@ const createWithProperty = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const create = async (req, res) => {
     try {
@@ -288,20 +288,20 @@ const create = async (req, res) => {
             return res.status(400).json({ message: "broker or property id cannot be null." });
         }        
 
-        let temp = await Broker.findOne({attributes: ['id'], where: {id: data.broker_id }});
+        let temp = await Broker.findOne({attributes: ["id"], where: {id: data.broker_id }});
 
         if (!temp) {
             return res.status(400).json({ message: "broker does not exist." });
         }
 
-        temp = await Property.findOne({attributes: ['id'], where: {id: data.property_id }});
+        temp = await Property.findOne({attributes: ["id"], where: {id: data.property_id }});
 
         if (!temp) {
             return res.status(400).json({ message: "property does not exist." });
         }
 
         const [listing, created] = await Listing.findOrCreate({
-            attributes: ['id'],
+            attributes: ["id"],
             where: {
                 broker_id: data.broker_id,
                 property_id: data.property_id
@@ -323,10 +323,10 @@ const create = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const update = async (req, res) => {
     try {
@@ -337,7 +337,7 @@ const update = async (req, res) => {
             return res.status(400).json();
         }
 
-        const listing = await Listing.findOne({attributes: ['id'], where: {id: listing_id}});
+        const listing = await Listing.findOne({attributes: ["id"], where: {id: listing_id}});
 
         if (!listing) {
             return res.status(400).json();
@@ -354,10 +354,10 @@ const update = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 
 const updateById = async (req, res) => {
@@ -369,7 +369,7 @@ const updateById = async (req, res) => {
             return res.status(400).json();
         }
 
-        const listing = await Listing.findOne({attributes: ['id'], where: {id: listing_id}});
+        const listing = await Listing.findOne({attributes: ["id"], where: {id: listing_id}});
 
         if (!listing) {
             return res.status(400).json();
@@ -386,15 +386,15 @@ const updateById = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const destroy = async (req, res) => {
     try {
         const listing = await Listing.findOne({
-            attributes: ['id'],
+            attributes: ["id"],
             where: {
                 id: req.params.id
             }
@@ -411,10 +411,10 @@ const destroy = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 export default {
     list, listById, listByBrokerId, listByPropertyId, create, createWithProperty, update, updateById, destroy

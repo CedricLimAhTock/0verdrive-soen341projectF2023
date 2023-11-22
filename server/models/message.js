@@ -1,6 +1,5 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../database/database.js";
-import Broker from "./broker.js";
 import User from "./user.js";
 
 const Message = sequelize.define(
@@ -20,7 +19,7 @@ const Message = sequelize.define(
             allowNull: false,
             references: {
                 model: User,
-                key: 'id'
+                key: "id"
             }
         },
         user_id: {
@@ -28,7 +27,7 @@ const Message = sequelize.define(
             allowNull: false,
             references: {
                 model: User,
-                key: 'id'
+                key: "id"
             }
         },
         message: {
@@ -43,8 +42,8 @@ const Message = sequelize.define(
     }
 );
 
-User.hasMany(Message, { foreignKey: 'user_id' });
-User.hasMany(Message, { foreignKey: 'parent_id' });
+User.hasMany(Message, { foreignKey: "user_id" });
+User.hasMany(Message, { foreignKey: "parent_id" });
 Message.belongsTo(User);
 
 export default Message;

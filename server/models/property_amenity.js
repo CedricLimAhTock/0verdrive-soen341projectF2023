@@ -19,14 +19,14 @@ const Property_amenity = sequelize.define(
             type: DataTypes.BIGINT,
             references: {
                 model: Property,
-                key: 'id',
+                key: "id",
             }
         },
         amenity_id: {
             type: DataTypes.BIGINT,
             references: {
                 model: Amenity,
-                key: 'id',
+                key: "id",
             }
         }
     },

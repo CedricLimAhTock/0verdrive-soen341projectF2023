@@ -1,24 +1,24 @@
-import express from 'express';
-import listingController from '../controllers/listing.js';
+import express from "express";
+import listingController from "../controllers/listing.js";
 
 const router = express.Router();
 
-router.get('/', listingController.list);
+router.get("/", listingController.list);
 
-router.get('/:id', listingController.listById);
+router.get("/:id", listingController.listById);
 
-router.get('/broker/:id', listingController.listByBrokerId);
+router.get("/broker/:id", listingController.listByBrokerId);
 
-router.get('/property/:id', listingController.listByPropertyId);
+router.get("/property/:id", listingController.listByPropertyId);
 
-router.post('/', listingController.create);
-router.post('/property', listingController.createWithProperty);
+router.post("/", listingController.create);
+router.post("/property", listingController.createWithProperty);
 
 
-router.put('/', listingController.update);
+router.put("/", listingController.update);
 
-router.put('/:id', listingController.updateById);
+router.put("/:id", listingController.updateById);
 
-router.delete('/:id', listingController.destroy);
+router.delete("/:id", listingController.destroy);
 
 export default router;

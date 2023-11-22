@@ -1,4 +1,4 @@
-import { DATEONLY, DataTypes, Sequelize } from "sequelize";
+import { DataTypes } from "sequelize";
 import sequelize from "../database/database.js";
 
 const Property = sequelize.define(
@@ -40,7 +40,7 @@ const Property = sequelize.define(
             type: DataTypes.STRING
         },
         listing_type: {
-            type: DataTypes.ENUM('sale', 'rent')
+            type: DataTypes.ENUM("sale", "rent")
         },
         price: {
             type: DataTypes.FLOAT
@@ -67,7 +67,7 @@ const Property = sequelize.define(
             type: DataTypes.DATEONLY
         },
         property_type: {
-            type: DataTypes.ENUM('single-family', 'duplex', 'triplex', 'quadruplex', 'townhouse', 'studio', 'condominium', 'other')
+            type: DataTypes.ENUM("single-family", "duplex", "triplex", "quadruplex", "townhouse", "studio", "condominium", "other")
         },
         address: {
             type: DataTypes.STRING

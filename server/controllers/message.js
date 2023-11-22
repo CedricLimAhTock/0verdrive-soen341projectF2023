@@ -1,9 +1,10 @@
 import Message from "../models/message.js";
+import User from "../models/user.js";
 
 const list = async (req, res) => {
     try {
         let message = await Message.findAll({
-            attributes: ['id', 'active', 'parent_id', 'user_id', 'message']
+            attributes: ["id", "active", "parent_id", "user_id", "message"]
         });
 
         if (!message) {
@@ -15,15 +16,15 @@ const list = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listById = async (req, res) => {
     try {
         let message = await Message.findOne({
-            attributes: ['id', 'active', 'parent_id', 'user_id', 'message'],
+            attributes: ["id", "active", "parent_id", "user_id", "message"],
             where: {id: req.params.id}
         });
 
@@ -36,15 +37,15 @@ const listById = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listSentByUserId = async (req, res) => {
     try {
         const message = await Message.findAll({
-            attributes: ['id', 'active', 'parent_id', 'user_id', 'message'],
+            attributes: ["id", "active", "parent_id", "user_id", "message"],
             where: {parent_id: req.params.id}
         });
 
@@ -57,15 +58,15 @@ const listSentByUserId = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listReceivedByUserId = async (req, res) => {
     try {
         const message = await Message.findAll({
-            attributes: ['id', 'active', 'parent_id', 'user_id', 'message'],
+            attributes: ["id", "active", "parent_id", "user_id", "message"],
             where: {user_id: req.params.id}
         });
 
@@ -78,10 +79,10 @@ const listReceivedByUserId = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 
 const create = async (req, res) => {
@@ -92,20 +93,20 @@ const create = async (req, res) => {
             return res.status(400).json({ message: "user id cannot be null." });
         }        
 
-        let temp = await User.findOne({attributes: ['id'], where: {id: data.parent_id }});
+        let temp = await User.findOne({attributes: ["id"], where: {id: data.parent_id }});
 
         if (!temp) {
             return res.status(404).json({ message: "sender does not exist." });
         }
 
-        temp = await User.findOne({attributes: ['id'], where: {id: data.user_id }});
+        temp = await User.findOne({attributes: ["id"], where: {id: data.user_id }});
 
         if (!temp) {
             return res.status(404).json({ message: "receiver does not exist." });
         }
 
         const message = await Message.create({
-            attributes: ['id'],
+            attributes: ["id"],
             where: {
                 active: data.active,
                 parent_id: data.parent_id,
@@ -121,10 +122,10 @@ const create = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const update = async (req, res) => {
     try {
@@ -135,7 +136,7 @@ const update = async (req, res) => {
             return res.status(400).json();
         }
 
-        const message = await Message.findOne({attributes: ['id'], where: {id: message_id}});
+        const message = await Message.findOne({attributes: ["id"], where: {id: message_id}});
 
         if (!message) {
             return res.status(404).json();
@@ -152,10 +153,10 @@ const update = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 
 const updateById = async (req, res) => {
@@ -167,7 +168,7 @@ const updateById = async (req, res) => {
             return res.status(400).json();
         }
 
-        const message = await Message.findOne({attributes: ['id'], where: {id: message_id}});
+        const message = await Message.findOne({attributes: ["id"], where: {id: message_id}});
 
         if (!message) {
             return res.status(404).json();
@@ -184,15 +185,15 @@ const updateById = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const destroy = async (req, res) => {
     try {
         const message = await Message.findOne({
-            attributes: ['id'],
+            attributes: ["id"],
             where: {
                 id: req.params.id
             }
@@ -209,10 +210,10 @@ const destroy = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 export default {
     list, listById, listReceivedByUserId, listSentByUserId, create, update, updateById, destroy

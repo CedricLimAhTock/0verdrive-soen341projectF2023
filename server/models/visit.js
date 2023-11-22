@@ -16,28 +16,28 @@ const Visit = sequelize.define(
             type: DataTypes.BIGINT,
             references: {
                 model: Property,
-                key: 'id',
+                key: "id",
             }
         },
         client_id:{
             type: DataTypes.BIGINT,
             references: {
                 model: User,
-                key: 'id',
+                key: "id",
             }
         },
         broker_id: {
             type: DataTypes.BIGINT,
             references: {
                 model: User,
-                key: 'id',
+                key: "id",
             }
         },
         time: {
             type: DataTypes.DATE
         },
         status:{
-            type: DataTypes.ENUM('requested', 'booked', 'denied', 'completed', 'other')
+            type: DataTypes.ENUM("requested", "booked", "denied", "completed", "other")
         },
         message:{
             type: DataTypes.TEXT
@@ -51,7 +51,7 @@ const Visit = sequelize.define(
         indexes: [
             {
                 unique: true,
-                fields: ['client_id', 'property_id', 'broker_id']
+                fields: ["client_id", "property_id", "broker_id"]
             }
         ]
     }

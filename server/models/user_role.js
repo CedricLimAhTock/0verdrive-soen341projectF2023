@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../database/database.js";
-import User from "./user.js"
-import Role from "./role.js"
+import User from "./user.js";
+import Role from "./role.js";
 
 const User_role = sequelize.define(
     "user_role",
@@ -20,7 +20,7 @@ const User_role = sequelize.define(
             allowNull: false,
             references: {
                 model: User,
-                key: 'id',
+                key: "id",
             }
         },
         role_id: {
@@ -28,7 +28,7 @@ const User_role = sequelize.define(
             allowNull: false,
             references: {
                 model: Role,
-                key: 'id',
+                key: "id",
             }
         }
     },
@@ -40,8 +40,8 @@ const User_role = sequelize.define(
     }
 );
 
-User.hasMany(User_role, { foreignKey: 'user_id' });
-Role.hasMany(User_role, { foreignKey: 'role_id' });
+User.hasMany(User_role, { foreignKey: "user_id" });
+Role.hasMany(User_role, { foreignKey: "role_id" });
 Role.belongsToMany(User, { through: User_role });
 User_role.belongsTo(Role);
 User_role.belongsTo(User);

@@ -1,31 +1,31 @@
-import Property from '../models/property.js';
-import Listing from '../models/listing.js';
-import Broker from '../models/broker.js';
+import Property from "../models/property.js";
+import Listing from "../models/listing.js";
+import Broker from "../models/broker.js";
 
 const list = async (req, res) => {
     try {
         let properties = await Property.findAll({
             attributes: [
-                'id',
-                'active',
-                'civic_address',
-                'apt_number',
-                'street',
-                'neighbourhood',
-                'city',
-                'province',
-                'postal_code',
-                'country',
-                'listing_type',
-                'price',
-                'living_area',
-                'property_area',
-                'num_bedrooms',
-                'num_bathrooms',
-                'num_floors',
-                'year_built',
-                'listed_date',
-                'property_type'
+                "id",
+                "active",
+                "civic_address",
+                "apt_number",
+                "street",
+                "neighbourhood",
+                "city",
+                "province",
+                "postal_code",
+                "country",
+                "listing_type",
+                "price",
+                "living_area",
+                "property_area",
+                "num_bedrooms",
+                "num_bathrooms",
+                "num_floors",
+                "year_built",
+                "listed_date",
+                "property_type"
             ]
         });
 
@@ -38,35 +38,35 @@ const list = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listByType = async (req, res) => {
     try {
         let properties = await Property.findAll({
             attributes: [
-                'id',
-                'active',
-                'civic_address',
-                'apt_number',
-                'street',
-                'neighbourhood',
-                'city',
-                'province',
-                'postal_code',
-                'country',
-                'listing_type',
-                'price',
-                'living_area',
-                'property_area',
-                'num_bedrooms',
-                'num_bathrooms',
-                'num_floors',
-                'year_built',
-                'listed_date',
-                'property_type'
+                "id",
+                "active",
+                "civic_address",
+                "apt_number",
+                "street",
+                "neighbourhood",
+                "city",
+                "province",
+                "postal_code",
+                "country",
+                "listing_type",
+                "price",
+                "living_area",
+                "property_area",
+                "num_bedrooms",
+                "num_bathrooms",
+                "num_floors",
+                "year_built",
+                "listed_date",
+                "property_type"
             ],
             where: {listing_type: req.params.type}
         });
@@ -80,35 +80,35 @@ const listByType = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listByTypeId = async (req, res) => {
     try {
         let properties = await Property.findAll({
             attributes: [
-                'id',
-                'active',
-                'civic_address',
-                'apt_number',
-                'street',
-                'neighbourhood',
-                'city',
-                'province',
-                'postal_code',
-                'country',
-                'listing_type',
-                'price',
-                'living_area',
-                'property_area',
-                'num_bedrooms',
-                'num_bathrooms',
-                'num_floors',
-                'year_built',
-                'listed_date',
-                'property_type'
+                "id",
+                "active",
+                "civic_address",
+                "apt_number",
+                "street",
+                "neighbourhood",
+                "city",
+                "province",
+                "postal_code",
+                "country",
+                "listing_type",
+                "price",
+                "living_area",
+                "property_area",
+                "num_bedrooms",
+                "num_bathrooms",
+                "num_floors",
+                "year_built",
+                "listed_date",
+                "property_type"
             ],
             where: {
                 id: req.params.id,
@@ -125,35 +125,35 @@ const listByTypeId = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listById = async (req, res) => {
     try {
         let property = await Property.findOne({
             attributes: [
-                'id',
-                'active',
-                'civic_address',
-                'apt_number',
-                'street',
-                'neighbourhood',
-                'city',
-                'province',
-                'postal_code',
-                'country',
-                'listing_type',
-                'price',
-                'living_area',
-                'property_area',
-                'num_bedrooms',
-                'num_bathrooms',
-                'num_floors',
-                'year_built',
-                'listed_date',
-                'property_type'
+                "id",
+                "active",
+                "civic_address",
+                "apt_number",
+                "street",
+                "neighbourhood",
+                "city",
+                "province",
+                "postal_code",
+                "country",
+                "listing_type",
+                "price",
+                "living_area",
+                "property_area",
+                "num_bedrooms",
+                "num_bathrooms",
+                "num_floors",
+                "year_built",
+                "listed_date",
+                "property_type"
             ],
             where: {id: req.params.id}
         });
@@ -167,35 +167,35 @@ const listById = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listByBrokerId = async (req, res) => {
     try {
         const properties = await Property.findAll({
             attributes: [
-                'id',
-                'active',
-                'civic_address',
-                'apt_number',
-                'street',
-                'neighbourhood',
-                'city',
-                'province',
-                'postal_code',
-                'country',
-                'listing_type',
-                'price',
-                'living_area',
-                'property_area',
-                'num_bedrooms',
-                'num_bathrooms',
-                'num_floors',
-                'year_built',
-                'listed_date',
-                'property_type'
+                "id",
+                "active",
+                "civic_address",
+                "apt_number",
+                "street",
+                "neighbourhood",
+                "city",
+                "province",
+                "postal_code",
+                "country",
+                "listing_type",
+                "price",
+                "living_area",
+                "property_area",
+                "num_bedrooms",
+                "num_bathrooms",
+                "num_floors",
+                "year_built",
+                "listed_date",
+                "property_type"
             ],
             include: [
                 {
@@ -223,10 +223,10 @@ const listByBrokerId = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const create = async (req, res) => {
     try {
@@ -255,7 +255,7 @@ const create = async (req, res) => {
             data.postal_code].join(" ");
 
         const [property, created] = await Property.findOrCreate({
-            attributes: ['id'],
+            attributes: ["id"],
             where: {id: null},
             defaults: {
                 active: 1,
@@ -289,10 +289,10 @@ const create = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 
 const update = async (req, res) => {
@@ -330,10 +330,10 @@ const update = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 
 const updateById = async (req, res) => {
@@ -372,15 +372,15 @@ const updateById = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const destroy = async (req, res) => {
     try {
         const property = await Property.findOne({
-            attributes: ['id'],
+            attributes: ["id"],
             where: {id: req.params.id}
         });
 
@@ -395,9 +395,9 @@ const destroy = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 export default {list, listById, listByType, listByTypeId, listByBrokerId, create, update, updateById, destroy};
