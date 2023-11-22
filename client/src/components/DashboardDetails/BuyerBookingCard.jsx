@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./styles/Bookings.css";
 import FormatNumber from "../FormatNumber/FormatNumber";
+import axios from "axios";
 const BuyerBookingCard = ({ data, expanded, toggleExpand }) => {
-  const { type, status, address, price, broker } = data;
-
+  const { status, client_id, broker_id, message } = data;
+  const [user, setUser] = useState([]);
   const statusMap = {
     confirmed: "status-confirmed",
     hold: "status-hold",
@@ -11,7 +12,20 @@ const BuyerBookingCard = ({ data, expanded, toggleExpand }) => {
   };
 
   const statusName = statusMap[status] || "status-hold";
+  function fetchUser() {
+    axios
+      .get(`http://localhost:8080/user/${broker_id}`)
+      .then((response) => {
+        setUser(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
+  useEffect(() => {
+    fetchUser();
+  }, []);
   const expand = () => {
     toggleExpand();
     console.log("expand");
@@ -19,11 +33,10 @@ const BuyerBookingCard = ({ data, expanded, toggleExpand }) => {
   return (
     <div className="whole-card" onClick={() => expand(event)}>
       <div className="buyer-booking-card">
-        <div className="property-type">{type}</div>
+        <div className="property-user">{user.username}</div>
         <div className={`property-status ${statusName}`}>{status}</div>
-        <div className="property-address">{data.message}</div>
-        <div className="property-price">${FormatNumber(price)}</div>
-        <div className="property-broker">{broker}</div>
+        <div className="property-email">{user.email}</div>
+        <div className="property-message">{message}</div>
         {/* Date probably */}
       </div>
       {expanded && (

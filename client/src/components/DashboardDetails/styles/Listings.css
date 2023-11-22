@@ -22,8 +22,8 @@
 .header-property-price {
   padding: 10px;
   text-align: center;
-  border-right: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  border-right: 1px solid var(--logo-color);
+  border-bottom: 1px solid var(--logo-color);
   font-weight: 500;
   color: var(--logo-color);
   background-color: var(--header-color);

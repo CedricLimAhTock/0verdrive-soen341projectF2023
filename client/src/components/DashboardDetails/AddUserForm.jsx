@@ -3,17 +3,20 @@ import axios from "axios";
 import xIcon from "../../assets/xIcon.svg";
 import xIconDark from "../../assets/xIcon_darkMode.svg";
 import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
+import "./styles/AddUserForm.css";
 const AddUserForm = ({ isFormOpen, closeForm }) => {
-const { darkMode } = React.useContext(DarkModeContext);
-const [username, setUsername] = useState('');
-const [firstname, setFirstName] = useState('');
-const [lastname, setLastName] = useState('');
-const [phone, setPhone] = useState('');
-const [email, setEmail] = useState('');
-const [password, setPassword] = useState('');
-const [userRole, setUserRole] = useState("homebuyer");
+  const { darkMode } = React.useContext(DarkModeContext);
+  const [username, setUsername] = useState("");
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [userRole, setUserRole] = useState("homebuyer");
+  const [agency, setAgency] = useState("");
+  const [license_number, setLicenseNumber] = useState("");
 
-const handleSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
@@ -28,7 +31,9 @@ const handleSubmit = async (event) => {
         firstname,
         lastname,
         email,
-        phone
+        phone,
+        agency,
+        license_number,
       });
 
       if (response.status === 200) {
@@ -40,14 +45,14 @@ const handleSubmit = async (event) => {
       }
     } catch (err) {
       alert(err.message + "\n" + err.response.data.message);
-      console.log('Error adding user');
+      console.log("Error adding user");
       console.error(err);
     }
   };
 
   return (
     <div className={isFormOpen ? "show" : "hide"}>
-      <form className="popup-form" onSubmit={handleSubmit}>
+      <form className="popup-form add-user-form" onSubmit={handleSubmit}>
         <button onClick={closeForm} className="close-button">
           <img
             src={darkMode ? xIconDark : xIcon}
@@ -55,7 +60,7 @@ const handleSubmit = async (event) => {
             className="close-button-x"
           />
         </button>
-        <h2>Add New User</h2>
+        <h2 className="add-new-user">Add New User</h2>
 
         <div className="form-element-role centered-select">
           <select
@@ -71,9 +76,6 @@ const handleSubmit = async (event) => {
             <option value="admin">Admin</option>
           </select>
         </div>
-
-        <label htmlFor="username">Username</label>
-
         <input
           id="username"
           type="text"
@@ -82,8 +84,7 @@ const handleSubmit = async (event) => {
           onChange={(e) => setUsername(e.target.value)}
           required
         />
-
-        <label htmlFor="firstname">First Name</label>
+        <div className="form-pair">
         <input
           id="firstname"
           type="text"
@@ -91,7 +92,6 @@ const handleSubmit = async (event) => {
           placeholder="First Name"
           onChange={(e) => setFirstName(e.target.value)}
         />
-        <label htmlFor="lastname">Last Name</label>
         <input
           id="lastname"
           type="text"
@@ -99,6 +99,8 @@ const handleSubmit = async (event) => {
           placeholder="Last Name"
           onChange={(e) => setLastName(e.target.value)}
         />
+        </div>
+        <div className="form-pair">
         <input
           id="phone"
           type="text"
@@ -106,8 +108,6 @@ const handleSubmit = async (event) => {
           placeholder="Phone number"
           onChange={(e) => setPhone(e.target.value)}
         />
-
-        <label htmlFor="email">Email</label>
         <input
           id="email"
           type="text"
@@ -115,13 +115,32 @@ const handleSubmit = async (event) => {
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
+        </div>
         <input
           id="password"
           type="password"
           value={password}
-          placeholder="********"
+          placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
+        {userRole === "broker" && (
+          <>
+            <input
+              id="agency"
+              type="text"
+              value={agency}
+              placeholder="Agency"
+              onChange={(e) => setAgency(e.target.value)}
+            />
+            <input
+              id="license_number"
+              type="text"
+              value={license_number}
+              placeholder="License Number"
+              onChange={(e) => setLicenseNumber(e.target.value)}
+            />
+          </>
+        )}
         <div className="button-container">
           <button type="submit" className="submit add">
             Add User

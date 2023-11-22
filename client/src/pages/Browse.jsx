@@ -21,7 +21,12 @@ const Browse = () => {
           if (!property.images || property.images.length === 0) {
             property.images = [
               {
-                original: "https://picsum.photos/id/1018/1000/600/",
+                original:
+                  "https://www.vanulaw.com/wp-content/uploads/2017/10/house-03.jpg",
+              },
+              {
+                original:
+                  "https://www.rismedia.com/wp-content/uploads/2021/03/luxury_real_estate_1150278000-1-750x435.jpg",
               },
             ];
           }
@@ -69,7 +74,8 @@ const Browse = () => {
         if (!property.images || property.images.length === 0) {
           property.images = [
             {
-              original: "https://picsum.photos/id/1018/1000/600/",
+              original:
+                "https://www.vanulaw.com/wp-content/uploads/2017/10/house-03.jpg",
             },
           ];
         }
@@ -146,7 +152,11 @@ const Browse = () => {
               value={manyTerms}
               onChange={(e) => setManyTerms(e.target.value)}
             ></input>
-            <select className="search-select search-dropdown" type="select" onChange={(e) => setListingType(e.target.value)}>
+            <select
+              className="search-select search-dropdown"
+              type="select"
+              onChange={(e) => setListingType(e.target.value)}
+            >
               <option value="sale">For sale ▾</option>
               <option value="rent">For rent ▾</option>
             </select>

@@ -1,6 +1,5 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../database/database.js";
-import Broker from "./broker.js";
 import User from "./user.js";
 
 const Message = sequelize.define(
@@ -39,7 +38,7 @@ const Message = sequelize.define(
         timestamps: false,
         underscored: true,
         freezeTableName: true,
-        tableName: "listings"
+        tableName: "message"
     }
 );
 

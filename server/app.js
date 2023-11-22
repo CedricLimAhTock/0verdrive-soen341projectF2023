@@ -15,7 +15,6 @@ import propertySearchRoutes from "./routes/propertySearch.js";
 import brokerSearchRoutes from "./routes/brokerSearch.js";
 import visitRoutes from "./routes/visit.js";
 import listingRoutes from "./routes/listing.js";
-
 import brokerRoutes from "./routes/broker.js";
 import offerRoutes from "./routes/offer.js";
 import propertyFavouriteRoutes from "./routes/property_favourite.js";

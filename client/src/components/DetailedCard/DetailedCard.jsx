@@ -39,9 +39,14 @@ const DetailedCard = ({ property }) => {
 
   useEffect(() => {
     function fetchData() {
-      //const token = localStorage.getItem("jwtToken");
+      const token = localStorage.getItem("jwtToken");
       const decoded = null;
       setDecodedToken(decoded);
+
+      if (token) {
+        const decoded = jwt_decode(token);
+        setDecodedToken(decoded);
+      }
     }
 
     const fetchBroker = async () => {
@@ -171,9 +176,14 @@ const DetailedCard = ({ property }) => {
         >
           Request a visit
         </button>
-        <button className="calc calc-button" onClick={() => toggleForm(true)}>
-          Mortgage Calculator
-        </button>
+        {decodedToken?.role === "homebuyer" && (
+          <button
+            className="calc calc-button"
+            onClick={() => toggleForm(true)}
+          >
+            Mortgage Calculator
+          </button>
+        )}
         {isFormOpen && (
           <MortgageCalculator
             isOpen={isFormOpen}

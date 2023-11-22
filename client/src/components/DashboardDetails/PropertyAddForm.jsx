@@ -118,8 +118,8 @@ const PropertyAddForm = ({ isFormOpen, closeForm }) => {
               onChange={(e) => setListingType(e.target.value)}
               required
             >
-              <option value="sale">For Sale</option>
-              <option value="rent">For Rent</option>
+              <option className = "option" value="sale">For Sale ▾</option>
+              <option className = "option" value="rent">For Rent ▾</option>
             </select>
           </div>
         </div>
@@ -197,14 +197,14 @@ const PropertyAddForm = ({ isFormOpen, closeForm }) => {
               value={property_type}
               onChange={(e) => setPropertyType(e.target.value)}
             >
-              <option value="other">Other</option>
-              <option value="single-family">Family</option>
-              <option value="duplex">Duplex</option>
-              <option value="triplex">Triplex</option>
-              <option value="quadruplex">Quadruplex</option>
-              <option value="townhouse">Townhouse</option>
-              <option value="studio">Studio</option>
-              <option value="condominium">Condominium</option>
+              <option value="other">Other ▾</option>
+              <option value="single-family">Family ▾</option>
+              <option value="duplex">Duplex ▾</option>
+              <option value="triplex">Triplex ▾</option>
+              <option value="quadruplex">Quadruplex ▾</option>
+              <option value="townhouse">Townhouse ▾</option>
+              <option value="studio">Studio ▾</option>
+              <option value="condominium">Condominium ▾</option>
               </select>
           </div>
           <input
