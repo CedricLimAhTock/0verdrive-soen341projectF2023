@@ -5,7 +5,6 @@ import User from "../../models/user.js";
 import User_role from "../../models/user_role.js";
 import Role from "../../models/role.js";
 import Broker from "../../models/broker.js";
-import crypto from "crypto";
 const router = express.Router();
 
 router.post("/", async (req, res) => {
@@ -71,7 +70,6 @@ router.post("/", async (req, res) => {
       }
 
       // if user is a broker, create an entry in broker table
-      let broker = null;
       if (role.type == "broker") {
         if (!data.license_number) {
           return res
