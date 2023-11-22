@@ -1,13 +1,12 @@
-import Broker from '../models/broker.js';
-import User from '../models/user.js';
-import { Op } from 'sequelize';
+import Broker from "../models/broker.js";
+import User from "../models/user.js";
+import { Op } from "sequelize";
 
 
 const query = async (req, res) => {
     try {
         let fields = req.body.fields;
-        let sort = req.body.sort;
-        
+
         let q = {};
         let u = {};
         if (fields.user_id) {
@@ -41,7 +40,7 @@ const query = async (req, res) => {
                 required: true,
                 where: u
             }
-        })
+        });
 
         if (!brokers) {
             return res.status(404).json({});
@@ -51,9 +50,9 @@ const query = async (req, res) => {
 
     } catch (error) {
         console.log(error);
-        res.status(500).json({message: 'Server error'});
+        res.status(500).json({message: "Server error"});
     }
-}
+};
 
 
 export default {query};

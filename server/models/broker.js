@@ -20,7 +20,7 @@ const Broker = sequelize.define(
             unique: true,
             references: {
                 model: User,
-                key: 'id'
+                key: "id"
             }
         },
         license_number: {
@@ -46,7 +46,7 @@ const Broker = sequelize.define(
 );
 
 
-User.hasOne(Broker, { foreignKey: 'user_id' });
+User.hasOne(Broker, { foreignKey: "user_id" });
 Broker.belongsTo(User);
 
 export default Broker;

@@ -14,7 +14,7 @@ const Amenity = sequelize.define(
             type: DataTypes.BOOLEAN
         },
         name: {
-            type: DataTypes.ENUM('elevator', 'gym', 'pool', 'laundry room', 'internet', 'water', 'hydro', 'public transportation', 'park', 'accessibility')
+            type: DataTypes.ENUM("elevator", "gym", "pool", "laundry room", "internet", "water", "hydro", "public transportation", "park", "accessibility")
         }
     },
     {

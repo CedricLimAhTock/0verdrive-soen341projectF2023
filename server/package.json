@@ -25,6 +25,7 @@
   },
   "description": "",
   "devDependencies": {
+    "eslint": "^8.54.0",
     "jsdom": "^22.1.0",
     "jwt-decode": "^4.0.0",
     "nodemon": "^3.0.1",

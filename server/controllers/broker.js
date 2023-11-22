@@ -1,14 +1,14 @@
 import { Op } from "sequelize";
-import User from '../models/user.js';
-import User_role from '../models/user_role.js';
-import Role from '../models/role.js';
-import Broker from '../models/broker.js'; 
-import Listing from '../models/listing.js';
+import User from "../models/user.js";
+import User_role from "../models/user_role.js";
+import Role from "../models/role.js";
+import Broker from "../models/broker.js"; 
+import Listing from "../models/listing.js";
 
 const list = async (req, res) => {
     try {
         let brokers = await Broker.findAll({
-            attributes: ['id', 'active', 'user_id', 'license_number', 'agency', 'email', 'phone'],
+            attributes: ["id", "active", "user_id", "license_number", "agency", "email", "phone"],
             include: User
         });
 
@@ -21,15 +21,15 @@ const list = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listById = async (req, res) => {
     try {
         let broker = await Broker.findOne({
-            attributes: ['id', 'active', 'user_id', 'license_number', 'agency', 'email', 'phone'],
+            attributes: ["id", "active", "user_id", "license_number", "agency", "email", "phone"],
             include: User,
             where: {id: req.params.id}
         });
@@ -43,15 +43,15 @@ const listById = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listByUserId = async (req, res) => {
     try {
         let broker = await Broker.findOne({
-            attributes: ['id', 'active', 'user_id', 'license_number', 'agency', 'email', 'phone'],
+            attributes: ["id", "active", "user_id", "license_number", "agency", "email", "phone"],
             include: {
                 model: User,
                 where: { id: req.params.id },
@@ -65,7 +65,7 @@ const listByUserId = async (req, res) => {
                         required: true,
                         attributes: [], 
                         //right: true,
-                        where: {type: 'broker'}
+                        where: {type: "broker"}
                     }
                 }
             }
@@ -80,15 +80,15 @@ const listByUserId = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listByUsername = async (req, res) => {
     try {
         let broker = await Broker.findOne({
-            attributes: ['id', 'active', 'user_id', 'license_number', 'agency', 'email', 'phone'],
+            attributes: ["id", "active", "user_id", "license_number", "agency", "email", "phone"],
             include: {
                 model: User,
                 where: { username: req.params.username },
@@ -102,7 +102,7 @@ const listByUsername = async (req, res) => {
                         required: true,
                         attributes: [],
                         //right: true,
-                        where: {type: 'broker'}
+                        where: {type: "broker"}
                     }
                 }
             }
@@ -117,15 +117,15 @@ const listByUsername = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listByPropertyId = async (req, res) => {
     try {
         let broker = await Broker.findOne({
-            attributes: ['id', 'active', 'user_id', 'license_number', 'agency', 'email', 'phone'],
+            attributes: ["id", "active", "user_id", "license_number", "agency", "email", "phone"],
             include: [
                 {
                     model: Listing,
@@ -149,10 +149,10 @@ const listByPropertyId = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const create = async (req, res) => {
     try {
@@ -173,7 +173,7 @@ const create = async (req, res) => {
                     model: Role,
                     required: true,
                     attributes: [],
-                    where: {type: 'broker'}
+                    where: {type: "broker"}
                 }
             },
             where: {id: data.user_id }
@@ -184,7 +184,7 @@ const create = async (req, res) => {
         }
 
         const [broker, created] = await Broker.findOrCreate({
-            attributes: ['id'],
+            attributes: ["id"],
             where: {
                 [Op.or]: {
                     user_id: data.user_id,
@@ -210,10 +210,10 @@ const create = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const update = async (req, res) => {
     try {
@@ -256,10 +256,10 @@ const update = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 
 const updateById = async (req, res) => {
@@ -304,16 +304,16 @@ const updateById = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 
 const destroy = async (req, res) => {
     try {
         const broker = await Broker.findOne({
-            attributes: ['id'],
+            attributes: ["id"],
             where: {id: req.params.id}
         });
 
@@ -328,9 +328,9 @@ const destroy = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 export default {list, listById, listByUserId, listByUsername, listByPropertyId, create, update, updateById, destroy};

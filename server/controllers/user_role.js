@@ -1,11 +1,11 @@
-import sequelize from 'sequelize';
-import User_role from '../models/user_role.js';
-import User from '../models/user.js';
-import Role from '../models/role.js';
+import sequelize from "sequelize";
+import User_role from "../models/user_role.js";
+import User from "../models/user.js";
+import Role from "../models/role.js";
 
 const list = async (req, res) => {
     try {
-        let user_roles = await User_role.findAll({ attributes: ['id', 'active', 'user_id', 'role_id']});
+        let user_roles = await User_role.findAll({ attributes: ["id", "active", "user_id", "role_id"]});
 
         if (!user_roles) {
             return res.status(404).json({});
@@ -15,15 +15,15 @@ const list = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listById = async (req, res) => {
     try {
         let user_role = await User_role.findOne({
-            attributes: ['id', 'active', 'user_id', 'role_id'],
+            attributes: ["id", "active", "user_id", "role_id"],
             where: {id: req.params.id}
         });
 
@@ -36,15 +36,15 @@ const listById = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listByUserId = async (req, res) => {
     try {
         const user_role = await User_role.findOne({
-            attributes: ['id', 'active', 'user_id', 'role_id'],
+            attributes: ["id", "active", "user_id", "role_id"],
             where: {user_id: req.params.user_id}
         });
 
@@ -57,23 +57,23 @@ const listByUserId = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const create = async (req, res) => {
     try {
         const data = req.body;
         
         // prevent foreign key error for out of bound ids
-        const user = await User.findOne({ attributes: [[sequelize.fn('max', sequelize.col('id')), 'id']] });
+        const user = await User.findOne({ attributes: [[sequelize.fn("max", sequelize.col("id")), "id"]] });
 
         if (user && data.user_id > user.id) {
             return res.status(400).json({message: "invalid user_id."});
         }
 
-        const role = await Role.findOne({ attributes: [[sequelize.fn('max', sequelize.col('id')), 'id']]});
+        const role = await Role.findOne({ attributes: [[sequelize.fn("max", sequelize.col("id")), "id"]]});
 
         if (role && data.role_id > role.id) {
             return res.status(400).json({message: "invalid role_id."});
@@ -81,7 +81,7 @@ const create = async (req, res) => {
 
         // create only if user doesn't exist
         const [user_role, created] = await User_role.findOrCreate({
-            attributes: ['id'],
+            attributes: ["id"],
             where: {
                 user_id: data.user_id
             },
@@ -99,10 +99,10 @@ const create = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 
 const update = async (req, res) => {
@@ -129,10 +129,10 @@ const update = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 
 const updateById = async (req, res) => {
@@ -159,15 +159,15 @@ const updateById = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const destroy = async (req, res) => {
     try {
         const user_role = await User_role.findOne({
-            attributes: ['id'],
+            attributes: ["id"],
             where: {
                 id: req.params.id
             }
@@ -184,9 +184,9 @@ const destroy = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 export default {list, listById, listByUserId, create, update, updateById, destroy};

@@ -21,7 +21,7 @@ const Offer = sequelize.define(
             allowNull: false,
             references: {
                 model: Broker,
-                key: 'id'
+                key: "id"
             }
         },
         broker_id: {
@@ -29,7 +29,7 @@ const Offer = sequelize.define(
             allowNull: false,
             references: {
                 model: Broker,
-                key: 'id'
+                key: "id"
             }
         },
         user_id: {
@@ -37,7 +37,7 @@ const Offer = sequelize.define(
             allowNull: false,
             references: {
                 model: User,
-                key: 'id'
+                key: "id"
             }
         },
         property_id: {
@@ -45,7 +45,7 @@ const Offer = sequelize.define(
             allowNull: false,
             references: {
                 model: Property,
-                key: 'id'
+                key: "id"
             }
         },
         price: {
@@ -58,7 +58,7 @@ const Offer = sequelize.define(
             type: DataTypes.DATE
         },
         status: {
-            type: DataTypes.ENUM('wait', 'acknowledge', 'review', 'accept', 'deny', 'other')
+            type: DataTypes.ENUM("wait", "acknowledge", "review", "accept", "deny", "other")
         }
     },
     {
@@ -69,16 +69,16 @@ const Offer = sequelize.define(
         indexes: [
             {
                 unique: true,
-                fields: ['parent_id', 'property_id', 'broker_id', 'user_id']
+                fields: ["parent_id", "property_id", "broker_id", "user_id"]
             }
         ]
     }
 );
 
-User.hasMany(Offer, { foreignKey: 'user_id' });
-Broker.hasMany(Offer, { foreignKey: 'broker_id' });
-Broker.hasMany(Offer, { foreignKey: 'parent_id' });
-Property.hasMany(Offer, { foreignKey: 'property_id' });
+User.hasMany(Offer, { foreignKey: "user_id" });
+Broker.hasMany(Offer, { foreignKey: "broker_id" });
+Broker.hasMany(Offer, { foreignKey: "parent_id" });
+Property.hasMany(Offer, { foreignKey: "property_id" });
 Offer.belongsTo(Property);
 Offer.belongsTo(Broker);
 Offer.belongsTo(User);

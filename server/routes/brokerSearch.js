@@ -1,5 +1,5 @@
-import express from 'express';
-import brokerSearchController from '../controllers/brokerSearch.js';
+import express from "express";
+import brokerSearchController from "../controllers/brokerSearch.js";
 
 const router = express.Router();
 
@@ -16,7 +16,7 @@ const router = express.Router();
 //         // "lastname":"mi"
 //     }
 // }
-router.post('/', brokerSearchController.query);
+router.post("/", brokerSearchController.query);
 
 
 export default router;

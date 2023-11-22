@@ -1,5 +1,5 @@
-import express from 'express';
-import propertySearchController from '../controllers/propertySearch.js';
+import express from "express";
+import propertySearchController from "../controllers/propertySearch.js";
 
 const router = express.Router();
 
@@ -33,7 +33,7 @@ const router = express.Router();
 //         "order": "asc"
 //     }
 // }
-router.post('/', propertySearchController.query);
+router.post("/", propertySearchController.query);
 
 
 export default router;

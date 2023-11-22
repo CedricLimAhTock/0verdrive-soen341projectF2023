@@ -5,7 +5,6 @@ import User from "../../models/user.js";
 import User_role from "../../models/user_role.js";
 import Role from "../../models/role.js";
 import Broker from "../../models/broker.js";
-import crypto from "crypto";
 const router = express.Router();
 
 router.post("/", async (req, res) => {
@@ -53,15 +52,15 @@ router.post("/", async (req, res) => {
       return res.status(400).json({ message: "Username already taken." });
     } else {
       // each new user must have a role associated
-      const [user_role, ur_created] = await User_role.findOrCreate({
+      const [, ur_created] = await User_role.findOrCreate({
         attributes: ["id"],
         where: {
-          user_id: user.id,
+          user_id: user.id
         },
         defaults: {
           active: 1,
-          role_id: role.id,
-        },
+          role_id: role.id
+        }
       });
       if (!ur_created) {
         user.destroy();
@@ -71,8 +70,6 @@ router.post("/", async (req, res) => {
       }
 
       // if user is a broker, create an entry in broker table
-
-      let broker = null;
       if (role.type == "broker") {
         if (!data.license_number) {
           return res
@@ -84,13 +81,13 @@ router.post("/", async (req, res) => {
             .status(400)
             .json({ message: "Broker agency cannot be null." });
         }
-        const [broker, b_created] = await Broker.findOrCreate({
+        const [, b_created] = await Broker.findOrCreate({
           attributes: ["id"],
           where: {
             [Op.or]: {
               user_id: user.id,
-              license_number: data.license_number,
-            },
+              license_number: data.license_number
+            }
           },
           defaults: {
             active: 1,
@@ -99,17 +96,15 @@ router.post("/", async (req, res) => {
             agency: data.agency,
             email: user.email,
             phone: user.phone,
-          },
+          }
         });
 
         if (!b_created) {
           user.destroy();
-          return res
-            .status(400)
+          return res.status(400)
             .json({ message: "Failed to add broker entry." });
         }
       }
-
       res.status(200).send(user);
     }
   } catch (err) {

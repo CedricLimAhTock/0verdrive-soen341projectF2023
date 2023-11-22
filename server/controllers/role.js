@@ -1,10 +1,10 @@
-import Role from '../models/role.js';
+import Role from "../models/role.js";
 
 
 const list = async (req, res) => {
     try {
         let roles = await Role.findAll(
-            {attributes: ['id', 'active', 'type']}
+            {attributes: ["id", "active", "type"]}
         );
 
         if (!roles) {
@@ -16,15 +16,15 @@ const list = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 const listById = async (req, res) => {
     try {
         let role = await Role.findOne({
-            attributes: ['id', 'active', 'type'],
+            attributes: ["id", "active", "type"],
             where: {id: req.params.id}
         });
 
@@ -37,10 +37,10 @@ const listById = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: 'Server error'
+            message: "Server error"
         });
     }
-}
+};
 
 // cannot create because it is an enum
 // cannot update because they are predefined enums
