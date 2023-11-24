@@ -4,6 +4,7 @@ import xIcon from "../../assets/xIcon.svg";
 import xIconDark from "../../assets/xIcon_darkMode.svg";
 import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
 import "./styles/AddUserForm.css";
+import FormatPhone from "../FormatPhone/FormatPhone";
 const AddUserForm = ({ isFormOpen, closeForm }) => {
   const { darkMode } = React.useContext(DarkModeContext);
   const [username, setUsername] = useState("");
@@ -15,7 +16,14 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
   const [userRole, setUserRole] = useState("homebuyer");
   const [agency, setAgency] = useState("");
   const [license_number, setLicenseNumber] = useState("");
+  const [formattedPhone, setFormattedPhone] = useState("");
 
+  const changePhone = (e) => {
+    let input = e.target.value;
+
+    setPhone(input);
+    setFormattedPhone(FormatPhone(input));
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -85,36 +93,36 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
           required
         />
         <div className="form-pair">
-        <input
-          id="firstname"
-          type="text"
-          value={firstname}
-          placeholder="First Name"
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-        <input
-          id="lastname"
-          type="text"
-          value={lastname}
-          placeholder="Last Name"
-          onChange={(e) => setLastName(e.target.value)}
-        />
+          <input
+            id="firstname"
+            type="text"
+            value={firstname}
+            placeholder="First Name"
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+          <input
+            id="lastname"
+            type="text"
+            value={lastname}
+            placeholder="Last Name"
+            onChange={(e) => setLastName(e.target.value)}
+          />
         </div>
         <div className="form-pair">
-        <input
-          id="phone"
-          type="text"
-          value={phone}
-          placeholder="Phone number"
-          onChange={(e) => setPhone(e.target.value)}
-        />
-        <input
-          id="email"
-          type="text"
-          value={email}
-          placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
+          <input
+            id="phone"
+            type="text"
+            value={formattedPhone}
+            placeholder="Phone number"
+            onChange={changePhone}
+          />
+          <input
+            id="email"
+            type="text"
+            value={email}
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
         <input
           id="password"

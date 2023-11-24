@@ -20,18 +20,6 @@ const Dashboard = ({ token }) => {
     console.log("Logged out successfully");
   };
 
-  const data = {
-    price: "$1,000,000",
-    address: "1234 Main St, San Diego, CA 92101",
-    bedrooms: 3,
-    bathrooms: 2,
-    size: 2000,
-    firstName: "John",
-    lastName: "Doe",
-    email: "gay@gmail.com",
-    phone: "123-456-7890",
-  };
-
   // For temporary use, need to be replaced with role in token
   //const userRole = "broker";
   const jwt = localStorage.getItem("jwtToken");
@@ -81,11 +69,11 @@ const Dashboard = ({ token }) => {
         </div>
 
         <div className="dashboard-data">
-          {activeTab === "profile" && <Profile data={data} token={token} />}
+          {activeTab === "profile" && <Profile token={token} />}
           {activeTab === "favorites" && <Favorites token={token} />}
-          {activeTab === "bookings" && <Bookings data={data} token={token} />}
+          {activeTab === "bookings" && <Bookings token={token} />}
           {activeTab === "received bookings" && (
-            <ReceivedBookings data={data} token={token} />
+            <ReceivedBookings token={token} />
           )}
           {activeTab === "offers made" && <OffersMade token={token} />}
           {activeTab === "received offers" && <ReceivedOffers token={token} />}

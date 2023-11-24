@@ -9,6 +9,7 @@ import xIcon from "../../assets/xIcon.svg";
 import xIconDark from "../../assets/xIcon_darkMode.svg";
 import FormatNumber from "../FormatNumber/FormatNumber";
 import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
+import FormatPhone from "../FormatPhone/FormatPhone";
 const OfferForm = ({ isFormOpen, closeForm, property, broker }) => {
   const [name, setName] = useState("");
   const [userEmail, setUserEmail] = useState("");
@@ -87,7 +88,7 @@ const OfferForm = ({ isFormOpen, closeForm, property, broker }) => {
                 <p>
                   {firstname} {lastname}
                 </p>
-                <p>{phone}</p>
+                <p>{FormatPhone(phone)}</p>
                 <p>{email}</p>
               </div>
             </div>

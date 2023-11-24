@@ -4,7 +4,7 @@ import BuyerBookingCard from "./BuyerBookingCard";
 import "./styles/Bookings.css";
 import jwt_decode from "jwt-decode";
 
-const Bookings = ({ data, token }) => {
+const Bookings = ({ token }) => {
   const [expandedCard, setExpandedCard] = useState(null);
   const [bookingData, setBookingMade] = useState([]);
 

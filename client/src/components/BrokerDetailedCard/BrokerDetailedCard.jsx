@@ -5,7 +5,7 @@ import "./BrokerDetailedCard.css";
 import profileIcon from "../../assets/profile-picture.png";
 import jwt_decode from "jwt-decode";
 import PropertyCardCarousel from "../PropertyCardCarousel/PropertyCardCarousel";
-
+import FormatPhone from "../FormatPhone/FormatPhone";
 const BrokerDetailedCard = ({ broker }) => {
   const navigate = useNavigate();
   const { user, email, phone, agency, id, license_number } = broker;
@@ -93,7 +93,7 @@ const BrokerDetailedCard = ({ broker }) => {
           <div className="broker-info">
             <p className="broker-name">{name}</p>
             <p className="broker-email">{email}</p>
-            <p className="broker-phone">{phone}</p>
+            <p className="broker-phone">{FormatPhone(phone)}</p>
             <p className="broker-agency">Agency: {agency}</p>
             <p className="broker-license">License: {license_number}</p>
             <p className="broker-desc">{description}</p>

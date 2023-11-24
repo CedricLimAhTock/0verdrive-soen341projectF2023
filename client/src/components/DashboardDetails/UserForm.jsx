@@ -3,7 +3,7 @@ import axios from "axios";
 import xIcon from "../../assets/xIcon.svg";
 import xIconDark from "../../assets/xIcon_darkMode.svg";
 import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
-
+import FormatPhone from "../FormatPhone/FormatPhone";
 const UserForm = ({ isFormOpen, data, closeForm }) => {
   const { darkMode } = useContext(DarkModeContext);
   const [firstname, setFirstName] = useState(data.user.firstname || "");
@@ -14,7 +14,16 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
   const [license_number, setLicenseNumber] = useState(
     data.license_number || ""
   );
+  const [formattedPhone, setFormattedPhone] = useState("");
+  useEffect(() => {
+    setFormattedPhone(FormatPhone(phone));
+  }, []);
+  const changePhone = (e) => {
+    let input = e.target.value;
 
+    setPhone(input);
+    setFormattedPhone(FormatPhone(input));
+  };
   const handleSubmit = async (event, action) => {
     event.preventDefault();
 
@@ -86,36 +95,36 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
         </button>
         <h2>Selected User Information</h2>
         <div className="form-pair">
-        <input
-          id="firstname"
-          type="text"
-          value={firstname}
-          placeholder="First Name"
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-        <input
-          id="lastname"
-          type="text"
-          value={lastname}
-          placeholder="Last Name"
-          onChange={(e) => setLastName(e.target.value)}
-        />
+          <input
+            id="firstname"
+            type="text"
+            value={firstname}
+            placeholder="First Name"
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+          <input
+            id="lastname"
+            type="text"
+            value={lastname}
+            placeholder="Last Name"
+            onChange={(e) => setLastName(e.target.value)}
+          />
         </div>
         <div className="form-pair">
-        <input
-          id="phone"
-          type="text"
-          value={phone}
-          placeholder="Phone number"
-          onChange={(e) => setPhone(e.target.value)}
-        />
-        <input
-          id="email"
-          type="text"
-          value={email}
-          placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
+          <input
+            id="phone"
+            type="text"
+            value={formattedPhone}
+            placeholder="Phone number"
+            onChange={changePhone}
+          />
+          <input
+            id="email"
+            type="text"
+            value={email}
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
         <input
           id="agency"
