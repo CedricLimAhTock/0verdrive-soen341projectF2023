@@ -107,12 +107,12 @@ const PropertyForm = ({ isFormOpen, data, closeForm }) => {
           const dataExtra = {
             broker_id: broker_id,
             title: title,
-            property_id: property.data.id,
+            property_id: property.id,
             description: "",
           };
 
           const response4 = await axios.put(
-            "http://127.0.0.1:8080/listing",
+            "http://127.0.0.1:8080/listing/" + data.id,
             dataExtra
           );
 

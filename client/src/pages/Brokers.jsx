@@ -6,7 +6,7 @@ import BrokerCard from "../components/BrokerCard/BrokerCard";
 import Search from "../assets/searchIcon-browse.svg";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
-import FormatPhone from "../components/FormatPhone/FormatPhone";
+
 const Brokers = () => {
   const [brokerData, setBrokerData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -65,13 +65,6 @@ const Brokers = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [agency, setAgency] = useState("");
-  const [formattedPhone, setFormattedPhone] = useState("");
-  const changePhone = (e) => {
-    let input = e.target.value;
-
-    setPhone(input);
-    setFormattedPhone(FormatPhone(input));
-  };
 
   const maxVisiblePages = 5;
   const startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
@@ -152,8 +145,8 @@ const Brokers = () => {
               className="search-phone"
               type="tel"
               placeholder="Phone Number"
-              value={formattedPhone}
-              onChange={changePhone}
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
             ></input>
 
             <input type="image" src={Search} onClick={searchData}></input>
