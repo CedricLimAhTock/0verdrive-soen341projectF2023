@@ -3,7 +3,6 @@ import axios from "axios";
 import xIcon from "../../assets/xIcon.svg";
 import xIconDark from "../../assets/xIcon_darkMode.svg";
 import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
-import FormatPhone from "../FormatPhone/FormatPhone";
 const UserForm = ({ isFormOpen, data, closeForm }) => {
   const { darkMode } = useContext(DarkModeContext);
   const [firstname, setFirstName] = useState(data.user.firstname || "");
@@ -14,16 +13,8 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
   const [license_number, setLicenseNumber] = useState(
     data.license_number || ""
   );
-  const [formattedPhone, setFormattedPhone] = useState("");
-  useEffect(() => {
-    setFormattedPhone(FormatPhone(phone));
-  }, []);
-  const changePhone = (e) => {
-    let input = e.target.value;
+  useEffect(() => {}, []);
 
-    setPhone(input);
-    setFormattedPhone(FormatPhone(input));
-  };
   const handleSubmit = async (event, action) => {
     event.preventDefault();
 
@@ -114,9 +105,9 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
           <input
             id="phone"
             type="text"
-            value={formattedPhone}
+            value={phone}
             placeholder="Phone number"
-            onChange={changePhone}
+            onChange={(e) => setPhone(e.target.value)}
           />
           <input
             id="email"

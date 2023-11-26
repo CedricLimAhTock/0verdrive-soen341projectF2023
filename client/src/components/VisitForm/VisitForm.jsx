@@ -6,23 +6,15 @@ import jwt_decode from "jwt-decode";
 import xIcon from "../../assets/xIcon.svg";
 import xIconDark from "../../assets/xIcon_darkMode.svg";
 import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
-import FormatPhone from "../FormatPhone/FormatPhone";
 const VisitForm = ({ isFormOpen, closeForm, property }) => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [formattedPhone, setFormattedPhone] = useState("");
   const [message, setMessage] = useState("");
 
   const { images, price, address, broker } = property;
   const [decodedToken, setDecodedToken] = React.useState(null);
   const { darkMode } = useContext(DarkModeContext);
 
-  const changePhone = (e) => {
-    let input = e.target.value;
-
-    setPhone(input);
-    setFormattedPhone(FormatPhone(input));
-  };
   useEffect(() => {
     function fetchData() {
       const token = localStorage.getItem("jwtToken");
@@ -87,9 +79,9 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
         <input
           id="phone"
           type="tel"
-          value={formattedPhone}
+          value={phone}
           placeholder="Phone number"
-          onChange={changePhone}
+          onChange={(e) => setPhone(e.target.value)}
           required
         />
         <textarea

@@ -3,7 +3,6 @@ import "./styles/Profile.css";
 import ProfilePicture from "../../assets/profile-picture.png";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-import FormatPhone from "../FormatPhone/FormatPhone";
 const Profile = ({ token }) => {
   const userToken = localStorage.getItem("jwtToken");
   const decodedToken = userToken ? jwt_decode(userToken) : null;
@@ -14,14 +13,8 @@ const Profile = ({ token }) => {
   const [lastName, setLastName] = useState(decodedToken.lastname || "");
   const [email, setEmail] = useState(decodedToken.email || "");
   const [phone, setPhoneNumber] = useState(decodedToken.phone || "");
-  const [formattedPhone, setFormattedPhone] = useState("");
   // const [address, setAddress] = useState(decodedToken.address || "");
-  const changePhone = (e) => {
-    let input = e.target.value;
 
-    setPhoneNumber(input);
-    setFormattedPhone(FormatPhone(input));
-  };
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -59,7 +52,7 @@ const Profile = ({ token }) => {
 
   useEffect(() => {
     // Fetch user info from the database after the component is mounted
-    setFormattedPhone(FormatPhone(phone));
+
     if (username) {
       axios
         .get(`http://localhost:8080/user/${userID}`)
@@ -140,8 +133,8 @@ const Profile = ({ token }) => {
               <input
                 type="tel"
                 placeholder="Phone Number"
-                value={formattedPhone}
-                onChange={changePhone}
+                value={phone}
+                onChange={(e) => setPhoneNumber(e.target.value)}
                 id="phone"
               />
             </div>

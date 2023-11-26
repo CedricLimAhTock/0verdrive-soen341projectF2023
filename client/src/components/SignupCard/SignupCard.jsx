@@ -4,7 +4,6 @@ import axios from "axios";
 import "../SignupCard/SignupCard.css";
 import "@fontsource/inter";
 import { NavLink } from "react-router-dom";
-import FormatPhone from "../FormatPhone/FormatPhone";
 const SignupCard = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -20,10 +19,20 @@ const SignupCard = () => {
   const [alert, setAlert] = useState("");
 
   const changePhone = (e) => {
-    let input = e.target.value;
-
+    let input = e.target.value.replace(/\D/g, "");
+    let formatted = "";
+    if (input.length > 0) {
+      formatted += "(" + input.substring(0, 3);
+      if (input.length > 3) formatted += ")";
+    }
+    if (input.length > 3) {
+      formatted += " " + input.substring(3, 6);
+    }
+    if (input.length > 6) {
+      formatted += "-" + input.substring(6, 10);
+    }
     setPhone(input);
-    setFormattedPhone(FormatPhone(input));
+    setFormattedPhone(formatted);
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -98,7 +107,7 @@ const SignupCard = () => {
                 type="email"
                 placeholder="E M A I L"
                 value={email}
-                onChange={(e) => setEmail(e.target.value.toLowerCase())}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               ></input>
             </div>

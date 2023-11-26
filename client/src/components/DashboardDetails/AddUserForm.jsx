@@ -4,7 +4,6 @@ import xIcon from "../../assets/xIcon.svg";
 import xIconDark from "../../assets/xIcon_darkMode.svg";
 import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
 import "./styles/AddUserForm.css";
-import FormatPhone from "../FormatPhone/FormatPhone";
 const AddUserForm = ({ isFormOpen, closeForm }) => {
   const { darkMode } = React.useContext(DarkModeContext);
   const [username, setUsername] = useState("");
@@ -16,14 +15,7 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
   const [userRole, setUserRole] = useState("homebuyer");
   const [agency, setAgency] = useState("");
   const [license_number, setLicenseNumber] = useState("");
-  const [formattedPhone, setFormattedPhone] = useState("");
 
-  const changePhone = (e) => {
-    let input = e.target.value;
-
-    setPhone(input);
-    setFormattedPhone(FormatPhone(input));
-  };
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -112,9 +104,9 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
           <input
             id="phone"
             type="text"
-            value={formattedPhone}
+            value={phone}
             placeholder="Phone number"
-            onChange={changePhone}
+            onChange={(e) => setPhone(e.target.value)}
           />
           <input
             id="email"
