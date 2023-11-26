@@ -13,7 +13,6 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
   const [license_number, setLicenseNumber] = useState(
     data.license_number || ""
   );
-  useEffect(() => {}, []);
 
   const handleSubmit = async (event, action) => {
     event.preventDefault();
