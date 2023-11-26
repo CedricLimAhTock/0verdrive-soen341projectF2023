@@ -85,36 +85,36 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
           required
         />
         <div className="form-pair">
-        <input
-          id="firstname"
-          type="text"
-          value={firstname}
-          placeholder="First Name"
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-        <input
-          id="lastname"
-          type="text"
-          value={lastname}
-          placeholder="Last Name"
-          onChange={(e) => setLastName(e.target.value)}
-        />
+          <input
+            id="firstname"
+            type="text"
+            value={firstname}
+            placeholder="First Name"
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+          <input
+            id="lastname"
+            type="text"
+            value={lastname}
+            placeholder="Last Name"
+            onChange={(e) => setLastName(e.target.value)}
+          />
         </div>
         <div className="form-pair">
-        <input
-          id="phone"
-          type="text"
-          value={phone}
-          placeholder="Phone number"
-          onChange={(e) => setPhone(e.target.value)}
-        />
-        <input
-          id="email"
-          type="text"
-          value={email}
-          placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
+          <input
+            id="phone"
+            type="text"
+            value={phone}
+            placeholder="Phone number"
+            onChange={(e) => setPhone(e.target.value)}
+          />
+          <input
+            id="email"
+            type="text"
+            value={email}
+            placeholder="Email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </div>
         <input
           id="password"

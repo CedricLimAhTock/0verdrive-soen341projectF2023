@@ -14,6 +14,7 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
   const { images, price, address, broker } = property;
   const [decodedToken, setDecodedToken] = React.useState(null);
   const { darkMode } = useContext(DarkModeContext);
+
   useEffect(() => {
     function fetchData() {
       const token = localStorage.getItem("jwtToken");

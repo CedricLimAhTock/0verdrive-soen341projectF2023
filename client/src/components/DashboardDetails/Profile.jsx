@@ -3,8 +3,7 @@ import "./styles/Profile.css";
 import ProfilePicture from "../../assets/profile-picture.png";
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-
-const Profile = ({ data, token }) => {
+const Profile = ({ token }) => {
   const userToken = localStorage.getItem("jwtToken");
   const decodedToken = userToken ? jwt_decode(userToken) : null;
 
@@ -53,6 +52,7 @@ const Profile = ({ data, token }) => {
 
   useEffect(() => {
     // Fetch user info from the database after the component is mounted
+
     if (username) {
       axios
         .get(`http://localhost:8080/user/${userID}`)
@@ -134,7 +134,7 @@ const Profile = ({ data, token }) => {
                 type="tel"
                 placeholder="Phone Number"
                 value={phone}
-                onChange={(event) => setPhoneNumber(event.target.value)}
+                onChange={(e) => setPhoneNumber(e.target.value)}
                 id="phone"
               />
             </div>

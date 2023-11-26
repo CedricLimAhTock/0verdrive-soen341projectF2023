@@ -5,7 +5,6 @@ import "./BrokerDetailedCard.css";
 import profileIcon from "../../assets/profile-picture.png";
 import jwt_decode from "jwt-decode";
 import PropertyCardCarousel from "../PropertyCardCarousel/PropertyCardCarousel";
-
 const BrokerDetailedCard = ({ broker }) => {
   const navigate = useNavigate();
   const { user, email, phone, agency, id, license_number } = broker;
