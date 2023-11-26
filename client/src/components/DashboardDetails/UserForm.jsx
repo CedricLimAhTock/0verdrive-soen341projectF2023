@@ -1,15 +1,17 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 import xIcon from "../../assets/xIcon.svg";
 import xIconDark from "../../assets/xIcon_darkMode.svg";
 import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
 const UserForm = ({ isFormOpen, data, closeForm }) => {
   const { darkMode } = useContext(DarkModeContext);
+  console.log(data);
+
   const [firstname, setFirstName] = useState(data.user.firstname || "");
   const [lastname, setLastName] = useState(data.user.lastname || "");
   const [phone, setPhone] = useState(data.user.phone || "");
   const [email, setEmail] = useState(data.user.email || "");
-  const [agency, setAgency] = useState(data.user.agency || "");
+  const [agency, setAgency] = useState(data.agency || "");
   const [license_number, setLicenseNumber] = useState(
     data.license_number || ""
   );
@@ -25,6 +27,8 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
         console.log(lastname);
         console.log(phone);
         console.log(email);
+        console.log(agency);
+        console.log(license_number);
 
         const response = await axios.put(
           `http://127.0.0.1:8080/user/${data.user_id}`,
@@ -34,12 +38,26 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
             lastname: lastname.toString(),
             email: email.toString(),
             phone: phone.toString(),
+          }
+        );
+        const response2 = await axios.put(
+          `http://127.0.0.1:8080/broker/${data.id}`,
+          {
             agency: agency.toString(),
             license_number: license_number.toString(),
+            email: email.toString(),
+            phone: phone,
+            user: {
+              username: data.user.username,
+              firstname: firstname.toString(),
+              lastname: lastname.toString(),
+              email: email.toString(),
+              phone: phone.toString(),
+            },
           }
         );
 
-        if (response.status === 200) {
+        if (response.status === 200 && response2.status === 200) {
           alert("Updated");
           console.log(response);
         } else {
@@ -52,13 +70,12 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
       }
     } else if (action === "delete") {
       try {
+        await axios.delete(`http://127.0.0.1:8080/broker/${data.id}`);
         let response = await axios.delete(
           `http://127.0.0.1:8080/user/${data.user_id}`
         );
 
         // delete associated broker when user is deleted. should then also delete all properties :/
-        await axios.delete(`http://127.0.0.1:8080/broker/${data.id}`);
-
         if (response.status === 200) {
           alert("Deleted");
           console.log(response);
@@ -113,7 +130,7 @@ const UserForm = ({ isFormOpen, data, closeForm }) => {
             type="text"
             value={email}
             placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value.toLowerCase())}
           />
         </div>
         <input

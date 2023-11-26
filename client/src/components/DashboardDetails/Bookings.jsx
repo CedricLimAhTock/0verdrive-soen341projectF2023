@@ -46,7 +46,7 @@ const Bookings = ({ token }) => {
         <div className="header-type">User</div>
         <div className="header-status">Status</div>
         <div className="header-address">Email</div>
-        <div className="header-broker">Message</div>
+        <div className="header-message">Message</div>
       </div>
 
       <div className="booking-cards">

@@ -132,7 +132,7 @@ const Brokers = () => {
               type="text"
               placeholder="Email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value.toLowerCase())}
             ></input>
             <input
               className="search-select"

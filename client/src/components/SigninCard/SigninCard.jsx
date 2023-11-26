@@ -23,7 +23,7 @@ const SigninCard = () => {
       console.log(res.data.token);
       console.log(res.message);
     } catch (err) {
-      if (err.response && err.response.status === 401) {
+      if (err.response) {
         setAlert(err.response.data.message);
         console.log(err.response.data.message);
       }

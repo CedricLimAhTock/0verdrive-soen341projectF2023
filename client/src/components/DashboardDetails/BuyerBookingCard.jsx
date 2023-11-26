@@ -6,9 +6,9 @@ const BuyerBookingCard = ({ data, expanded, toggleExpand }) => {
   const { status, client_id, broker_id, message } = data;
   const [user, setUser] = useState([]);
   const statusMap = {
-    confirmed: "status-confirmed",
+    booked: "status-confirmed",
     hold: "status-hold",
-    declined: "status-declined",
+    denied: "status-declined",
   };
 
   const statusName = statusMap[status] || "status-hold";
@@ -22,6 +22,29 @@ const BuyerBookingCard = ({ data, expanded, toggleExpand }) => {
         console.log(error);
       });
   }
+  const ThreeButtonsFunc = (action) => {
+    let choice = "";
+
+    if (action === "book") {
+      choice = "booked";
+    } else if (action === "deny") {
+      choice = "denied";
+    } else if (action === "complete") {
+      choice = "completed";
+    }
+
+    axios
+      .put(`http://localhost:8080/visit/${data.id}`, {
+        status: choice,
+      })
+      .then((response) => {
+        console.log(response);
+        alert("Status changed");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   useEffect(() => {
     fetchUser();
@@ -40,8 +63,25 @@ const BuyerBookingCard = ({ data, expanded, toggleExpand }) => {
         {/* Date probably */}
       </div>
       {expanded && (
-        <div className="expanded-content">
-          <h1>Expanded Content</h1>
+        <div className="expanded-content three-buttons">
+          <button
+            className={`property-status status-book`}
+            onClick={() => ThreeButtonsFunc("book")}
+          >
+            Book
+          </button>
+          <button
+            className={`property-status status-declined`}
+            onClick={() => ThreeButtonsFunc("deny")}
+          >
+            Deny
+          </button>
+          <button
+            className={`property-status status-confirmed`}
+            onClick={() => ThreeButtonsFunc("complete")}
+          >
+            Complete
+          </button>
         </div>
       )}
     </div>

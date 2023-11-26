@@ -107,7 +107,7 @@ const SignupCard = () => {
                 type="email"
                 placeholder="E M A I L"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value.toLowerCase())}
                 required
               ></input>
             </div>

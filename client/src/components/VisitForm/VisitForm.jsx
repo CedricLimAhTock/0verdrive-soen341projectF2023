@@ -6,7 +6,9 @@ import jwt_decode from "jwt-decode";
 import xIcon from "../../assets/xIcon.svg";
 import xIconDark from "../../assets/xIcon_darkMode.svg";
 import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
+import { useNavigate } from "react-router-dom";
 const VisitForm = ({ isFormOpen, closeForm, property }) => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
@@ -14,27 +16,32 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
   const { images, price, address, broker } = property;
   const [decodedToken, setDecodedToken] = React.useState(null);
   const { darkMode } = useContext(DarkModeContext);
-
   useEffect(() => {
     function fetchData() {
       const token = localStorage.getItem("jwtToken");
-      const decoded = jwt_decode(token);
-      setDecodedToken(decoded);
+      if (token) {
+        setDecodedToken(jwt_decode(token));
+      } else {
+        setDecodedToken(null);
+      }
     }
-
     fetchData();
   }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    if (!decodedToken) {
+      alert("Please login to request a visit");
+      navigate("/signin");
+      return;
+    }
     try {
       const broker = await axios.get(
         `http://localhost:8080/listing/property/${property.id}`
       );
       console.log(broker.data[0].broker_id);
 
-      alert(`Email: ${email}\nPhone: ${phone}\nMessage: ${message}`);
+      alert(`Message: ${message}`);
       const response = await axios.post("http://127.0.0.1:8080/visit/", {
         property_id: property.id.toString(),
         client_id: decodedToken.id.toString(),
@@ -68,7 +75,7 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
           />
         </button>
         <h2>Visit Form</h2>
-        <input
+        {/* <input
           id="email"
           type="email"
           value={email}
@@ -83,7 +90,7 @@ const VisitForm = ({ isFormOpen, closeForm, property }) => {
           placeholder="Phone number"
           onChange={(e) => setPhone(e.target.value)}
           required
-        />
+        /> */}
         <textarea
           id="message"
           value={message}

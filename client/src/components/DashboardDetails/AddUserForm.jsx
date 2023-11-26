@@ -113,7 +113,7 @@ const AddUserForm = ({ isFormOpen, closeForm }) => {
             type="text"
             value={email}
             placeholder="Email"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value.toLowerCase())}
           />
         </div>
         <input
