@@ -47,7 +47,7 @@ Our team rules can be found on our **[wiki](https://github.com/CedricLimAhTock/0
     <tr>
         <td>Cedric Lim Ah Tock</td>
         <td>Team Leader</td>
-        <td>Manage repo, UI/UX design, Frontend and Backend dev<br>
+        <td>Manage repo, UI/UX design, Fullstack dev<br>
           Dev facilitator: point of reference for others.</td>
     </tr>
     <tr>
