@@ -62,7 +62,7 @@ p {
   color: var(--text-color);
 }
 
-.header-email {
+.brokers-header .header-email {
   min-width: 40%;
   border-right: none;
   color: var(--text-color);
