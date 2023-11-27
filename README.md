@@ -47,7 +47,7 @@ Our team rules can be found on our **[wiki](https://github.com/CedricLimAhTock/0
     <tr>
         <td>Cedric Lim Ah Tock</td>
         <td>Team Leader</td>
-        <td>Manage repo, UI/UX design, Frontend and Backend dev<br>
+        <td>Manage repo, UI/UX design, Fullstack dev<br>
           Dev facilitator: point of reference for others.</td>
     </tr>
     <tr>
@@ -251,7 +251,7 @@ python3 populate_tables.py
   ```sh
   Edit datasources.yml
   If installed on the same system as your host, use the local host ip.
-  Set the "url" value to your local host ip e.g. http://192.168.0.10:9100
+  Set the "url" value to your local host ip e.g. http://192.168.0.10:9090
   NOT "localhost" / "127.0.0.1" or other loopback addresses.
   ```
 
