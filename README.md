@@ -251,7 +251,7 @@ python3 populate_tables.py
   ```sh
   Edit datasources.yml
   If installed on the same system as your host, use the local host ip.
-  Set the "url" value to your local host ip e.g. http://192.168.0.10:9100
+  Set the "url" value to your local host ip e.g. http://192.168.0.10:9090
   NOT "localhost" / "127.0.0.1" or other loopback addresses.
   ```
 
