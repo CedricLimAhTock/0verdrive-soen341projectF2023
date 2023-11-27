@@ -62,6 +62,7 @@ const PropertyCard = ({ property, decodedToken }) => {
     console.log("clicked");
 
     if (!decodedToken) {
+      alert("Please login to save property");
       return;
     }
     try {

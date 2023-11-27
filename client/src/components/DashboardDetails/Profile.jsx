@@ -124,7 +124,7 @@ const Profile = ({ token }) => {
                 type="email"
                 placeholder="Email"
                 value={email}
-                onChange={(event) => setEmail(event.target.value)}
+                onChange={(event) => setEmail(event.target.value.toLowerCase())}
                 id="email"
               />
             </div>

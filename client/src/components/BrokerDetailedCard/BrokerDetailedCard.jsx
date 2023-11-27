@@ -40,7 +40,10 @@ const BrokerDetailedCard = ({ broker }) => {
 
   useEffect(() => {
     function fetchData() {
-      setDecodedToken(jwt_decode(localStorage.getItem("jwtToken")) || null);
+      const token = localStorage.getItem("jwtToken");
+      setDecodedToken(
+        token ? jwt_decode(localStorage.getItem("jwtToken")) : null
+      );
     }
 
     fetchData();
@@ -59,10 +62,19 @@ const BrokerDetailedCard = ({ broker }) => {
       navigate("/signin");
       return;
     }
-    const parent_id = decodedToken.id;
+    const parent_id = decodedToken.id || null;
     const user_id = broker.user_id;
     console.log({ parent_id, user_id, message });
     let response;
+    if (message === "") {
+      alert("Please enter a message");
+      return;
+    }
+    if (!parent_id) {
+      alert("Please login to contact broker");
+      navigate("/signin");
+      return;
+    }
     try {
       response = await axios.post("http://localhost:8080/message", {
         parent_id: parent_id,

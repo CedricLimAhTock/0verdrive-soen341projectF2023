@@ -19,6 +19,7 @@
 .header-price,
 .header-broker,
 .header-user,
+.header-email,
 .header-message {
   padding: 10px;
   text-align: center;
@@ -49,6 +50,10 @@
   color: var(--text-color);
 }
 
+.header-message {
+  border-right: none;
+}
+
 .header-price,
 .header-user {
   width: 15%;
@@ -60,6 +65,17 @@
   border-right: none;
   color: var(--text-color);
 }
+
+.header-email {
+  color: var(--text-color);
+  min-width: 30%;
+}
+
+.header-user {
+  min-width: 15%;
+}
+
+
 
 .booking-cards {
   display: flex;
@@ -106,6 +122,7 @@
   align-items: center;
 }
 
+
 .property-address,
 .property-message {
   width: 35%;
@@ -122,6 +139,15 @@
   width: 15%;
   border-right: none;
   color: var(--text-color);
+}
+
+.property-email {
+  min-width: 30%;
+}
+
+.expanded-content .status-book {
+  color: rgb(22, 57, 123);
+  background-color:  rgb(230, 235, 245);
 }
 
 .status-confirmed {
@@ -151,4 +177,23 @@
 .no-bookings {
   margin-top: 50px;
   text-align: center;
+}
+
+.three-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 10px;
+  flex-direction: row !important;
+  background-color: var(--container-color);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+}
+
+.three-buttons button {
+  cursor: pointer;
+  font-weight: 500;
+  width: 100px;
 }

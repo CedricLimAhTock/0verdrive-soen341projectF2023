@@ -6,6 +6,8 @@ import axios from "axios";
 import { DarkModeContext } from "../components/DarkModeContext/DarkModeContext";
 import DarkModeProvider from "../components/DarkModeProvider/DarkModeProvider";
 import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 test("renders OfferForm and updates input values", async ({ expect }) => {
   const closeForm = () => {}; // Mock function
   globalThis.alert = () => {};
@@ -46,40 +48,30 @@ test("renders OfferForm and updates input values", async ({ expect }) => {
     property_type: "condominium",
   };
   const broker = brokerFetch.data;
-  const {
-    getByPlaceholderText: getByPlaceholderText1,
-    getAllByPlaceholderText: getAllByPlaceholderText1,
-    getByText: getByText1,
-    unmount: unmount1,
-  } = render(
-    <DarkModeProvider>
-      <OfferForm
-        isFormOpen={true}
-        closeForm={closeForm}
-        property={property}
-        broker={broker}
-      />
-    </DarkModeProvider>
+  const { getByPlaceholderText: getByPlaceholderText1 } = render(
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <DarkModeProvider>
+              <OfferForm
+                isFormOpen={true}
+                closeForm={closeForm}
+                property={property}
+                broker={broker}
+              />
+            </DarkModeProvider>
+          }
+        ></Route>
+      </Routes>
+    </Router>
   );
 
-  const nameInput = getByPlaceholderText1("Name");
-  const [userAddressInput, propertyAddressInput] =
-    getAllByPlaceholderText1("Address");
-  const emailInput = getByPlaceholderText1("Email");
   const priceOfferedInput = getByPlaceholderText1("Enter a price");
 
-  await fireEvent.change(nameInput, { target: { value: "Test User" } });
-  await fireEvent.change(userAddressInput, {
-    target: { value: "Test" },
-  });
-  await fireEvent.change(emailInput, {
-    target: { value: "test.user@example.com" },
-  });
   await fireEvent.change(priceOfferedInput, { target: { value: "2" } });
 
-  expect(nameInput.value).toBe("Test User");
-  expect(userAddressInput.value).toBe("Test");
-  expect(emailInput.value).toBe("test.user@example.com");
   expect(priceOfferedInput.value).toBe("2");
 
   // await fireEvent.click(getByText1("Submit"));

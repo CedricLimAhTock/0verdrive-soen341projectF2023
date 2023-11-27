@@ -9,7 +9,9 @@ import xIcon from "../../assets/xIcon.svg";
 import xIconDark from "../../assets/xIcon_darkMode.svg";
 import FormatNumber from "../FormatNumber/FormatNumber";
 import { DarkModeContext } from "../DarkModeContext/DarkModeContext";
+import { useNavigate } from "react-router-dom";
 const OfferForm = ({ isFormOpen, closeForm, property, broker }) => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [addressUser, setAddressUser] = useState("");
@@ -20,19 +22,25 @@ const OfferForm = ({ isFormOpen, closeForm, property, broker }) => {
   const address = `${street}, ${city}, ${province}, ${country}`;
 
   const { firstname, lastname, phone, email } = broker.user;
-
   useEffect(() => {
     function fetchData() {
       const token = localStorage.getItem("jwtToken");
-      const decoded = jwt_decode(token);
-      setDecodedToken(decoded);
+      if (token) {
+        setDecodedToken(jwt_decode(token));
+      } else {
+        setDecodedToken(null);
+      }
     }
     fetchData();
   }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    if (!decodedToken) {
+      alert("Please login to contact broker");
+      navigate("/signin");
+      return;
+    }
     const broker = await axios.get(
       `http://localhost:8080/listing/property/${property.id}`
     );
@@ -94,7 +102,7 @@ const OfferForm = ({ isFormOpen, closeForm, property, broker }) => {
           </div>
           <div className="offer-right">
             <h4>Fill in the following information</h4>
-            <input
+            {/* <input
               id="name"
               type="text"
               value={name}
@@ -117,7 +125,7 @@ const OfferForm = ({ isFormOpen, closeForm, property, broker }) => {
               placeholder="Email"
               onChange={(e) => setUserEmail(e.target.value)}
               required
-            />
+            /> */}
             <input
               id="propertyAddress"
               type="text"

@@ -65,7 +65,7 @@ const Browse = () => {
             manyTerms: manyTerms,
           },
           sort: {
-            parameter: "price",
+            parameter: sortBy,
             order: "asc",
           },
         }
@@ -97,7 +97,7 @@ const Browse = () => {
   const [minBaths, setMinBaths] = useState("");
   const [listingType, setListingType] = useState("");
   const [manyTerms, setManyTerms] = useState("");
-
+  const [sortBy, setSortBy] = useState("price");
   const maxVisiblePages = 5;
   const startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
   const endPage = Math.min(
@@ -188,6 +188,18 @@ const Browse = () => {
               value={minBaths}
               onChange={(e) => setMinBaths(e.target.value)}
             ></input>
+
+            <select
+              className="search-select search-dropdown"
+              type="select"
+              onChange={(e) => setSortBy(e.target.value)}
+            >
+              <option value="price">Price ▾</option>
+              <option value="num_bedrooms">Beds ▾</option>
+              <option value="num_bathrooms">Baths ▾</option>
+              <option value="listed_date">Listed Date ▾</option>
+              <option value="year_built">Year Built ▾</option>
+            </select>
 
             <input type="image" src={Search} onClick={searchData}></input>
           </form>
